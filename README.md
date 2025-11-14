@@ -4,25 +4,35 @@ Reduce LLM agent latency by speculatively pre-executing tool calls in parallel w
 
 ## Core Idea
 
+**Traditional Sequential Execution:**
 ```
-Traditional Sequential Execution:
-┌─────────────────────────────────────────────┐
-│ Actor thinks (10s) → Execute tool (2s)     │
-│ Total: 12s                                  │
-└─────────────────────────────────────────────┘
-
-Speculative Parallel Execution:
-┌─────────────────────────────────────────────┐
-│ Actor:  🧠 Thinking... (10s)                │
-│ Spec:   🧠 Predict (2s) → 🔧 Execute (2s)  │
-│         └→ 💾 Cache result                  │
-│                                             │
-│ If match: Use cached result ⚡ (0.001s)     │
-│ Total: ~10s (2s saved)                      │
-└─────────────────────────────────────────────┘
+Time: 0s                    10s                    12s
+      ├─────────────────────┼──────────────────────┤
+      Actor thinking...     Execute tool
+                            ▓▓
+      Total: 12s
 ```
 
-**Key insight**: While the actor model (GPT-5) is thinking, a lightweight spec model (GPT-5-mini) predicts and pre-executes the next tool call. If the prediction matches, we use the cached result instead of executing again.
+**Speculative Parallel Execution:**
+```
+Time: 0s            2s      4s                     10s    10.001s
+      ├─────────────┼───────┼──────────────────────┼──────┤
+      Actor:        │                              │
+                    └──────────────────────────────┘
+                    Thinking...
+
+      Spec:   Predict Execute
+              ▓▓      ▓▓
+                      └─→ Cache result
+
+                                                   Check cache
+                                                   ⚡ Match! Use cached result
+                                                   (Tool execution skipped)
+
+      Total: ~10s (2s saved, 17% speedup)
+```
+
+**Key insight**: While the actor model (GPT-5) is thinking, a lightweight spec model (GPT-5-mini) predicts and pre-executes the next tool call. If the prediction matches, we use the cached result and skip tool execution entirely.
 
 ## Architecture
 
