@@ -160,11 +160,10 @@ SERPER_API_KEY=your_serper_key  # For web search
 # Model Configuration
 GAIA_ACTOR_MODEL=gpt-5           # Main reasoning model (gpt-5, gpt-4o, gpt-4o-mini)
 GAIA_SPEC_MODEL=gpt-5-mini       # Speculation model (should be faster than actor)
-GAIA_MAX_STEPS=12                # Max reasoning steps
+GAIA_MAX_STEPS=10                # Max reasoning steps
 
 # Speculation Settings (Advanced)
-GAIA_TOPK=3                      # Number of tool calls to speculate
-GAIA_CONF_TH=0.35                # Confidence threshold for speculation
+GAIA_TOPK=3                      # Number of tool calls to speculate (currently only 1 used)
 DISABLE_SPECULATION=0            # Set to 1 to disable speculation
 ```
 
@@ -396,7 +395,6 @@ Environment variables (set in `.env` or command line):
 | `SERPER_API_KEY` | *(required)* | Google Serper API key for search |
 | `GAIA_ACTOR_MODEL` | `gpt-5` | Main reasoning model (gpt-5, gpt-4o, gpt-4o-mini) |
 | `GAIA_SPEC_MODEL` | `gpt-5-mini` | Speculation model for predicting next tools |
-| `GAIA_MAX_STEPS` | `12` | Maximum reasoning steps before stopping |
-| `GAIA_TOPK` | `3` | Number of tool calls to speculate per step |
-| `GAIA_CONF_TH` | `0.35` | Confidence threshold for speculation quality |
+| `GAIA_MAX_STEPS` | `10` | Maximum reasoning steps before stopping |
+| `GAIA_TOPK` | `3` | Number of tool calls to speculate per step (currently 1) |
 | `DISABLE_SPECULATION` | `0` | Set to `1` to disable speculation entirely |
