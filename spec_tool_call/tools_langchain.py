@@ -8,19 +8,20 @@ from .tools.code_exec_tool import execute_python_code, execute_calculation, gene
 from .tools.vision_tool import analyze_image, extract_text_from_image
 
 
-@tool
-def search_web(query: str, expand_search: bool = False) -> str:
-    """Search the web and return quick results (titles and snippets).
-    
-    Fast search for finding relevant pages. Returns 3 results by default,
-    or 10 results if you need more options.
-    
-    Args:
-        query: The search query
-        expand_search: If True, return 10 results instead of 3 (use when you need more options)
-    """
-    max_results = 10 if expand_search else 3
-    return search_serper_web(query, max_results)
+# TEMPORARILY COMMENTED OUT - Using only search_with_content to simplify speculation
+# @tool
+# def search_web(query: str, expand_search: bool = False) -> str:
+#     """Search the web and return quick results (titles and snippets).
+#     
+#     Fast search for finding relevant pages. Returns 3 results by default,
+#     or 10 results if you need more options.
+#     
+#     Args:
+#         query: The search query
+#         expand_search: If True, return 10 results instead of 3 (use when you need more options)
+#     """
+#     max_results = 10 if expand_search else 3
+#     return search_serper_web(query, max_results)
 
 
 @tool
@@ -55,15 +56,15 @@ def file_read(path: str) -> str:
 
 @tool
 def calculate(expression: str) -> str:
-    """Evaluate a mathematical expression.
+    """Evaluate a single mathematical expression.
     
-    Use Python syntax. Examples:
-    - Basic: "2 + 3", "10 * 5"
-    - Powers: "2**10"
-    - Functions: "import math; math.sqrt(16)"
+    For SINGLE expressions only (no variables or multiple statements).
+    Use Python syntax: 2+3, 10*5, 2**10, sqrt(16), (356400 / 42.195) / (2 + 1/60 + 9/3600)
+    
+    For multi-step calculations with variables, use code_exec instead.
     
     Args:
-        expression: Python expression to evaluate
+        expression: Single Python expression to evaluate
     """
     result = execute_calculation(expression)
     if isinstance(result, dict):
@@ -136,7 +137,7 @@ def vision_ocr(image_path: str) -> str:
 
 # All tools
 ALL_TOOLS = [
-    search_web,
+    # search_web,  # Commented out - using only search_with_content
     search_with_content,
     file_read,
     calculate,
@@ -151,7 +152,7 @@ TOOLS_BY_NAME = {tool.name: tool for tool in ALL_TOOLS}
 
 # Read-only tools (safe for speculation)
 READ_ONLY_TOOLS = [
-    search_web,
+    # search_web,  # Commented out - using only search_with_content
     search_with_content,
     file_read,
     calculate,

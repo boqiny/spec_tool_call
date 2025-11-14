@@ -25,8 +25,9 @@ class RunState:
     # ReAct pattern - pending tool calls
     pending_tool_calls: List = field(default_factory=list)
 
-    # Speculation cache: (tool, normalized_args) -> asyncio.Task
-    spec_cache: Dict[Tuple[str, str], asyncio.Task] = field(default_factory=dict)
+    # Speculative predictions from spec model with pre-executed results
+    # Each entry: {"name": str, "args": dict, "result": str, "exec_time": float}
+    speculative_predictions: List[Dict[str, Any]] = field(default_factory=list)
 
     # Metrics
     hits: int = 0
