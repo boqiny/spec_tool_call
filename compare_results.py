@@ -10,7 +10,7 @@ def load_results(result_dir: Path) -> Dict[str, dict]:
     """Load all result JSON files from a directory.
     
     Returns:
-        Dict mapping task_id to result data
+        Dict mapping task_id to result data (with added 'example_name' field)
     """
     results = {}
     
@@ -23,7 +23,20 @@ def load_results(result_dir: Path) -> Dict[str, dict]:
             with open(json_file) as f:
                 data = json.load(f)
                 task_id = data.get("task_id")
+                
+                # Extract example name from filename: result_{example_name}_{spec/baseline}.json
+                filename = json_file.stem  # e.g., "result_example_007_baseline"
+                parts = filename.split("_")
+                # Reconstruct example name (handle case where it might have underscores)
+                # Pattern: result_{example_name}_{status}
+                # So we need to find where the status starts (last underscore before spec/baseline)
+                if parts[-1] in ["spec", "baseline"]:
+                    example_name = "_".join(parts[1:-1])  # Skip 'result' and 'spec/baseline'
+                else:
+                    example_name = "_".join(parts[1:])  # Fallback
+                
                 if task_id:
+                    data['example_name'] = example_name
                     results[task_id] = data
         except Exception as e:
             print(f"Warning: Could not load {json_file}: {e}")
@@ -69,6 +82,7 @@ def compare_results(baseline_dir: str, spec_dir: str):
         
         comparison = {
             "task_id": task_id,
+            "example_name": baseline.get("example_name", task_id[:10]),  # Use example name or fallback to truncated ID
             "question": baseline.get("question", "")[:80] + "...",
             "baseline_correct": baseline.get("correct", False),
             "spec_correct": spec.get("correct", False),
@@ -94,8 +108,8 @@ def compare_results(baseline_dir: str, spec_dir: str):
     print("=" * 80)
     print("PER-EXAMPLE COMPARISON")
     print("=" * 80)
-    print(f"{'ID':<10} {'Baseline':<15} {'Spec':<15} {'Speedup':<10} {'Steps':<12} {'Hits/Total'}")
-    print("-" * 80)
+    print(f"{'Example':<18} {'Baseline':<15} {'Spec':<15} {'Speedup':<10} {'Steps':<12} {'Hits/Total'}")
+    print("-" * 95)
     
     for c in comparisons:
         baseline_status = "✓" if c["baseline_correct"] else "✗"
@@ -109,7 +123,9 @@ def compare_results(baseline_dir: str, spec_dir: str):
         total_checks = c["spec_hits"] + c["spec_misses"]
         hit_rate = f"{c['spec_hits']}/{total_checks}" if total_checks > 0 else "N/A"
         
-        print(f"{c['task_id'][:10]:<10} {baseline_info:<15} {spec_info:<15} {speedup:<10} {steps_info:<12} {hit_rate}")
+        # Use example_name for display (truncate if too long)
+        display_name = c['example_name'][:17] if len(c['example_name']) > 17 else c['example_name']
+        print(f"{display_name:<18} {baseline_info:<15} {spec_info:<15} {speedup:<10} {steps_info:<12} {hit_rate}")
     
     # Calculate aggregate statistics
     print("\n" + "=" * 80)

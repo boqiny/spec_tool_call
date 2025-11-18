@@ -11,16 +11,15 @@ from .models import RunState, Msg
 from .llm_adapter import get_actor_model, get_spec_model, convert_msg_to_langchain, SYSTEM_PROMPT
 from .tools_langchain import TOOLS_BY_NAME
 from .config import config
+from .verifier import create_verifier
 
 # -----------------------------
 # Speculation Helpers
 # -----------------------------
 
-def calculate_similarity(args1: Dict[str, Any], args2: Dict[str, Any]) -> float:
-    """Calculate similarity between two argument dictionaries.
-    TODO: Add sophisticated matching logic
-    """
-    return 1.0
+# Create global verifier instance based on config
+# Strategy options: "exact", "tool_name_only", "none"
+_verifier = create_verifier(config.verification_strategy)
 
 
 async def launch_speculation(state: RunState) -> None:
@@ -43,7 +42,9 @@ async def launch_speculation(state: RunState) -> None:
     
     # Call spec model to predict next tool call
     try:
+        spec_start = time.time()
         response = spec_model.invoke(lc_messages)
+        spec_inference_time = time.time() - spec_start
         
         # Get the first tool call prediction
         if hasattr(response, 'tool_calls') and response.tool_calls:
@@ -59,12 +60,13 @@ async def launch_speculation(state: RunState) -> None:
                     result = await asyncio.to_thread(tool.invoke, tool_args)
                     exec_time = time.time() - exec_start
                     
-                    # Store prediction WITH pre-executed result
+                    # Store prediction WITH pre-executed result AND spec model time
                     state.speculative_predictions = [{
                         "name": tool_name,
                         "args": tool_args,
                         "result": str(result),
-                        "exec_time": exec_time
+                        "exec_time": exec_time,
+                        "spec_inference_time": spec_inference_time
                     }]
                     state.speculative_launched += 1
                     
@@ -75,7 +77,8 @@ async def launch_speculation(state: RunState) -> None:
                         "args": tool_args,
                         "result": None,
                         "error": str(e),
-                        "exec_time": 0
+                        "exec_time": 0,
+                        "spec_inference_time": spec_inference_time
                     }]
             else:
                 # Unknown tool - just store prediction
@@ -83,7 +86,8 @@ async def launch_speculation(state: RunState) -> None:
                     "name": tool_name,
                     "args": tool_args,
                     "result": None,
-                    "exec_time": 0
+                    "exec_time": 0,
+                    "spec_inference_time": spec_inference_time
                 }]
         else:
             state.speculative_predictions = []
@@ -96,28 +100,54 @@ async def launch_speculation(state: RunState) -> None:
 def find_best_match(
     actor_tool_call: Dict[str, Any],
     spec_predictions: List[Dict[str, Any]]
-) -> Optional[Dict[str, Any]]:
-    """Find matching speculative prediction for actor's tool call.
-    
-    Simple placeholder: just matches tool names for now.
-    TODO: Add sophisticated arg matching.
+) -> Optional[tuple[Dict[str, Any], bool, float, str]]:
+    """Find matching speculative prediction for actor's tool call using verifier.
     
     Args:
         actor_tool_call: {"name": str, "args": dict}
-        spec_predictions: List of predicted tool calls
+        spec_predictions: List of predicted tool calls with pre-executed results
     
     Returns:
-        First prediction with matching tool name, or None
+        Tuple of (prediction, is_match, similarity_score, reason) or None if no match
     """
     if not spec_predictions:
         return None
     
     actor_name = actor_tool_call["name"]
+    actor_args = actor_tool_call["args"]
     
-    # Just find first prediction with matching tool name
+    # Try to find a match using the verifier
+    best_match = None
+    best_score = 0.0
+    best_reason = ""
+    
     for spec_pred in spec_predictions:
-        if spec_pred["name"] == actor_name:
-            return spec_pred
+        spec_name = spec_pred["name"]
+        spec_args = spec_pred.get("args", {})
+        
+        # Use verifier to check if this prediction matches
+        is_match, score, reason = _verifier.verify(
+            actor_name, actor_args,
+            spec_name, spec_args
+        )
+        
+        if is_match and score > best_score:
+            best_match = spec_pred
+            best_score = score
+            best_reason = reason
+    
+    if best_match:
+        return (best_match, True, best_score, best_reason)
+    
+    # No match found - return info about best attempt for logging
+    if spec_predictions:
+        # Get the first prediction for comparison info
+        first_pred = spec_predictions[0]
+        _, score, reason = _verifier.verify(
+            actor_name, actor_args,
+            first_pred["name"], first_pred.get("args", {})
+        )
+        return (first_pred, False, score, reason)
     
     return None
 
@@ -248,74 +278,73 @@ async def node_tools(state: RunState) -> RunState:
         # Check if we have speculative predictions from previous step
         spec_predictions = getattr(state, 'speculative_predictions', [])
         
-        # Only show cache matching if speculation is enabled
-        if config.enable_speculation:
-            print(f"\n🔍 CACHE MATCHING: Checking {len(spec_predictions)} prediction(s)")
-            print("=" * 80)
-        
-        # Show all predictions and their match scores
-        if spec_predictions and config.enable_speculation:
-            for i, spec_pred in enumerate(spec_predictions, 1):
-                spec_name = spec_pred["name"]
-                spec_args = spec_pred["args"]
-                
-                # Check tool name match
-                tool_match = (spec_name == tool_name)
-                
-                # Calculate similarity
-                similarity = calculate_similarity(tool_args, spec_args)
-                
-                # Determine status
-                has_cached_result = spec_pred.get("result") is not None
-                if tool_match and has_cached_result:
-                    status = f"✅ MATCH (tool name matches, result cached)"
-                elif tool_match and not has_cached_result:
-                    status = f"⚠️  MATCH (tool name matches, but no cached result)"
-                else:
-                    status = f"❌ REJECTED (tool name mismatch: {spec_name} ≠ {tool_name})"
-                
-                print(f"Prediction #{i}: {spec_name}")
-                print(f"  Status: {status}")
-                
-                if tool_match:
-                    # Show arg differences and cache info
-                    print(f"  Actor args:  {tool_args}")
-                    print(f"  Spec args:   {spec_args}")
-                    if has_cached_result:
-                        exec_time = spec_pred.get("exec_time", 0)
-                        print(f"  Cached result: ✓ (pre-executed in {exec_time:.2f}s)")
-        elif config.enable_speculation:
-            print("  No predictions available from previous step")
-        
-        if config.enable_speculation:
-            print("=" * 80)
-        
-        # Try to find matching speculation (just tool name for now)
-        best_match = find_best_match(
+        # Try to find matching speculation using verifier
+        match_result = find_best_match(
             {"name": tool_name, "args": tool_args},
             spec_predictions
         )
+        
+        # Display verification results if speculation is enabled
+        if config.enable_speculation and spec_predictions:
+            print(f"\n🔍 VERIFICATION: Checking {len(spec_predictions)} prediction(s)")
+            print("=" * 80)
+            
+            if match_result:
+                spec_pred, is_match, score, reason = match_result
+                spec_name = spec_pred["name"]
+                spec_args = spec_pred["args"]
+                has_cached_result = spec_pred.get("result") is not None
+                
+                # Show actor's request
+                print(f"Actor wants: {tool_name}({tool_args})")
+                print(f"Spec cached: {spec_name}({spec_args})")
+                print(f"")
+                
+                # Show verification result
+                if is_match:
+                    print(f"✅ MATCH: {reason} (score: {score:.2f})")
+                    if has_cached_result:
+                        exec_time = spec_pred.get("exec_time", 0)
+                        print(f"   Pre-executed in {exec_time:.2f}s, ready to use!")
+                    else:
+                        print(f"   ⚠️ But no cached result available")
+                else:
+                    print(f"❌ REJECTED: {reason} (score: {score:.2f})")
+            else:
+                print("  No predictions available")
+            
+            print("=" * 80)
         
         if tool_name in TOOLS_BY_NAME:
             tool = TOOLS_BY_NAME[tool_name]
             try:
                 start_time = time.time()
                 
-                if best_match and best_match.get("result") is not None:
+                # Check if we have a valid cache hit
+                use_cached = False
+                if match_result:
+                    spec_pred, is_match, score, reason = match_result
+                    if is_match and spec_pred.get("result") is not None:
+                        use_cached = True
+                
+                if use_cached:
                     # ⚡ CACHE HIT: Use pre-executed result!
                     if config.enable_speculation:
-                        print(f"\n✅ USING CACHED RESULT (pre-executed by spec model)")
-                        print(f"   Saved {best_match.get('exec_time', 0):.2f}s from cache")
-                    result_str = best_match["result"]
+                        print(f"\n✅ USING CACHED RESULT")
+                    result_str = spec_pred["result"]
                     state.hits += 1
                     elapsed = 0.001  # Negligible time to retrieve from cache
                 else:
                     # No match or no cached result - execute with actor's args
                     if config.enable_speculation:
-                        if best_match:
-                            print(f"\n⚠️  CACHE MISS (prediction had no result, executing actor's args)")
+                        if match_result:
+                            _, is_match, _, _ = match_result
+                            if not is_match:
+                                print(f"\n❌ EXECUTING (verification failed)")
+                            else:
+                                print(f"\n⚠️  EXECUTING (no cached result)")
                         else:
-                            print(f"\n❌ NO MATCH (executing actor's args)")
+                            print(f"\n❌ EXECUTING (no predictions)")
                     result = await asyncio.to_thread(tool.invoke, tool_args)
                     result_str = str(result)
                     state.misses += 1

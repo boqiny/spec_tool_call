@@ -270,7 +270,9 @@ def _read_docx_file(path: str) -> Dict[str, Any]:
             "kind": "docx",
             "paragraphs": len(doc.paragraphs),
             "text_preview": full_text[:3000],
-            "char_count": len(full_text)
+            "full_text": full_text,  # Include full text
+            "char_count": len(full_text),
+            "status": "success"
         }
     
     except ImportError:

@@ -15,6 +15,7 @@ class SpecConfig:
 
     # Speculation parameters
     top_k_spec: int = 3
+    verification_strategy: str = "exact"  # Options: "exact", "tool_name_only", "none"
 
     # Execution limits
     max_steps: int = 15
@@ -30,6 +31,7 @@ class SpecConfig:
             actor_model=os.getenv("GAIA_ACTOR_MODEL", "gpt-5"),
             spec_model=os.getenv("GAIA_SPEC_MODEL", "gpt-5-mini"),
             top_k_spec=int(os.getenv("GAIA_TOPK", "3")),
+            verification_strategy=os.getenv("VERIFICATION_STRATEGY", "exact"),
             max_steps=int(os.getenv("GAIA_MAX_STEPS", "15")),
         )
 

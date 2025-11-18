@@ -95,7 +95,7 @@ export OPENAI_API_KEY="your-key"
 export SERPER_API_KEY="your-key"  # For web search
 
 # Download GAIA dataset
-python download_gaia.py
+python3 download_gaia.py
 ```
 
 ## Running Evaluations
@@ -104,13 +104,13 @@ python download_gaia.py
 
 ```bash
 # Run specific example
-python eval.py gaia_dataset/level1/example_000
+python3 eval.py gaia_dataset/level1/example_000
 
 # With speculation enabled (default)
-python eval.py gaia_dataset/level1/example_000
+python3 eval.py gaia_dataset/level1/example_000
 
 # Baseline (no speculation)
-DISABLE_SPECULATION=1 python eval.py gaia_dataset/level1/example_000
+DISABLE_SPECULATION=1 python3 eval.py gaia_dataset/level1/example_000
 ```
 
 ### Batch Evaluation (Multiple Examples)

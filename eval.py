@@ -30,6 +30,17 @@ async def run_example(example_dir: Path, app=None, verbose=True):
     question = metadata.get("question", "")
     final_answer = metadata.get("final_answer", "")
     level = metadata.get("level", "")
+    file_name = metadata.get("file_name", None)
+    
+    # Get example name from directory (e.g., "example_007" from path)
+    example_name = example_dir.name
+    
+    # If there's an attached file, add it to the question context with full path
+    if file_name:
+        file_path = example_dir / file_name
+        if file_path.exists():
+            # Modify question to include file path information
+            question = f"{question}\n\n[Note: There is an attached file at path: {file_path.absolute()}]"
     
     if verbose:
         print("=" * 80)
@@ -53,6 +64,15 @@ async def run_example(example_dir: Path, app=None, verbose=True):
     start_time = time.time()
     final_state = None
     
+    # Track detailed trajectory
+    trajectory_events = [
+        {
+            "node": "start",
+            "question": question,
+            "timestamp": 0
+        }
+    ]
+    
     try:
         async for event in app.astream(
             init_state,
@@ -60,6 +80,12 @@ async def run_example(example_dir: Path, app=None, verbose=True):
         ):
             for node_name, state in event.items():
                 final_state = state
+                
+                # Capture trajectory event details
+                event_data = {
+                    "node": node_name,
+                    "timestamp": time.time() - start_time
+                }
                 
                 # Extract state info
                 if isinstance(state, dict):
@@ -70,6 +96,7 @@ async def run_example(example_dir: Path, app=None, verbose=True):
                     llm_time = state.get('last_llm_time', 0)
                     tool_time = state.get('last_tool_time', 0)
                     step = state.get('step', 0)
+                    spec_predictions = state.get('speculative_predictions', [])
                 else:
                     messages = state.messages
                     done = state.done
@@ -78,6 +105,60 @@ async def run_example(example_dir: Path, app=None, verbose=True):
                     llm_time = state.last_llm_time
                     tool_time = state.last_tool_time
                     step = state.step
+                    spec_predictions = getattr(state, 'speculative_predictions', [])
+                
+                # Capture LLM node details
+                if node_name == "llm":
+                    event_data["step"] = step
+                    event_data["actor_model"] = config.actor_model
+                    event_data["llm_time"] = llm_time
+                    
+                    # Get actor's reasoning/content
+                    if messages and messages[-1].role == "assistant":
+                        event_data["actor_reasoning"] = messages[-1].content
+                    
+                    # Get actor's tool calls
+                    if pending_tools:
+                        event_data["actor_tool_calls"] = [
+                            {
+                                "name": tc["name"],
+                                "args": tc["args"]
+                            }
+                            for tc in pending_tools
+                        ]
+                    
+                    # Get spec model predictions
+                    if config.enable_speculation and spec_predictions:
+                        event_data["spec_model"] = config.spec_model
+                        event_data["spec_predictions"] = [
+                            {
+                                "name": pred["name"],
+                                "args": pred.get("args", {}),
+                                "pre_executed": pred.get("result") is not None,
+                                "exec_time": pred.get("exec_time", 0),
+                                "spec_inference_time": pred.get("spec_inference_time", 0)
+                            }
+                            for pred in spec_predictions
+                        ]
+                    
+                    # Final answer
+                    if done and answer:
+                        event_data["final_answer"] = answer
+                
+                # Capture tool execution details
+                elif node_name == "tools":
+                    event_data["tool_time"] = tool_time
+                    
+                    # Get tool results from last message
+                    tool_msgs = [m for m in messages if m.role == "tool"]
+                    if tool_msgs:
+                        latest_tool = tool_msgs[-1]
+                        event_data["tool_executed"] = {
+                            "name": latest_tool.name if hasattr(latest_tool, 'name') else "unknown",
+                            "result": latest_tool.content
+                        }
+                
+                trajectory_events.append(event_data)
                 
                 # Show LLM step (only if verbose)
                 if verbose and node_name == "llm":
@@ -201,9 +282,26 @@ async def run_example(example_dir: Path, app=None, verbose=True):
             
             print("\n" + "=" * 80 + "\n")
         
-        # Save results to JSON
+        # Extract simple message trajectory
+        if isinstance(final_state, dict):
+            messages = final_state.get('messages', [])
+        else:
+            messages = final_state.messages
+        
+        # Convert messages to serializable format
+        simple_trajectory = []
+        for msg in messages:
+            msg_dict = {
+                "role": msg.role,
+                "content": msg.content,
+            }
+            if hasattr(msg, 'name') and msg.name:
+                msg_dict["name"] = msg.name
+            simple_trajectory.append(msg_dict)
+        
+        # Save results to JSON with complete trajectory
         spec_status = "spec" if config.enable_speculation else "baseline"
-        result_file = f"result_{task_id}_{spec_status}.json"
+        result_file = f"result_{example_name}_{spec_status}.json"
         
         result_data = {
             "task_id": task_id,
@@ -217,9 +315,12 @@ async def run_example(example_dir: Path, app=None, verbose=True):
             "actor_model": config.actor_model,
             "spec_model": config.spec_model if config.enable_speculation else None,
             "speculation_enabled": config.enable_speculation,
+            "verification_strategy": config.verification_strategy if config.enable_speculation else None,
             "spec_hits": hits if config.enable_speculation else 0,
             "spec_misses": misses if config.enable_speculation else 0,
             "spec_predictions": spec_launched if config.enable_speculation else 0,
+            "trajectory": trajectory_events,  # Detailed step-by-step trajectory
+            "messages": simple_trajectory,  # Simple message history
         }
         
         with open(result_file, "w") as f:

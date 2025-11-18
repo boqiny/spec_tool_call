@@ -43,14 +43,50 @@ def search_with_content(query: str, expand_search: bool = False) -> str:
 def file_read(path: str) -> str:
     """Read a file and return its content.
     
+    Supports various file types: .txt, .md, .json, .csv, .xlsx, .pdf, .docx, etc.
+    Returns the extracted text content of the file.
+    
     Args:
-        path: Path to the file
+        path: Path to the file (use absolute path if provided in the question)
     """
     result = read_file_enhanced(path)
+    
     if isinstance(result, dict):
-        if result.get("status") == "success":
-            return result.get("content", str(result))
-        return f"Error: {result.get('error')}"
+        # Check for error
+        if "error" in result:
+            return f"Error: {result.get('message', result.get('error'))}"
+        
+        # Extract content based on file type
+        kind = result.get("kind", "unknown")
+        
+        if kind == "text":
+            return result.get("full_text") or result.get("preview", "")
+        
+        elif kind == "docx":
+            # For DOCX, return full text
+            content = result.get("full_text") or result.get("text_preview", "")
+            paragraphs = result.get("paragraphs", 0)
+            char_count = result.get("char_count", len(content))
+            return f"DOCX Content ({paragraphs} paragraphs, {char_count} characters):\n\n{content}"
+        
+        elif kind == "pdf":
+            content = result.get("text_preview", "")
+            pages = result.get("pages", 0)
+            return f"PDF Content ({pages} pages):\n\n{content}"
+        
+        elif kind == "json":
+            return result.get("preview", str(result.get("data", "")))
+        
+        elif kind == "csv" or kind == "excel":
+            # For structured data, format nicely
+            rows = result.get("preview_rows", [])
+            columns = result.get("column_names", [])
+            return f"Columns: {columns}\n\nData:\n{rows}"
+        
+        else:
+            # Return string representation
+            return str(result)
+    
     return str(result)
 
 
