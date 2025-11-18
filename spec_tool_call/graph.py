@@ -416,4 +416,5 @@ def build_graph():
     )
     
     # Compile with checkpointer
+    # Note: recursion_limit is set at runtime in eval.py, not at compile time
     return workflow.compile(checkpointer=MemorySaver())

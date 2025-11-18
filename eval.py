@@ -74,9 +74,15 @@ async def run_example(example_dir: Path, app=None, verbose=True):
     ]
     
     try:
+        # Set recursion limit: each step = 2 nodes (llm + tools), so max_steps * 3 for safety
+        recursion_limit = config.max_steps * 3
+        
         async for event in app.astream(
             init_state,
-            config={"configurable": {"thread_id": f"eval-{task_id}"}}
+            config={
+                "configurable": {"thread_id": f"eval-{task_id}"},
+                "recursion_limit": recursion_limit
+            }
         ):
             for node_name, state in event.items():
                 final_state = state
@@ -165,7 +171,15 @@ async def run_example(example_dir: Path, app=None, verbose=True):
                     print(f"\n{'='*80}")
                     print(f"[Step {step}] LLM")
                     print(f"{'='*80}")
-                    print(f"⏱️  LLM call: {llm_time:.2f}s\n")
+                    print(f"⏱️  Actor model: {llm_time:.2f}s")
+                    
+                    # Show spec model timing if available
+                    if config.enable_speculation and spec_predictions:
+                        for pred in spec_predictions:
+                            spec_time = pred.get("spec_inference_time", 0)
+                            tool_time = pred.get("exec_time", 0)
+                            print(f"⏱️  Spec model:  {spec_time:.2f}s (+ {tool_time:.2f}s pre-execution)")
+                    print()
                     
                     # Show LLM's text content if it exists
                     if messages and messages[-1].role == "assistant":
@@ -235,11 +249,21 @@ async def run_example(example_dir: Path, app=None, verbose=True):
     
     except Exception as e:
         print(f"\n❌ ERROR: {e}")
-        return
+        error_msg = str(e)
+        # Continue to save partial results even on error
+    else:
+        error_msg = None
     
     elapsed = time.time() - start_time
     
-    # Extract final results
+    # Extract final results (even if there was an error)
+    predicted = None
+    hits = 0
+    misses = 0
+    spec_launched = 0
+    steps = 0
+    correct = False
+    
     if final_state:
         if isinstance(final_state, dict):
             predicted = final_state.get('answer', None)
@@ -254,42 +278,103 @@ async def run_example(example_dir: Path, app=None, verbose=True):
             spec_launched = final_state.speculative_launched
             steps = final_state.step
         
-        correct = False
-        if predicted and final_answer:
-            correct = predicted.lower().strip() == final_answer.lower().strip()
+    
+    # Check correctness
+    if predicted and final_answer:
+        correct = predicted.lower().strip() == final_answer.lower().strip()
+    
+    if verbose:
+        print("\n" + "=" * 80)
+        print("RESULTS")
+        print("=" * 80)
+        print(f"\nPredicted: {predicted if predicted else 'No answer'}")
+        print(f"Truth:     {final_answer}")
+        print(f"\nCorrect:   {'✓ YES' if correct else '✗ NO'}")
+        print(f"Steps:     {steps}")
+        print(f"Time:      {elapsed:.1f}s")
         
-        if verbose:
+        if error_msg:
+            print(f"\n❌ Error occurred: {error_msg}")
+        
+        if config.enable_speculation:
             print("\n" + "=" * 80)
-            print("RESULTS")
+            print("SPECULATION")
             print("=" * 80)
-            print(f"\nPredicted: {predicted if predicted else 'No answer'}")
-            print(f"Truth:     {final_answer}")
-            print(f"\nCorrect:   {'✓ YES' if correct else '✗ NO'}")
-            print(f"Steps:     {steps}")
-            print(f"Time:      {elapsed:.1f}s")
+            print(f"Hits:        {hits}")
+            print(f"Misses:      {misses}")
+            print(f"Predictions: {spec_launched}")
+            total_checks = hits + misses
+            if total_checks > 0:
+                hit_rate = hits / total_checks * 100
+                print(f"Hit Rate:    {hit_rate:.1f}%")
             
-            if config.enable_speculation:
-                print("\n" + "=" * 80)
-                print("SPECULATION")
-                print("=" * 80)
-                print(f"Hits:        {hits}")
-                print(f"Misses:      {misses}")
-                print(f"Predictions: {spec_launched}")
-                total_checks = hits + misses
-                if total_checks > 0:
-                    hit_rate = hits / total_checks * 100
-                    print(f"Hit Rate:    {hit_rate:.1f}%")
+            # Calculate timing impact (accounting for parallel execution)
+            total_spec_blocking = 0  # Only spec time that exceeds actor time
+            total_saved_from_hits = 0  # Time saved from cache hits
+            total_wasted_on_misses = 0  # Pre-exec time wasted on misses
             
-            print("\n" + "=" * 80 + "\n")
+            for event in trajectory_events:
+                if event.get("node") == "llm" and "spec_predictions" in event:
+                    actor_time = event.get("llm_time", 0)
+                    
+                    for pred in event["spec_predictions"]:
+                        spec_time = pred.get("spec_inference_time", 0)
+                        preexec_time = pred.get("exec_time", 0)
+                        
+                        # Spec runs in parallel - only count time that blocks actor
+                        if spec_time > actor_time:
+                            total_spec_blocking += (spec_time - actor_time)
+                        
+                        # Check if this prediction was used (from hits/misses)
+                        # We need to track this from the state, but for now estimate:
+                        # If pre_executed, it COULD have been used
+                        # Actual hits tracked in state.hits
+                        if pred.get("pre_executed"):
+                            # We'll allocate proportionally based on hit rate
+                            pass
+            
+            # Use actual hits/misses from state
+            if hits > 0:
+                # Estimate time saved: hits likely saved tool execution time
+                # Average tool time from trajectory
+                tool_times = []
+                for event in trajectory_events:
+                    if event.get("node") == "tools" and event.get("tool_time", 0) > 0.01:
+                        tool_times.append(event.get("tool_time"))
+                avg_tool_time = sum(tool_times) / len(tool_times) if tool_times else 0
+                total_saved_from_hits = hits * avg_tool_time
+            
+            if misses > 0:
+                # Misses = wasted pre-execution time
+                preexec_times = []
+                for event in trajectory_events:
+                    if event.get("node") == "llm" and "spec_predictions" in event:
+                        for pred in event["spec_predictions"]:
+                            if pred.get("pre_executed"):
+                                preexec_times.append(pred.get("exec_time", 0))
+                # Allocate wasted time based on misses
+                if preexec_times and len(preexec_times) >= misses:
+                    total_wasted_on_misses = sum(preexec_times[:misses])
+            
+            if total_checks > 0:
+                print(f"\nTiming:")
+                print(f"  Spec blocking:   {total_spec_blocking:.2f}s (time spec exceeded actor)")
+                print(f"  Time saved:      {total_saved_from_hits:.2f}s (from {hits} cache hits)")
+                print(f"  Time wasted:     {total_wasted_on_misses:.2f}s (from {misses} pre-exec misses)")
+                net_benefit = total_saved_from_hits - total_wasted_on_misses - total_spec_blocking
+                print(f"  Net benefit:     {net_benefit:+.2f}s")
         
-        # Extract simple message trajectory
+    print("\n" + "=" * 80 + "\n")
+    
+    # Extract simple message trajectory
+    simple_trajectory = []
+    if final_state:
         if isinstance(final_state, dict):
             messages = final_state.get('messages', [])
         else:
             messages = final_state.messages
         
         # Convert messages to serializable format
-        simple_trajectory = []
         for msg in messages:
             msg_dict = {
                 "role": msg.role,
@@ -298,38 +383,39 @@ async def run_example(example_dir: Path, app=None, verbose=True):
             if hasattr(msg, 'name') and msg.name:
                 msg_dict["name"] = msg.name
             simple_trajectory.append(msg_dict)
-        
-        # Save results to JSON with complete trajectory
-        spec_status = "spec" if config.enable_speculation else "baseline"
-        result_file = f"result_{example_name}_{spec_status}.json"
-        
-        result_data = {
-            "task_id": task_id,
-            "level": level,
-            "question": question,
-            "ground_truth": final_answer,
-            "predicted": predicted,
-            "correct": correct,
-            "steps": steps,
-            "time_seconds": elapsed,
-            "actor_model": config.actor_model,
-            "spec_model": config.spec_model if config.enable_speculation else None,
-            "speculation_enabled": config.enable_speculation,
-            "verification_strategy": config.verification_strategy if config.enable_speculation else None,
-            "spec_hits": hits if config.enable_speculation else 0,
-            "spec_misses": misses if config.enable_speculation else 0,
-            "spec_predictions": spec_launched if config.enable_speculation else 0,
-            "trajectory": trajectory_events,  # Detailed step-by-step trajectory
-            "messages": simple_trajectory,  # Simple message history
-        }
-        
-        with open(result_file, "w") as f:
-            json.dump(result_data, f, indent=2)
-        
-        if verbose:
-            print(f"💾 Results saved to: {result_file}\n")
-        
-        return result_data
+    
+    # Save results to JSON with complete trajectory (even on error)
+    spec_status = "spec" if config.enable_speculation else "baseline"
+    result_file = f"result_{example_name}_{spec_status}.json"
+    
+    result_data = {
+        "task_id": task_id,
+        "level": level,
+        "question": question,
+        "ground_truth": final_answer,
+        "predicted": predicted,
+        "correct": correct,
+        "steps": steps,
+        "time_seconds": elapsed,
+        "actor_model": config.actor_model,
+        "spec_model": config.spec_model if config.enable_speculation else None,
+        "speculation_enabled": config.enable_speculation,
+        "verification_strategy": config.verification_strategy if config.enable_speculation else None,
+        "spec_hits": hits if config.enable_speculation else 0,
+        "spec_misses": misses if config.enable_speculation else 0,
+        "spec_predictions": spec_launched if config.enable_speculation else 0,
+        "trajectory": trajectory_events,  # Detailed step-by-step trajectory
+        "messages": simple_trajectory,  # Simple message history
+        "error": error_msg,  # Include error if present
+    }
+    
+    with open(result_file, "w") as f:
+        json.dump(result_data, f, indent=2)
+    
+    if verbose:
+        print(f"💾 Results saved to: {result_file}\n")
+    
+    return result_data
 
 
 async def run_batch(level_dir: Path, output_dir: Path, max_examples: int = None):

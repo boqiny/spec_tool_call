@@ -25,18 +25,16 @@ from .tools.vision_tool import analyze_image, extract_text_from_image
 
 
 @tool
-def search_with_content(query: str, expand_search: bool = False) -> str:
-    """Search the web and extract full content from pages.
+def search_with_content(query: str) -> str:
+    """Search the web and extract full content from the most relevant page.
     
-    Slower but more thorough - fetches and extracts actual page content.
-    Returns 1 result by default (most relevant), or 3 if you need alternatives.
+    Fetches and extracts actual page content from the top search result.
+    Use this when you need detailed information from a webpage.
     
     Args:
-        query: The search query
-        expand_search: If True, return 3 results instead of 1 (use when confused or need alternatives)
+        query: The search query (be specific for best results)
     """
-    max_results = 3 if expand_search else 1
-    return search_serper_with_content(query, max_results)
+    return search_serper_with_content(query, max_results=1)
 
 
 @tool
