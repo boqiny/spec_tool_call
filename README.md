@@ -125,6 +125,9 @@ python eval.py --batch --level 1 --max 10
 # Baseline (no speculation)
 DISABLE_SPECULATION=1 python eval.py --batch --level 1 --max 10
 
+# inlcusive start, exclusive end
+python3 eval.py --batch --level 1 --start 10 --end 21
+
 # Custom output directory
 python eval.py --batch --level 1 --output my_results/
 ```

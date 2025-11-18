@@ -418,7 +418,7 @@ async def run_example(example_dir: Path, app=None, verbose=True):
     return result_data
 
 
-async def run_batch(level_dir: Path, output_dir: Path, max_examples: int = None):
+async def run_batch(level_dir: Path, output_dir: Path, max_examples: int = None, start_idx: int = None, end_idx: int = None):
     """Run batch evaluation on all examples in a directory."""
     
     # Find all examples
@@ -431,8 +431,15 @@ async def run_batch(level_dir: Path, output_dir: Path, max_examples: int = None)
         print(f"No examples found in {level_dir}")
         return
     
-    # Limit to max_examples if specified
-    if max_examples:
+    # Apply start/end slicing first if specified
+    if start_idx is not None or end_idx is not None:
+        start = start_idx if start_idx is not None else 0
+        end = end_idx if end_idx is not None else len(examples)
+        examples = examples[start:end]
+        print(f"Sliced examples from index {start} to {end}")
+    
+    # Then limit to max_examples if specified
+    elif max_examples:
         examples = examples[:max_examples]
     
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -442,6 +449,10 @@ async def run_batch(level_dir: Path, output_dir: Path, max_examples: int = None)
     print(f"BATCH EVALUATION: {level_dir.name}")
     print("=" * 80)
     print(f"Examples:    {len(examples)}")
+    if start_idx is not None or end_idx is not None:
+        start = start_idx if start_idx is not None else 0
+        end = end_idx if end_idx is not None else "end"
+        print(f"Range:       [{start}:{end}]")
     print(f"Max Steps:   {config.max_steps}")
     print(f"Speculation: {'ENABLED' if config.enable_speculation else 'DISABLED (baseline)'}")
     print(f"Output Dir:  {output_dir}")
@@ -520,6 +531,8 @@ def main():
     parser.add_argument("--level", type=int, choices=[1, 2, 3], default=1,
                        help="GAIA level for batch mode (default: 1)")
     parser.add_argument("--max", type=int, help="Maximum number of examples to run (default: all)")
+    parser.add_argument("--start", type=int, help="Start index for examples (inclusive, 0-based)")
+    parser.add_argument("--end", type=int, help="End index for examples (exclusive, 0-based)")
     parser.add_argument("--output", help="Output directory for batch results (default: auto-generated)")
     
     args = parser.parse_args()
@@ -538,7 +551,8 @@ def main():
             spec_status = "spec" if config.enable_speculation else "baseline"
             output_dir = Path(f"results_level{args.level}_{spec_status}_{timestamp}")
         
-        asyncio.run(run_batch(level_dir, output_dir, max_examples=args.max))
+        asyncio.run(run_batch(level_dir, output_dir, max_examples=args.max, 
+                             start_idx=args.start, end_idx=args.end))
     
     # Single example mode
     else:
