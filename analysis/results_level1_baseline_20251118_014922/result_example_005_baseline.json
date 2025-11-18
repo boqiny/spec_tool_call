@@ -1,0 +1,180 @@
+{
+  "task_id": "46719c30-f4c3-4cad-be07-d5cb21eee6bb",
+  "level": "1",
+  "question": "Of the authors (First M. Last) that worked on the paper \"Pie Menus or Linear Menus, Which Is Better?\" in 2015, what was the title of the first paper authored by the one that had authored prior papers?",
+  "ground_truth": "Mapping Human Oriented Information to Software Agents for Online Systems Usage",
+  "predicted": "Mapping Human-Oriented Information to Software Agents for Online Systems Usage",
+  "correct": false,
+  "steps": 5,
+  "time_seconds": 56.365684270858765,
+  "actor_model": "gpt-5",
+  "spec_model": null,
+  "speculation_enabled": false,
+  "verification_strategy": null,
+  "spec_hits": 0,
+  "spec_misses": 0,
+  "spec_predictions": 0,
+  "trajectory": [
+    {
+      "node": "start",
+      "question": "Of the authors (First M. Last) that worked on the paper \"Pie Menus or Linear Menus, Which Is Better?\" in 2015, what was the title of the first paper authored by the one that had authored prior papers?",
+      "timestamp": 0
+    },
+    {
+      "node": "llm",
+      "timestamp": 2.4561290740966797,
+      "step": 1,
+      "actor_model": "gpt-5",
+      "llm_time": 2.4518940448760986,
+      "actor_reasoning": "[Calling tools]",
+      "actor_tool_calls": [
+        {
+          "name": "search_with_content",
+          "args": {
+            "query": "\"Pie Menus or Linear Menus, Which Is Better?\" 2015 author"
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 5.088702201843262,
+      "tool_time": 2.631812810897827,
+      "tool_executed": {
+        "name": "search_with_content",
+        "result": "Found 1 web results with content:\n\n1. Pie Menus or Linear Menus, Which Is Better?\n   URL: https://pietromurano.org/Papers/Murano-Khan-Published-Version.pdf\n   Site: pietromurano.org\n   Summary: by P Murano \u00b7 2015 \u00b7 Cited by 8 \u2014 \u00a92009-2015 CIS Journal. All rights reserved. http://www.cisjournal.org. 476. Pie Menus or Linear Menus, Which Is Better? 1 Pietro Murano, 2 Iram N. Khan. 1 ...\n   Content: Vol. 6, No. 9, September 2015 ISSN 2079-8407 Journal of Emerging Trends in Computing and Information Sciences \u00a92009-2015 CIS Journal. All rights reserved. http://www.cisjournal.org Pie Menus or Linear Menus, Which Is Better? 1 Pietro Murano, 2 Iram N. Khan 1 Department of Computer Science, the Universal Design of ICT Research Group, Oslo and Akershus University College of Applied Sciences, Oslo, Norway 2 University of Salford, School of Computing, Science and Engineering, Salford, M5 4WT, UK 1 pietro.murano@hioa.no, 2I.N.Khan@edu.salford.ac.uk ABSTRACT This paper is about a continuing investigation aiming to find out which menu type is more useable on a web site or application. This paper specifically compares pie menus with linear menus. Although other researchers have investigated similar themes it is felt that there is still not enough knowledge regarding the various effects of different menu types, including their positioning on a screen. An empirical approach using an experiment to test the effectiveness and user satisfaction of a pie menu and a linear menu is described in detail. Four tasks were administered to experimental participants under each menu design in a within users experimental design. Overall task time, number of errors and participants' subjective opinions were measured. The data were statistically analysed. There were no statistically significant results for task times and errors. However, subjective opinions were overall statistically significant, suggesting a preference for the pie menu by participants. These results are interesting for all web designers, user interface designers and developers. The issues being investigated are rather complex, because there is no clear pattern of results to suggest a categorical \u2018best design\u2019. These results add to the current knowledge in existence regarding menu types and to the wish of understanding better the issues involved with menu types. Keywords: Pie menus, radial menus, linear menus, usability, evalu\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 14.806569337844849,
+      "step": 2,
+      "actor_model": "gpt-5",
+      "llm_time": 9.715949058532715,
+      "actor_reasoning": "[Calling tools]",
+      "actor_tool_calls": [
+        {
+          "name": "search_with_content",
+          "args": {
+            "query": "\"Iram N. Khan\" publications"
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 15.85057020187378,
+      "tool_time": 1.0431029796600342,
+      "tool_executed": {
+        "name": "search_with_content",
+        "result": "Found 1 web results with content:\n\n1. Insights into the fungal secretomes and their roles in ...\n   URL: https://pmc.ncbi.nlm.nih.gov/articles/PMC11877120/\n   Site: pmc.ncbi.nlm.nih.gov\n   Summary: by TS da Costa \u00b7 2025 \u00b7 Cited by 3 \u2014 Iram N. Khan S. Ahmed M. Mir A. Anwar N. et al., Synthesis and characterizations of silver nanoparticles-based conductive ink for high ...\n   Content: Insights into the fungal secretomes and their roles in the formation and stabilization of the biogenic silver nanoparticles - PMC Skip to main content An official website of the United States government Here's how you know Here's how you know Official websites use .gov A .gov website belongs to an official\n                            government organization in the United States. Secure .gov websites use HTTPS A lock ( Lock Locked padlock icon ) or https:// means you've safely\n                                connected to the .gov website. Share sensitive\n                                information only on official, secure websites. Search Log in Dashboard Publications Account settings Log out Search\u2026 Search NCBI Primary site navigation Search Logged in as: Dashboard Publications Account settings Log in Search PMC Full-Text Archive Search in PMC Journal List User Guide PERMALINK Copy As a library, NLM provides access to scientific literature. Inclusion in an NLM database does not imply endorsement of, or agreement with,\n    the contents by NLM or the National Institutes of Health. Learn more: PMC Disclaimer | PMC Copyright Notice RSC Adv . 2025 Mar 4;15(9):6938\u20136951. doi: 10.1039/d4ra07962k Search in PMC Search in PubMed View in NLM Catalog Add to search Insights into the fungal secretomes and their roles in the formation and stabilization of the biogenic silver nanoparticles \u2020 Thyerre Santana da Costa Thyerre Santana da Costa a Institute of Chemistry, Biological Chemistry Laboratory, Universidade Estadual de Campinas, UNICAMP, Campinas, SP, 13083-970, Brazil, Email: ljubica@unicamp.br Find articles by Thyerre Santana da Costa a, \u2021 , Gonzalo Garc\u00eda Delgado Gonzalo Garc\u00eda Delgado a Institute of Chemistry, Biological Chemistry Laboratory, Universidade Estadual de Campinas, UNICAMP, Campinas, SP, 13083-970, Brazil, Email: ljubica@unicamp.br Find articles by Gonzalo Garc\u00eda Delgado a, \u2021 , Carolyne Brustolin Braga Carolyne Brustolin Braga a Institute of Chemistry, Biologica\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 23.550193309783936,
+      "step": 3,
+      "actor_model": "gpt-5",
+      "llm_time": 7.697561025619507,
+      "actor_reasoning": "[Calling tools]",
+      "actor_tool_calls": [
+        {
+          "name": "search_with_content",
+          "args": {
+            "query": "Pietro Murano publications first paper earliest 'Pietro Murano' HCI"
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 24.780827283859253,
+      "tool_time": 1.2286310195922852,
+      "tool_executed": {
+        "name": "search_with_content",
+        "result": "Found 1 web results with content:\n\n1. Publications - Pietro Murano\n   URL: https://pietromurano.org/publications.html\n   Site: pietromurano.org\n   Summary: Murano, Pietro (2001) Mapping Human-Oriented Information to Software Agents for Online Systems Usage - PDF People in Control An International Conference on ...\n   Content: Pietro Murano - Publications Pietro Murano Publications Home Research Lecturing Administration Popular Media Contact This section lists all my publications and where possible the publications are included. Click on a title to read a paper. INTERNATIONAL REFEREED JOURNAL PAPERS Keya, Rashika Tasnim, Heldal, Ilona, Patel, Daniel, Murano, Pietro & Wijkmark, Cecilia Hammar (2025) Implementing Virtual Reality for Fire Evacuation Preparedness at Schools - PDF , Computers, 14, 286. Al-Jasim, Alyaa & Murano, Pietro (2023) Designing User Interface Toggles for Usability - PDF , Journal of User Experience, Volume 18, Issue 4, August 2023. Shrestha, Sayush Lal & Murano, Pietro (2022) The Design and Evaluation of an Online Dictionary User\nInterface - PDF , International Journal of Computing and Digital Systems, Volume 1, March 2022. Keya, Rashika Tasnim & Murano, Pietro (2022) Is Carousel Interaction Really Usable? - PDF , First Monday, Volume 27, Issue 1, January 2022. Chaudhary, Karan Singh & Murano, Pietro (2021) The Design and Evaluation of a New Smartwatch User Interface- PDF , International Journal of Interactive Mobile Technologies (iJIM), Vol. 15, Issue 13, 2021. Awale, Bikram & Murano, Pietro (2020) A Preliminary Usability and Universal Design Evaluation of a Television App User Interface - PDF , Baltic Journal of Modern Computing, Vol. 8, Issue 3, 2020. Sharma, Sushil & Murano, Pietro (2020) A Usability Evaluation of Web User Interface Scrolling Types - PDF , First Monday, Vol. 25, Issue 3, February 2020. Suru, Hassan Umar & Murano, Pietro (2019) Security and User Interface Usability of Graphical Authentication Systems A Review\n - PDF , International Journal of Computer Trends and Technology, Vol. 67, Issue 2, February, p.17-36. Murano, Pietro & Ali, Rao Muhammad Danial (2018) A Preliminary Investigation into the Usability of Force Touch Interaction in a Mobile Context\n - PDF , International Journal of Interactive Mobile Technologies, Vol. 12, Issue 5, p.169-181. Shres\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 36.861741065979004,
+      "step": 4,
+      "actor_model": "gpt-5",
+      "llm_time": 12.078467845916748,
+      "actor_reasoning": "[Calling tools]",
+      "actor_tool_calls": [
+        {
+          "name": "search_with_content",
+          "args": {
+            "query": "Pietro Murano publications Mapping Human-Oriented Information to Software Agents for Online Systems Usage People in Control 2001"
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 38.57900905609131,
+      "tool_time": 1.7165491580963135,
+      "tool_executed": {
+        "name": "search_with_content",
+        "result": "Found 1 web results with content:\n\n1. [PDF] Mapping Human Oriented Information to Software Agents for Online ...\n   URL: https://pietromurano.org/Papers/Systems-Usage-2001.pdf\n   Site: pietromurano.org\n   Summary: This subject area, involving anthropomorphism at the user interface as part of a feedback agent(s), is currently surrounded with controversy.\n   Content: Mapping Human Oriented Information to Software Agents for Online Systems Usage Pietro Murano INTRODUCTION This paper describes an experiment and the preliminary results of the experiment involving software agents. The overall aim of the experiment (one of a suite of experiments) is to determine the effectiveness and user approval of mapping human-oriented information to software agents. The preliminary results presented in this paper involve user approval issues. This subject area, involving anthropomorphism at the user interface as part of a feedback agent(s), is currently surrounded with controversy. The Computer Science community is divided on this issue, where they are either for (e.g. (Agarwal 1999; Cole, Massaro et al. 1999; Dertouzos 1999; Guttag 1999; Zue 1999)) or against, (e.g. Shneiderman in (Shneiderman 1992; Bradshaw 1997)) anthropomorphism at the user interface. However, they do not provide concrete enough evidence for their stance. The experiment described in this paper aims to begin to resolve this issue, particularly with respect to effectiveness and user approval. The experiment (involving UNIX commands) falls within one broad area or 'strand' of software. This is software for online systems usage. If interesting and meaningful results can be obtained, these will potentially affect future user interfaces. This will have implications for software in different domains, including software that could be defined as 'non-standard' such as the software sometimes used in command centres and control rooms. These could lead to new types of more usable interfaces. This would be particularly so with respect to training novices to use 'non-standard' user interfaces, or where a command centre or control room in an organisation is migrating to a virtual control room and staff require an update to their training. EXPERIMENT - UNIX COMMANDS Hypothesis Obtaining the preliminary results of the experiment involved asking the following questions : \uf0b7 Is a direct mapping\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 56.36540627479553,
+      "step": 5,
+      "actor_model": "gpt-5",
+      "llm_time": 17.783905029296875,
+      "actor_reasoning": "The 2015 paper lists Pietro Murano and Iram N. Khan as authors. Murano had prior publications; his earliest listed paper (2001) is titled:\n\nFINAL ANSWER: Mapping Human-Oriented Information to Software Agents for Online Systems Usage",
+      "final_answer": "Mapping Human-Oriented Information to Software Agents for Online Systems Usage"
+    }
+  ],
+  "messages": [
+    {
+      "role": "user",
+      "content": "Of the authors (First M. Last) that worked on the paper \"Pie Menus or Linear Menus, Which Is Better?\" in 2015, what was the title of the first paper authored by the one that had authored prior papers?"
+    },
+    {
+      "role": "assistant",
+      "content": "[Calling tools]"
+    },
+    {
+      "role": "tool",
+      "content": "Found 1 web results with content:\n\n1. Pie Menus or Linear Menus, Which Is Better?\n   URL: https://pietromurano.org/Papers/Murano-Khan-Published-Version.pdf\n   Site: pietromurano.org\n   Summary: by P Murano \u00b7 2015 \u00b7 Cited by 8 \u2014 \u00a92009-2015 CIS Journal. All rights reserved. http://www.cisjournal.org. 476. Pie Menus or Linear Menus, Which Is Better? 1 Pietro Murano, 2 Iram N. Khan. 1 ...\n   Content: Vol. 6, No. 9, September 2015 ISSN 2079-8407 Journal of Emerging Trends in Computing and Information Sciences \u00a92009-2015 CIS Journal. All rights reserved. http://www.cisjournal.org Pie Menus or Linear Menus, Which Is Better? 1 Pietro Murano, 2 Iram N. Khan 1 Department of Computer Science, the Universal Design of ICT Research Group, Oslo and Akershus University College of Applied Sciences, Oslo, Norway 2 University of Salford, School of Computing, Science and Engineering, Salford, M5 4WT, UK 1 pietro.murano@hioa.no, 2I.N.Khan@edu.salford.ac.uk ABSTRACT This paper is about a continuing investigation aiming to find out which menu type is more useable on a web site or application. This paper specifically compares pie menus with linear menus. Although other researchers have investigated similar themes it is felt that there is still not enough knowledge regarding the various effects of different menu types, including their positioning on a screen. An empirical approach using an experiment to test the effectiveness and user satisfaction of a pie menu and a linear menu is described in detail. Four tasks were administered to experimental participants under each menu design in a within users experimental design. Overall task time, number of errors and participants' subjective opinions were measured. The data were statistically analysed. There were no statistically significant results for task times and errors. However, subjective opinions were overall statistically significant, suggesting a preference for the pie menu by participants. These results are interesting for all web designers, user interface designers and developers. The issues being investigated are rather complex, because there is no clear pattern of results to suggest a categorical \u2018best design\u2019. These results add to the current knowledge in existence regarding menu types and to the wish of understanding better the issues involved with menu types. Keywords: Pie menus, radial menus, linear menus, usability, evalu\n",
+      "name": "search_with_content"
+    },
+    {
+      "role": "assistant",
+      "content": "[Calling tools]"
+    },
+    {
+      "role": "tool",
+      "content": "Found 1 web results with content:\n\n1. Insights into the fungal secretomes and their roles in ...\n   URL: https://pmc.ncbi.nlm.nih.gov/articles/PMC11877120/\n   Site: pmc.ncbi.nlm.nih.gov\n   Summary: by TS da Costa \u00b7 2025 \u00b7 Cited by 3 \u2014 Iram N. Khan S. Ahmed M. Mir A. Anwar N. et al., Synthesis and characterizations of silver nanoparticles-based conductive ink for high ...\n   Content: Insights into the fungal secretomes and their roles in the formation and stabilization of the biogenic silver nanoparticles - PMC Skip to main content An official website of the United States government Here's how you know Here's how you know Official websites use .gov A .gov website belongs to an official\n                            government organization in the United States. Secure .gov websites use HTTPS A lock ( Lock Locked padlock icon ) or https:// means you've safely\n                                connected to the .gov website. Share sensitive\n                                information only on official, secure websites. Search Log in Dashboard Publications Account settings Log out Search\u2026 Search NCBI Primary site navigation Search Logged in as: Dashboard Publications Account settings Log in Search PMC Full-Text Archive Search in PMC Journal List User Guide PERMALINK Copy As a library, NLM provides access to scientific literature. Inclusion in an NLM database does not imply endorsement of, or agreement with,\n    the contents by NLM or the National Institutes of Health. Learn more: PMC Disclaimer | PMC Copyright Notice RSC Adv . 2025 Mar 4;15(9):6938\u20136951. doi: 10.1039/d4ra07962k Search in PMC Search in PubMed View in NLM Catalog Add to search Insights into the fungal secretomes and their roles in the formation and stabilization of the biogenic silver nanoparticles \u2020 Thyerre Santana da Costa Thyerre Santana da Costa a Institute of Chemistry, Biological Chemistry Laboratory, Universidade Estadual de Campinas, UNICAMP, Campinas, SP, 13083-970, Brazil, Email: ljubica@unicamp.br Find articles by Thyerre Santana da Costa a, \u2021 , Gonzalo Garc\u00eda Delgado Gonzalo Garc\u00eda Delgado a Institute of Chemistry, Biological Chemistry Laboratory, Universidade Estadual de Campinas, UNICAMP, Campinas, SP, 13083-970, Brazil, Email: ljubica@unicamp.br Find articles by Gonzalo Garc\u00eda Delgado a, \u2021 , Carolyne Brustolin Braga Carolyne Brustolin Braga a Institute of Chemistry, Biologica\n",
+      "name": "search_with_content"
+    },
+    {
+      "role": "assistant",
+      "content": "[Calling tools]"
+    },
+    {
+      "role": "tool",
+      "content": "Found 1 web results with content:\n\n1. Publications - Pietro Murano\n   URL: https://pietromurano.org/publications.html\n   Site: pietromurano.org\n   Summary: Murano, Pietro (2001) Mapping Human-Oriented Information to Software Agents for Online Systems Usage - PDF People in Control An International Conference on ...\n   Content: Pietro Murano - Publications Pietro Murano Publications Home Research Lecturing Administration Popular Media Contact This section lists all my publications and where possible the publications are included. Click on a title to read a paper. INTERNATIONAL REFEREED JOURNAL PAPERS Keya, Rashika Tasnim, Heldal, Ilona, Patel, Daniel, Murano, Pietro & Wijkmark, Cecilia Hammar (2025) Implementing Virtual Reality for Fire Evacuation Preparedness at Schools - PDF , Computers, 14, 286. Al-Jasim, Alyaa & Murano, Pietro (2023) Designing User Interface Toggles for Usability - PDF , Journal of User Experience, Volume 18, Issue 4, August 2023. Shrestha, Sayush Lal & Murano, Pietro (2022) The Design and Evaluation of an Online Dictionary User\nInterface - PDF , International Journal of Computing and Digital Systems, Volume 1, March 2022. Keya, Rashika Tasnim & Murano, Pietro (2022) Is Carousel Interaction Really Usable? - PDF , First Monday, Volume 27, Issue 1, January 2022. Chaudhary, Karan Singh & Murano, Pietro (2021) The Design and Evaluation of a New Smartwatch User Interface- PDF , International Journal of Interactive Mobile Technologies (iJIM), Vol. 15, Issue 13, 2021. Awale, Bikram & Murano, Pietro (2020) A Preliminary Usability and Universal Design Evaluation of a Television App User Interface - PDF , Baltic Journal of Modern Computing, Vol. 8, Issue 3, 2020. Sharma, Sushil & Murano, Pietro (2020) A Usability Evaluation of Web User Interface Scrolling Types - PDF , First Monday, Vol. 25, Issue 3, February 2020. Suru, Hassan Umar & Murano, Pietro (2019) Security and User Interface Usability of Graphical Authentication Systems A Review\n - PDF , International Journal of Computer Trends and Technology, Vol. 67, Issue 2, February, p.17-36. Murano, Pietro & Ali, Rao Muhammad Danial (2018) A Preliminary Investigation into the Usability of Force Touch Interaction in a Mobile Context\n - PDF , International Journal of Interactive Mobile Technologies, Vol. 12, Issue 5, p.169-181. Shres\n",
+      "name": "search_with_content"
+    },
+    {
+      "role": "assistant",
+      "content": "[Calling tools]"
+    },
+    {
+      "role": "tool",
+      "content": "Found 1 web results with content:\n\n1. [PDF] Mapping Human Oriented Information to Software Agents for Online ...\n   URL: https://pietromurano.org/Papers/Systems-Usage-2001.pdf\n   Site: pietromurano.org\n   Summary: This subject area, involving anthropomorphism at the user interface as part of a feedback agent(s), is currently surrounded with controversy.\n   Content: Mapping Human Oriented Information to Software Agents for Online Systems Usage Pietro Murano INTRODUCTION This paper describes an experiment and the preliminary results of the experiment involving software agents. The overall aim of the experiment (one of a suite of experiments) is to determine the effectiveness and user approval of mapping human-oriented information to software agents. The preliminary results presented in this paper involve user approval issues. This subject area, involving anthropomorphism at the user interface as part of a feedback agent(s), is currently surrounded with controversy. The Computer Science community is divided on this issue, where they are either for (e.g. (Agarwal 1999; Cole, Massaro et al. 1999; Dertouzos 1999; Guttag 1999; Zue 1999)) or against, (e.g. Shneiderman in (Shneiderman 1992; Bradshaw 1997)) anthropomorphism at the user interface. However, they do not provide concrete enough evidence for their stance. The experiment described in this paper aims to begin to resolve this issue, particularly with respect to effectiveness and user approval. The experiment (involving UNIX commands) falls within one broad area or 'strand' of software. This is software for online systems usage. If interesting and meaningful results can be obtained, these will potentially affect future user interfaces. This will have implications for software in different domains, including software that could be defined as 'non-standard' such as the software sometimes used in command centres and control rooms. These could lead to new types of more usable interfaces. This would be particularly so with respect to training novices to use 'non-standard' user interfaces, or where a command centre or control room in an organisation is migrating to a virtual control room and staff require an update to their training. EXPERIMENT - UNIX COMMANDS Hypothesis Obtaining the preliminary results of the experiment involved asking the following questions : \uf0b7 Is a direct mapping\n",
+      "name": "search_with_content"
+    },
+    {
+      "role": "assistant",
+      "content": "The 2015 paper lists Pietro Murano and Iram N. Khan as authors. Murano had prior publications; his earliest listed paper (2001) is titled:\n\nFINAL ANSWER: Mapping Human-Oriented Information to Software Agents for Online Systems Usage"
+    }
+  ],
+  "error": null
+}

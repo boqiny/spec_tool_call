@@ -1,0 +1,297 @@
+{
+  "task_id": "46719c30-f4c3-4cad-be07-d5cb21eee6bb",
+  "level": "1",
+  "question": "Of the authors (First M. Last) that worked on the paper \"Pie Menus or Linear Menus, Which Is Better?\" in 2015, what was the title of the first paper authored by the one that had authored prior papers?",
+  "ground_truth": "Mapping Human Oriented Information to Software Agents for Online Systems Usage",
+  "predicted": "A New Software Agent 'Learning' Algorithm",
+  "correct": false,
+  "steps": 6,
+  "time_seconds": 105.67572116851807,
+  "actor_model": "gpt-5",
+  "spec_model": "gpt-5-mini",
+  "speculation_enabled": true,
+  "verification_strategy": "exact",
+  "spec_hits": 0,
+  "spec_misses": 6,
+  "spec_predictions": 6,
+  "trajectory": [
+    {
+      "node": "start",
+      "question": "Of the authors (First M. Last) that worked on the paper \"Pie Menus or Linear Menus, Which Is Better?\" in 2015, what was the title of the first paper authored by the one that had authored prior papers?",
+      "timestamp": 0
+    },
+    {
+      "node": "llm",
+      "timestamp": 6.398118019104004,
+      "step": 1,
+      "actor_model": "gpt-5",
+      "llm_time": 6.393294095993042,
+      "actor_reasoning": "[Calling tools]",
+      "actor_tool_calls": [
+        {
+          "name": "search_with_content",
+          "args": {
+            "query": "\"Pie Menus or Linear Menus, Which Is Better?\" 2015"
+          }
+        }
+      ],
+      "spec_model": "gpt-5-mini",
+      "spec_predictions": [
+        {
+          "name": "search_with_content",
+          "args": {
+            "query": "\"Pie Menus or Linear Menus, Which Is Better?\" 2015 paper authors \"Pie Menus or Linear Menus\""
+          },
+          "pre_executed": true,
+          "exec_time": 3.000760078430176,
+          "spec_inference_time": 2.247882843017578
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 9.170778036117554,
+      "tool_time": 2.7716310024261475,
+      "tool_executed": {
+        "name": "search_with_content",
+        "result": "Found 1 web results with content:\n\n1. Pie Menus or Linear Menus, Which Is Better?\n   URL: https://pietromurano.org/Papers/Murano-Khan-Published-Version.pdf\n   Site: pietromurano.org\n   Summary: by P Murano \u00b7 2015 \u00b7 Cited by 8 \u2014 Pie Menus or Linear Menus, Which Is Better? 1 Pietro Murano, 2 Iram N. Khan ... Whether this figure is correct or not, the amount is likely to be more in 2015 ...\n   Content: Vol. 6, No. 9, September 2015 ISSN 2079-8407 Journal of Emerging Trends in Computing and Information Sciences \u00a92009-2015 CIS Journal. All rights reserved. http://www.cisjournal.org Pie Menus or Linear Menus, Which Is Better? 1 Pietro Murano, 2 Iram N. Khan 1 Department of Computer Science, the Universal Design of ICT Research Group, Oslo and Akershus University College of Applied Sciences, Oslo, Norway 2 University of Salford, School of Computing, Science and Engineering, Salford, M5 4WT, UK 1 pietro.murano@hioa.no, 2I.N.Khan@edu.salford.ac.uk ABSTRACT This paper is about a continuing investigation aiming to find out which menu type is more useable on a web site or application. This paper specifically compares pie menus with linear menus. Although other researchers have investigated similar themes it is felt that there is still not enough knowledge regarding the various effects of different menu types, including their positioning on a screen. An empirical approach using an experiment to test the effectiveness and user satisfaction of a pie menu and a linear menu is described in detail. Four tasks were administered to experimental participants under each menu design in a within users experimental design. Overall task time, number of errors and participants' subjective opinions were measured. The data were statistically analysed. There were no statistically significant results for task times and errors. However, subjective opinions were overall statistically significant, suggesting a preference for the pie menu by participants. These results are interesting for all web designers, user interface designers and developers. The issues being investigated are rather complex, because there is no clear pattern of results to suggest a categorical \u2018best design\u2019. These results add to the current knowledge in existence regarding menu types and to the wish of understanding better the issues involved with menu types. Keywords: Pie menus, radial menus, linear menus, usability, evalu\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 20.1664719581604,
+      "step": 2,
+      "actor_model": "gpt-5",
+      "llm_time": 10.993279933929443,
+      "actor_reasoning": "[Calling tools]",
+      "actor_tool_calls": [
+        {
+          "name": "search_with_content",
+          "args": {
+            "query": "Pie Menus or Linear Menus, Which Is Better? Pietro Murano Iram N. Khan PDF author profile first paper prior papers"
+          }
+        }
+      ],
+      "spec_model": "gpt-5-mini",
+      "spec_predictions": [
+        {
+          "name": "search_with_content",
+          "args": {
+            "query": "Pietro Murano publications first paper Murano Pietro first authored paper title \"Pietro Murano\""
+          },
+          "pre_executed": true,
+          "exec_time": 1.2915937900543213,
+          "spec_inference_time": 5.872635126113892
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 22.236459016799927,
+      "tool_time": 2.0690560340881348,
+      "tool_executed": {
+        "name": "search_with_content",
+        "result": "Found 1 web results with content:\n\n1. [PDF] Pie Menus or Linear Menus, Which Is Better? - Pietro Murano\n   URL: https://pietromurano.org/Papers/Murano-Khan-Published-Version.pdf\n   Site: pietromurano.org\n   Summary: This paper specifically compares pie menus with linear menus. Although other researchers have investigated similar themes it is felt that there is still not ...\n   Content: Vol. 6, No. 9, September 2015 ISSN 2079-8407 Journal of Emerging Trends in Computing and Information Sciences \u00a92009-2015 CIS Journal. All rights reserved. http://www.cisjournal.org Pie Menus or Linear Menus, Which Is Better? 1 Pietro Murano, 2 Iram N. Khan 1 Department of Computer Science, the Universal Design of ICT Research Group, Oslo and Akershus University College of Applied Sciences, Oslo, Norway 2 University of Salford, School of Computing, Science and Engineering, Salford, M5 4WT, UK 1 pietro.murano@hioa.no, 2I.N.Khan@edu.salford.ac.uk ABSTRACT This paper is about a continuing investigation aiming to find out which menu type is more useable on a web site or application. This paper specifically compares pie menus with linear menus. Although other researchers have investigated similar themes it is felt that there is still not enough knowledge regarding the various effects of different menu types, including their positioning on a screen. An empirical approach using an experiment to test the effectiveness and user satisfaction of a pie menu and a linear menu is described in detail. Four tasks were administered to experimental participants under each menu design in a within users experimental design. Overall task time, number of errors and participants' subjective opinions were measured. The data were statistically analysed. There were no statistically significant results for task times and errors. However, subjective opinions were overall statistically significant, suggesting a preference for the pie menu by participants. These results are interesting for all web designers, user interface designers and developers. The issues being investigated are rather complex, because there is no clear pattern of results to suggest a categorical \u2018best design\u2019. These results add to the current knowledge in existence regarding menu types and to the wish of understanding better the issues involved with menu types. Keywords: Pie menus, radial menus, linear menus, usability, evalu\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 37.67634606361389,
+      "step": 3,
+      "actor_model": "gpt-5",
+      "llm_time": 15.437615156173706,
+      "actor_reasoning": "[Calling tools]",
+      "actor_tool_calls": [
+        {
+          "name": "search_with_content",
+          "args": {
+            "query": "\"Pie Menus or Linear Menus, Which Is Better?\" 2015 authors"
+          }
+        },
+        {
+          "name": "search_with_content",
+          "args": {
+            "query": "Pietro Murano publications first paper"
+          }
+        }
+      ],
+      "spec_model": "gpt-5-mini",
+      "spec_predictions": [
+        {
+          "name": "search_with_content",
+          "args": {
+            "query": "Pietro Murano publications earliest paper Pietro Murano first paper title"
+          },
+          "pre_executed": true,
+          "exec_time": 1.2176439762115479,
+          "spec_inference_time": 6.3225507736206055
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 41.12258005142212,
+      "tool_time": 0.95070481300354,
+      "tool_executed": {
+        "name": "search_with_content",
+        "result": "Found 1 web results with content:\n\n1. Publications - Pietro Murano\n   URL: https://pietromurano.org/publications.html\n   Site: pietromurano.org\n   Summary: Murano, Pietro (2006) Why Anthropomorphic User Interface Feedback can be Effective and Preferred by Users, In Enterprise Information Systems 7, Eds. Chen, Chin- ...\n   Content: Pietro Murano - Publications Pietro Murano Publications Home Research Lecturing Administration Popular Media Contact This section lists all my publications and where possible the publications are included. Click on a title to read a paper. INTERNATIONAL REFEREED JOURNAL PAPERS Keya, Rashika Tasnim, Heldal, Ilona, Patel, Daniel, Murano, Pietro & Wijkmark, Cecilia Hammar (2025) Implementing Virtual Reality for Fire Evacuation Preparedness at Schools - PDF , Computers, 14, 286. Al-Jasim, Alyaa & Murano, Pietro (2023) Designing User Interface Toggles for Usability - PDF , Journal of User Experience, Volume 18, Issue 4, August 2023. Shrestha, Sayush Lal & Murano, Pietro (2022) The Design and Evaluation of an Online Dictionary User\nInterface - PDF , International Journal of Computing and Digital Systems, Volume 1, March 2022. Keya, Rashika Tasnim & Murano, Pietro (2022) Is Carousel Interaction Really Usable? - PDF , First Monday, Volume 27, Issue 1, January 2022. Chaudhary, Karan Singh & Murano, Pietro (2021) The Design and Evaluation of a New Smartwatch User Interface- PDF , International Journal of Interactive Mobile Technologies (iJIM), Vol. 15, Issue 13, 2021. Awale, Bikram & Murano, Pietro (2020) A Preliminary Usability and Universal Design Evaluation of a Television App User Interface - PDF , Baltic Journal of Modern Computing, Vol. 8, Issue 3, 2020. Sharma, Sushil & Murano, Pietro (2020) A Usability Evaluation of Web User Interface Scrolling Types - PDF , First Monday, Vol. 25, Issue 3, February 2020. Suru, Hassan Umar & Murano, Pietro (2019) Security and User Interface Usability of Graphical Authentication Systems A Review\n - PDF , International Journal of Computer Trends and Technology, Vol. 67, Issue 2, February, p.17-36. Murano, Pietro & Ali, Rao Muhammad Danial (2018) A Preliminary Investigation into the Usability of Force Touch Interaction in a Mobile Context\n - PDF , International Journal of Interactive Mobile Technologies, Vol. 12, Issue 5, p.169-181. Shres\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 51.30000710487366,
+      "step": 4,
+      "actor_model": "gpt-5",
+      "llm_time": 10.174927234649658,
+      "actor_reasoning": "[Calling tools]",
+      "actor_tool_calls": [
+        {
+          "name": "search_with_content",
+          "args": {
+            "query": "Pietro Murano publications site:pietromurano.org"
+          }
+        }
+      ],
+      "spec_model": "gpt-5-mini",
+      "spec_predictions": [
+        {
+          "name": "search_with_content",
+          "args": {
+            "query": "Pietro Murano publications list earliest publication 'Pietro Murano Publications' site:pietromurano.org"
+          },
+          "pre_executed": true,
+          "exec_time": 0.9587340354919434,
+          "spec_inference_time": 6.771009922027588
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 52.02117681503296,
+      "tool_time": 0.7191281318664551,
+      "tool_executed": {
+        "name": "search_with_content",
+        "result": "Found 1 web results with content:\n\n1. Publications\n   URL: https://pietromurano.org/publications.html\n   Site: pietromurano.org\n   Summary: Murano, Pietro (2001) A New Software Agent 'Learning' Algorithm - PDF, People in Control An International Conference on Human Interfaces in Control Rooms, ...\n   Content: Pietro Murano - Publications Pietro Murano Publications Home Research Lecturing Administration Popular Media Contact This section lists all my publications and where possible the publications are included. Click on a title to read a paper. INTERNATIONAL REFEREED JOURNAL PAPERS Keya, Rashika Tasnim, Heldal, Ilona, Patel, Daniel, Murano, Pietro & Wijkmark, Cecilia Hammar (2025) Implementing Virtual Reality for Fire Evacuation Preparedness at Schools - PDF , Computers, 14, 286. Al-Jasim, Alyaa & Murano, Pietro (2023) Designing User Interface Toggles for Usability - PDF , Journal of User Experience, Volume 18, Issue 4, August 2023. Shrestha, Sayush Lal & Murano, Pietro (2022) The Design and Evaluation of an Online Dictionary User\nInterface - PDF , International Journal of Computing and Digital Systems, Volume 1, March 2022. Keya, Rashika Tasnim & Murano, Pietro (2022) Is Carousel Interaction Really Usable? - PDF , First Monday, Volume 27, Issue 1, January 2022. Chaudhary, Karan Singh & Murano, Pietro (2021) The Design and Evaluation of a New Smartwatch User Interface- PDF , International Journal of Interactive Mobile Technologies (iJIM), Vol. 15, Issue 13, 2021. Awale, Bikram & Murano, Pietro (2020) A Preliminary Usability and Universal Design Evaluation of a Television App User Interface - PDF , Baltic Journal of Modern Computing, Vol. 8, Issue 3, 2020. Sharma, Sushil & Murano, Pietro (2020) A Usability Evaluation of Web User Interface Scrolling Types - PDF , First Monday, Vol. 25, Issue 3, February 2020. Suru, Hassan Umar & Murano, Pietro (2019) Security and User Interface Usability of Graphical Authentication Systems A Review\n - PDF , International Journal of Computer Trends and Technology, Vol. 67, Issue 2, February, p.17-36. Murano, Pietro & Ali, Rao Muhammad Danial (2018) A Preliminary Investigation into the Usability of Force Touch Interaction in a Mobile Context\n - PDF , International Journal of Interactive Mobile Technologies, Vol. 12, Issue 5, p.169-181. Shres\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 73.86818313598633,
+      "step": 5,
+      "actor_model": "gpt-5",
+      "llm_time": 21.844319820404053,
+      "actor_reasoning": "[Calling tools]",
+      "actor_tool_calls": [
+        {
+          "name": "search_with_content",
+          "args": {
+            "query": "site:pietromurano.org publications Pietro Murano A New Software Agent 'Learning' Algorithm"
+          }
+        }
+      ],
+      "spec_model": "gpt-5-mini",
+      "spec_predictions": [
+        {
+          "name": "search_with_content",
+          "args": {
+            "query": "Pietro Murano publications list earliest 'A New Software Agent Learning Algorithm' 2001 'Pietro Murano' publications 1990 1995"
+          },
+          "pre_executed": true,
+          "exec_time": 2.258652925491333,
+          "spec_inference_time": 7.257006883621216
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 74.82298803329468,
+      "tool_time": 0.9523639678955078,
+      "tool_executed": {
+        "name": "search_with_content",
+        "result": "Found 1 web results with content:\n\n1. Publications\n   URL: https://pietromurano.org/publications.html\n   Site: pietromurano.org\n   Summary: Murano, Pietro (2001) A New Software Agent 'Learning' Algorithm - PDF, People in Control An International Conference on Human Interfaces in Control Rooms ...\n   Content: Pietro Murano - Publications Pietro Murano Publications Home Research Lecturing Administration Popular Media Contact This section lists all my publications and where possible the publications are included. Click on a title to read a paper. INTERNATIONAL REFEREED JOURNAL PAPERS Keya, Rashika Tasnim, Heldal, Ilona, Patel, Daniel, Murano, Pietro & Wijkmark, Cecilia Hammar (2025) Implementing Virtual Reality for Fire Evacuation Preparedness at Schools - PDF , Computers, 14, 286. Al-Jasim, Alyaa & Murano, Pietro (2023) Designing User Interface Toggles for Usability - PDF , Journal of User Experience, Volume 18, Issue 4, August 2023. Shrestha, Sayush Lal & Murano, Pietro (2022) The Design and Evaluation of an Online Dictionary User\nInterface - PDF , International Journal of Computing and Digital Systems, Volume 1, March 2022. Keya, Rashika Tasnim & Murano, Pietro (2022) Is Carousel Interaction Really Usable? - PDF , First Monday, Volume 27, Issue 1, January 2022. Chaudhary, Karan Singh & Murano, Pietro (2021) The Design and Evaluation of a New Smartwatch User Interface- PDF , International Journal of Interactive Mobile Technologies (iJIM), Vol. 15, Issue 13, 2021. Awale, Bikram & Murano, Pietro (2020) A Preliminary Usability and Universal Design Evaluation of a Television App User Interface - PDF , Baltic Journal of Modern Computing, Vol. 8, Issue 3, 2020. Sharma, Sushil & Murano, Pietro (2020) A Usability Evaluation of Web User Interface Scrolling Types - PDF , First Monday, Vol. 25, Issue 3, February 2020. Suru, Hassan Umar & Murano, Pietro (2019) Security and User Interface Usability of Graphical Authentication Systems A Review\n - PDF , International Journal of Computer Trends and Technology, Vol. 67, Issue 2, February, p.17-36. Murano, Pietro & Ali, Rao Muhammad Danial (2018) A Preliminary Investigation into the Usability of Force Touch Interaction in a Mobile Context\n - PDF , International Journal of Interactive Mobile Technologies, Vol. 12, Issue 5, p.169-181. Shres\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 105.6754162311554,
+      "step": 6,
+      "actor_model": "gpt-5",
+      "llm_time": 30.84886121749878,
+      "actor_reasoning": "The 2015 paper lists two authors: Pietro Murano and Iram N. Khan. Among them, Pietro Murano had authored prior papers; his earliest listed publication is titled A New Software Agent 'Learning' Algorithm (2001).\n\nFINAL ANSWER: A New Software Agent 'Learning' Algorithm",
+      "spec_model": "gpt-5-mini",
+      "spec_predictions": [
+        {
+          "name": "search_with_content",
+          "args": {
+            "query": "Pietro Murano \"A New Software Agent 'Learning' Algorithm'\" 2001 People in Control"
+          },
+          "pre_executed": true,
+          "exec_time": 2.0289599895477295,
+          "spec_inference_time": 9.569416761398315
+        }
+      ],
+      "final_answer": "A New Software Agent 'Learning' Algorithm"
+    }
+  ],
+  "messages": [
+    {
+      "role": "user",
+      "content": "Of the authors (First M. Last) that worked on the paper \"Pie Menus or Linear Menus, Which Is Better?\" in 2015, what was the title of the first paper authored by the one that had authored prior papers?"
+    },
+    {
+      "role": "assistant",
+      "content": "[Calling tools]"
+    },
+    {
+      "role": "tool",
+      "content": "Found 1 web results with content:\n\n1. Pie Menus or Linear Menus, Which Is Better?\n   URL: https://pietromurano.org/Papers/Murano-Khan-Published-Version.pdf\n   Site: pietromurano.org\n   Summary: by P Murano \u00b7 2015 \u00b7 Cited by 8 \u2014 Pie Menus or Linear Menus, Which Is Better? 1 Pietro Murano, 2 Iram N. Khan ... Whether this figure is correct or not, the amount is likely to be more in 2015 ...\n   Content: Vol. 6, No. 9, September 2015 ISSN 2079-8407 Journal of Emerging Trends in Computing and Information Sciences \u00a92009-2015 CIS Journal. All rights reserved. http://www.cisjournal.org Pie Menus or Linear Menus, Which Is Better? 1 Pietro Murano, 2 Iram N. Khan 1 Department of Computer Science, the Universal Design of ICT Research Group, Oslo and Akershus University College of Applied Sciences, Oslo, Norway 2 University of Salford, School of Computing, Science and Engineering, Salford, M5 4WT, UK 1 pietro.murano@hioa.no, 2I.N.Khan@edu.salford.ac.uk ABSTRACT This paper is about a continuing investigation aiming to find out which menu type is more useable on a web site or application. This paper specifically compares pie menus with linear menus. Although other researchers have investigated similar themes it is felt that there is still not enough knowledge regarding the various effects of different menu types, including their positioning on a screen. An empirical approach using an experiment to test the effectiveness and user satisfaction of a pie menu and a linear menu is described in detail. Four tasks were administered to experimental participants under each menu design in a within users experimental design. Overall task time, number of errors and participants' subjective opinions were measured. The data were statistically analysed. There were no statistically significant results for task times and errors. However, subjective opinions were overall statistically significant, suggesting a preference for the pie menu by participants. These results are interesting for all web designers, user interface designers and developers. The issues being investigated are rather complex, because there is no clear pattern of results to suggest a categorical \u2018best design\u2019. These results add to the current knowledge in existence regarding menu types and to the wish of understanding better the issues involved with menu types. Keywords: Pie menus, radial menus, linear menus, usability, evalu\n",
+      "name": "search_with_content"
+    },
+    {
+      "role": "assistant",
+      "content": "[Calling tools]"
+    },
+    {
+      "role": "tool",
+      "content": "Found 1 web results with content:\n\n1. [PDF] Pie Menus or Linear Menus, Which Is Better? - Pietro Murano\n   URL: https://pietromurano.org/Papers/Murano-Khan-Published-Version.pdf\n   Site: pietromurano.org\n   Summary: This paper specifically compares pie menus with linear menus. Although other researchers have investigated similar themes it is felt that there is still not ...\n   Content: Vol. 6, No. 9, September 2015 ISSN 2079-8407 Journal of Emerging Trends in Computing and Information Sciences \u00a92009-2015 CIS Journal. All rights reserved. http://www.cisjournal.org Pie Menus or Linear Menus, Which Is Better? 1 Pietro Murano, 2 Iram N. Khan 1 Department of Computer Science, the Universal Design of ICT Research Group, Oslo and Akershus University College of Applied Sciences, Oslo, Norway 2 University of Salford, School of Computing, Science and Engineering, Salford, M5 4WT, UK 1 pietro.murano@hioa.no, 2I.N.Khan@edu.salford.ac.uk ABSTRACT This paper is about a continuing investigation aiming to find out which menu type is more useable on a web site or application. This paper specifically compares pie menus with linear menus. Although other researchers have investigated similar themes it is felt that there is still not enough knowledge regarding the various effects of different menu types, including their positioning on a screen. An empirical approach using an experiment to test the effectiveness and user satisfaction of a pie menu and a linear menu is described in detail. Four tasks were administered to experimental participants under each menu design in a within users experimental design. Overall task time, number of errors and participants' subjective opinions were measured. The data were statistically analysed. There were no statistically significant results for task times and errors. However, subjective opinions were overall statistically significant, suggesting a preference for the pie menu by participants. These results are interesting for all web designers, user interface designers and developers. The issues being investigated are rather complex, because there is no clear pattern of results to suggest a categorical \u2018best design\u2019. These results add to the current knowledge in existence regarding menu types and to the wish of understanding better the issues involved with menu types. Keywords: Pie menus, radial menus, linear menus, usability, evalu\n",
+      "name": "search_with_content"
+    },
+    {
+      "role": "assistant",
+      "content": "[Calling tools]"
+    },
+    {
+      "role": "tool",
+      "content": "Found 1 web results with content:\n\n1. Pie Menus or Linear Menus, Which Is Better?\n   URL: https://pietromurano.org/Papers/Murano-Khan-Published-Version.pdf\n   Site: pietromurano.org\n   Summary: by P Murano \u00b7 2015 \u00b7 Cited by 8 \u2014 \u00a92009-2015 CIS Journal. All rights reserved. http://www.cisjournal.org. 476. Pie Menus or Linear Menus, Which Is Better? 1 Pietro Murano, 2 Iram N. Khan. 1 ...\n   Content: Vol. 6, No. 9, September 2015 ISSN 2079-8407 Journal of Emerging Trends in Computing and Information Sciences \u00a92009-2015 CIS Journal. All rights reserved. http://www.cisjournal.org Pie Menus or Linear Menus, Which Is Better? 1 Pietro Murano, 2 Iram N. Khan 1 Department of Computer Science, the Universal Design of ICT Research Group, Oslo and Akershus University College of Applied Sciences, Oslo, Norway 2 University of Salford, School of Computing, Science and Engineering, Salford, M5 4WT, UK 1 pietro.murano@hioa.no, 2I.N.Khan@edu.salford.ac.uk ABSTRACT This paper is about a continuing investigation aiming to find out which menu type is more useable on a web site or application. This paper specifically compares pie menus with linear menus. Although other researchers have investigated similar themes it is felt that there is still not enough knowledge regarding the various effects of different menu types, including their positioning on a screen. An empirical approach using an experiment to test the effectiveness and user satisfaction of a pie menu and a linear menu is described in detail. Four tasks were administered to experimental participants under each menu design in a within users experimental design. Overall task time, number of errors and participants' subjective opinions were measured. The data were statistically analysed. There were no statistically significant results for task times and errors. However, subjective opinions were overall statistically significant, suggesting a preference for the pie menu by participants. These results are interesting for all web designers, user interface designers and developers. The issues being investigated are rather complex, because there is no clear pattern of results to suggest a categorical \u2018best design\u2019. These results add to the current knowledge in existence regarding menu types and to the wish of understanding better the issues involved with menu types. Keywords: Pie menus, radial menus, linear menus, usability, evalu\n",
+      "name": "search_with_content"
+    },
+    {
+      "role": "tool",
+      "content": "Found 1 web results with content:\n\n1. Publications - Pietro Murano\n   URL: https://pietromurano.org/publications.html\n   Site: pietromurano.org\n   Summary: Murano, Pietro (2006) Why Anthropomorphic User Interface Feedback can be Effective and Preferred by Users, In Enterprise Information Systems 7, Eds. Chen, Chin- ...\n   Content: Pietro Murano - Publications Pietro Murano Publications Home Research Lecturing Administration Popular Media Contact This section lists all my publications and where possible the publications are included. Click on a title to read a paper. INTERNATIONAL REFEREED JOURNAL PAPERS Keya, Rashika Tasnim, Heldal, Ilona, Patel, Daniel, Murano, Pietro & Wijkmark, Cecilia Hammar (2025) Implementing Virtual Reality for Fire Evacuation Preparedness at Schools - PDF , Computers, 14, 286. Al-Jasim, Alyaa & Murano, Pietro (2023) Designing User Interface Toggles for Usability - PDF , Journal of User Experience, Volume 18, Issue 4, August 2023. Shrestha, Sayush Lal & Murano, Pietro (2022) The Design and Evaluation of an Online Dictionary User\nInterface - PDF , International Journal of Computing and Digital Systems, Volume 1, March 2022. Keya, Rashika Tasnim & Murano, Pietro (2022) Is Carousel Interaction Really Usable? - PDF , First Monday, Volume 27, Issue 1, January 2022. Chaudhary, Karan Singh & Murano, Pietro (2021) The Design and Evaluation of a New Smartwatch User Interface- PDF , International Journal of Interactive Mobile Technologies (iJIM), Vol. 15, Issue 13, 2021. Awale, Bikram & Murano, Pietro (2020) A Preliminary Usability and Universal Design Evaluation of a Television App User Interface - PDF , Baltic Journal of Modern Computing, Vol. 8, Issue 3, 2020. Sharma, Sushil & Murano, Pietro (2020) A Usability Evaluation of Web User Interface Scrolling Types - PDF , First Monday, Vol. 25, Issue 3, February 2020. Suru, Hassan Umar & Murano, Pietro (2019) Security and User Interface Usability of Graphical Authentication Systems A Review\n - PDF , International Journal of Computer Trends and Technology, Vol. 67, Issue 2, February, p.17-36. Murano, Pietro & Ali, Rao Muhammad Danial (2018) A Preliminary Investigation into the Usability of Force Touch Interaction in a Mobile Context\n - PDF , International Journal of Interactive Mobile Technologies, Vol. 12, Issue 5, p.169-181. Shres\n",
+      "name": "search_with_content"
+    },
+    {
+      "role": "assistant",
+      "content": "[Calling tools]"
+    },
+    {
+      "role": "tool",
+      "content": "Found 1 web results with content:\n\n1. Publications\n   URL: https://pietromurano.org/publications.html\n   Site: pietromurano.org\n   Summary: Murano, Pietro (2001) A New Software Agent 'Learning' Algorithm - PDF, People in Control An International Conference on Human Interfaces in Control Rooms, ...\n   Content: Pietro Murano - Publications Pietro Murano Publications Home Research Lecturing Administration Popular Media Contact This section lists all my publications and where possible the publications are included. Click on a title to read a paper. INTERNATIONAL REFEREED JOURNAL PAPERS Keya, Rashika Tasnim, Heldal, Ilona, Patel, Daniel, Murano, Pietro & Wijkmark, Cecilia Hammar (2025) Implementing Virtual Reality for Fire Evacuation Preparedness at Schools - PDF , Computers, 14, 286. Al-Jasim, Alyaa & Murano, Pietro (2023) Designing User Interface Toggles for Usability - PDF , Journal of User Experience, Volume 18, Issue 4, August 2023. Shrestha, Sayush Lal & Murano, Pietro (2022) The Design and Evaluation of an Online Dictionary User\nInterface - PDF , International Journal of Computing and Digital Systems, Volume 1, March 2022. Keya, Rashika Tasnim & Murano, Pietro (2022) Is Carousel Interaction Really Usable? - PDF , First Monday, Volume 27, Issue 1, January 2022. Chaudhary, Karan Singh & Murano, Pietro (2021) The Design and Evaluation of a New Smartwatch User Interface- PDF , International Journal of Interactive Mobile Technologies (iJIM), Vol. 15, Issue 13, 2021. Awale, Bikram & Murano, Pietro (2020) A Preliminary Usability and Universal Design Evaluation of a Television App User Interface - PDF , Baltic Journal of Modern Computing, Vol. 8, Issue 3, 2020. Sharma, Sushil & Murano, Pietro (2020) A Usability Evaluation of Web User Interface Scrolling Types - PDF , First Monday, Vol. 25, Issue 3, February 2020. Suru, Hassan Umar & Murano, Pietro (2019) Security and User Interface Usability of Graphical Authentication Systems A Review\n - PDF , International Journal of Computer Trends and Technology, Vol. 67, Issue 2, February, p.17-36. Murano, Pietro & Ali, Rao Muhammad Danial (2018) A Preliminary Investigation into the Usability of Force Touch Interaction in a Mobile Context\n - PDF , International Journal of Interactive Mobile Technologies, Vol. 12, Issue 5, p.169-181. Shres\n",
+      "name": "search_with_content"
+    },
+    {
+      "role": "assistant",
+      "content": "[Calling tools]"
+    },
+    {
+      "role": "tool",
+      "content": "Found 1 web results with content:\n\n1. Publications\n   URL: https://pietromurano.org/publications.html\n   Site: pietromurano.org\n   Summary: Murano, Pietro (2001) A New Software Agent 'Learning' Algorithm - PDF, People in Control An International Conference on Human Interfaces in Control Rooms ...\n   Content: Pietro Murano - Publications Pietro Murano Publications Home Research Lecturing Administration Popular Media Contact This section lists all my publications and where possible the publications are included. Click on a title to read a paper. INTERNATIONAL REFEREED JOURNAL PAPERS Keya, Rashika Tasnim, Heldal, Ilona, Patel, Daniel, Murano, Pietro & Wijkmark, Cecilia Hammar (2025) Implementing Virtual Reality for Fire Evacuation Preparedness at Schools - PDF , Computers, 14, 286. Al-Jasim, Alyaa & Murano, Pietro (2023) Designing User Interface Toggles for Usability - PDF , Journal of User Experience, Volume 18, Issue 4, August 2023. Shrestha, Sayush Lal & Murano, Pietro (2022) The Design and Evaluation of an Online Dictionary User\nInterface - PDF , International Journal of Computing and Digital Systems, Volume 1, March 2022. Keya, Rashika Tasnim & Murano, Pietro (2022) Is Carousel Interaction Really Usable? - PDF , First Monday, Volume 27, Issue 1, January 2022. Chaudhary, Karan Singh & Murano, Pietro (2021) The Design and Evaluation of a New Smartwatch User Interface- PDF , International Journal of Interactive Mobile Technologies (iJIM), Vol. 15, Issue 13, 2021. Awale, Bikram & Murano, Pietro (2020) A Preliminary Usability and Universal Design Evaluation of a Television App User Interface - PDF , Baltic Journal of Modern Computing, Vol. 8, Issue 3, 2020. Sharma, Sushil & Murano, Pietro (2020) A Usability Evaluation of Web User Interface Scrolling Types - PDF , First Monday, Vol. 25, Issue 3, February 2020. Suru, Hassan Umar & Murano, Pietro (2019) Security and User Interface Usability of Graphical Authentication Systems A Review\n - PDF , International Journal of Computer Trends and Technology, Vol. 67, Issue 2, February, p.17-36. Murano, Pietro & Ali, Rao Muhammad Danial (2018) A Preliminary Investigation into the Usability of Force Touch Interaction in a Mobile Context\n - PDF , International Journal of Interactive Mobile Technologies, Vol. 12, Issue 5, p.169-181. Shres\n",
+      "name": "search_with_content"
+    },
+    {
+      "role": "assistant",
+      "content": "The 2015 paper lists two authors: Pietro Murano and Iram N. Khan. Among them, Pietro Murano had authored prior papers; his earliest listed publication is titled A New Software Agent 'Learning' Algorithm (2001).\n\nFINAL ANSWER: A New Software Agent 'Learning' Algorithm"
+    }
+  ],
+  "error": null
+}

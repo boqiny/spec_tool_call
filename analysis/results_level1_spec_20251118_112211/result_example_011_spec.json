@@ -1,0 +1,44 @@
+{
+  "task_id": "dc28cf18-6431-458b-83ef-64b3ce566c10",
+  "level": "1",
+  "question": "My family reunion is this week, and I was assigned the mashed potatoes to bring. The attendees include my married mother and father, my twin brother and his family, my aunt and her family, my grandma and her brother, her brother's daughter, and his daughter's family. All the adults but me have been married, and no one is divorced or remarried, but my grandpa and my grandma's sister-in-law passed away last year. All living spouses are attending. My brother has two children that are still kids, my aunt has one six-year-old, and my grandma's brother's daughter has three kids under 12. I figure each adult will eat about 1.5 potatoes of mashed potatoes and each kid will eat about 1/2 a potato of mashed potatoes, except my second cousins don't eat carbs. The average potato is about half a pound, and potatoes are sold in 5-pound bags. How many whole bags of potatoes do I need? Just give the number.",
+  "ground_truth": "2",
+  "predicted": "2",
+  "correct": true,
+  "steps": 1,
+  "time_seconds": 71.61046719551086,
+  "actor_model": "gpt-5",
+  "spec_model": "gpt-5-mini",
+  "speculation_enabled": true,
+  "verification_strategy": "exact",
+  "spec_hits": 0,
+  "spec_misses": 0,
+  "spec_predictions": 0,
+  "trajectory": [
+    {
+      "node": "start",
+      "question": "My family reunion is this week, and I was assigned the mashed potatoes to bring. The attendees include my married mother and father, my twin brother and his family, my aunt and her family, my grandma and her brother, her brother's daughter, and his daughter's family. All the adults but me have been married, and no one is divorced or remarried, but my grandpa and my grandma's sister-in-law passed away last year. All living spouses are attending. My brother has two children that are still kids, my aunt has one six-year-old, and my grandma's brother's daughter has three kids under 12. I figure each adult will eat about 1.5 potatoes of mashed potatoes and each kid will eat about 1/2 a potato of mashed potatoes, except my second cousins don't eat carbs. The average potato is about half a pound, and potatoes are sold in 5-pound bags. How many whole bags of potatoes do I need? Just give the number.",
+      "timestamp": 0
+    },
+    {
+      "node": "llm",
+      "timestamp": 71.6101861000061,
+      "step": 1,
+      "actor_model": "gpt-5",
+      "llm_time": 71.60533881187439,
+      "actor_reasoning": "Count adults and kids who will eat:\n- Adults: me, mom, dad, brother, brother\u2019s spouse, aunt, aunt\u2019s spouse, grandma, grandma\u2019s brother, grandma\u2019s brother\u2019s daughter, her spouse = 11\n- Kids who eat: brother\u2019s 2 + aunt\u2019s 1 = 3 (exclude 3 second cousins)\n\nPotatoes needed: 11\u00d71.5 + 3\u00d70.5 = 18 potatoes = 9 lb\nBags: 9/5 = 1.8 \u2192 2 whole bags\n\nFINAL ANSWER: 2",
+      "final_answer": "2"
+    }
+  ],
+  "messages": [
+    {
+      "role": "user",
+      "content": "My family reunion is this week, and I was assigned the mashed potatoes to bring. The attendees include my married mother and father, my twin brother and his family, my aunt and her family, my grandma and her brother, her brother's daughter, and his daughter's family. All the adults but me have been married, and no one is divorced or remarried, but my grandpa and my grandma's sister-in-law passed away last year. All living spouses are attending. My brother has two children that are still kids, my aunt has one six-year-old, and my grandma's brother's daughter has three kids under 12. I figure each adult will eat about 1.5 potatoes of mashed potatoes and each kid will eat about 1/2 a potato of mashed potatoes, except my second cousins don't eat carbs. The average potato is about half a pound, and potatoes are sold in 5-pound bags. How many whole bags of potatoes do I need? Just give the number."
+    },
+    {
+      "role": "assistant",
+      "content": "Count adults and kids who will eat:\n- Adults: me, mom, dad, brother, brother\u2019s spouse, aunt, aunt\u2019s spouse, grandma, grandma\u2019s brother, grandma\u2019s brother\u2019s daughter, her spouse = 11\n- Kids who eat: brother\u2019s 2 + aunt\u2019s 1 = 3 (exclude 3 second cousins)\n\nPotatoes needed: 11\u00d71.5 + 3\u00d70.5 = 18 potatoes = 9 lb\nBags: 9/5 = 1.8 \u2192 2 whole bags\n\nFINAL ANSWER: 2"
+    }
+  ],
+  "error": null
+}

@@ -1,0 +1,44 @@
+{
+  "task_id": "27d5d136-8563-469e-92bf-fd103c28b57c",
+  "level": "1",
+  "question": "\u00ac(A \u2227 B) \u2194 (\u00acA \u2228 \u00acB)\n\u00ac(A \u2228 B) \u2194 (\u00acA \u2227 \u00acB)\n(A \u2192 B) \u2194 (\u00acB \u2192 \u00acA)\n(A \u2192 B) \u2194 (\u00acA \u2228 B)\n(\u00acA \u2192 B) \u2194 (A \u2228 \u00acB)\n\u00ac(A \u2192 B) \u2194 (A \u2227 \u00acB)\n\nWhich of the above is not logically equivalent to the rest? Provide the full statement that doesn't fit.",
+  "ground_truth": "(\u00acA \u2192 B) \u2194 (A \u2228 \u00acB)",
+  "predicted": "(\u00acA \u2192 B) \u2194 (A \u2228 \u00acB)",
+  "correct": true,
+  "steps": 1,
+  "time_seconds": 15.185056924819946,
+  "actor_model": "gpt-5",
+  "spec_model": "gpt-5-mini",
+  "speculation_enabled": true,
+  "verification_strategy": "exact",
+  "spec_hits": 0,
+  "spec_misses": 0,
+  "spec_predictions": 0,
+  "trajectory": [
+    {
+      "node": "start",
+      "question": "\u00ac(A \u2227 B) \u2194 (\u00acA \u2228 \u00acB)\n\u00ac(A \u2228 B) \u2194 (\u00acA \u2227 \u00acB)\n(A \u2192 B) \u2194 (\u00acB \u2192 \u00acA)\n(A \u2192 B) \u2194 (\u00acA \u2228 B)\n(\u00acA \u2192 B) \u2194 (A \u2228 \u00acB)\n\u00ac(A \u2192 B) \u2194 (A \u2227 \u00acB)\n\nWhich of the above is not logically equivalent to the rest? Provide the full statement that doesn't fit.",
+      "timestamp": 0
+    },
+    {
+      "node": "llm",
+      "timestamp": 15.184707880020142,
+      "step": 1,
+      "actor_model": "gpt-5",
+      "llm_time": 15.003093004226685,
+      "actor_reasoning": "All but one are tautologies. Since \u00acA \u2192 B is equivalent to A \u2228 B, not A \u2228 \u00acB, the fifth line is the only non-equivalence.\n\nFINAL ANSWER: (\u00acA \u2192 B) \u2194 (A \u2228 \u00acB)",
+      "final_answer": "(\u00acA \u2192 B) \u2194 (A \u2228 \u00acB)"
+    }
+  ],
+  "messages": [
+    {
+      "role": "user",
+      "content": "\u00ac(A \u2227 B) \u2194 (\u00acA \u2228 \u00acB)\n\u00ac(A \u2228 B) \u2194 (\u00acA \u2227 \u00acB)\n(A \u2192 B) \u2194 (\u00acB \u2192 \u00acA)\n(A \u2192 B) \u2194 (\u00acA \u2228 B)\n(\u00acA \u2192 B) \u2194 (A \u2228 \u00acB)\n\u00ac(A \u2192 B) \u2194 (A \u2227 \u00acB)\n\nWhich of the above is not logically equivalent to the rest? Provide the full statement that doesn't fit."
+    },
+    {
+      "role": "assistant",
+      "content": "All but one are tautologies. Since \u00acA \u2192 B is equivalent to A \u2228 B, not A \u2228 \u00acB, the fifth line is the only non-equivalence.\n\nFINAL ANSWER: (\u00acA \u2192 B) \u2194 (A \u2228 \u00acB)"
+    }
+  ],
+  "error": null
+}
