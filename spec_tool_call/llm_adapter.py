@@ -1,14 +1,14 @@
 """LLM adapter using proper LangGraph tool calling pattern."""
 from typing import List
-from langchain.chat_models import init_chat_model
+from langchain_openai import ChatOpenAI
 from langchain_core.messages import SystemMessage, HumanMessage, AIMessage
 
 from .models import Msg
 from .config import config
 
 
-# System prompt with GAIA formatting rules
-SYSTEM_PROMPT = (
+# System prompt for OpenAI models
+SYSTEM_PROMPT_OPENAI = (
     "You are an AI assistant that helps answer questions by using tools.\n"
     "\n## Available Tools:\n"
     "\n**Search & Web:**\n"
@@ -35,10 +35,76 @@ SYSTEM_PROMPT = (
     "- For lists: Apply above rules per element\n"
 )
 
+# System prompt for open-source models (vLLM) - more explicit about tool usage
+SYSTEM_PROMPT_VLLM = (
+    "You are an AI assistant that solves questions by using tools. You MUST use tools to gather information.\n"
+    "\n## 🔧 CRITICAL: USE TOOLS FREQUENTLY!\n"
+    "- DO NOT try to answer from memory or reasoning alone\n"
+    "- ALWAYS use search_with_content to look up facts, data, and information\n"
+    "- Use multiple tool calls if needed to gather all required information\n"
+    "- Use code_exec for calculations and data processing\n"
+    "\n## Available Tools:\n"
+    "\n**Search & Web (USE THIS OFTEN!):**\n"
+    "- search_with_content: Search with full page content - USE THIS to find facts and data\n"
+    "\n**Files:**\n"
+    "- file_read: Read files (CSV, XLSX, PDF, DOCX, TXT, JSON, YAML, XML, HTML)\n"
+    "\n**Computation:**\n"
+    "- calculate: Evaluate math expressions like (356400/42.195)/(2+1/60+9/3600)\n"
+    "- code_exec: Execute Python code for complex calculations\n"
+    "- code_generate: Generate Python code\n"
+    "\n**Vision:**\n"
+    "- vision_analyze: Analyze images\n"
+    "- vision_ocr: Extract text from images\n"
+    "\n## Step-by-Step Process:\n"
+    "1. Read the question carefully\n"
+    "2. Identify what information you need\n"
+    "3. USE TOOLS to gather that information (search, calculate, read files, etc.)\n"
+    "4. If you need more information, USE MORE TOOLS\n"
+    "5. Only after gathering ALL needed information, provide your final answer\n"
+    "\n## Final Answer Format:\n"
+    "When ready to answer, respond with: FINAL ANSWER: [YOUR FINAL ANSWER]\n"
+    "\n**Formatting Rules:**\n"
+    "- YOUR FINAL ANSWER should be a number OR as few words as possible OR a comma separated list\n"
+    "- For numbers: Don't use commas or units (like $ or %) unless specified\n"
+    "- For strings: Don't use articles or abbreviations, write digits in plain text\n"
+    "- Pay attention to the question's units (e.g., 'how many thousand hours' means answer in thousands)\n"
+    "- For lists: Apply above rules per element\n"
+)
 
 # Cache for models (initialized on first use, after .env is loaded)
 _actor_model = None
 _spec_model = None
+
+
+def get_system_prompt() -> str:
+    """Get the appropriate system prompt based on model provider."""
+    if config.model_provider == "vllm":
+        return SYSTEM_PROMPT_VLLM
+    return SYSTEM_PROMPT_OPENAI
+
+
+# For backward compatibility
+SYSTEM_PROMPT = SYSTEM_PROMPT_OPENAI
+
+
+def _create_model(model_name: str):
+    """Create a chat model based on configured provider."""
+    if config.model_provider == "vllm":
+        # Use vLLM via OpenAI-compatible API
+        return ChatOpenAI(
+            model=model_name,
+            openai_api_key=config.vllm_api_key,
+            openai_api_base=config.vllm_base_url,
+            temperature=0,
+            max_tokens=config.llm_max_tokens,
+        )
+    else:
+        # Use OpenAI
+        return ChatOpenAI(
+            model=model_name,
+            temperature=0,
+            max_tokens=config.llm_max_tokens,
+        )
 
 
 def get_actor_model():
@@ -47,7 +113,7 @@ def get_actor_model():
     if _actor_model is None:
         from .tools_langchain import ALL_TOOLS
         
-        model = init_chat_model(config.actor_model, model_provider="openai")
+        model = _create_model(config.actor_model)
         _actor_model = model.bind_tools(ALL_TOOLS)
     return _actor_model
 
@@ -58,7 +124,7 @@ def get_spec_model():
     if _spec_model is None:
         from .tools_langchain import READ_ONLY_TOOLS
         
-        model = init_chat_model(config.spec_model, model_provider="openai")
+        model = _create_model(config.spec_model)
         _spec_model = model.bind_tools(READ_ONLY_TOOLS)
     return _spec_model
 

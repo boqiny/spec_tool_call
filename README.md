@@ -90,13 +90,46 @@ Time: 0s            2s      4s                     10s    10.001s
 # Install dependencies
 pip install -r requirements.txt
 
-# Set API keys
-export OPENAI_API_KEY="your-key"
-export SERPER_API_KEY="your-key"  # For web search
-
 # Download GAIA dataset
 python3 download_gaia.py
 ```
+
+### Option 1: Using OpenAI Models
+
+```bash
+# Set API keys
+export OPENAI_API_KEY="your-openai-key"
+export SERPER_API_KEY="your-serper-key"  # For web search
+
+# Configure models (optional, defaults shown)
+export MODEL_PROVIDER="openai"
+export GAIA_ACTOR_MODEL="gpt-5"
+export GAIA_SPEC_MODEL="gpt-5-mini"
+```
+
+### Option 2: Using Open-Source Models via vLLM
+
+```bash
+# Start vLLM server with tool calling support
+CUDA_VISIBLE_DEVICES=0 vllm serve /path/to/your/model \
+    --port 8003 \
+    --host 0.0.0.0 \
+    --enable-auto-tool-choice \
+    --tool-call-parser hermes
+
+# Configure to use vLLM
+export MODEL_PROVIDER="vllm"
+export VLLM_BASE_URL="http://localhost:8003/v1"
+export GAIA_ACTOR_MODEL="/path/to/your/model"
+export GAIA_SPEC_MODEL="/path/to/your/model"
+export SERPER_API_KEY="your-serper-key"  # For web search
+```
+
+**Supported vLLM models:**
+- Qwen/Qwen2.5-* (recommended, uses `--tool-call-parser hermes`)
+- Qwen/QwQ-32B
+- meta-llama/Llama-3.1-* (use `--tool-call-parser llama3_json`)
+- See [vLLM Tool Calling docs](https://docs.vllm.ai/en/stable/features/tool_calling/) for more
 
 ## Running Evaluations
 
@@ -134,18 +167,25 @@ python eval.py --batch --level 1 --output my_results/
 
 ## Configuration
 
-Set via environment variables:
+All configuration is via environment variables (see `env.example` for full list):
 
 ```bash
-# Models
-export GAIA_ACTOR_MODEL="gpt-5"           # Main reasoning model
-export GAIA_SPEC_MODEL="gpt-5-mini"       # Speculation model
+# Model Provider
+export MODEL_PROVIDER="openai"            # "openai" or "vllm"
 
-# Limits
+# Models (format depends on provider)
+export GAIA_ACTOR_MODEL="gpt-5"           # Main reasoning model
+export GAIA_SPEC_MODEL="gpt-5-mini"       # Speculation model (smaller/faster)
+
+# vLLM Settings (only if MODEL_PROVIDER=vllm)
+export VLLM_BASE_URL="http://localhost:8003/v1"
+
+# Execution Limits
 export GAIA_MAX_STEPS="15"                # Max reasoning steps
 
 # Speculation
-export DISABLE_SPECULATION="1"            # Disable for baseline
+export DISABLE_SPECULATION="1"            # Set to "1" to disable (baseline mode)
+export VERIFICATION_STRATEGY="exact"      # "exact", "tool_name_only", or "none"
 ```
 
 ## Output

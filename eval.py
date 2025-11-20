@@ -7,11 +7,12 @@ import time
 from pathlib import Path
 from dotenv import load_dotenv
 
+# Load .env BEFORE importing config
+load_dotenv()
+
 from spec_tool_call import build_graph, Msg
 from spec_tool_call.models import RunState
 from spec_tool_call.config import config
-
-load_dotenv()
 
 
 async def run_example(example_dir: Path, app=None, verbose=True):
@@ -570,3 +571,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+# python eval.py gaia_dataset/level1/example_000

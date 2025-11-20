@@ -9,9 +9,16 @@ class SpecConfig:
     # Execution mode
     enable_speculation: bool = True  # Set to False for baseline actor-only mode
     
+    # Model provider: "openai" or "vllm"
+    model_provider: str = "openai"
+    
     # Models
     actor_model: str = "gpt-5"
     spec_model: str = "gpt-5-mini"
+    
+    # vLLM settings (only used when model_provider="vllm")
+    vllm_base_url: str = "http://localhost:8003/v1"
+    vllm_api_key: str = "EMPTY"  # vLLM doesn't need real API key
 
     # Speculation parameters
     top_k_spec: int = 3
@@ -28,8 +35,11 @@ class SpecConfig:
         """Load configuration from environment variables."""
         return cls(
             enable_speculation=(os.getenv("DISABLE_SPECULATION", "0") != "1"),
+            model_provider=os.getenv("MODEL_PROVIDER", "openai"),
             actor_model=os.getenv("GAIA_ACTOR_MODEL", "gpt-5"),
             spec_model=os.getenv("GAIA_SPEC_MODEL", "gpt-5-mini"),
+            vllm_base_url=os.getenv("VLLM_BASE_URL", "http://localhost:8003/v1"),
+            vllm_api_key=os.getenv("VLLM_API_KEY", "EMPTY"),
             top_k_spec=int(os.getenv("GAIA_TOPK", "3")),
             verification_strategy=os.getenv("VERIFICATION_STRATEGY", "exact"),
             max_steps=int(os.getenv("GAIA_MAX_STEPS", "15")),

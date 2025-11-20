@@ -8,7 +8,7 @@ from langgraph.graph import StateGraph, END, START
 from langgraph.checkpoint.memory import MemorySaver
 
 from .models import RunState, Msg
-from .llm_adapter import get_actor_model, get_spec_model, convert_msg_to_langchain, SYSTEM_PROMPT
+from .llm_adapter import get_actor_model, get_spec_model, convert_msg_to_langchain, get_system_prompt
 from .tools_langchain import TOOLS_BY_NAME
 from .config import config
 from .verifier import create_verifier
@@ -38,7 +38,7 @@ async def launch_speculation(state: RunState) -> None:
     spec_model = get_spec_model()
     
     # Convert messages to LangChain format
-    lc_messages = [SystemMessage(content=SYSTEM_PROMPT)] + convert_msg_to_langchain(state.messages)
+    lc_messages = [SystemMessage(content=get_system_prompt())] + convert_msg_to_langchain(state.messages)
     
     # Call spec model to predict next tool call
     try:
@@ -174,11 +174,11 @@ async def node_llm(state: RunState) -> RunState:
         print(f"\n⚠️  MAX STEPS REACHED ({config.max_steps}). Forcing final answer...")
         
         # Get model WITHOUT tools to force text response
-        from langchain.chat_models import init_chat_model
-        model_no_tools = init_chat_model(config.actor_model, model_provider="openai")
+        from .llm_adapter import _create_model
+        model_no_tools = _create_model(config.actor_model)
         
-        # Build messages with conversation history (formatting rules already in SYSTEM_PROMPT)
-        lc_messages = [SystemMessage(content=SYSTEM_PROMPT)] + convert_msg_to_langchain(state.messages)
+        # Build messages with conversation history (formatting rules already in system prompt)
+        lc_messages = [SystemMessage(content=get_system_prompt())] + convert_msg_to_langchain(state.messages)
         lc_messages.append(HumanMessage(content=(
             "You have reached the maximum number of steps. Based on all the information gathered above, "
             "provide your best final answer now. Remember to follow the formatting rules in the system prompt."
@@ -209,7 +209,7 @@ async def node_llm(state: RunState) -> RunState:
     model = get_actor_model()
     
     # Convert messages to LangChain format
-    lc_messages = [SystemMessage(content=SYSTEM_PROMPT)] + convert_msg_to_langchain(state.messages)
+    lc_messages = [SystemMessage(content=get_system_prompt())] + convert_msg_to_langchain(state.messages)
     
     # ⚡ PARALLEL EXECUTION: Run actor and spec model at the same time
     start_time = time.time()
@@ -369,13 +369,14 @@ async def node_tools(state: RunState) -> RunState:
     return state
 
 
-def route_after_llm(state: RunState) -> Literal["tools", END]:
-    """Route after LLM: to tools if there are tool calls, otherwise end."""
+def route_after_llm(state: RunState) -> Literal["tools", "llm", END]:
+    """Route after LLM: to tools if there are tool calls, back to llm if just thinking, or end if done."""
     if state.done:
         return END
     if hasattr(state, 'pending_tool_calls') and state.pending_tool_calls:
         return "tools"
-    return END
+    # No tool calls and not done - continue reasoning
+    return "llm"
 
 
 def route_after_tools(state: RunState) -> Literal["llm", END]:
@@ -401,11 +402,11 @@ def build_graph():
     # Define edges
     workflow.add_edge(START, "llm")
     
-    # LLM can go to tools or end
+    # LLM can go to tools, loop back to itself, or end
     workflow.add_conditional_edges(
         "llm",
         route_after_llm,
-        {"tools": "tools", END: END}
+        {"tools": "tools", "llm": "llm", END: END}
     )
     
     # Tools always go back to LLM (for reasoning about results)
