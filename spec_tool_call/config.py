@@ -17,7 +17,8 @@ class SpecConfig:
     spec_model: str = "gpt-5-mini"
     
     # vLLM settings (only used when model_provider="vllm")
-    vllm_base_url: str = "http://localhost:8003/v1"
+    vllm_actor_url: str = "http://localhost:8003/v1"  # Actor model endpoint
+    vllm_spec_url: str = "http://localhost:8004/v1"   # Spec model endpoint
     vllm_api_key: str = "EMPTY"  # vLLM doesn't need real API key
 
     # Speculation parameters
@@ -38,7 +39,8 @@ class SpecConfig:
             model_provider=os.getenv("MODEL_PROVIDER", "openai"),
             actor_model=os.getenv("GAIA_ACTOR_MODEL", "gpt-5"),
             spec_model=os.getenv("GAIA_SPEC_MODEL", "gpt-5-mini"),
-            vllm_base_url=os.getenv("VLLM_BASE_URL", "http://localhost:8003/v1"),
+            vllm_actor_url=os.getenv("VLLM_ACTOR_URL", "http://localhost:8003/v1"),
+            vllm_spec_url=os.getenv("VLLM_SPEC_URL", "http://localhost:8004/v1"),
             vllm_api_key=os.getenv("VLLM_API_KEY", "EMPTY"),
             top_k_spec=int(os.getenv("GAIA_TOPK", "3")),
             verification_strategy=os.getenv("VERIFICATION_STRATEGY", "exact"),

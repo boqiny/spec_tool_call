@@ -129,6 +129,169 @@ class ToolNameOnlyVerifier(ToolVerifier):
         return False, 0.0, f"Tool mismatch: {spec_tool_name} != {actor_tool_name}"
 
 
+class JaccardSimilarityVerifier(ToolVerifier):
+    """
+    Jaccard similarity verifier - uses normalized token-based Jaccard similarity.
+    
+    This is a balanced strategy that handles word order and minor variations:
+    - Tool names must match exactly
+    - Arguments are normalized (lowercase, remove stopwords)
+    - Jaccard similarity computed on token sets
+    - Accepts if similarity >= threshold
+    
+    Pros: Handles word order, typos, and minor variations; Fast (~1ms)
+    Cons: May accept semantically different queries with similar words
+    
+    Recommended for search queries where word order doesn't matter much.
+    """
+    
+    def __init__(self, threshold: float = 0.6):
+        """
+        Initialize verifier with similarity threshold.
+        
+        Args:
+            threshold: Minimum Jaccard similarity to accept (0.0 to 1.0)
+                      Recommended: 0.6-0.7 for balanced flexibility
+        """
+        self.threshold = threshold
+        # Common stopwords to remove (expand as needed)
+        self.stopwords = {
+            'the', 'a', 'an', 'and', 'or', 'but', 'in', 'on', 'at', 'to', 
+            'for', 'of', 'with', 'by', 'from', 'as', 'is', 'was', 'are'
+        }
+    
+    def verify(
+        self,
+        actor_tool_name: str,
+        actor_tool_args: Dict[str, Any],
+        spec_tool_name: str,
+        spec_tool_args: Dict[str, Any]
+    ) -> tuple[bool, float, str]:
+        # Tool names must match exactly
+        if actor_tool_name != spec_tool_name:
+            return False, 0.0, f"Tool mismatch: {spec_tool_name} != {actor_tool_name}"
+        
+        # For non-string arguments, require exact match
+        if not self._has_string_args(actor_tool_args) or not self._has_string_args(spec_tool_args):
+            # Fall back to exact comparison for non-string args
+            if actor_tool_args == spec_tool_args:
+                return True, 1.0, "Exact match (non-string args)"
+            return False, 0.0, "Non-string args don't match exactly"
+        
+        # Compare arguments using Jaccard similarity
+        similarity = self._compute_args_similarity(actor_tool_args, spec_tool_args)
+        
+        if similarity >= self.threshold:
+            return True, similarity, f"Jaccard similarity {similarity:.3f} >= {self.threshold}"
+        else:
+            return False, similarity, f"Jaccard similarity {similarity:.3f} < {self.threshold}"
+    
+    def _has_string_args(self, args: Dict[str, Any]) -> bool:
+        """Check if arguments contain string values."""
+        return any(isinstance(v, str) for v in args.values())
+    
+    def _normalize_string(self, text: str) -> set:
+        """
+        Normalize a string and return set of tokens.
+        
+        Steps:
+        1. Lowercase
+        2. Split into words
+        3. Remove stopwords
+        4. Remove punctuation
+        5. Return set of tokens
+        """
+        if not isinstance(text, str):
+            return {str(text)}
+        
+        # Lowercase and split
+        text = text.lower()
+        
+        # Simple tokenization (split on whitespace and common punctuation)
+        import re
+        tokens = re.findall(r'\b\w+\b', text)
+        
+        # Remove stopwords
+        tokens = [t for t in tokens if t not in self.stopwords]
+        
+        return set(tokens)
+    
+    def _jaccard_similarity(self, set1: set, set2: set) -> float:
+        """
+        Compute Jaccard similarity between two sets.
+        
+        Jaccard = |intersection| / |union|
+        
+        Returns:
+            Float between 0.0 (no overlap) and 1.0 (identical)
+        """
+        if not set1 and not set2:
+            return 1.0  # Both empty = identical
+        
+        if not set1 or not set2:
+            return 0.0  # One empty = no similarity
+        
+        intersection = len(set1 & set2)
+        union = len(set1 | set2)
+        
+        return intersection / union if union > 0 else 0.0
+    
+    def _compute_args_similarity(
+        self, 
+        args1: Dict[str, Any], 
+        args2: Dict[str, Any]
+    ) -> float:
+        """
+        Compute overall similarity between two argument dictionaries.
+        
+        Strategy:
+        1. Check if keys match (if not, return 0)
+        2. For each key, compute Jaccard similarity of values
+        3. Return average similarity across all keys
+        """
+        # Keys must match
+        keys1 = set(args1.keys())
+        keys2 = set(args2.keys())
+        
+        if keys1 != keys2:
+            # Different keys = different arguments
+            return 0.0
+        
+        # Compute similarity for each key
+        similarities = []
+        
+        for key in keys1:
+            val1 = args1[key]
+            val2 = args2[key]
+            
+            # Handle different types
+            if type(val1) != type(val2):
+                similarities.append(0.0)
+                continue
+            
+            if isinstance(val1, str):
+                # String comparison using Jaccard
+                tokens1 = self._normalize_string(val1)
+                tokens2 = self._normalize_string(val2)
+                sim = self._jaccard_similarity(tokens1, tokens2)
+                similarities.append(sim)
+            
+            elif isinstance(val1, (int, float, bool)):
+                # Exact match for numbers/booleans
+                similarities.append(1.0 if val1 == val2 else 0.0)
+            
+            elif isinstance(val1, (list, dict)):
+                # Exact match for complex types (could be improved)
+                similarities.append(1.0 if val1 == val2 else 0.0)
+            
+            else:
+                # Unknown type - exact match
+                similarities.append(1.0 if val1 == val2 else 0.0)
+        
+        # Return average similarity
+        return sum(similarities) / len(similarities) if similarities else 0.0
+
+
 class NoSpeculationVerifier(ToolVerifier):
     """
     No speculation verifier - always returns False to disable speculation.
@@ -147,18 +310,20 @@ class NoSpeculationVerifier(ToolVerifier):
 
 
 # Factory for creating verifiers
-def create_verifier(strategy: str = "exact") -> ToolVerifier:
+def create_verifier(strategy: str = "exact", threshold: float = 0.6) -> ToolVerifier:
     """
     Create a verifier instance based on strategy name.
     
     Args:
-        strategy: One of "exact", "tool_name_only", "none"
+        strategy: One of "exact", "jaccard", "tool_name_only", "none"
+        threshold: Similarity threshold for jaccard strategy (0.0 to 1.0, default 0.6)
         
     Returns:
         ToolVerifier instance
     """
     strategies = {
         "exact": ExactMatchVerifier,
+        "jaccard": JaccardSimilarityVerifier,
         "tool_name_only": ToolNameOnlyVerifier,
         "none": NoSpeculationVerifier,
     }
@@ -169,5 +334,9 @@ def create_verifier(strategy: str = "exact") -> ToolVerifier:
             f"Choose from: {', '.join(strategies.keys())}"
         )
     
-    return strategies[strategy]()
+    # Jaccard verifier takes a threshold parameter
+    if strategy == "jaccard":
+        return strategies[strategy](threshold=threshold)
+    else:
+        return strategies[strategy]()
 

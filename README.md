@@ -178,7 +178,8 @@ export GAIA_ACTOR_MODEL="gpt-5"           # Main reasoning model
 export GAIA_SPEC_MODEL="gpt-5-mini"       # Speculation model (smaller/faster)
 
 # vLLM Settings (only if MODEL_PROVIDER=vllm)
-export VLLM_BASE_URL="http://localhost:8003/v1"
+export VLLM_ACTOR_URL="http://localhost:8003/v1"  # Actor model endpoint
+export VLLM_SPEC_URL="http://localhost:8004/v1"   # Spec model endpoint
 
 # Execution Limits
 export GAIA_MAX_STEPS="15"                # Max reasoning steps

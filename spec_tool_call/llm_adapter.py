@@ -87,14 +87,22 @@ def get_system_prompt() -> str:
 SYSTEM_PROMPT = SYSTEM_PROMPT_OPENAI
 
 
-def _create_model(model_name: str):
-    """Create a chat model based on configured provider."""
+def _create_model(model_name: str, is_spec: bool = False):
+    """Create a chat model based on configured provider.
+    
+    Args:
+        model_name: Name/path of the model
+        is_spec: If True, use spec model endpoint; if False, use actor endpoint
+    """
     if config.model_provider == "vllm":
         # Use vLLM via OpenAI-compatible API
+        # Choose endpoint based on whether this is spec or actor model
+        base_url = config.vllm_spec_url if is_spec else config.vllm_actor_url
+        
         return ChatOpenAI(
             model=model_name,
             openai_api_key=config.vllm_api_key,
-            openai_api_base=config.vllm_base_url,
+            openai_api_base=base_url,
             temperature=0,
             max_tokens=config.llm_max_tokens,
         )
@@ -113,7 +121,7 @@ def get_actor_model():
     if _actor_model is None:
         from .tools_langchain import ALL_TOOLS
         
-        model = _create_model(config.actor_model)
+        model = _create_model(config.actor_model, is_spec=False)
         _actor_model = model.bind_tools(ALL_TOOLS)
     return _actor_model
 
@@ -124,7 +132,7 @@ def get_spec_model():
     if _spec_model is None:
         from .tools_langchain import READ_ONLY_TOOLS
         
-        model = _create_model(config.spec_model)
+        model = _create_model(config.spec_model, is_spec=True)
         _spec_model = model.bind_tools(READ_ONLY_TOOLS)
     return _spec_model
 

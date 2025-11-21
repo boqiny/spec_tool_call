@@ -175,7 +175,7 @@ async def node_llm(state: RunState) -> RunState:
         
         # Get model WITHOUT tools to force text response
         from .llm_adapter import _create_model
-        model_no_tools = _create_model(config.actor_model)
+        model_no_tools = _create_model(config.actor_model, is_spec=False)
         
         # Build messages with conversation history (formatting rules already in system prompt)
         lc_messages = [SystemMessage(content=get_system_prompt())] + convert_msg_to_langchain(state.messages)
