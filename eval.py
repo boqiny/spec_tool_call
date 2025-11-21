@@ -309,61 +309,25 @@ async def run_example(example_dir: Path, app=None, verbose=True):
                 hit_rate = hits / total_checks * 100
                 print(f"Hit Rate:    {hit_rate:.1f}%")
             
-            # Calculate timing impact (accounting for parallel execution)
-            total_spec_blocking = 0  # Only spec time that exceeds actor time
-            total_saved_from_hits = 0  # Time saved from cache hits
-            total_wasted_on_misses = 0  # Pre-exec time wasted on misses
-            
-            for event in trajectory_events:
-                if event.get("node") == "llm" and "spec_predictions" in event:
-                    actor_time = event.get("llm_time", 0)
-                    
-                    for pred in event["spec_predictions"]:
-                        spec_time = pred.get("spec_inference_time", 0)
-                        preexec_time = pred.get("exec_time", 0)
-                        
-                        # Spec runs in parallel - only count time that blocks actor
-                        if spec_time > actor_time:
-                            total_spec_blocking += (spec_time - actor_time)
-                        
-                        # Check if this prediction was used (from hits/misses)
-                        # We need to track this from the state, but for now estimate:
-                        # If pre_executed, it COULD have been used
-                        # Actual hits tracked in state.hits
-                        if pred.get("pre_executed"):
-                            # We'll allocate proportionally based on hit rate
-                            pass
-            
-            # Use actual hits/misses from state
-            if hits > 0:
-                # Estimate time saved: hits likely saved tool execution time
-                # Average tool time from trajectory
-                tool_times = []
-                for event in trajectory_events:
-                    if event.get("node") == "tools" and event.get("tool_time", 0) > 0.01:
-                        tool_times.append(event.get("tool_time"))
-                avg_tool_time = sum(tool_times) / len(tool_times) if tool_times else 0
-                total_saved_from_hits = hits * avg_tool_time
-            
-            if misses > 0:
-                # Misses = wasted pre-execution time
-                preexec_times = []
-                for event in trajectory_events:
-                    if event.get("node") == "llm" and "spec_predictions" in event:
-                        for pred in event["spec_predictions"]:
-                            if pred.get("pre_executed"):
-                                preexec_times.append(pred.get("exec_time", 0))
-                # Allocate wasted time based on misses
-                if preexec_times and len(preexec_times) >= misses:
-                    total_wasted_on_misses = sum(preexec_times[:misses])
-            
+            # Simple timing breakdown
             if total_checks > 0:
-                print(f"\nTiming:")
-                print(f"  Spec blocking:   {total_spec_blocking:.2f}s (time spec exceeded actor)")
-                print(f"  Time saved:      {total_saved_from_hits:.2f}s (from {hits} cache hits)")
-                print(f"  Time wasted:     {total_wasted_on_misses:.2f}s (from {misses} pre-exec misses)")
-                net_benefit = total_saved_from_hits - total_wasted_on_misses - total_spec_blocking
-                print(f"  Net benefit:     {net_benefit:+.2f}s")
+                total_actor_time = sum(e.get("llm_time", 0) for e in trajectory_events if e.get("node") == "llm")
+                total_spec_time = sum(
+                    pred.get("spec_inference_time", 0) 
+                    for e in trajectory_events if e.get("node") == "llm" 
+                    for pred in e.get("spec_predictions", [])
+                )
+                total_tool_exec_time = sum(
+                    pred.get("exec_time", 0) 
+                    for e in trajectory_events if e.get("node") == "llm" 
+                    for pred in e.get("spec_predictions", []) 
+                    if pred.get("pre_executed")
+                )
+                
+                print(f"\nTiming Breakdown:")
+                print(f"  Total actor time: {total_actor_time:.2f}s")
+                print(f"  Total spec time:  {total_spec_time:.2f}s")
+                print(f"  Total tool exec:  {total_tool_exec_time:.2f}s")
         
     print("\n" + "=" * 80 + "\n")
     

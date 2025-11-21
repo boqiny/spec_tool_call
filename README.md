@@ -111,8 +111,14 @@ export GAIA_SPEC_MODEL="gpt-5-mini"
 
 ```bash
 # Start vLLM server with tool calling support
-CUDA_VISIBLE_DEVICES=0 vllm serve /path/to/your/model \
+CUDA_VISIBLE_DEVICES=7 vllm serve /path/to/your/model \
     --port 8003 \
+    --host 0.0.0.0 \
+    --enable-auto-tool-choice \
+    --tool-call-parser hermes
+
+CUDA_VISIBLE_DEVICES=6 vllm serve /home/nvidia/data/models/Qwen2.5-3B-Instruct \
+    --port 8004 \
     --host 0.0.0.0 \
     --enable-auto-tool-choice \
     --tool-call-parser hermes
@@ -137,13 +143,13 @@ export SERPER_API_KEY="your-serper-key"  # For web search
 
 ```bash
 # Run specific example
-python3 eval.py gaia_dataset/level1/example_000
+python eval.py gaia_dataset/level1/example_000
 
 # With speculation enabled (default)
-python3 eval.py gaia_dataset/level1/example_000
+python eval.py gaia_dataset/level1/example_000
 
 # Baseline (no speculation)
-DISABLE_SPECULATION=1 python3 eval.py gaia_dataset/level1/example_000
+DISABLE_SPECULATION=1 python eval.py gaia_dataset/level1/example_000
 ```
 
 ### Batch Evaluation (Multiple Examples)
@@ -159,7 +165,7 @@ python eval.py --batch --level 1 --max 10
 DISABLE_SPECULATION=1 python eval.py --batch --level 1 --max 10
 
 # inlcusive start, exclusive end
-python3 eval.py --batch --level 1 --start 10 --end 21
+python eval.py --batch --level 1 --start 10 --end 21
 
 # Custom output directory
 python eval.py --batch --level 1 --output my_results/

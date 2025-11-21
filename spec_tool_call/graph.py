@@ -333,7 +333,8 @@ async def node_tools(state: RunState) -> RunState:
                         print(f"\n✅ USING CACHED RESULT")
                     result_str = spec_pred["result"]
                     state.hits += 1
-                    elapsed = 0.001  # Negligible time to retrieve from cache
+                    # Report the pre-execution time (this is what we saved)
+                    elapsed = spec_pred.get("exec_time", 0.001)
                 else:
                     # No match or no cached result - execute with actor's args
                     if config.enable_speculation:
