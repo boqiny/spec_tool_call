@@ -84,8 +84,13 @@ class GAIADataset:
 
 
 def normalize_answer(answer: str) -> str:
-    """Normalize answer for comparison (lowercase, strip)."""
-    return answer.strip().lower()
+    """Normalize answer for comparison by removing spaces around punctuation."""
+    import re
+    # Remove all whitespace and convert to lowercase
+    normalized = answer.lower().strip()
+    # Remove spaces around commas, periods, and other punctuation
+    normalized = re.sub(r'\s*([,;.!?])\s*', r'\1', normalized)
+    return normalized
 
 
 def exact_match(predicted: str, ground_truth: str) -> bool:

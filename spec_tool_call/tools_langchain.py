@@ -153,15 +153,17 @@ def vision_analyze(image_path: str, question: str = None) -> str:
 
 @tool
 def vision_ocr(image_path: str) -> str:
-    """Extract text from an image using OCR.
-    
+    """Extract text from an image and convert to markdown format.
+
+    Converts document images to pure text markdown, preserving structure and formatting.
+
     Args:
         image_path: Path to the image
     """
     result = extract_text_from_image(image_path)
     if isinstance(result, dict):
         if result.get("status") == "success":
-            return result.get("text", "")
+            return result.get("extracted_text", "")
         return f"Error: {result.get('error')}"
     return str(result)
 

@@ -1,5 +1,9 @@
 """LLM adapter using proper LangGraph tool calling pattern."""
+import os
+import re
+import base64
 from typing import List
+from pathlib import Path
 from langchain_openai import ChatOpenAI
 from langchain_core.messages import SystemMessage, HumanMessage, AIMessage
 
@@ -10,6 +14,10 @@ from .config import config
 # System prompt for OpenAI models
 SYSTEM_PROMPT_OPENAI = (
     "You are an AI assistant that helps answer questions by using tools.\n"
+    "\n## Multimodal Capabilities:\n"
+    "- You can receive and see images directly in the conversation when image files are attached\n"
+    "- When an image is provided inline, analyze it directly without using vision tools\n"
+    "- Use vision_analyze or vision_ocr tools only when you need to call them explicitly\n"
     "\n## Available Tools:\n"
     "\n**Search & Web:**\n"
     "- web_search: Fast search returning titles, URLs, and snippets (3 results)\n"
@@ -20,9 +28,13 @@ SYSTEM_PROMPT_OPENAI = (
     "- calculate: Evaluate SINGLE math expressions (e.g., (356400/42.195)/(2+1/60+9/3600))\n"
     "- code_exec: Execute multi-step Python code with variables in a sandbox\n"
     "- code_generate: Generate Python code for a task\n"
-    "\n**Vision:**\n"
-    "- vision_analyze: Analyze images\n"
+    "\n**Vision (for advanced image analysis only when necessary):**\n"
+    "- vision_analyze: Analyze images with specific questions\n"
     "- vision_ocr: Extract text from images\n"
+    "\n## CRITICAL - Always Explain Your Actions:\n"
+    "Before EVERY tool call, you MUST output a brief 1-sentence explanation of why you're calling that tool.\n"
+    "Example: 'I need to find the Moon's minimum perigee value from Wikipedia.' then call web_search.\n"
+    "This explanation must appear in your response content, not just internally.\n"
     "\n## Important:\n"
     "- Use web_search for quick lookups, enhanced_search when you need detailed content\n"
     "- When you have the final answer, respond directly without calling tools\n"
@@ -57,6 +69,10 @@ SYSTEM_PROMPT_VLLM = (
     "\n**Vision:**\n"
     "- vision_analyze: Analyze images\n"
     "- vision_ocr: Extract text from images\n"
+    "\n## CRITICAL - Always Explain Your Actions:\n"
+    "Before EVERY tool call, you MUST output a brief 1-sentence explanation of why you're calling that tool.\n"
+    "Example: 'I need to find the Moon's minimum perigee value from Wikipedia.' then call web_search.\n"
+    "This explanation must appear in your response content, not just internally.\n"
     "\n## Step-by-Step Process:\n"
     "1. Read the question carefully\n"
     "2. Identify what information you need\n"
@@ -139,14 +155,97 @@ def get_spec_model():
     return _spec_model
 
 
+def _encode_image_to_base64(image_path: str) -> dict:
+    """Encode local image to base64 for multimodal API."""
+    with open(image_path, "rb") as image_file:
+        image_data = base64.b64encode(image_file.read()).decode('utf-8')
+
+    # Detect image type
+    ext = Path(image_path).suffix.lower()
+    mime_types = {
+        '.jpg': 'image/jpeg',
+        '.jpeg': 'image/jpeg',
+        '.png': 'image/png',
+        '.gif': 'image/gif',
+        '.webp': 'image/webp'
+    }
+    mime_type = mime_types.get(ext, 'image/jpeg')
+
+    return {
+        "type": "image_url",
+        "image_url": {
+            "url": f"data:{mime_type};base64,{image_data}"
+        }
+    }
+
+
+def _extract_image_paths(content: str) -> list:
+    """Extract image file paths from message content.
+
+    Looks for patterns like:
+    - [Note: There is an attached file at path: /path/to/image.png]
+    - Standalone file paths ending in image extensions
+    """
+    image_paths = []
+
+    # Pattern 1: GAIA-style attachment notation
+    pattern = r'\[Note: There is an attached file at path: ([^\]]+)\]'
+    matches = re.findall(pattern, content)
+    for match in matches:
+        path = match.strip()
+        if _is_image_file(path):
+            image_paths.append(path)
+
+    # Pattern 2: Standalone paths (look for common image extensions)
+    # Only if no GAIA-style match found
+    if not image_paths:
+        words = content.split()
+        for word in words:
+            word = word.strip('.,;:()[]{}"\' \n\r\t')
+            if _is_image_file(word) and os.path.exists(word):
+                image_paths.append(word)
+
+    return image_paths
+
+
+def _is_image_file(path: str) -> bool:
+    """Check if a path is an image file."""
+    if not path:
+        return False
+    ext = Path(path).suffix.lower()
+    return ext in ['.jpg', '.jpeg', '.png', '.gif', '.webp', '.bmp', '.tiff']
+
+
 def convert_msg_to_langchain(messages: List[Msg]) -> List:
-    """Convert our Msg objects to LangChain messages."""
+    """Convert our Msg objects to LangChain messages.
+
+    Handles multimodal messages by detecting image paths in user messages
+    and constructing appropriate multimodal content.
+    """
     lc_messages = []
     for m in messages:
         if m.role == "system":
             lc_messages.append(SystemMessage(content=m.content))
         elif m.role == "user":
-            lc_messages.append(HumanMessage(content=m.content))
+            # Check if message contains image paths
+            image_paths = _extract_image_paths(m.content)
+
+            if image_paths:
+                # Construct multimodal message with text and images
+                content_parts = [{"type": "text", "text": m.content}]
+
+                for img_path in image_paths:
+                    if os.path.exists(img_path):
+                        try:
+                            image_content = _encode_image_to_base64(img_path)
+                            content_parts.append(image_content)
+                        except Exception as e:
+                            print(f"⚠️  Failed to encode image {img_path}: {e}")
+
+                lc_messages.append(HumanMessage(content=content_parts))
+            else:
+                # Regular text-only message
+                lc_messages.append(HumanMessage(content=m.content))
         elif m.role == "assistant":
             lc_messages.append(AIMessage(content=m.content))
         elif m.role == "tool":

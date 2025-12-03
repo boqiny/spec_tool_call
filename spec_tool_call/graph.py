@@ -188,6 +188,12 @@ async def node_llm(state: RunState) -> RunState:
         response = model_no_tools.invoke(lc_messages)
         elapsed = time.time() - start_time
         
+        # DEBUG: Print forced answer response directly
+        print(f"\n🔍 DEBUG FORCED ANSWER OUTPUT:")
+        print("-" * 80)
+        print(response)
+        print("-" * 80)
+        
         state.last_llm_time = elapsed
         
         # Extract answer
@@ -225,6 +231,12 @@ async def node_llm(state: RunState) -> RunState:
     
     # Store timing in state
     state.last_llm_time = elapsed
+    
+    # DEBUG: Print full model response directly
+    print(f"\n🔍 DEBUG MODEL OUTPUT (Step {state.step}):")
+    print("-" * 80)
+    print(response)
+    print("-" * 80)
     
     # Check if final answer (no tool calls)
     if not response.tool_calls:

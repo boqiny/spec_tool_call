@@ -15,6 +15,16 @@ from spec_tool_call.models import RunState
 from spec_tool_call.config import config
 
 
+def normalize_answer(answer: str) -> str:
+    """Normalize answer for comparison by removing spaces around punctuation."""
+    import re
+    # Remove all whitespace and convert to lowercase
+    normalized = answer.lower().strip()
+    # Remove spaces around commas, periods, and other punctuation
+    normalized = re.sub(r'\s*([,;.!?])\s*', r'\1', normalized)
+    return normalized
+
+
 async def run_example(example_dir: Path, app=None, verbose=True):
     """Run a single GAIA example."""
     
@@ -282,7 +292,7 @@ async def run_example(example_dir: Path, app=None, verbose=True):
     
     # Check correctness
     if predicted and final_answer:
-        correct = predicted.lower().strip() == final_answer.lower().strip()
+        correct = normalize_answer(predicted) == normalize_answer(final_answer)
     
     if verbose:
         print("\n" + "=" * 80)

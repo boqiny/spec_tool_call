@@ -31,7 +31,7 @@ class SpecConfig:
     # LLM parameters
     # Note: GPT-5 uses "reasoning tokens" internally, so needs higher max_tokens
     # to have room for both reasoning AND visible output
-    llm_max_tokens: int = 8192
+    llm_max_tokens: int = 16384
 
     @classmethod
     def from_env(cls) -> "SpecConfig":
@@ -47,7 +47,7 @@ class SpecConfig:
             top_k_spec=int(os.getenv("GAIA_TOPK", "3")),
             verification_strategy=os.getenv("VERIFICATION_STRATEGY", "exact"),
             max_steps=int(os.getenv("GAIA_MAX_STEPS", "15")),
-            llm_max_tokens=int(os.getenv("LLM_MAX_TOKENS", "8192")),
+            llm_max_tokens=int(os.getenv("LLM_MAX_TOKENS", "16384")),
         )
 
 

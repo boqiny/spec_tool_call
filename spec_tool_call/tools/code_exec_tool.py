@@ -21,43 +21,9 @@ def execute_python_code(code: str, timeout: int = 30) -> Dict[str, Any]:
     Returns:
         Dict with status, output, error, and result fields
     """
-    # Create restricted global namespace
+    # Use local environment with all builtins (less restrictive for data science tasks)
     restricted_globals = {
-        '__builtins__': {
-            # Allow safe built-ins
-            'print': print,
-            'len': len,
-            'range': range,
-            'enumerate': enumerate,
-            'zip': zip,
-            'map': map,
-            'filter': filter,
-            'list': list,
-            'dict': dict,
-            'set': set,
-            'tuple': tuple,
-            'str': str,
-            'int': int,
-            'float': float,
-            'bool': bool,
-            'abs': abs,
-            'min': min,
-            'max': max,
-            'sum': sum,
-            'sorted': sorted,
-            'reversed': reversed,
-            'any': any,
-            'all': all,
-            'isinstance': isinstance,
-            'type': type,
-            'ord': ord,
-            'chr': chr,
-            'round': round,
-            'pow': pow,
-            'divmod': divmod,
-            # Allow imports for common libraries
-            '__import__': __import__,
-        },
+        '__builtins__': __builtins__,
         # Pre-import commonly used modules
         'math': __import__('math'),
         're': __import__('re'),
@@ -265,25 +231,61 @@ def generate_python_code(task_description: str, context: str = None) -> Dict[str
 
 if __name__ == "__main__":
     """Test the code execution tool"""
-    
+
     print("=" * 70)
     print("CODE EXECUTION TOOL TEST")
     print("=" * 70)
-    
+
     # Test 1: Simple calculation
     print("\n[TEST 1] Simple calculation:")
     result = execute_calculation("2 + 2 * 3")
     print(f"Expression: 2 + 2 * 3")
     print(f"Result: {result}")
-    
+
     # Test 2: Math functions
     print("\n[TEST 2] Math functions:")
     result = execute_calculation("sqrt(16) + pow(2, 3)")
     print(f"Expression: sqrt(16) + pow(2, 3)")
     print(f"Result: {result}")
-    
-    # Test 3: Python code with loop
-    print("\n[TEST 3] Python code with loop:")
+
+    # Test 3: Built-ins that were missing (hasattr, getattr, next, Exception)
+    print("\n[TEST 3] Python code with previously missing built-ins:")
+    code = """
+class TestClass:
+    def __init__(self):
+        self.value = 42
+
+obj = TestClass()
+
+# Test hasattr
+has_val = hasattr(obj, 'value')
+print(f"hasattr(obj, 'value'): {has_val}")
+
+# Test getattr
+val = getattr(obj, 'value', None)
+print(f"getattr(obj, 'value'): {val}")
+
+# Test next
+items = iter([1, 2, 3])
+first = next(items)
+print(f"next(items): {first}")
+
+# Test Exception
+try:
+    raise Exception("Test exception")
+except Exception as e:
+    print(f"Caught exception: {e}")
+
+result = "All built-ins work!"
+"""
+    result = execute_python_code(code)
+    print(f"Status: {result['status']}")
+    print(f"Output:\n{result['output']}")
+    if result.get('error'):
+        print(f"Error: {result['error']}")
+
+    # Test 4: Python code with loop
+    print("\n[TEST 4] Python code with loop:")
     code = """
 total = 0
 for i in range(1, 11):
@@ -292,26 +294,59 @@ print(f"Sum of 1 to 10: {total}")
 result = total
 """
     result = execute_python_code(code)
-    print(f"Code:\n{code}")
-    print(f"Result: {result}")
-    
-    # Test 4: Code with imports
-    print("\n[TEST 4] Code with datetime:")
+    print(f"Status: {result['status']}")
+    print(f"Output: {result['output']}")
+    print(f"Result: {result.get('result')}")
+
+    # Test 5: Code with imports and nonlocal
+    print("\n[TEST 5] Code with collections and nonlocal:")
+    code = """
+from collections import defaultdict, deque
+
+# Test defaultdict
+graph = defaultdict(list)
+graph['a'].append('b')
+graph['a'].append('c')
+print(f"Graph: {dict(graph)}")
+
+# Test deque
+queue = deque([1, 2, 3])
+queue.append(4)
+first = queue.popleft()
+print(f"Deque after popleft: {list(queue)}")
+
+# Test nonlocal (this was failing before)
+def outer():
+    count = 0
+    def inner():
+        nonlocal count
+        count += 1
+        return count
+    return inner
+
+counter = outer()
+print(f"Counter: {counter()}, {counter()}, {counter()}")
+
+result = "Collections and nonlocal work!"
+"""
+    result = execute_python_code(code)
+    print(f"Status: {result['status']}")
+    print(f"Output:\n{result['output']}")
+    if result.get('error'):
+        print(f"Error: {result['error']}")
+
+    # Test 6: Code with datetime
+    print("\n[TEST 6] Code with datetime:")
     code = """
 from datetime import datetime
 now = datetime.now()
-print(f"Current time: {now}")
-result = str(now)
+print(f"Current time: {now.strftime('%Y-%m-%d %H:%M:%S')}")
+result = "Datetime works!"
 """
     result = execute_python_code(code)
-    print(f"Code:\n{code}")
-    print(f"Result: {result}")
-    
-    # Test 5: Generate code
-    print("\n[TEST 5] Generate Python code:")
-    task = "Create a function to calculate the factorial of a number recursively"
-    result = generate_python_code(task)
-    print(f"Task: {task}")
-    print(f"Generated code:\n{result.get('code')}")
-    print(f"Syntax valid: {result.get('syntax_valid')}")
+    print(f"Status: {result['status']}")
+    print(f"Output: {result['output']}")
 
+    print("\n" + "=" * 70)
+    print("ALL TESTS COMPLETED")
+    print("=" * 70)

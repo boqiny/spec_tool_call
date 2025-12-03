@@ -7,6 +7,8 @@ from pathlib import Path
 from langchain_openai import ChatOpenAI
 from langchain_core.messages import HumanMessage
 
+from ..prompts import VISION_ANALYZE_PROMPT, VISION_OCR_PROMPT
+
 
 def analyze_image(image_path: str, question: Optional[str] = None) -> Dict[str, Any]:
     """
@@ -40,9 +42,9 @@ def analyze_image(image_path: str, question: Optional[str] = None) -> Dict[str, 
             # Local file - encode to base64
             image_content = _encode_image_base64(image_path)
         
-        # Prepare prompt
+        # Prepare prompt using template
         if question:
-            prompt_text = f"Please answer this question about the image: {question}"
+            prompt_text = VISION_ANALYZE_PROMPT.format(query=question)
         else:
             prompt_text = (
                 "Please describe this image in detail. Include:\n"
@@ -52,7 +54,7 @@ def analyze_image(image_path: str, question: Optional[str] = None) -> Dict[str, 
                 "4. Context or setting\n"
                 "5. Notable details or features"
             )
-        
+
         # Create message with image
         message = HumanMessage(
             content=[
@@ -60,17 +62,17 @@ def analyze_image(image_path: str, question: Optional[str] = None) -> Dict[str, 
                 image_content
             ]
         )
-        
-        # Call vision model
-        llm = ChatOpenAI(model="gpt-5", max_tokens=1024)
+
+        # Call vision model (using GPT-5-mini for efficiency)
+        llm = ChatOpenAI(model="gpt-5-mini", max_tokens=2048)
         response = llm.invoke([message])
-        
+
         return {
             "status": "success",
             "image_path": image_path,
             "question": question,
             "analysis": response.content,
-            "model": "gpt-5"
+            "model": "gpt-5-mini"
         }
     
     except Exception as e:
@@ -84,30 +86,64 @@ def analyze_image(image_path: str, question: Optional[str] = None) -> Dict[str, 
 def extract_text_from_image(image_path: str) -> Dict[str, Any]:
     """
     Extract text from an image using OCR via vision model.
-    
+    Converts document images to markdown format.
+
     Args:
         image_path: Path to image file
-        
+
     Returns:
-        Dict with extracted text
+        Dict with extracted text in markdown format
     """
-    question = (
-        "Please extract ALL text visible in this image. "
-        "Transcribe it exactly as it appears, preserving formatting, "
-        "line breaks, and structure. If there's no text, say 'No text found'."
-    )
-    
-    result = analyze_image(image_path, question=question)
-    
-    if result.get("status") == "success":
+    try:
+        # Check if file exists (for local files)
+        if not image_path.startswith(('http://', 'https://')):
+            if not os.path.exists(image_path):
+                return {
+                    "error": "file_not_found",
+                    "path": image_path,
+                    "message": f"Image file does not exist: {image_path}"
+                }
+
+        # Prepare the image content
+        if image_path.startswith(('http://', 'https://')):
+            # URL image
+            image_content = {
+                "type": "image_url",
+                "image_url": {"url": image_path}
+            }
+        else:
+            # Local file - encode to base64
+            image_content = _encode_image_base64(image_path)
+
+        # Use OCR prompt
+        prompt_text = VISION_OCR_PROMPT
+
+        # Create message with image
+        message = HumanMessage(
+            content=[
+                {"type": "text", "text": prompt_text},
+                image_content
+            ]
+        )
+
+        # Call vision model (using GPT-5-mini for efficiency)
+        llm = ChatOpenAI(model="gpt-5-mini", max_tokens=4096)
+        response = llm.invoke([message])
+
         return {
             "status": "success",
             "image_path": image_path,
-            "extracted_text": result["analysis"],
-            "method": "vision_ocr"
+            "extracted_text": response.content,
+            "method": "vision_ocr",
+            "model": "gpt-5-mini"
         }
-    else:
-        return result
+
+    except Exception as e:
+        return {
+            "status": "error",
+            "error": str(e),
+            "image_path": image_path
+        }
 
 
 def get_image_info(image_path: str) -> Dict[str, Any]:
@@ -240,16 +276,96 @@ def _encode_image_base64(image_path: str) -> Dict[str, Any]:
 
 if __name__ == "__main__":
     """Test multimodal capabilities"""
+    import sys
+
     print("=" * 70)
-    print("MULTIMODAL TOOL TEST")
+    print("VISION TOOL TEST")
     print("=" * 70)
-    
-    # Test with image info
-    print("\n[TEST] Image analysis capabilities loaded")
-    print("Functions available:")
-    print("  - analyze_image(path, question)")
-    print("  - extract_text_from_image(path)")
-    print("  - get_image_info(path)")
-    print("  - analyze_audio(path)")
-    print("  - analyze_video(path)")
+
+    # Check if an image path is provided as command line argument
+    if len(sys.argv) > 1:
+        test_image = sys.argv[1]
+    else:
+        test_image = os.getenv("TEST_IMAGE_PATH")
+
+    if not test_image or not os.path.exists(test_image):
+        print("\n[INFO] No test image provided.")
+        print("Usage:")
+        print("  python vision_tool.py /path/to/image.png")
+        print("  or set TEST_IMAGE_PATH environment variable")
+        print("\nSkipping vision tests...")
+        sys.exit(0)
+
+    print(f"\nTesting with image: {test_image}")
+
+    # Test 1: Get image info
+    print("\n[TEST 1] Get image info:")
+    result = get_image_info(test_image)
+    print(f"Status: {result.get('status')}")
+    if result.get('status') == 'success':
+        print(f"  Format: {result.get('format')}")
+        print(f"  Size: {result.get('width')}x{result.get('height')}")
+        print(f"  Mode: {result.get('mode')}")
+        print(f"  File size: {result.get('file_size_bytes')} bytes")
+    else:
+        print(f"  Error: {result.get('error')}")
+
+    # Test 2: Analyze image (general description)
+    print("\n[TEST 2] Analyze image (general description):")
+    result = analyze_image(test_image)
+    print(f"Status: {result.get('status')}")
+    if result.get('status') == 'success':
+        print(f"Model: {result.get('model')}")
+        analysis = result.get('analysis', '')
+        if len(analysis) > 300:
+            print(f"Analysis (truncated): {analysis[:300]}...")
+        else:
+            print(f"Analysis: {analysis}")
+    else:
+        print(f"Error: {result.get('error')}")
+
+    # Test 3: Analyze image with specific question
+    print("\n[TEST 3] Analyze image with specific question:")
+    question = "What colors are dominant in this image?"
+    result = analyze_image(test_image, question=question)
+    print(f"Question: {question}")
+    print(f"Status: {result.get('status')}")
+    if result.get('status') == 'success':
+        print(f"Model: {result.get('model')}")
+        analysis = result.get('analysis', '')
+        if len(analysis) > 200:
+            print(f"Answer (truncated): {analysis[:200]}...")
+        else:
+            print(f"Answer: {analysis}")
+    else:
+        print(f"Error: {result.get('error')}")
+
+    # Test 4: Extract text from image (OCR)
+    print("\n[TEST 4] Extract text from image (OCR):")
+    result = extract_text_from_image(test_image)
+    print(f"Status: {result.get('status')}")
+    if result.get('status') == 'success':
+        print(f"Model: {result.get('model')}")
+        print(f"Method: {result.get('method')}")
+        extracted = result.get('extracted_text', '')
+        if len(extracted) > 300:
+            print(f"Extracted text (truncated):\n{extracted[:300]}...")
+        else:
+            print(f"Extracted text:\n{extracted}")
+    else:
+        print(f"Error: {result.get('error')}")
+
+    # Test 5: Test with non-existent file
+    print("\n[TEST 5] Test error handling (non-existent file):")
+    result = analyze_image("/path/to/nonexistent/image.png")
+    print(f"Expected error: {result.get('error')}")
+    print(f"Message: {result.get('message')}")
+
+    print("\n" + "=" * 70)
+    print("ALL TESTS COMPLETED")
+    print("=" * 70)
+    print("\nNOTE: Vision tests require:")
+    print("  - Valid OPENAI_API_KEY environment variable")
+    print("  - GPT-5-mini model access")
+    print("  - Test image file")
 
