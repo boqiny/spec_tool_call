@@ -1,23 +1,23 @@
 """
 Adapted and modified from https://github.com/sunnynexus/Search-o1/blob/main/scripts/bing_search.py
 
-WORKFLOW 1: Basic Search (search_serper_web)
--------------------------------------------
-User calls: search_serper_web("immigration law", max_results=5)
+WORKFLOW 1: Basic Search (web_search)
+-------------------------------------
+User calls: web_search("immigration law", max_results=5)
     ↓
-1. serper_web_search() - Makes API call to Google Serper
+1. _serper_api_call() - Makes API call to Google Serper
     ↓
-2. extract_relevant_info() - Parses JSON response into structured data
+2. _extract_relevant_info() - Parses JSON response into structured data
     ↓ 
 3. Returns formatted results (titles, URLs, snippets only)
 
-WORKFLOW 2: Enhanced Search with Content (search_serper_with_content) 
---------------------------------------------------------------------
-User calls: search_serper_with_content("F1 visa rules", max_results=3)
+WORKFLOW 2: Enhanced Search with Content (enhanced_web_search) 
+---------------------------------------------------------------
+User calls: enhanced_web_search("F1 visa rules", max_results=3)
     ↓
-1. serper_web_search() - Makes API call to Google Serper
+1. _serper_api_call() - Makes API call to Google Serper
     ↓
-2. extract_relevant_info() - Parses JSON response 
+2. _extract_relevant_info() - Parses JSON response 
     ↓
 3. For each URL:
        extract_text_from_url() - Scrapes webpage content
@@ -35,10 +35,10 @@ User calls: search_serper_with_content("F1 visa rules", max_results=3)
 USAGE:
 ======
 # Quick search - just titles and snippets
-results = search_serper_web("trademark law")
+results = web_search("trademark law")
 
 # Deep search - full webpage content  
-detailed_results = search_serper_with_content("patent infringement cases")
+detailed_results = enhanced_web_search("patent infringement cases")
 """
 import os
 import json
@@ -80,7 +80,7 @@ session.headers.update(headers)
 # MAIN ENTRY POINTS - These are the functions users call
 # =============================================================================
 
-def search_serper_web(query: str, max_results: int = 5) -> str:
+def web_search(query: str, max_results: int = 5) -> str:
     """
     BASIC SEARCH: Get search results with titles, URLs, and snippets only.
     Fast and lightweight - no content extraction from individual pages.
@@ -98,14 +98,14 @@ def search_serper_web(query: str, max_results: int = 5) -> str:
         if not api_key:
             return "Error: SERPER_API_KEY environment variable not set. Please add your Serper API key."
         
-        # Step 1: Make API call
-        search_results = serper_web_search(query, api_key)
+        # Step 1: Make API call (request 10 results to have buffer for filtering)
+        search_results = _serper_api_call(query, api_key, num_results=10)
         
         if not search_results:
             return "No search results found or API request failed."
         
         # Step 2: Parse response into structured format
-        extracted_info = extract_relevant_info(search_results)
+        extracted_info = _extract_relevant_info(search_results)
         
         if not extracted_info:
             return "No relevant information found in search results."
@@ -134,10 +134,10 @@ def search_serper_web(query: str, max_results: int = 5) -> str:
         return "\n".join(formatted_results)
         
     except Exception as e:
-        return f"Error during Serper search: {str(e)}"
+        return f"Error during web search: {str(e)}"
 
 
-def search_serper_with_content(query: str, max_results: int = 3) -> str:
+def enhanced_web_search(query: str, max_results: int = 3) -> str:
     """
     ENHANCED SEARCH: Get search results AND extract full content from each webpage.
     Slower but more comprehensive - scrapes actual webpage content.
@@ -155,14 +155,14 @@ def search_serper_with_content(query: str, max_results: int = 3) -> str:
         if not api_key:
             return "Error: SERPER_API_KEY environment variable not set."
         
-        # Step 1: Make API call (same as basic search)
-        search_results = serper_web_search(query, api_key)
+        # Step 1: Make API call (request 10 results to have buffer for filtering)
+        search_results = _serper_api_call(query, api_key, num_results=10)
         
         if not search_results:
             return "No search results found or API request failed."
         
-        # Step 2: Parse response (same as basic search)
-        extracted_info = extract_relevant_info(search_results)
+        # Step 2: Parse response
+        extracted_info = _extract_relevant_info(search_results)
         
         if not extracted_info:
             return "No relevant information found in search results."
@@ -202,22 +202,29 @@ def search_serper_with_content(query: str, max_results: int = 3) -> str:
         return "\n".join(formatted_results)
         
     except Exception as e:
-        return f"Error during Serper search with content: {str(e)}"
+        return f"Error during web search with content: {str(e)}"
 
 
 # =============================================================================
 # CORE API INTERFACE
 # =============================================================================
 
-def serper_web_search(query: str, api_key: str, timeout: int = 20) -> Dict:
+def _serper_api_call(query: str, api_key: str, num_results: int = 10, timeout: int = 20) -> Dict:
     """
     CORE API CALL: Makes the actual HTTP request to Google Serper API.
     This is where we interface with the external service.
+    
+    Args:
+        query: Search query string
+        api_key: Serper API key
+        num_results: Number of results to request from API (default: 10)
+        timeout: Request timeout in seconds
     """
     url = "https://google.serper.dev/search"
     
     payload = json.dumps({
-        "q": query
+        "q": query,
+        "num": num_results
     })
     
     headers = {
@@ -238,7 +245,7 @@ def serper_web_search(query: str, api_key: str, timeout: int = 20) -> Dict:
         return {}
 
 
-def extract_relevant_info(search_results: Dict) -> List[Dict]:
+def _extract_relevant_info(search_results: Dict) -> List[Dict]:
     """
     RESPONSE PARSER: Converts Serper's JSON response into our standardized format.
     Handles both organic results and knowledge graph data.
@@ -411,10 +418,10 @@ def f1_score(true_set: set, pred_set: set) -> float:
 
 
 if __name__ == "__main__":
-    """Test the Serper search tool"""
+    """Test the web search tool"""
     
     print("=" * 70)
-    print("GOOGLE SERPER SEARCH TOOL")
+    print("WEB SEARCH TOOL")
     print("=" * 70)
     from dotenv import load_dotenv
     load_dotenv()
@@ -444,7 +451,7 @@ if __name__ == "__main__":
             print("-" * 50)
             print("⏱️  Should be fast, lightweight results...")
             
-            basic_result = search_serper_web(test_query, max_results=3)
+            basic_result = web_search(test_query, max_results=3)
             print("BASIC RESULTS:")
             print(basic_result)
             
@@ -453,7 +460,7 @@ if __name__ == "__main__":
             print("-" * 50)
             print("⏱️  Slower but more comprehensive, scraping actual webpage content...")
             
-            enhanced_result = search_serper_with_content(test_query, max_results=2)
+            enhanced_result = enhanced_web_search(test_query, max_results=3)
             print("ENHANCED RESULTS:")
             # Show more content for enhanced search to demonstrate the difference
             if len(enhanced_result) > 2000:

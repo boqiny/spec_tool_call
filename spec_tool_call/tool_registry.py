@@ -1,14 +1,9 @@
 """Tool implementations and registry for read-only operations."""
-import os
-import re
 import json
-import hashlib
 from typing import Any, Dict
 
-import httpx
-
 from .models import ToolSpec
-from .tools.search_tool import search_serper_web, search_serper_with_content
+from .tools.search_tool import web_search, enhanced_web_search
 from .tools.file_tool import read_file as read_file_enhanced
 from .tools.code_exec_tool import execute_python_code, execute_calculation, generate_python_code
 from .tools.vision_tool import analyze_image, extract_text_from_image
@@ -38,29 +33,6 @@ def _default_equality(a: Dict[str, Any], b: Dict[str, Any]) -> bool:
 # Tool implementations
 # -----------------------------
 
-async def tool_web_get(url: str, timeout: float = 15.0) -> Dict[str, Any]:
-    """
-    Fetch a web page and return status, title, digest, and preview.
-    Read-only operation suitable for speculation.
-    """
-    async with httpx.AsyncClient(follow_redirects=True, timeout=timeout) as client:
-        r = await client.get(url, headers={"User-Agent": "GAIA-Agent/Spec"})
-
-        # Keep a short digest to detect equivalence without storing full page
-        digest = hashlib.sha256((r.url.__str__() + "\n" + r.text[:2000]).encode()).hexdigest()
-
-        title_match = re.search(r"<title>(.*?)</title>", r.text, re.I | re.S)
-        title = title_match.group(1).strip() if title_match else ""
-
-        return {
-            "status": r.status_code,
-            "final_url": str(r.url),
-            "title": title,
-            "digest": digest,
-            "preview": r.text[:1000]
-        }
-
-
 async def tool_file_read(path: str) -> Dict[str, Any]:
     """
     Read file content. Supports diverse file types.
@@ -73,13 +45,13 @@ async def tool_file_read(path: str) -> Dict[str, Any]:
 # Async wrappers for sync functions
 async def tool_search_web(query: str, max_results: int = 5) -> Dict[str, Any]:
     """Search the web using Serper API."""
-    result_text = search_serper_web(query, max_results)
+    result_text = web_search(query, max_results)
     return {"result": result_text}
 
 
-async def tool_search_with_content(query: str, max_results: int = 3) -> Dict[str, Any]:
+async def tool_enhanced_search(query: str, max_results: int = 3) -> Dict[str, Any]:
     """Search the web and extract content using Serper API."""
-    result_text = search_serper_with_content(query, max_results)
+    result_text = enhanced_web_search(query, max_results)
     return {"result": result_text}
 
 
@@ -113,30 +85,21 @@ async def tool_code_generate(task_description: str, context: str = None) -> Dict
 # -----------------------------
 
 TOOLS: Dict[str, ToolSpec] = {
-    # Web browsing
-    "web_get": ToolSpec(
-        name="web_get",
-        read_only=True,
-        normalizer=lambda args: _default_normalizer({"url": args.get("url", "")}),
-        equality=lambda a, b: _default_normalizer({"url": a.get("url", "")}) == _default_normalizer({"url": b.get("url", "")}),
-        fn=tool_web_get,
-    ),
-    
     # Search (read-only, good for speculation)
-    "search_web": ToolSpec(
-        name="search_web",
+    "web_search": ToolSpec(
+        name="web_search",
         read_only=True,
         normalizer=lambda args: _default_normalizer({"query": args.get("query", ""), "max_results": args.get("max_results", 5)}),
         equality=lambda a, b: _default_normalizer({"query": a.get("query", "")}) == _default_normalizer({"query": b.get("query", "")}),
         fn=tool_search_web,
     ),
     
-    "search_with_content": ToolSpec(
-        name="search_with_content",
+    "enhanced_search": ToolSpec(
+        name="enhanced_search",
         read_only=True,
         normalizer=lambda args: _default_normalizer({"query": args.get("query", ""), "max_results": args.get("max_results", 3)}),
         equality=lambda a, b: _default_normalizer({"query": a.get("query", "")}) == _default_normalizer({"query": b.get("query", "")}),
-        fn=tool_search_with_content,
+        fn=tool_enhanced_search,
     ),
     
     # File reading (read-only, good for speculation)

@@ -351,7 +351,7 @@ async def run_example(example_dir: Path, app=None, verbose=True):
     
     # Save results to JSON with complete trajectory (even on error)
     spec_status = "spec" if config.enable_speculation else "baseline"
-    result_file = f"result_{example_name}_{spec_status}.json"
+    result_file = f"result_level{level}_{example_name}_{spec_status}.json"
     
     result_data = {
         "task_id": task_id,
