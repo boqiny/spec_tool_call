@@ -1,0 +1,56 @@
+{
+  "task_id": "d700d50d-c707-4dca-90dc-4528cddd0c80",
+  "level": "2",
+  "question": "Who composed the song that was performed by a rooster and a hamster in separate animated videos at separate tempos with different lyrics? Answer using the format First name Last name.",
+  "ground_truth": "Roger Miller",
+  "predicted": "Roger Miller",
+  "correct": true,
+  "steps": 1,
+  "time_seconds": 12.806949138641357,
+  "actor_model": "gpt-5",
+  "spec_model": "gpt-5-nano",
+  "speculation_enabled": true,
+  "verification_strategy": "jaccard",
+  "spec_hits": 0,
+  "spec_misses": 0,
+  "spec_predictions": 1,
+  "trajectory": [
+    {
+      "node": "start",
+      "question": "Who composed the song that was performed by a rooster and a hamster in separate animated videos at separate tempos with different lyrics? Answer using the format First name Last name.",
+      "timestamp": 0
+    },
+    {
+      "node": "llm",
+      "timestamp": 12.806477069854736,
+      "step": 1,
+      "actor_model": "gpt-5",
+      "llm_time": 12.795106649398804,
+      "actor_reasoning": "This refers to the melody \u201cWhistle Stop,\u201d sung by the rooster Alan-a-Dale in Disney\u2019s Robin Hood and later sped up as the Hampsterdance, both based on the same composition. \nFINAL ANSWER: Roger Miller",
+      "spec_model": "gpt-5-nano",
+      "spec_predictions": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "rooster hamster animated video song tempo different lyrics composer"
+          },
+          "pre_executed": true,
+          "exec_time": 2.5778610706329346,
+          "spec_inference_time": 5.2823967933654785
+        }
+      ],
+      "final_answer": "Roger Miller"
+    }
+  ],
+  "messages": [
+    {
+      "role": "user",
+      "content": "Who composed the song that was performed by a rooster and a hamster in separate animated videos at separate tempos with different lyrics? Answer using the format First name Last name."
+    },
+    {
+      "role": "assistant",
+      "content": "This refers to the melody \u201cWhistle Stop,\u201d sung by the rooster Alan-a-Dale in Disney\u2019s Robin Hood and later sped up as the Hampsterdance, both based on the same composition. \nFINAL ANSWER: Roger Miller"
+    }
+  ],
+  "error": null
+}

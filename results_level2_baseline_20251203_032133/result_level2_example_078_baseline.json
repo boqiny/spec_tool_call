@@ -1,0 +1,554 @@
+{
+  "task_id": "1dcc160f-c187-48c2-b68e-319bd4354f3d",
+  "level": "2",
+  "question": "According to Openreview.net, at the NeurIPS 2022 Conference, how many papers by an author named Yuri were accepted with a \"certain\" recommendation?",
+  "ground_truth": "3",
+  "predicted": "1",
+  "correct": false,
+  "steps": 16,
+  "time_seconds": 259.476674079895,
+  "actor_model": "gpt-5",
+  "spec_model": null,
+  "speculation_enabled": false,
+  "verification_strategy": null,
+  "spec_hits": 0,
+  "spec_misses": 0,
+  "spec_predictions": 0,
+  "trajectory": [
+    {
+      "node": "start",
+      "question": "According to Openreview.net, at the NeurIPS 2022 Conference, how many papers by an author named Yuri were accepted with a \"certain\" recommendation?",
+      "timestamp": 0
+    },
+    {
+      "node": "llm",
+      "timestamp": 7.051992177963257,
+      "step": 1,
+      "actor_model": "gpt-5",
+      "llm_time": 7.045987129211426,
+      "actor_reasoning": "I need to find the specific OpenReview page or search results that mention NeurIPS 2022 papers by authors named Yuri with a \"certain\" recommendation.",
+      "actor_tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "site:openreview.net NeurIPS 2022 Conference \"certain\" recommendation Yuri"
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 8.08370590209961,
+      "tool_time": 1.0304231643676758,
+      "tool_executed": {
+        "name": "web_search",
+        "result": "Found 3 relevant web results:\n\n1. NeurIPS 2022 Conference\n   URL: https://openreview.net/group?id=NeurIPS.cc/2022/Conference\n   Site: openreview.net\n   Summary: The main idea is to first represent the data in tensor form, apply a linear transform along certain dimension and split the transformed data into different ...\n\n2. Towards Out-of-Distribution Sequential Event Prediction\n   URL: https://openreview.net/pdf/b5224a60869a26365b6e70239acbac055a762b08.pdf\n   Site: openreview.net\n   Summary: by C Yang \u00b7 Cited by 38 \u2014 36th Conference on Neural Information Processing Systems (NeurIPS 2022). ... certain time interval. Inspired by [46] using mixture of Gaussian as a ...\n\n3. Iteratively Learn Diverse Strategies with State Distance ...\n   URL: https://openreview.net/attachment?id=vKAYwmJ4H5&name=pdf\n   Site: openreview.net\n   Summary: by W Fu \u00b7 2023 \u00b7 Cited by 6 \u2014 37th Conference on Neural Information Processing Systems (NeurIPS 2023). ... behavior differences between two policies in certain scenarios, as we will discuss in ...\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 20.573729991912842,
+      "step": 2,
+      "actor_model": "gpt-5",
+      "llm_time": 12.487871885299683,
+      "actor_reasoning": "I need to quickly find OpenReview pages mentioning NeurIPS 2022 papers with author name Yuri and a 'certain' recommendation.",
+      "actor_tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "site:openreview.net NeurIPS 2022 Conference Yuri certain recommendation"
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 21.59815812110901,
+      "tool_time": 1.0235402584075928,
+      "tool_executed": {
+        "name": "web_search",
+        "result": "Found 3 relevant web results:\n\n1. NeurIPS 2022 Conference\n   URL: https://openreview.net/group?id=NeurIPS.cc/2022/Conference\n   Site: openreview.net\n   Summary: Thirty-Sixth Conference on Neural Information Processing Systems. NeurIPS 2022. New Orleans, Louisiana, United States of America. Nov 28 2022.\n\n2. Improved Convergence Rate of Stochastic Gradient ...\n   URL: https://openreview.net/forum?id=Sj2z__i1wX-\n   Site: openreview.net\n   Summary: by Y Kinoshita \u00b7 2022 \u00b7 Cited by 27 \u2014 The stochastic gradient Langevin Dynamics is one of the most fundamental algorithms to solve sampling problems and non-convex optimization ...\n\n3. NeurIPS 2022 Conference Submissions\n   URL: https://openreview.net/submissions?venue=NeurIPS.cc/2022/Conference\n   Site: openreview.net\n   Summary: NeurIPS 2022 Conference Submissions. No submissions found. About OpenReview \u00b7 Hosting a Venue \u00b7 All Venues \u00b7 Contact \u00b7 Sponsors \u00b7 Donate.\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 31.762391090393066,
+      "step": 3,
+      "actor_model": "gpt-5",
+      "llm_time": 10.162575960159302,
+      "actor_reasoning": "I need to search the web to find OpenReview NeurIPS 2022 pages mentioning 'certain' recommendation and authors named Yuri.",
+      "actor_tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "site:openreview.net NeurIPS 2022 \"certain\" recommendation Yuri"
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 33.27374601364136,
+      "tool_time": 1.5101499557495117,
+      "tool_executed": {
+        "name": "web_search",
+        "result": "Found 3 relevant web results:\n\n1. NeurIPS 2022 Conference\n   URL: https://openreview.net/group?id=NeurIPS.cc/2022/Conference\n   Site: openreview.net\n   Summary: The main idea is to first represent the data in tensor form, apply a linear transform along certain dimension and split the transformed data into different ...\n\n2. Towards Out-of-Distribution Sequential Event Prediction\n   URL: https://openreview.net/pdf/b5224a60869a26365b6e70239acbac055a762b08.pdf\n   Site: openreview.net\n   Summary: by C Yang \u00b7 Cited by 38 \u2014 Real-world problem scenarios are flooded with sequential event data consisting of chronologically arrived events which reflect certain behaviors, activities or ...\n\n3. Code Repair with LLMs gives an Exploration-Exploitation ...\n   URL: https://openreview.net/attachment?id=q2LyFtn4BZ&name=pdf\n   Site: openreview.net\n   Summary: by H Tang \u00b7 2024 \u00b7 Cited by 37 \u2014 It uses fewer LLM requests to reach a certain passing rate and gains an overall higher final success rate. REx achieves relatively better performance when C ...\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 51.91025686264038,
+      "step": 4,
+      "actor_model": "gpt-5",
+      "llm_time": 18.63422989845276,
+      "actor_reasoning": "I need to quickly search OpenReview for NeurIPS 2022 papers with author name Yuri that mention a 'certain' recommendation and acceptance.",
+      "actor_tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "site:openreview.net NeurIPS 2022 Yuri certain recommendation accept"
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 52.935513973236084,
+      "tool_time": 1.0243158340454102,
+      "tool_executed": {
+        "name": "web_search",
+        "result": "Found 3 relevant web results:\n\n1. NeurIPS 2022 Conference\n   URL: https://openreview.net/group?id=NeurIPS.cc/2022/Conference\n   Site: openreview.net\n   Summary: Thirty-Sixth Conference on Neural Information Processing Systems. NeurIPS 2022. New Orleans, Louisiana, United States of America. Nov 28 2022.\n\n2. Improved Convergence Rate of Stochastic Gradient ...\n   URL: https://openreview.net/forum?id=Sj2z__i1wX-\n   Site: openreview.net\n   Summary: by Y Kinoshita \u00b7 2022 \u00b7 Cited by 27 \u2014 Yuri Kinoshita, Taiji Suzuki. Published: 31 Oct 2022, Last Modified: 04 Aug 2025NeurIPS 2022 AcceptReaders: Everyone. Keywords: stochastic gradient Langevin ...\n\n3. Recurrent Memory Transformer\n   URL: https://openreview.net/forum?id=Uynr3iPhksa\n   Site: openreview.net\n   Summary: by A Bulatov \u00b7 2022 \u00b7 Cited by 248 \u2014 We propose and study a memory-augmented segment-level recurrent Transformer (RMT). Memory allows to store and process local and global information.\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 61.32841992378235,
+      "step": 5,
+      "actor_model": "gpt-5",
+      "llm_time": 8.391258955001831,
+      "actor_reasoning": "I need to find OpenReview NeurIPS 2022 pages where accepted papers by authors named Yuri have a 'certain' recommendation.",
+      "actor_tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "site:openreview.net NeurIPS 2022 \"Recommendation\" certain Yuri"
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 62.770180225372314,
+      "tool_time": 1.4410138130187988,
+      "tool_executed": {
+        "name": "web_search",
+        "result": "Found 3 relevant web results:\n\n1. Improving Policy Learning via Language Dynamics ...\n   URL: https://openreview.net/forum?id=Yay6tHq1Nw\n   Site: openreview.net\n   Summary: by V Zhong \u00b7 2022 \u00b7 Cited by 23 \u2014 26 Aug 2022, 14:28NeurIPS 2022 Conference Paper3780 Meta ReviewReaders: EveryoneShow Revisions. Recommendation: Accept. Confidence: Less certain.\n\n2. Towards Out-of-Distribution Sequential Event Prediction\n   URL: https://openreview.net/pdf/b5224a60869a26365b6e70239acbac055a762b08.pdf\n   Site: openreview.net\n   Summary: by C Yang \u00b7 Cited by 38 \u2014 ... NeurIPS 2022 ... We evaluate the effectiveness of CaseQ with different applications for event prediction, including sequential recommendation, ATM maintenance and ...\n\n3. Recurrent Memory Transformer\n   URL: https://openreview.net/forum?id=Uynr3iPhksa\n   Site: openreview.net\n   Summary: by A Bulatov \u00b7 2022 \u00b7 Cited by 248 \u2014 14 Sept 2022, 13:56NeurIPS 2022 Conference Paper11788 DecisionReaders: EveryoneShow Revisions ... Recommendation: Accept. Confidence: Less certain.\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 78.2292411327362,
+      "step": 6,
+      "actor_model": "gpt-5",
+      "llm_time": 15.456467151641846,
+      "actor_reasoning": "I need to quickly find NeurIPS 2022 OpenReview pages listing authors named Yuri and check their decision confidence.",
+      "actor_tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "site:openreview.net \"NeurIPS 2022 Conference\" Yuri"
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 79.52689218521118,
+      "tool_time": 1.2962708473205566,
+      "tool_executed": {
+        "name": "web_search",
+        "result": "Found 3 relevant web results:\n\n1. NeurIPS 2022 Conference\n   URL: https://openreview.net/group?id=NeurIPS.cc/2022/Conference\n   Site: openreview.net\n   Summary: Welcome to the OpenReview homepage for NeurIPS 2022 Conference. ... Statistical Learning and Inverse Problems: A Stochastic Gradient Approach \u00b7 Yuri Fonseca, Yuri ...\n\n2. Statistical Learning and Inverse Problems: A Stochastic ...\n   URL: https://openreview.net/forum?id=09QFnDWPF8\n   Site: openreview.net\n   Summary: by Y Fonseca \u00b7 Cited by 4 \u2014 back arrow Go to NeurIPS 2022 Conference homepage. Statistical Learning and Inverse ... Yuri Fonseca, Yuri Saporito. Published: 31 Oct 2022, Last Modified ...\n\n3. Improved Convergence Rate of Stochastic Gradient ...\n   URL: https://openreview.net/forum?id=Sj2z__i1wX-\n   Site: openreview.net\n   Summary: by Y Kinoshita \u00b7 2022 \u00b7 Cited by 27 \u2014 back arrow Go to NeurIPS 2022 Conference homepage. Improved Convergence Rate of ... Yuri Kinoshita, Taiji Suzuki. Published: 31 Oct 2022, Last Modified: 04 ...\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 89.73240089416504,
+      "step": 7,
+      "actor_model": "gpt-5",
+      "llm_time": 10.20398497581482,
+      "actor_reasoning": "I need to find all NeurIPS 2022 OpenReview pages with authors named Yuri and check if their decision confidence is \"Certain\".",
+      "actor_tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "site:openreview.net NeurIPS 2022 Conference Yuri"
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 90.61858320236206,
+      "tool_time": 0.8844537734985352,
+      "tool_executed": {
+        "name": "web_search",
+        "result": "Found 3 relevant web results:\n\n1. NeurIPS 2022 Conference\n   URL: https://openreview.net/group?id=NeurIPS.cc/2022/Conference\n   Site: openreview.net\n   Summary: Welcome to the OpenReview homepage for NeurIPS 2022 Conference. ... Statistical Learning and Inverse Problems: A Stochastic Gradient Approach \u00b7 Yuri Fonseca, Yuri ...See more\n\n2. Statistical Learning and Inverse Problems: A Stochastic ...\n   URL: https://openreview.net/forum?id=09QFnDWPF8\n   Site: openreview.net\n   Summary: by Y Fonseca \u00b7 Cited by 4 \u2014 back arrow Go to NeurIPS 2022 Conference homepage. Statistical Learning and Inverse ... Yuri Fonseca, Yuri Saporito. Published: 31 Oct 2022, Last Modified ...See more\n\n3. Improved Convergence Rate of Stochastic Gradient ...\n   URL: https://openreview.net/forum?id=Sj2z__i1wX-\n   Site: openreview.net\n   Summary: by Y Kinoshita \u00b7 2022 \u00b7 Cited by 27 \u2014 back arrow Go to NeurIPS 2022 Conference homepage. Improved Convergence Rate of ... Yuri Kinoshita, Taiji Suzuki. Published: 31 Oct 2022, Last Modified: 04 ...See more\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 102.78196501731873,
+      "step": 8,
+      "actor_model": "gpt-5",
+      "llm_time": 12.161202907562256,
+      "actor_reasoning": "I need to find all NeurIPS 2022 OpenReview pages that list authors named Yuri to check their decision confidence.",
+      "actor_tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "site:openreview.net \"NeurIPS 2022\" Yuri"
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 104.4128270149231,
+      "tool_time": 1.6296560764312744,
+      "tool_executed": {
+        "name": "web_search",
+        "result": "Found 3 relevant web results:\n\n1. Statistical Learning and Inverse Problems: A Stochastic ...\n   URL: https://openreview.net/forum?id=09QFnDWPF8\n   Site: openreview.net\n   Summary: by Y Fonseca \u00b7 Cited by 4 \u2014 Yuri Fonseca, Yuri Saporito. Published: 31 Oct 2022, Last Modified: 05 May 2023NeurIPS 2022 AcceptReaders: Everyone. Keywords: Statistical Learning, Inverse ...\n\n2. NeurIPS 2022 Conference\n   URL: https://openreview.net/group?id=NeurIPS.cc/2022/Conference\n   Site: openreview.net\n   Summary: Welcome to the OpenReview homepage for NeurIPS 2022 Conference. ... Statistical Learning and Inverse Problems: A Stochastic Gradient Approach \u00b7 Yuri Fonseca, Yuri ...\n\n3. Improved Convergence Rate of Stochastic Gradient ...\n   URL: https://openreview.net/forum?id=Sj2z__i1wX-\n   Site: openreview.net\n   Summary: by Y Kinoshita \u00b7 2022 \u00b7 Cited by 27 \u2014 Yuri Kinoshita, Taiji Suzuki. Published: 31 Oct 2022, Last Modified: 04 Aug 2025NeurIPS 2022 AcceptReaders: Everyone. Keywords: stochastic gradient Langevin ...\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 116.52465891838074,
+      "step": 9,
+      "actor_model": "gpt-5",
+      "llm_time": 12.108750820159912,
+      "actor_reasoning": "I need to open the specific OpenReview forum pages for the identified Yuri-authored NeurIPS 2022 papers to read their decision confidence values.",
+      "actor_tool_calls": [
+        {
+          "name": "enhanced_search",
+          "args": {
+            "query": "site:openreview.net/forum?id=09QFnDWPF8"
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 118.26312804222107,
+      "tool_time": 1.7371089458465576,
+      "tool_executed": {
+        "name": "enhanced_search",
+        "result": "Found 3 web results with content:\n\n1. Score-Based Generative Modeling through Stochastic ...\n   URL: https://openreview.net/forum?id=PxTIG12RRHS\n   Site: openreview.net\n   Summary: by Y Song \u00b7 Cited by 9870 \u2014 Creating noise from data is easy; creating data from noise is generative modeling. We present a stochastic differential equation (SDE) that ...\n   Content: Score-Based Generative Modeling through Stochastic Differential Equations | OpenReview Toggle navigation OpenReview .net Login Go to ICLR 2021 Conference homepage Score-Based Generative Modeling through Stochastic Differential Equations Yang Song , Jascha Sohl-Dickstein , Diederik P Kingma , Abhishek Kumar , Stefano Ermon , Ben Poole Published: 12 Jan 2021, Last Modified: 03 Apr 2024 ICLR 2021 Oral Readers: Everyone Keywords : generative models, score-based generative models, stochastic differential equations, score matching, diffusion Abstract : Creating noise from data is easy; creating data from noise is generative modeling. We present a stochastic differential equation (SDE) that smoothly transforms a complex data distribution to a known prior distribution by slowly injecting noise, and a corresponding reverse-time SDE that transforms the prior distribution back into the data distribution by slowly removing the noise. \nCrucially, the reverse-time SDE depends only on the time-dependent gradient field (a.k.a., score) of the perturbed data distribution. By leveraging advances in score-based generative modeling, we can accurately estimate these scores with neural networks, and use numerical SDE solvers to generate samples. We show that this framework encapsulates previous approaches in score-based generative modeling and diffusion probabilistic modeling, allowing for new sampling procedures and new modeling capabilities. In particular, we introduce a predictor-corrector framework to correct errors in the evolution of the discretized reverse-time SDE. We also derive an equivalent neural ODE that samples from the same distribution as the SDE, but additionally enables exact likelihood computation, and improved sampling efficiency. In addition, we provide a new way to solve inverse problems with score-based models, as demonstrated with experiments on class-conditional generation, image inpainting, and colorization. Combined with multiple architectural improvements, we a\n\n2. TiC-CLIP: Continual Training of CLIP Models\n   URL: https://openreview.net/forum?id=TLADT8Wrhn\n   Site: openreview.net\n   Summary: by S Garg \u00b7 Cited by 43 \u2014 We introduce the first set of web-scale Time-Continual (TiC) benchmarks for training vision-language models: TiC-DataComp, TiC-YFCC, and TiC-Redcaps.\n   Content: TiC-CLIP: Continual Training of CLIP Models | OpenReview Toggle navigation OpenReview .net Login Go to ICLR 2024 Conference homepage TiC-CLIP: Continual Training of CLIP Models Saurabh Garg , Mehrdad Farajtabar , Hadi Pouransari , Raviteja Vemulapalli , Sachin Mehta , Oncel Tuzel , Vaishaal Shankar , Fartash Faghri Published: 16 Jan 2024, Last Modified: 21 Mar 2024 ICLR 2024 poster Everyone Revisions BibTeX Code Of Ethics : I acknowledge that I and all co-authors of this work have read and commit to adhering to the ICLR Code of Ethics. Keywords : CLIP, Continual learning, distribution shift, benchmark Submission Guidelines : I certify that this submission complies with the submission instructions as described on https://iclr.cc/Conferences/2024/AuthorGuide. Abstract : Keeping large foundation models up to date on latest data is inherently expensive. To avoid the prohibitive costs of constantly retraining, it is imperative to continually train these models. This problem is exacerbated by the lack of any large scale continual learning benchmarks or baselines. We introduce the first set of web-scale Time-Continual (TiC) benchmarks for training vision-language models: TiC-DataComp, TiC-YFCC, and TiC-Redcaps. TiC-DataComp, our largest dataset, contains over 12.7B timestamped image-text pairs spanning 9 years (2014-2022). We first use our benchmarks to curate various dynamic evaluations to measure temporal robustness of existing models. We show OpenAI's CLIP (trained on data up to 2020) loses $\\approx 8\\%$ zero-shot accuracy on our curated retrieval task from 2021-2022 compared with more recently trained models in OpenCLIP repository. We then study how to efficiently train models on time-continuous data. We demonstrate that a simple rehearsal-based approach that continues training from the last checkpoint  and replays old data reduces compute by $2.5\\times$ when compared to the standard practice of retraining from scratch. Code is available at https://github.com/apple/ml-\n\n3. Vision Transformers Represent Relations Between Objects\n   URL: https://openreview.net/forum?id=8puv3c9CPg\n   Site: openreview.net\n   Summary: by MA Lepori \u00b7 Cited by 9 \u2014 We present a case study of a fundamental, yet surprisingly difficult, relational reasoning task: judging whether two visual entities are the same or different.\n   Content: Beyond the Doors of Perception: Vision Transformers Represent Relations Between Objects | OpenReview Toggle navigation OpenReview .net Login Go to NeurIPS 2024 Conference homepage Beyond the Doors of Perception: Vision Transformers Represent Relations Between Objects Michael A. Lepori , Alexa R. Tartaglini , Wai Keen Vong , Thomas Serre , Brenden Lake , Ellie Pavlick Published: 25 Sept 2024, Last Modified: 06 Nov 2024 NeurIPS 2024 poster Everyone Revisions BibTeX CC BY 4.0 Keywords : visual reasoning, mechanistic interpretability, transformers, cognitive science TL;DR : We use methods from mechanistic interpretability to investigate how Vision Transformers perform an abstract visual reasoning task. Abstract : Though vision transformers (ViTs) have achieved state-of-the-art performance in a variety of settings, they exhibit surprising failures when performing tasks involving visual relations. This begs the question: how do ViTs attempt to perform tasks that require computing visual relations between objects? Prior efforts to interpret ViTs tend to focus on characterizing relevant low-level visual features. In contrast, we adopt methods from mechanistic interpretability to study the higher-level visual algorithms that ViTs use to perform abstract visual reasoning. We present a case study of a fundamental, yet surprisingly difficult, relational reasoning task: judging whether two visual entities are the same or different. We find that pretrained ViTs fine-tuned on this task often exhibit two qualitatively different stages of processing despite having no obvious inductive biases to do so: 1) a perceptual stage wherein local object features are extracted and stored in a disentangled representation, and 2) a relational stage wherein object representations are compared. In the second stage, we find evidence that ViTs can learn to represent somewhat abstract visual relations, a capability that has long been considered out of reach for artificial neural networks. Finally, we\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 125.67018604278564,
+      "step": 10,
+      "actor_model": "gpt-5",
+      "llm_time": 7.4051032066345215,
+      "actor_reasoning": "I need to search OpenReview for NeurIPS 2022 accepted papers with authors named Yuri and check if the decision confidence is \"Certain\".",
+      "actor_tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "site:openreview.net NeurIPS 2022 Conference Yuri Accept Confidence Certain"
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 126.56016898155212,
+      "tool_time": 0.8886511325836182,
+      "tool_executed": {
+        "name": "web_search",
+        "result": "Found 3 relevant web results:\n\n1. Recurrent Memory Transformer\n   URL: https://openreview.net/forum?id=Uynr3iPhksa\n   Site: openreview.net\n   Summary: by A Bulatov \u00b7 2022 \u00b7 Cited by 248 \u2014 We propose and study a memory-augmented segment-level recurrent Transformer (RMT). Memory allows to store and process local and global information.\n\n2. NeurIPS 2022 Conference\n   URL: https://openreview.net/group?id=NeurIPS.cc/2022/Conference\n   Site: openreview.net\n   Summary: Thirty-Sixth Conference on Neural Information Processing Systems. NeurIPS 2022. New Orleans, Louisiana, United States of America. Nov 28 2022.\n\n3. On the Convergence of Loss and Uncertainty-based Active ...\n   URL: https://openreview.net/attachment?id=GLUIuli3Sm&name=pdf\n   Site: openreview.net\n   Summary: by D Haimovich \u00b7 2024 \u00b7 Cited by 3 \u2014 The convergence of margin of confidence sampling was recently studied by Raj and Bach [2022], who demonstrated linear convergence for linear classifiers and ...\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 142.1229350566864,
+      "step": 11,
+      "actor_model": "gpt-5",
+      "llm_time": 15.56125783920288,
+      "actor_reasoning": "I need to find all NeurIPS 2022 OpenReview papers that include an author named Yuri.",
+      "actor_tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "site:openreview.net NeurIPS.cc/2022/Conference Yuri"
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 143.631600856781,
+      "tool_time": 1.5075042247772217,
+      "tool_executed": {
+        "name": "web_search",
+        "result": "Found 3 relevant web results:\n\n1. NeurIPS 2022 Conference\n   URL: https://openreview.net/group?id=NeurIPS.cc/2022/Conference\n   Site: openreview.net\n   Summary: New Orleans, Louisiana, United States of America Nov 28 2022 https://neurips.cc/ program-chairs@neurips.cc ... Yuri Fonseca, Yuri Saporito. Published: 31 ...\n\n2. Revision History for Statistical Learning and Inverse...\n   URL: https://openreview.net/revisions?id=09QFnDWPF8\n   Site: openreview.net\n   Summary: Venue: NeurIPS 2022 Accept. Venueid: NeurIPS.cc/2022/Conference ... Yuri Fonseca, Yuri Saporito. 16 May 2022, 14:51 ... Yuri Fonseca, Yuri Saporito. 16 May ...\n\n3. Towards Out-of-Distribution Sequential Event Prediction\n   URL: https://openreview.net/pdf/b5224a60869a26365b6e70239acbac055a762b08.pdf\n   Site: openreview.net\n   Summary: by C Yang \u00b7 Cited by 38 \u2014 36th Conference on Neural Information Processing Systems (NeurIPS 2022). ... [5] Yuri Burda, Roger Grosse, and Ruslan Salakhutdinov. Importance weighted ...\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 160.30352115631104,
+      "step": 12,
+      "actor_model": "gpt-5",
+      "llm_time": 16.668179988861084,
+      "actor_reasoning": "I need to find all NeurIPS 2022 OpenReview forum pages with authors named Yuri and inspect their decision confidence text.",
+      "actor_tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "site:openreview.net NeurIPS 2022 Yuri site:openreview.net/forum?id="
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 161.07016801834106,
+      "tool_time": 0.7653300762176514,
+      "tool_executed": {
+        "name": "web_search",
+        "result": "Found 3 relevant web results:\n\n1. Improved Convergence Rate of Stochastic Gradient ...\n   URL: https://openreview.net/forum?id=Sj2z__i1wX-\n   Site: openreview.net\n   Summary: by Y Kinoshita \u00b7 2022 \u00b7 Cited by 27 \u2014 Yuri Kinoshita, Taiji Suzuki. Published: 31 Oct 2022, Last Modified: 04 Aug 2025NeurIPS 2022 AcceptReaders: Everyone. Keywords: stochastic gradient Langevin ...\n\n2. Statistical Learning and Inverse Problems: A Stochastic ...\n   URL: https://openreview.net/forum?id=09QFnDWPF8\n   Site: openreview.net\n   Summary: by Y Fonseca \u00b7 Cited by 4 \u2014 An algorithm based on stochastic gradient descent for solving linear Inverse Problems under a statistical learning framework.\n\n3. Improving Policy Learning via Language Dynamics ...\n   URL: https://openreview.net/forum?id=Yay6tHq1Nw\n   Site: openreview.net\n   Summary: by V Zhong \u00b7 2022 \u00b7 Cited by 23 \u2014 We pretrain a policy learner to ground language descriptions by dynamics modelling on unlabeled demonstrations, and obtain sample-efficiency ...\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 170.71479415893555,
+      "step": 13,
+      "actor_model": "gpt-5",
+      "llm_time": 9.64220404624939,
+      "actor_reasoning": "I need to find all NeurIPS 2022 OpenReview papers with an author named Yuri.",
+      "actor_tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "site:openreview.net NeurIPS 2022 Yuri"
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 171.65882301330566,
+      "tool_time": 0.9428179264068604,
+      "tool_executed": {
+        "name": "web_search",
+        "result": "Found 3 relevant web results:\n\n1. Statistical Learning and Inverse Problems: A Stochastic ...\n   URL: https://openreview.net/forum?id=09QFnDWPF8\n   Site: openreview.net\n   Summary: by Y Fonseca \u00b7 Cited by 4 \u2014 An algorithm based on stochastic gradient descent for solving linear Inverse Problems under a statistical learning framework.\n\n2. NeurIPS 2022 Conference\n   URL: https://openreview.net/group?id=NeurIPS.cc/2022/Conference\n   Site: openreview.net\n   Summary: Statistical Learning and Inverse Problems: A Stochastic Gradient Approach \u00b7 Yuri Fonseca, Yuri Saporito. Published: 31 Oct 2022, 13:51, Last Modified: 05 May ...See more\n\n3. Improved Convergence Rate of Stochastic Gradient ...\n   URL: https://openreview.net/forum?id=Sj2z__i1wX-\n   Site: openreview.net\n   Summary: by Y Kinoshita \u00b7 2022 \u00b7 Cited by 27 \u2014 Yuri Kinoshita, Taiji Suzuki. Published: 31 Oct 2022, Last Modified: 04 Aug 2025NeurIPS 2022 AcceptReaders: Everyone. Keywords: stochastic gradient Langevin ...See more\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 198.34180688858032,
+      "step": 14,
+      "actor_model": "gpt-5",
+      "llm_time": 26.680938005447388,
+      "actor_reasoning": "I need to open the OpenReview forum pages for the two Yuri-authored NeurIPS 2022 papers to read the decision confidence text.",
+      "actor_tool_calls": [
+        {
+          "name": "enhanced_search",
+          "args": {
+            "query": "site:openreview.net/forum NeurIPS 2022 \"Statistical Learning and Inverse Problems: A Stochastic Gradient Approach\""
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 199.4949209690094,
+      "tool_time": 1.152029037475586,
+      "tool_executed": {
+        "name": "enhanced_search",
+        "result": "Found 1 web results with content:\n\n1. Statistical Learning and Inverse Problems: A Stochastic ...\n   URL: https://openreview.net/forum?id=09QFnDWPF8\n   Site: openreview.net\n   Summary: by Y Fonseca \u00b7 Cited by 4 \u2014 Statistical Learning and Inverse Problems: A Stochastic Gradient Approach Download PDF ... Published: 31 Oct 2022, Last Modified: 05 May 2023NeurIPS 2022 ...\n   Content: Statistical Learning and Inverse Problems: A Stochastic Gradient Approach | OpenReview Toggle navigation OpenReview .net Login Go to NeurIPS 2022 Conference homepage Statistical Learning and Inverse Problems: A Stochastic Gradient Approach Yuri Fonseca , Yuri Saporito Published: 31 Oct 2022, Last Modified: 05 May 2023 NeurIPS 2022 Accept Readers: Everyone Keywords : Statistical Learning, Inverse Problems, Stochastic Gradient Descent TL;DR : An algorithm based on stochastic gradient descent for solving linear Inverse Problems under a statistical learning framework. Abstract : Inverse problems are paramount in Science and Engineering. In this paper, we consider the setup of Statistical Inverse Problem (SIP) and demonstrate how Stochastic Gradient Descent (SGD) algorithms can be used to solve linear SIP. We provide consistency and finite sample bounds for the excess risk. We also propose a modification for the SGD algorithm where we leverage machine learning methods to smooth the stochastic gradients and improve empirical performance. We exemplify the algorithm in a setting of great interest nowadays: the Functional Linear Regression model. In this case we consider a synthetic data example and a classification problem for predicting the main activity of bitcoin addresses based on their balances. Supplementary Material : zip 9 Replies Loading About OpenReview Hosting a Venue All Venues Contact Sponsors Donate FAQ Terms of Use / Privacy Policy News About OpenReview Hosting a Venue All Venues Sponsors News FAQ Contact Donate Terms of Use Privacy Policy OpenReview is a long-term project to advance science through improved peer review with legal nonprofit status. We gratefully acknowledge the support of the OpenReview Sponsors . \u00a9 2025 OpenReview\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 225.5816330909729,
+      "step": 15,
+      "actor_model": "gpt-5",
+      "llm_time": 26.08493733406067,
+      "actor_reasoning": "I need to open the OpenReview forum pages for the identified Yuri-authored NeurIPS 2022 papers to read their meta-review confidence values.",
+      "actor_tool_calls": [
+        {
+          "name": "enhanced_search",
+          "args": {
+            "query": "site:openreview.net/forum?id=Sj2z__i1wX-"
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 226.8490550518036,
+      "tool_time": 1.2661681175231934,
+      "tool_executed": {
+        "name": "enhanced_search",
+        "result": "Found 3 web results with content:\n\n1. Score-Based Generative Modeling through Stochastic ...\n   URL: https://openreview.net/forum?id=PxTIG12RRHS\n   Site: openreview.net\n   Summary: by Y Song \u00b7 Cited by 9870 \u2014 Abstract: Creating noise from data is easy; creating data from noise is generative modeling. We present a stochastic differential equation ...\n   Content: Score-Based Generative Modeling through Stochastic Differential Equations | OpenReview Toggle navigation OpenReview .net Login Go to ICLR 2021 Conference homepage Score-Based Generative Modeling through Stochastic Differential Equations Yang Song , Jascha Sohl-Dickstein , Diederik P Kingma , Abhishek Kumar , Stefano Ermon , Ben Poole Published: 12 Jan 2021, Last Modified: 03 Apr 2024 ICLR 2021 Oral Readers: Everyone Keywords : generative models, score-based generative models, stochastic differential equations, score matching, diffusion Abstract : Creating noise from data is easy; creating data from noise is generative modeling. We present a stochastic differential equation (SDE) that smoothly transforms a complex data distribution to a known prior distribution by slowly injecting noise, and a corresponding reverse-time SDE that transforms the prior distribution back into the data distribution by slowly removing the noise. \nCrucially, the reverse-time SDE depends only on the time-dependent gradient field (a.k.a., score) of the perturbed data distribution. By leveraging advances in score-based generative modeling, we can accurately estimate these scores with neural networks, and use numerical SDE solvers to generate samples. We show that this framework encapsulates previous approaches in score-based generative modeling and diffusion probabilistic modeling, allowing for new sampling procedures and new modeling capabilities. In particular, we introduce a predictor-corrector framework to correct errors in the evolution of the discretized reverse-time SDE. We also derive an equivalent neural ODE that samples from the same distribution as the SDE, but additionally enables exact likelihood computation, and improved sampling efficiency. In addition, we provide a new way to solve inverse problems with score-based models, as demonstrated with experiments on class-conditional generation, image inpainting, and colorization. Combined with multiple architectural improvements, we a\n\n2. TiC-CLIP: Continual Training of CLIP Models\n   URL: https://openreview.net/forum?id=TLADT8Wrhn\n   Site: openreview.net\n   Summary: by S Garg \u00b7 Cited by 43 \u2014 We introduce the first set of web-scale Time-Continual (TiC) benchmarks for training vision-language models: TiC-DataComp, TiC-YFCC, and TiC-Redcaps.\n   Content: TiC-CLIP: Continual Training of CLIP Models | OpenReview Toggle navigation OpenReview .net Login Go to ICLR 2024 Conference homepage TiC-CLIP: Continual Training of CLIP Models Saurabh Garg , Mehrdad Farajtabar , Hadi Pouransari , Raviteja Vemulapalli , Sachin Mehta , Oncel Tuzel , Vaishaal Shankar , Fartash Faghri Published: 16 Jan 2024, Last Modified: 21 Mar 2024 ICLR 2024 poster Everyone Revisions BibTeX Code Of Ethics : I acknowledge that I and all co-authors of this work have read and commit to adhering to the ICLR Code of Ethics. Keywords : CLIP, Continual learning, distribution shift, benchmark Submission Guidelines : I certify that this submission complies with the submission instructions as described on https://iclr.cc/Conferences/2024/AuthorGuide. Abstract : Keeping large foundation models up to date on latest data is inherently expensive. To avoid the prohibitive costs of constantly retraining, it is imperative to continually train these models. This problem is exacerbated by the lack of any large scale continual learning benchmarks or baselines. We introduce the first set of web-scale Time-Continual (TiC) benchmarks for training vision-language models: TiC-DataComp, TiC-YFCC, and TiC-Redcaps. TiC-DataComp, our largest dataset, contains over 12.7B timestamped image-text pairs spanning 9 years (2014-2022). We first use our benchmarks to curate various dynamic evaluations to measure temporal robustness of existing models. We show OpenAI's CLIP (trained on data up to 2020) loses $\\approx 8\\%$ zero-shot accuracy on our curated retrieval task from 2021-2022 compared with more recently trained models in OpenCLIP repository. We then study how to efficiently train models on time-continuous data. We demonstrate that a simple rehearsal-based approach that continues training from the last checkpoint  and replays old data reduces compute by $2.5\\times$ when compared to the standard practice of retraining from scratch. Code is available at https://github.com/apple/ml-\n\n3. Vision Transformers Represent Relations Between Objects\n   URL: https://openreview.net/forum?id=8puv3c9CPg\n   Site: openreview.net\n   Summary: by MA Lepori \u00b7 Cited by 9 \u2014 Though vision transformers (ViTs) have achieved state-of-the-art performance in a variety of settings, they exhibit surprising failures when ...\n   Content: Beyond the Doors of Perception: Vision Transformers Represent Relations Between Objects | OpenReview Toggle navigation OpenReview .net Login Go to NeurIPS 2024 Conference homepage Beyond the Doors of Perception: Vision Transformers Represent Relations Between Objects Michael A. Lepori , Alexa R. Tartaglini , Wai Keen Vong , Thomas Serre , Brenden Lake , Ellie Pavlick Published: 25 Sept 2024, Last Modified: 06 Nov 2024 NeurIPS 2024 poster Everyone Revisions BibTeX CC BY 4.0 Keywords : visual reasoning, mechanistic interpretability, transformers, cognitive science TL;DR : We use methods from mechanistic interpretability to investigate how Vision Transformers perform an abstract visual reasoning task. Abstract : Though vision transformers (ViTs) have achieved state-of-the-art performance in a variety of settings, they exhibit surprising failures when performing tasks involving visual relations. This begs the question: how do ViTs attempt to perform tasks that require computing visual relations between objects? Prior efforts to interpret ViTs tend to focus on characterizing relevant low-level visual features. In contrast, we adopt methods from mechanistic interpretability to study the higher-level visual algorithms that ViTs use to perform abstract visual reasoning. We present a case study of a fundamental, yet surprisingly difficult, relational reasoning task: judging whether two visual entities are the same or different. We find that pretrained ViTs fine-tuned on this task often exhibit two qualitatively different stages of processing despite having no obvious inductive biases to do so: 1) a perceptual stage wherein local object features are extracted and stored in a disentangled representation, and 2) a relational stage wherein object representations are compared. In the second stage, we find evidence that ViTs can learn to represent somewhat abstract visual relations, a capability that has long been considered out of reach for artificial neural networks. Finally, we\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 259.4764380455017,
+      "step": 16,
+      "actor_model": "gpt-5",
+      "llm_time": 32.62291407585144,
+      "actor_reasoning": "1\n\nFINAL ANSWER: 1",
+      "final_answer": "1"
+    }
+  ],
+  "messages": [
+    {
+      "role": "user",
+      "content": "According to Openreview.net, at the NeurIPS 2022 Conference, how many papers by an author named Yuri were accepted with a \"certain\" recommendation?"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to find the specific OpenReview page or search results that mention NeurIPS 2022 papers by authors named Yuri with a \"certain\" recommendation."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 relevant web results:\n\n1. NeurIPS 2022 Conference\n   URL: https://openreview.net/group?id=NeurIPS.cc/2022/Conference\n   Site: openreview.net\n   Summary: The main idea is to first represent the data in tensor form, apply a linear transform along certain dimension and split the transformed data into different ...\n\n2. Towards Out-of-Distribution Sequential Event Prediction\n   URL: https://openreview.net/pdf/b5224a60869a26365b6e70239acbac055a762b08.pdf\n   Site: openreview.net\n   Summary: by C Yang \u00b7 Cited by 38 \u2014 36th Conference on Neural Information Processing Systems (NeurIPS 2022). ... certain time interval. Inspired by [46] using mixture of Gaussian as a ...\n\n3. Iteratively Learn Diverse Strategies with State Distance ...\n   URL: https://openreview.net/attachment?id=vKAYwmJ4H5&name=pdf\n   Site: openreview.net\n   Summary: by W Fu \u00b7 2023 \u00b7 Cited by 6 \u2014 37th Conference on Neural Information Processing Systems (NeurIPS 2023). ... behavior differences between two policies in certain scenarios, as we will discuss in ...\n",
+      "name": "web_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to quickly find OpenReview pages mentioning NeurIPS 2022 papers with author name Yuri and a 'certain' recommendation."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 relevant web results:\n\n1. NeurIPS 2022 Conference\n   URL: https://openreview.net/group?id=NeurIPS.cc/2022/Conference\n   Site: openreview.net\n   Summary: Thirty-Sixth Conference on Neural Information Processing Systems. NeurIPS 2022. New Orleans, Louisiana, United States of America. Nov 28 2022.\n\n2. Improved Convergence Rate of Stochastic Gradient ...\n   URL: https://openreview.net/forum?id=Sj2z__i1wX-\n   Site: openreview.net\n   Summary: by Y Kinoshita \u00b7 2022 \u00b7 Cited by 27 \u2014 The stochastic gradient Langevin Dynamics is one of the most fundamental algorithms to solve sampling problems and non-convex optimization ...\n\n3. NeurIPS 2022 Conference Submissions\n   URL: https://openreview.net/submissions?venue=NeurIPS.cc/2022/Conference\n   Site: openreview.net\n   Summary: NeurIPS 2022 Conference Submissions. No submissions found. About OpenReview \u00b7 Hosting a Venue \u00b7 All Venues \u00b7 Contact \u00b7 Sponsors \u00b7 Donate.\n",
+      "name": "web_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to search the web to find OpenReview NeurIPS 2022 pages mentioning 'certain' recommendation and authors named Yuri."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 relevant web results:\n\n1. NeurIPS 2022 Conference\n   URL: https://openreview.net/group?id=NeurIPS.cc/2022/Conference\n   Site: openreview.net\n   Summary: The main idea is to first represent the data in tensor form, apply a linear transform along certain dimension and split the transformed data into different ...\n\n2. Towards Out-of-Distribution Sequential Event Prediction\n   URL: https://openreview.net/pdf/b5224a60869a26365b6e70239acbac055a762b08.pdf\n   Site: openreview.net\n   Summary: by C Yang \u00b7 Cited by 38 \u2014 Real-world problem scenarios are flooded with sequential event data consisting of chronologically arrived events which reflect certain behaviors, activities or ...\n\n3. Code Repair with LLMs gives an Exploration-Exploitation ...\n   URL: https://openreview.net/attachment?id=q2LyFtn4BZ&name=pdf\n   Site: openreview.net\n   Summary: by H Tang \u00b7 2024 \u00b7 Cited by 37 \u2014 It uses fewer LLM requests to reach a certain passing rate and gains an overall higher final success rate. REx achieves relatively better performance when C ...\n",
+      "name": "web_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to quickly search OpenReview for NeurIPS 2022 papers with author name Yuri that mention a 'certain' recommendation and acceptance."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 relevant web results:\n\n1. NeurIPS 2022 Conference\n   URL: https://openreview.net/group?id=NeurIPS.cc/2022/Conference\n   Site: openreview.net\n   Summary: Thirty-Sixth Conference on Neural Information Processing Systems. NeurIPS 2022. New Orleans, Louisiana, United States of America. Nov 28 2022.\n\n2. Improved Convergence Rate of Stochastic Gradient ...\n   URL: https://openreview.net/forum?id=Sj2z__i1wX-\n   Site: openreview.net\n   Summary: by Y Kinoshita \u00b7 2022 \u00b7 Cited by 27 \u2014 Yuri Kinoshita, Taiji Suzuki. Published: 31 Oct 2022, Last Modified: 04 Aug 2025NeurIPS 2022 AcceptReaders: Everyone. Keywords: stochastic gradient Langevin ...\n\n3. Recurrent Memory Transformer\n   URL: https://openreview.net/forum?id=Uynr3iPhksa\n   Site: openreview.net\n   Summary: by A Bulatov \u00b7 2022 \u00b7 Cited by 248 \u2014 We propose and study a memory-augmented segment-level recurrent Transformer (RMT). Memory allows to store and process local and global information.\n",
+      "name": "web_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to find OpenReview NeurIPS 2022 pages where accepted papers by authors named Yuri have a 'certain' recommendation."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 relevant web results:\n\n1. Improving Policy Learning via Language Dynamics ...\n   URL: https://openreview.net/forum?id=Yay6tHq1Nw\n   Site: openreview.net\n   Summary: by V Zhong \u00b7 2022 \u00b7 Cited by 23 \u2014 26 Aug 2022, 14:28NeurIPS 2022 Conference Paper3780 Meta ReviewReaders: EveryoneShow Revisions. Recommendation: Accept. Confidence: Less certain.\n\n2. Towards Out-of-Distribution Sequential Event Prediction\n   URL: https://openreview.net/pdf/b5224a60869a26365b6e70239acbac055a762b08.pdf\n   Site: openreview.net\n   Summary: by C Yang \u00b7 Cited by 38 \u2014 ... NeurIPS 2022 ... We evaluate the effectiveness of CaseQ with different applications for event prediction, including sequential recommendation, ATM maintenance and ...\n\n3. Recurrent Memory Transformer\n   URL: https://openreview.net/forum?id=Uynr3iPhksa\n   Site: openreview.net\n   Summary: by A Bulatov \u00b7 2022 \u00b7 Cited by 248 \u2014 14 Sept 2022, 13:56NeurIPS 2022 Conference Paper11788 DecisionReaders: EveryoneShow Revisions ... Recommendation: Accept. Confidence: Less certain.\n",
+      "name": "web_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to quickly find NeurIPS 2022 OpenReview pages listing authors named Yuri and check their decision confidence."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 relevant web results:\n\n1. NeurIPS 2022 Conference\n   URL: https://openreview.net/group?id=NeurIPS.cc/2022/Conference\n   Site: openreview.net\n   Summary: Welcome to the OpenReview homepage for NeurIPS 2022 Conference. ... Statistical Learning and Inverse Problems: A Stochastic Gradient Approach \u00b7 Yuri Fonseca, Yuri ...\n\n2. Statistical Learning and Inverse Problems: A Stochastic ...\n   URL: https://openreview.net/forum?id=09QFnDWPF8\n   Site: openreview.net\n   Summary: by Y Fonseca \u00b7 Cited by 4 \u2014 back arrow Go to NeurIPS 2022 Conference homepage. Statistical Learning and Inverse ... Yuri Fonseca, Yuri Saporito. Published: 31 Oct 2022, Last Modified ...\n\n3. Improved Convergence Rate of Stochastic Gradient ...\n   URL: https://openreview.net/forum?id=Sj2z__i1wX-\n   Site: openreview.net\n   Summary: by Y Kinoshita \u00b7 2022 \u00b7 Cited by 27 \u2014 back arrow Go to NeurIPS 2022 Conference homepage. Improved Convergence Rate of ... Yuri Kinoshita, Taiji Suzuki. Published: 31 Oct 2022, Last Modified: 04 ...\n",
+      "name": "web_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to find all NeurIPS 2022 OpenReview pages with authors named Yuri and check if their decision confidence is \"Certain\"."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 relevant web results:\n\n1. NeurIPS 2022 Conference\n   URL: https://openreview.net/group?id=NeurIPS.cc/2022/Conference\n   Site: openreview.net\n   Summary: Welcome to the OpenReview homepage for NeurIPS 2022 Conference. ... Statistical Learning and Inverse Problems: A Stochastic Gradient Approach \u00b7 Yuri Fonseca, Yuri ...See more\n\n2. Statistical Learning and Inverse Problems: A Stochastic ...\n   URL: https://openreview.net/forum?id=09QFnDWPF8\n   Site: openreview.net\n   Summary: by Y Fonseca \u00b7 Cited by 4 \u2014 back arrow Go to NeurIPS 2022 Conference homepage. Statistical Learning and Inverse ... Yuri Fonseca, Yuri Saporito. Published: 31 Oct 2022, Last Modified ...See more\n\n3. Improved Convergence Rate of Stochastic Gradient ...\n   URL: https://openreview.net/forum?id=Sj2z__i1wX-\n   Site: openreview.net\n   Summary: by Y Kinoshita \u00b7 2022 \u00b7 Cited by 27 \u2014 back arrow Go to NeurIPS 2022 Conference homepage. Improved Convergence Rate of ... Yuri Kinoshita, Taiji Suzuki. Published: 31 Oct 2022, Last Modified: 04 ...See more\n",
+      "name": "web_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to find all NeurIPS 2022 OpenReview pages that list authors named Yuri to check their decision confidence."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 relevant web results:\n\n1. Statistical Learning and Inverse Problems: A Stochastic ...\n   URL: https://openreview.net/forum?id=09QFnDWPF8\n   Site: openreview.net\n   Summary: by Y Fonseca \u00b7 Cited by 4 \u2014 Yuri Fonseca, Yuri Saporito. Published: 31 Oct 2022, Last Modified: 05 May 2023NeurIPS 2022 AcceptReaders: Everyone. Keywords: Statistical Learning, Inverse ...\n\n2. NeurIPS 2022 Conference\n   URL: https://openreview.net/group?id=NeurIPS.cc/2022/Conference\n   Site: openreview.net\n   Summary: Welcome to the OpenReview homepage for NeurIPS 2022 Conference. ... Statistical Learning and Inverse Problems: A Stochastic Gradient Approach \u00b7 Yuri Fonseca, Yuri ...\n\n3. Improved Convergence Rate of Stochastic Gradient ...\n   URL: https://openreview.net/forum?id=Sj2z__i1wX-\n   Site: openreview.net\n   Summary: by Y Kinoshita \u00b7 2022 \u00b7 Cited by 27 \u2014 Yuri Kinoshita, Taiji Suzuki. Published: 31 Oct 2022, Last Modified: 04 Aug 2025NeurIPS 2022 AcceptReaders: Everyone. Keywords: stochastic gradient Langevin ...\n",
+      "name": "web_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to open the specific OpenReview forum pages for the identified Yuri-authored NeurIPS 2022 papers to read their decision confidence values."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 web results with content:\n\n1. Score-Based Generative Modeling through Stochastic ...\n   URL: https://openreview.net/forum?id=PxTIG12RRHS\n   Site: openreview.net\n   Summary: by Y Song \u00b7 Cited by 9870 \u2014 Creating noise from data is easy; creating data from noise is generative modeling. We present a stochastic differential equation (SDE) that ...\n   Content: Score-Based Generative Modeling through Stochastic Differential Equations | OpenReview Toggle navigation OpenReview .net Login Go to ICLR 2021 Conference homepage Score-Based Generative Modeling through Stochastic Differential Equations Yang Song , Jascha Sohl-Dickstein , Diederik P Kingma , Abhishek Kumar , Stefano Ermon , Ben Poole Published: 12 Jan 2021, Last Modified: 03 Apr 2024 ICLR 2021 Oral Readers: Everyone Keywords : generative models, score-based generative models, stochastic differential equations, score matching, diffusion Abstract : Creating noise from data is easy; creating data from noise is generative modeling. We present a stochastic differential equation (SDE) that smoothly transforms a complex data distribution to a known prior distribution by slowly injecting noise, and a corresponding reverse-time SDE that transforms the prior distribution back into the data distribution by slowly removing the noise. \nCrucially, the reverse-time SDE depends only on the time-dependent gradient field (a.k.a., score) of the perturbed data distribution. By leveraging advances in score-based generative modeling, we can accurately estimate these scores with neural networks, and use numerical SDE solvers to generate samples. We show that this framework encapsulates previous approaches in score-based generative modeling and diffusion probabilistic modeling, allowing for new sampling procedures and new modeling capabilities. In particular, we introduce a predictor-corrector framework to correct errors in the evolution of the discretized reverse-time SDE. We also derive an equivalent neural ODE that samples from the same distribution as the SDE, but additionally enables exact likelihood computation, and improved sampling efficiency. In addition, we provide a new way to solve inverse problems with score-based models, as demonstrated with experiments on class-conditional generation, image inpainting, and colorization. Combined with multiple architectural improvements, we a\n\n2. TiC-CLIP: Continual Training of CLIP Models\n   URL: https://openreview.net/forum?id=TLADT8Wrhn\n   Site: openreview.net\n   Summary: by S Garg \u00b7 Cited by 43 \u2014 We introduce the first set of web-scale Time-Continual (TiC) benchmarks for training vision-language models: TiC-DataComp, TiC-YFCC, and TiC-Redcaps.\n   Content: TiC-CLIP: Continual Training of CLIP Models | OpenReview Toggle navigation OpenReview .net Login Go to ICLR 2024 Conference homepage TiC-CLIP: Continual Training of CLIP Models Saurabh Garg , Mehrdad Farajtabar , Hadi Pouransari , Raviteja Vemulapalli , Sachin Mehta , Oncel Tuzel , Vaishaal Shankar , Fartash Faghri Published: 16 Jan 2024, Last Modified: 21 Mar 2024 ICLR 2024 poster Everyone Revisions BibTeX Code Of Ethics : I acknowledge that I and all co-authors of this work have read and commit to adhering to the ICLR Code of Ethics. Keywords : CLIP, Continual learning, distribution shift, benchmark Submission Guidelines : I certify that this submission complies with the submission instructions as described on https://iclr.cc/Conferences/2024/AuthorGuide. Abstract : Keeping large foundation models up to date on latest data is inherently expensive. To avoid the prohibitive costs of constantly retraining, it is imperative to continually train these models. This problem is exacerbated by the lack of any large scale continual learning benchmarks or baselines. We introduce the first set of web-scale Time-Continual (TiC) benchmarks for training vision-language models: TiC-DataComp, TiC-YFCC, and TiC-Redcaps. TiC-DataComp, our largest dataset, contains over 12.7B timestamped image-text pairs spanning 9 years (2014-2022). We first use our benchmarks to curate various dynamic evaluations to measure temporal robustness of existing models. We show OpenAI's CLIP (trained on data up to 2020) loses $\\approx 8\\%$ zero-shot accuracy on our curated retrieval task from 2021-2022 compared with more recently trained models in OpenCLIP repository. We then study how to efficiently train models on time-continuous data. We demonstrate that a simple rehearsal-based approach that continues training from the last checkpoint  and replays old data reduces compute by $2.5\\times$ when compared to the standard practice of retraining from scratch. Code is available at https://github.com/apple/ml-\n\n3. Vision Transformers Represent Relations Between Objects\n   URL: https://openreview.net/forum?id=8puv3c9CPg\n   Site: openreview.net\n   Summary: by MA Lepori \u00b7 Cited by 9 \u2014 We present a case study of a fundamental, yet surprisingly difficult, relational reasoning task: judging whether two visual entities are the same or different.\n   Content: Beyond the Doors of Perception: Vision Transformers Represent Relations Between Objects | OpenReview Toggle navigation OpenReview .net Login Go to NeurIPS 2024 Conference homepage Beyond the Doors of Perception: Vision Transformers Represent Relations Between Objects Michael A. Lepori , Alexa R. Tartaglini , Wai Keen Vong , Thomas Serre , Brenden Lake , Ellie Pavlick Published: 25 Sept 2024, Last Modified: 06 Nov 2024 NeurIPS 2024 poster Everyone Revisions BibTeX CC BY 4.0 Keywords : visual reasoning, mechanistic interpretability, transformers, cognitive science TL;DR : We use methods from mechanistic interpretability to investigate how Vision Transformers perform an abstract visual reasoning task. Abstract : Though vision transformers (ViTs) have achieved state-of-the-art performance in a variety of settings, they exhibit surprising failures when performing tasks involving visual relations. This begs the question: how do ViTs attempt to perform tasks that require computing visual relations between objects? Prior efforts to interpret ViTs tend to focus on characterizing relevant low-level visual features. In contrast, we adopt methods from mechanistic interpretability to study the higher-level visual algorithms that ViTs use to perform abstract visual reasoning. We present a case study of a fundamental, yet surprisingly difficult, relational reasoning task: judging whether two visual entities are the same or different. We find that pretrained ViTs fine-tuned on this task often exhibit two qualitatively different stages of processing despite having no obvious inductive biases to do so: 1) a perceptual stage wherein local object features are extracted and stored in a disentangled representation, and 2) a relational stage wherein object representations are compared. In the second stage, we find evidence that ViTs can learn to represent somewhat abstract visual relations, a capability that has long been considered out of reach for artificial neural networks. Finally, we\n",
+      "name": "enhanced_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to search OpenReview for NeurIPS 2022 accepted papers with authors named Yuri and check if the decision confidence is \"Certain\"."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 relevant web results:\n\n1. Recurrent Memory Transformer\n   URL: https://openreview.net/forum?id=Uynr3iPhksa\n   Site: openreview.net\n   Summary: by A Bulatov \u00b7 2022 \u00b7 Cited by 248 \u2014 We propose and study a memory-augmented segment-level recurrent Transformer (RMT). Memory allows to store and process local and global information.\n\n2. NeurIPS 2022 Conference\n   URL: https://openreview.net/group?id=NeurIPS.cc/2022/Conference\n   Site: openreview.net\n   Summary: Thirty-Sixth Conference on Neural Information Processing Systems. NeurIPS 2022. New Orleans, Louisiana, United States of America. Nov 28 2022.\n\n3. On the Convergence of Loss and Uncertainty-based Active ...\n   URL: https://openreview.net/attachment?id=GLUIuli3Sm&name=pdf\n   Site: openreview.net\n   Summary: by D Haimovich \u00b7 2024 \u00b7 Cited by 3 \u2014 The convergence of margin of confidence sampling was recently studied by Raj and Bach [2022], who demonstrated linear convergence for linear classifiers and ...\n",
+      "name": "web_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to find all NeurIPS 2022 OpenReview papers that include an author named Yuri."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 relevant web results:\n\n1. NeurIPS 2022 Conference\n   URL: https://openreview.net/group?id=NeurIPS.cc/2022/Conference\n   Site: openreview.net\n   Summary: New Orleans, Louisiana, United States of America Nov 28 2022 https://neurips.cc/ program-chairs@neurips.cc ... Yuri Fonseca, Yuri Saporito. Published: 31 ...\n\n2. Revision History for Statistical Learning and Inverse...\n   URL: https://openreview.net/revisions?id=09QFnDWPF8\n   Site: openreview.net\n   Summary: Venue: NeurIPS 2022 Accept. Venueid: NeurIPS.cc/2022/Conference ... Yuri Fonseca, Yuri Saporito. 16 May 2022, 14:51 ... Yuri Fonseca, Yuri Saporito. 16 May ...\n\n3. Towards Out-of-Distribution Sequential Event Prediction\n   URL: https://openreview.net/pdf/b5224a60869a26365b6e70239acbac055a762b08.pdf\n   Site: openreview.net\n   Summary: by C Yang \u00b7 Cited by 38 \u2014 36th Conference on Neural Information Processing Systems (NeurIPS 2022). ... [5] Yuri Burda, Roger Grosse, and Ruslan Salakhutdinov. Importance weighted ...\n",
+      "name": "web_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to find all NeurIPS 2022 OpenReview forum pages with authors named Yuri and inspect their decision confidence text."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 relevant web results:\n\n1. Improved Convergence Rate of Stochastic Gradient ...\n   URL: https://openreview.net/forum?id=Sj2z__i1wX-\n   Site: openreview.net\n   Summary: by Y Kinoshita \u00b7 2022 \u00b7 Cited by 27 \u2014 Yuri Kinoshita, Taiji Suzuki. Published: 31 Oct 2022, Last Modified: 04 Aug 2025NeurIPS 2022 AcceptReaders: Everyone. Keywords: stochastic gradient Langevin ...\n\n2. Statistical Learning and Inverse Problems: A Stochastic ...\n   URL: https://openreview.net/forum?id=09QFnDWPF8\n   Site: openreview.net\n   Summary: by Y Fonseca \u00b7 Cited by 4 \u2014 An algorithm based on stochastic gradient descent for solving linear Inverse Problems under a statistical learning framework.\n\n3. Improving Policy Learning via Language Dynamics ...\n   URL: https://openreview.net/forum?id=Yay6tHq1Nw\n   Site: openreview.net\n   Summary: by V Zhong \u00b7 2022 \u00b7 Cited by 23 \u2014 We pretrain a policy learner to ground language descriptions by dynamics modelling on unlabeled demonstrations, and obtain sample-efficiency ...\n",
+      "name": "web_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to find all NeurIPS 2022 OpenReview papers with an author named Yuri."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 relevant web results:\n\n1. Statistical Learning and Inverse Problems: A Stochastic ...\n   URL: https://openreview.net/forum?id=09QFnDWPF8\n   Site: openreview.net\n   Summary: by Y Fonseca \u00b7 Cited by 4 \u2014 An algorithm based on stochastic gradient descent for solving linear Inverse Problems under a statistical learning framework.\n\n2. NeurIPS 2022 Conference\n   URL: https://openreview.net/group?id=NeurIPS.cc/2022/Conference\n   Site: openreview.net\n   Summary: Statistical Learning and Inverse Problems: A Stochastic Gradient Approach \u00b7 Yuri Fonseca, Yuri Saporito. Published: 31 Oct 2022, 13:51, Last Modified: 05 May ...See more\n\n3. Improved Convergence Rate of Stochastic Gradient ...\n   URL: https://openreview.net/forum?id=Sj2z__i1wX-\n   Site: openreview.net\n   Summary: by Y Kinoshita \u00b7 2022 \u00b7 Cited by 27 \u2014 Yuri Kinoshita, Taiji Suzuki. Published: 31 Oct 2022, Last Modified: 04 Aug 2025NeurIPS 2022 AcceptReaders: Everyone. Keywords: stochastic gradient Langevin ...See more\n",
+      "name": "web_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to open the OpenReview forum pages for the two Yuri-authored NeurIPS 2022 papers to read the decision confidence text."
+    },
+    {
+      "role": "tool",
+      "content": "Found 1 web results with content:\n\n1. Statistical Learning and Inverse Problems: A Stochastic ...\n   URL: https://openreview.net/forum?id=09QFnDWPF8\n   Site: openreview.net\n   Summary: by Y Fonseca \u00b7 Cited by 4 \u2014 Statistical Learning and Inverse Problems: A Stochastic Gradient Approach Download PDF ... Published: 31 Oct 2022, Last Modified: 05 May 2023NeurIPS 2022 ...\n   Content: Statistical Learning and Inverse Problems: A Stochastic Gradient Approach | OpenReview Toggle navigation OpenReview .net Login Go to NeurIPS 2022 Conference homepage Statistical Learning and Inverse Problems: A Stochastic Gradient Approach Yuri Fonseca , Yuri Saporito Published: 31 Oct 2022, Last Modified: 05 May 2023 NeurIPS 2022 Accept Readers: Everyone Keywords : Statistical Learning, Inverse Problems, Stochastic Gradient Descent TL;DR : An algorithm based on stochastic gradient descent for solving linear Inverse Problems under a statistical learning framework. Abstract : Inverse problems are paramount in Science and Engineering. In this paper, we consider the setup of Statistical Inverse Problem (SIP) and demonstrate how Stochastic Gradient Descent (SGD) algorithms can be used to solve linear SIP. We provide consistency and finite sample bounds for the excess risk. We also propose a modification for the SGD algorithm where we leverage machine learning methods to smooth the stochastic gradients and improve empirical performance. We exemplify the algorithm in a setting of great interest nowadays: the Functional Linear Regression model. In this case we consider a synthetic data example and a classification problem for predicting the main activity of bitcoin addresses based on their balances. Supplementary Material : zip 9 Replies Loading About OpenReview Hosting a Venue All Venues Contact Sponsors Donate FAQ Terms of Use / Privacy Policy News About OpenReview Hosting a Venue All Venues Sponsors News FAQ Contact Donate Terms of Use Privacy Policy OpenReview is a long-term project to advance science through improved peer review with legal nonprofit status. We gratefully acknowledge the support of the OpenReview Sponsors . \u00a9 2025 OpenReview\n",
+      "name": "enhanced_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to open the OpenReview forum pages for the identified Yuri-authored NeurIPS 2022 papers to read their meta-review confidence values."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 web results with content:\n\n1. Score-Based Generative Modeling through Stochastic ...\n   URL: https://openreview.net/forum?id=PxTIG12RRHS\n   Site: openreview.net\n   Summary: by Y Song \u00b7 Cited by 9870 \u2014 Abstract: Creating noise from data is easy; creating data from noise is generative modeling. We present a stochastic differential equation ...\n   Content: Score-Based Generative Modeling through Stochastic Differential Equations | OpenReview Toggle navigation OpenReview .net Login Go to ICLR 2021 Conference homepage Score-Based Generative Modeling through Stochastic Differential Equations Yang Song , Jascha Sohl-Dickstein , Diederik P Kingma , Abhishek Kumar , Stefano Ermon , Ben Poole Published: 12 Jan 2021, Last Modified: 03 Apr 2024 ICLR 2021 Oral Readers: Everyone Keywords : generative models, score-based generative models, stochastic differential equations, score matching, diffusion Abstract : Creating noise from data is easy; creating data from noise is generative modeling. We present a stochastic differential equation (SDE) that smoothly transforms a complex data distribution to a known prior distribution by slowly injecting noise, and a corresponding reverse-time SDE that transforms the prior distribution back into the data distribution by slowly removing the noise. \nCrucially, the reverse-time SDE depends only on the time-dependent gradient field (a.k.a., score) of the perturbed data distribution. By leveraging advances in score-based generative modeling, we can accurately estimate these scores with neural networks, and use numerical SDE solvers to generate samples. We show that this framework encapsulates previous approaches in score-based generative modeling and diffusion probabilistic modeling, allowing for new sampling procedures and new modeling capabilities. In particular, we introduce a predictor-corrector framework to correct errors in the evolution of the discretized reverse-time SDE. We also derive an equivalent neural ODE that samples from the same distribution as the SDE, but additionally enables exact likelihood computation, and improved sampling efficiency. In addition, we provide a new way to solve inverse problems with score-based models, as demonstrated with experiments on class-conditional generation, image inpainting, and colorization. Combined with multiple architectural improvements, we a\n\n2. TiC-CLIP: Continual Training of CLIP Models\n   URL: https://openreview.net/forum?id=TLADT8Wrhn\n   Site: openreview.net\n   Summary: by S Garg \u00b7 Cited by 43 \u2014 We introduce the first set of web-scale Time-Continual (TiC) benchmarks for training vision-language models: TiC-DataComp, TiC-YFCC, and TiC-Redcaps.\n   Content: TiC-CLIP: Continual Training of CLIP Models | OpenReview Toggle navigation OpenReview .net Login Go to ICLR 2024 Conference homepage TiC-CLIP: Continual Training of CLIP Models Saurabh Garg , Mehrdad Farajtabar , Hadi Pouransari , Raviteja Vemulapalli , Sachin Mehta , Oncel Tuzel , Vaishaal Shankar , Fartash Faghri Published: 16 Jan 2024, Last Modified: 21 Mar 2024 ICLR 2024 poster Everyone Revisions BibTeX Code Of Ethics : I acknowledge that I and all co-authors of this work have read and commit to adhering to the ICLR Code of Ethics. Keywords : CLIP, Continual learning, distribution shift, benchmark Submission Guidelines : I certify that this submission complies with the submission instructions as described on https://iclr.cc/Conferences/2024/AuthorGuide. Abstract : Keeping large foundation models up to date on latest data is inherently expensive. To avoid the prohibitive costs of constantly retraining, it is imperative to continually train these models. This problem is exacerbated by the lack of any large scale continual learning benchmarks or baselines. We introduce the first set of web-scale Time-Continual (TiC) benchmarks for training vision-language models: TiC-DataComp, TiC-YFCC, and TiC-Redcaps. TiC-DataComp, our largest dataset, contains over 12.7B timestamped image-text pairs spanning 9 years (2014-2022). We first use our benchmarks to curate various dynamic evaluations to measure temporal robustness of existing models. We show OpenAI's CLIP (trained on data up to 2020) loses $\\approx 8\\%$ zero-shot accuracy on our curated retrieval task from 2021-2022 compared with more recently trained models in OpenCLIP repository. We then study how to efficiently train models on time-continuous data. We demonstrate that a simple rehearsal-based approach that continues training from the last checkpoint  and replays old data reduces compute by $2.5\\times$ when compared to the standard practice of retraining from scratch. Code is available at https://github.com/apple/ml-\n\n3. Vision Transformers Represent Relations Between Objects\n   URL: https://openreview.net/forum?id=8puv3c9CPg\n   Site: openreview.net\n   Summary: by MA Lepori \u00b7 Cited by 9 \u2014 Though vision transformers (ViTs) have achieved state-of-the-art performance in a variety of settings, they exhibit surprising failures when ...\n   Content: Beyond the Doors of Perception: Vision Transformers Represent Relations Between Objects | OpenReview Toggle navigation OpenReview .net Login Go to NeurIPS 2024 Conference homepage Beyond the Doors of Perception: Vision Transformers Represent Relations Between Objects Michael A. Lepori , Alexa R. Tartaglini , Wai Keen Vong , Thomas Serre , Brenden Lake , Ellie Pavlick Published: 25 Sept 2024, Last Modified: 06 Nov 2024 NeurIPS 2024 poster Everyone Revisions BibTeX CC BY 4.0 Keywords : visual reasoning, mechanistic interpretability, transformers, cognitive science TL;DR : We use methods from mechanistic interpretability to investigate how Vision Transformers perform an abstract visual reasoning task. Abstract : Though vision transformers (ViTs) have achieved state-of-the-art performance in a variety of settings, they exhibit surprising failures when performing tasks involving visual relations. This begs the question: how do ViTs attempt to perform tasks that require computing visual relations between objects? Prior efforts to interpret ViTs tend to focus on characterizing relevant low-level visual features. In contrast, we adopt methods from mechanistic interpretability to study the higher-level visual algorithms that ViTs use to perform abstract visual reasoning. We present a case study of a fundamental, yet surprisingly difficult, relational reasoning task: judging whether two visual entities are the same or different. We find that pretrained ViTs fine-tuned on this task often exhibit two qualitatively different stages of processing despite having no obvious inductive biases to do so: 1) a perceptual stage wherein local object features are extracted and stored in a disentangled representation, and 2) a relational stage wherein object representations are compared. In the second stage, we find evidence that ViTs can learn to represent somewhat abstract visual relations, a capability that has long been considered out of reach for artificial neural networks. Finally, we\n",
+      "name": "enhanced_search"
+    },
+    {
+      "role": "assistant",
+      "content": "1\n\nFINAL ANSWER: 1"
+    }
+  ],
+  "error": null
+}

@@ -1,0 +1,520 @@
+{
+  "task_id": "56137764-b4e0-45b8-9c52-1866420c3df5",
+  "level": "2",
+  "question": "Which contributor to the version of OpenCV where support was added for the Mask-RCNN model has the same name as a former Chinese head of government when the names are transliterated to the Latin alphabet?",
+  "ground_truth": "Li Peng",
+  "predicted": "Li Peng",
+  "correct": true,
+  "steps": 15,
+  "time_seconds": 298.66854095458984,
+  "actor_model": "gpt-5",
+  "spec_model": null,
+  "speculation_enabled": false,
+  "verification_strategy": null,
+  "spec_hits": 0,
+  "spec_misses": 0,
+  "spec_predictions": 0,
+  "trajectory": [
+    {
+      "node": "start",
+      "question": "Which contributor to the version of OpenCV where support was added for the Mask-RCNN model has the same name as a former Chinese head of government when the names are transliterated to the Latin alphabet?",
+      "timestamp": 0
+    },
+    {
+      "node": "llm",
+      "timestamp": 18.593645811080933,
+      "step": 1,
+      "actor_model": "gpt-5",
+      "llm_time": 18.588785886764526,
+      "actor_reasoning": "I need to find which OpenCV release first added Mask R-CNN support and then identify a contributor with a name matching a former Chinese premier.",
+      "actor_tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "OpenCV release notes Mask R-CNN support added DNN module version"
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 19.902660846710205,
+      "tool_time": 1.3076868057250977,
+      "tool_executed": {
+        "name": "web_search",
+        "result": "Found 3 relevant web results:\n\n1. ChangeLog \u00b7 opencv/opencv Wiki - GitHub\n   URL: https://github.com/opencv/opencv/wiki/ChangeLog/1fbc4414210217372cfd0d7ecdfd2ae5dafcc626\n   Site: github.com\n   Summary: Added faster R-CNN support and the corresponding example. Javascript bindings have been extended to cover DNN module. See the corresponding tutorial; Also ...\n\n2. OpenCV DNN : Bridging Classic Vision and Modern Deep Learning\n   URL: https://opencv.org/blog/opencv-dnn-module/\n   Site: opencv.org\n   Date: Nov 12, 2025\n   Summary: Added support for 16-bit floating point (FP16) inference ... With OpenCV's new release in 2025, the DNN module has matured a lot.\n\n3. OpenCV DNN Module and Deep Learning (A Definitive guide)\n   URL: https://learnopencv.com/deep-learning-with-opencvs-dnn-module-a-definitive-guide/\n   Site: learnopencv.com\n   Date: Apr 12, 2021\n   Summary: To learn about neural networks and deep learning with computer vision, the OpenCV DNN module is a great place to start.\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 31.18425178527832,
+      "step": 2,
+      "actor_model": "gpt-5",
+      "llm_time": 11.279726028442383,
+      "actor_reasoning": "I need to identify the OpenCV release that added Mask R-CNN support and then check its contributors list for a name matching a former Chinese premier.",
+      "actor_tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "site:github.com opencv changelog Mask R-CNN support added release notes"
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 31.91075587272644,
+      "tool_time": 0.7256977558135986,
+      "tool_executed": {
+        "name": "web_search",
+        "result": "Found 3 relevant web results:\n\n1. ChangeLog \u00b7 opencv/opencv Wiki\n   URL: https://github.com/opencv/opencv/wiki/ChangeLog/1fbc4414210217372cfd0d7ecdfd2ae5dafcc626\n   Site: github.com\n   Summary: Added faster R-CNN support and the corresponding example. Javascript bindings have been extended to cover DNN module. See the corresponding tutorial; Also ...\n\n2. ChangeLog \u00b7 opencv/opencv Wiki\n   URL: https://github.com/opencv/opencv/wiki/changelog\n   Site: github.com\n   Summary: Open Source Computer Vision Library. Contribute to opencv/opencv development by creating an account on GitHub.\n\n3. aws-samples/mask-rcnn-tensorflow\n   URL: https://github.com/aws-samples/mask-rcnn-tensorflow\n   Site: github.com\n   Summary: This is an optimized version of Mask R-CNN based on TensorFlow 2.x, and Tensorpack Faster R-CNN/Mask R-CNN on COCO implementation.\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 53.81861686706543,
+      "step": 3,
+      "actor_model": "gpt-5",
+      "llm_time": 21.90382695198059,
+      "actor_reasoning": "I need to find the specific OpenCV release that first added Mask R-CNN support from official sources.",
+      "actor_tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "OpenCV release added Mask R-CNN support site:github.com opencv changelog"
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 54.937532901763916,
+      "tool_time": 1.1180229187011719,
+      "tool_executed": {
+        "name": "web_search",
+        "result": "Found 3 relevant web results:\n\n1. ChangeLog \u00b7 opencv/opencv Wiki\n   URL: https://github.com/opencv/opencv/wiki/ChangeLog/1fbc4414210217372cfd0d7ecdfd2ae5dafcc626\n   Site: github.com\n   Summary: Added support for Mask-RCNN model. Follow a guide and use a python sample ... Added faster R-CNN support and the corresponding example. Javascript ...\n\n2. ChangeLog \u00b7 opencv/opencv Wiki\n   URL: https://github.com/opencv/opencv/wiki/changelog\n   Site: github.com\n   Summary: Open Source Computer Vision Library. Contribute to opencv/opencv development by creating an account on GitHub.\n\n3. Error Running Mask R-CNN Sample with OpenCV 5.0 Alpha\n   URL: https://github.com/opencv/opencv/issues/27240\n   Site: github.com\n   Date: Apr 18, 2025\n   Summary: Detailed description. Hello,. When I run the Mask R-CNN example using OpenCV 5.0 alpha version, an error occurs. The error message is as follows ...\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 66.74166297912598,
+      "step": 4,
+      "actor_model": "gpt-5",
+      "llm_time": 11.802158117294312,
+      "actor_reasoning": "I need to open the specific OpenCV changelog page that mentions adding Mask-RCNN support and extract the version and its contributors list.",
+      "actor_tool_calls": [
+        {
+          "name": "enhanced_search",
+          "args": {
+            "query": "site:github.com/opencv/opencv/wiki \"Added support for Mask-RCNN model\" ChangeLog"
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 70.56954884529114,
+      "tool_time": 3.8266711235046387,
+      "tool_executed": {
+        "name": "enhanced_search",
+        "result": "Found 2 web results with content:\n\n1. ChangeLog \u00b7 opencv/opencv Wiki\n   URL: https://github.com/opencv/opencv/wiki/ChangeLog/1fbc4414210217372cfd0d7ecdfd2ae5dafcc626\n   Site: github.com\n   Summary: Added support for Mask-RCNN model. Follow a guide and use a python sample. Integrated ONNX parser. We now support many popular classification networks. YOLO ...\n   Content: ChangeLog \u00b7 opencv/opencv Wiki \u00b7 GitHub Skip to content Navigation Menu Toggle navigation Sign in Appearance settings Platform AI CODE CREATION GitHub Copilot Write better code with AI GitHub Spark Build and deploy intelligent apps GitHub Models Manage and compare prompts MCP Registry New Integrate external tools DEVELOPER WORKFLOWS Actions Automate any workflow Codespaces Instant dev environments Issues Plan and track work Code Review Manage code changes APPLICATION SECURITY GitHub Advanced Security Find and fix vulnerabilities Code security Secure your code as you build Secret protection Stop leaks before they start EXPLORE Why GitHub Documentation Blog Changelog Marketplace View all features Solutions BY COMPANY SIZE Enterprises Small and medium teams Startups Nonprofits BY USE CASE App Modernization DevSecOps DevOps CI/CD View all use cases BY INDUSTRY Healthcare Financial services Manufacturing Government View all industries View all solutions Resources EXPLORE BY TOPIC AI Software Development DevOps Security View all topics EXPLORE BY TYPE Customer stories Events & webinars Ebooks & reports Business insights GitHub Skills SUPPORT & SERVICES Documentation Customer support Community forum Trust center Partners Open Source COMMUNITY GitHub Sponsors Fund open source developers PROGRAMS Security Lab Maintainer Community Accelerator Archive Program REPOSITORIES Topics Trending Collections Enterprise ENTERPRISE SOLUTIONS Enterprise platform AI-powered developer platform AVAILABLE ADD-ONS GitHub Advanced Security Enterprise-grade security features Copilot for Business Enterprise-grade AI features Premium Support Enterprise-grade 24/7 support Pricing Search or jump to... Search code, repositories, users, issues, pull requests... Search Clear Search syntax tips Provide feedback We read every piece of feedback, and take your input very seriously. Include my email address so I can be contacted Cancel Submit feedback Saved searches Use saved searches to filter your results\n\n2. ChangeLog \u00b7 opencv/opencv Wiki\n   URL: https://github.com/opencv/opencv/wiki/ChangeLog/5c9873f455a6335069bf1e9c2c88a94794479929\n   Site: github.com\n   Summary: Added support for Mask-RCNN model. Follow a guide and use a python sample. Integrated ONNX parser. We now support many popular classification networks. YOLO ...\n   Content: ChangeLog \u00b7 opencv/opencv Wiki \u00b7 GitHub Skip to content Navigation Menu Toggle navigation Sign in Appearance settings Platform AI CODE CREATION GitHub Copilot Write better code with AI GitHub Spark Build and deploy intelligent apps GitHub Models Manage and compare prompts MCP Registry New Integrate external tools DEVELOPER WORKFLOWS Actions Automate any workflow Codespaces Instant dev environments Issues Plan and track work Code Review Manage code changes APPLICATION SECURITY GitHub Advanced Security Find and fix vulnerabilities Code security Secure your code as you build Secret protection Stop leaks before they start EXPLORE Why GitHub Documentation Blog Changelog Marketplace View all features Solutions BY COMPANY SIZE Enterprises Small and medium teams Startups Nonprofits BY USE CASE App Modernization DevSecOps DevOps CI/CD View all use cases BY INDUSTRY Healthcare Financial services Manufacturing Government View all industries View all solutions Resources EXPLORE BY TOPIC AI Software Development DevOps Security View all topics EXPLORE BY TYPE Customer stories Events & webinars Ebooks & reports Business insights GitHub Skills SUPPORT & SERVICES Documentation Customer support Community forum Trust center Partners Open Source COMMUNITY GitHub Sponsors Fund open source developers PROGRAMS Security Lab Maintainer Community Accelerator Archive Program REPOSITORIES Topics Trending Collections Enterprise ENTERPRISE SOLUTIONS Enterprise platform AI-powered developer platform AVAILABLE ADD-ONS GitHub Advanced Security Enterprise-grade security features Copilot for Business Enterprise-grade AI features Premium Support Enterprise-grade 24/7 support Pricing Search or jump to... Search code, repositories, users, issues, pull requests... Search Clear Search syntax tips Provide feedback We read every piece of feedback, and take your input very seriously. Include my email address so I can be contacted Cancel Submit feedback Saved searches Use saved searches to filter your results\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 84.77583599090576,
+      "step": 5,
+      "actor_model": "gpt-5",
+      "llm_time": 14.201956033706665,
+      "actor_reasoning": "I need to open the precise OpenCV ChangeLog section that mentions \"Added support for Mask-RCNN model\" to identify the version and then read the contributors listed there.",
+      "actor_tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "site:github.com/opencv/opencv/wiki \"Added support for Mask-RCNN model\""
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 85.54814791679382,
+      "tool_time": 0.7709798812866211,
+      "tool_executed": {
+        "name": "web_search",
+        "result": "Found 2 relevant web results:\n\n1. ChangeLog \u00b7 opencv/opencv Wiki\n   URL: https://github.com/opencv/opencv/wiki/ChangeLog/1fbc4414210217372cfd0d7ecdfd2ae5dafcc626\n   Site: github.com\n   Summary: Added support for Mask-RCNN model. Follow a guide and use a python sample. Integrated ONNX parser. We now support many popular classification networks. YOLO ...\n\n2. OpenCV Change Logs v2.2\u2010v4.10\n   URL: https://github.com/opencv/opencv/wiki/OpenCV-Change-Logs-v2.2%E2%80%90v4.10\n   Site: github.com\n   Date: Dec 1, 2024\n   Summary: Added support for Mask-RCNN model. Follow a guide and use a python sample. Integrated ONNX parser. We now support many popular ...\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 111.57593488693237,
+      "step": 6,
+      "actor_model": "gpt-5",
+      "llm_time": 26.0209481716156,
+      "actor_reasoning": "I need to locate the exact OpenCV ChangeLog entry that mentions adding Mask R-CNN support and then find the contributors listed on that page.",
+      "actor_tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "OpenCV ChangeLog \"Added support for Mask-RCNN model\" contributors"
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 112.59432888031006,
+      "tool_time": 1.016937017440796,
+      "tool_executed": {
+        "name": "web_search",
+        "result": "Found 3 relevant web results:\n\n1. ChangeLog \u00b7 opencv/opencv Wiki\n   URL: https://github.com/opencv/opencv/wiki/ChangeLog/1fbc4414210217372cfd0d7ecdfd2ae5dafcc626\n   Site: github.com\n   Summary: Added support for Mask-RCNN model. Follow a guide and use a python sample. Integrated ONNX parser. We now support many popular classification networks. YOLO ...\n\n2. OpenCV Change Logs v2.2\u2010v4.10\n   URL: https://github.com/opencv/opencv/wiki/OpenCV-Change-Logs-v2.2%E2%80%90v4.10\n   Site: github.com\n   Date: Dec 1, 2024\n   Summary: Added support for Mask-RCNN model. Follow a guide and use a python sample. Integrated ONNX parser. We now support many popular ...\n\n3. OpenCV4.0 Change Logs \u7ffb\u8bd1\n   URL: https://blog.csdn.net/maweifei/article/details/83070167\n   Site: blog.csdn.net\n   Date: Oct 16, 2018\n   Summary: Added support for Mask-RCNN model. Follow a guide and use a python sample. Integrated ONNX parser. We now support many popular ...\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 126.20228981971741,
+      "step": 7,
+      "actor_model": "gpt-5",
+      "llm_time": 13.605990886688232,
+      "actor_reasoning": "I need to open the OpenCV ChangeLog entry that added Mask-RCNN support and read the contributors list to find a name matching a former Chinese premier.",
+      "actor_tool_calls": [
+        {
+          "name": "enhanced_search",
+          "args": {
+            "query": "OpenCV ChangeLog Added support for Mask-RCNN model contributors"
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 135.51119375228882,
+      "tool_time": 9.30818510055542,
+      "tool_executed": {
+        "name": "enhanced_search",
+        "result": "Found 3 web results with content:\n\n1. ChangeLog \u00b7 opencv/opencv Wiki - GitHub\n   URL: https://github.com/opencv/opencv/wiki/ChangeLog/1fbc4414210217372cfd0d7ecdfd2ae5dafcc626\n   Site: github.com\n   Summary: Added support for Mask-RCNN model. Follow a guide and use a python sample. Integrated ONNX parser. We now support many popular classification networks. YOLO ...\n   Content: ChangeLog \u00b7 opencv/opencv Wiki \u00b7 GitHub Skip to content Navigation Menu Toggle navigation Sign in Appearance settings Platform AI CODE CREATION GitHub Copilot Write better code with AI GitHub Spark Build and deploy intelligent apps GitHub Models Manage and compare prompts MCP Registry New Integrate external tools DEVELOPER WORKFLOWS Actions Automate any workflow Codespaces Instant dev environments Issues Plan and track work Code Review Manage code changes APPLICATION SECURITY GitHub Advanced Security Find and fix vulnerabilities Code security Secure your code as you build Secret protection Stop leaks before they start EXPLORE Why GitHub Documentation Blog Changelog Marketplace View all features Solutions BY COMPANY SIZE Enterprises Small and medium teams Startups Nonprofits BY USE CASE App Modernization DevSecOps DevOps CI/CD View all use cases BY INDUSTRY Healthcare Financial services Manufacturing Government View all industries View all solutions Resources EXPLORE BY TOPIC AI Software Development DevOps Security View all topics EXPLORE BY TYPE Customer stories Events & webinars Ebooks & reports Business insights GitHub Skills SUPPORT & SERVICES Documentation Customer support Community forum Trust center Partners Open Source COMMUNITY GitHub Sponsors Fund open source developers PROGRAMS Security Lab Maintainer Community Accelerator Archive Program REPOSITORIES Topics Trending Collections Enterprise ENTERPRISE SOLUTIONS Enterprise platform AI-powered developer platform AVAILABLE ADD-ONS GitHub Advanced Security Enterprise-grade security features Copilot for Business Enterprise-grade AI features Premium Support Enterprise-grade 24/7 support Pricing Search or jump to... Search code, repositories, users, issues, pull requests... Search Clear Search syntax tips Provide feedback We read every piece of feedback, and take your input very seriously. Include my email address so I can be contacted Cancel Submit feedback Saved searches Use saved searches to filter your results\n\n2. OpenCV Change Logs v2.2\u2010v4.10 - GitHub\n   URL: https://github.com/opencv/opencv/wiki/OpenCV-Change-Logs-v2.2%E2%80%90v4.10\n   Site: github.com\n   Summary: Added support for Mask-RCNN model. Follow a guide and use a python sample. Integrated ONNX parser. We now support many popular ...\n   Content: OpenCV Change Logs v2.2\u2010v4.10 \u00b7 opencv/opencv Wiki \u00b7 GitHub Skip to content Navigation Menu Toggle navigation Sign in Appearance settings Platform AI CODE CREATION GitHub Copilot Write better code with AI GitHub Spark Build and deploy intelligent apps GitHub Models Manage and compare prompts MCP Registry New Integrate external tools DEVELOPER WORKFLOWS Actions Automate any workflow Codespaces Instant dev environments Issues Plan and track work Code Review Manage code changes APPLICATION SECURITY GitHub Advanced Security Find and fix vulnerabilities Code security Secure your code as you build Secret protection Stop leaks before they start EXPLORE Why GitHub Documentation Blog Changelog Marketplace View all features Solutions BY COMPANY SIZE Enterprises Small and medium teams Startups Nonprofits BY USE CASE App Modernization DevSecOps DevOps CI/CD View all use cases BY INDUSTRY Healthcare Financial services Manufacturing Government View all industries View all solutions Resources EXPLORE BY TOPIC AI Software Development DevOps Security View all topics EXPLORE BY TYPE Customer stories Events & webinars Ebooks & reports Business insights GitHub Skills SUPPORT & SERVICES Documentation Customer support Community forum Trust center Partners Open Source COMMUNITY GitHub Sponsors Fund open source developers PROGRAMS Security Lab Maintainer Community Accelerator Archive Program REPOSITORIES Topics Trending Collections Enterprise ENTERPRISE SOLUTIONS Enterprise platform AI-powered developer platform AVAILABLE ADD-ONS GitHub Advanced Security Enterprise-grade security features Copilot for Business Enterprise-grade AI features Premium Support Enterprise-grade 24/7 support Pricing Search or jump to... Search code, repositories, users, issues, pull requests... Search Clear Search syntax tips Provide feedback We read every piece of feedback, and take your input very seriously. Include my email address so I can be contacted Cancel Submit feedback Saved searches Use saved searches to\n\n3. Blame \u00b7 CHANGELOG.md ...\n   URL: https://science.china-vo.org/gitlab/external/cvat/-/blame/9c443db5a1ab7f7b5f6ec977d7f439745253968a/CHANGELOG.md\n   Site: science.china-vo.org\n   Summary: - Mask-RCNN Auto Annotation Script in OpenVINO format - Yolo Auto Annotation Script ... - Added support for OpenVINO 2020. Nikita ... - Added in a command line ...\n   Content: Blame \u00b7 CHANGELOG.md \u00b7 9c443db5a1ab7f7b5f6ec977d7f439745253968a \u00b7 external / Cvat \u00b7 GitLab Skip to content GitLab Explore Sign in cvat CHANGELOG.md Find file Normal view History Permalink CHANGELOG.md 11.3 KiB Newer Older Port changes from release-0.2 branch (#87) Nikita Manovich committed Sep 25, 2018 1 2 3 4 5 6 # Changelog All notable changes to this project will be documented in this file. The format is based on [ Keep a Changelog ]( https://keepachangelog.com/en/1.0.0/ ) , and this project adheres to [ Semantic Versioning ]( https://semver.org/spec/v2.0.0.html ) . Add information about v0.6.1 release. Nikita Manovich committed Mar 21, 2020 7 ## [1.0.0-alpha] - Unreleased Update develop from release-0.6.0 branch (#1266) Nikita Manovich committed Mar 15, 2020 8 9 10 11 ### Added - ### Changed Add information about v0.6.1 release. Nikita Manovich committed Mar 21, 2020 12 - Update develop from release-0.6.0 branch (#1266) Nikita Manovich committed Mar 15, 2020 13 14 15 16 17 18 19 ### Deprecated - ### Removed - Add information about v0.6.1 release. Nikita Manovich committed Mar 21, 2020 20 21 22 23 24 25 26 27 28 29 30 31 ### Fixed - ### Security - ## [0.6.1] - 2020-03-21 ### Changed - VOC task export now does not use official label map by default, but takes one from the source task to avoid primary-class and class part name clashing ( [ #1275 ]( https://github.com/opencv/cvat/issues/1275 ) ) Update develop from release-0.6.0 branch (#1266) Nikita Manovich committed Mar 15, 2020 32 ### Fixed Fix LabelMe format (#1260) zhiltsov-max committed Mar 18, 2020 33 - File names in LabelMe format export are no longer truncated ( [ #1259 ]( https://github.com/opencv/cvat/issues/1259 ) ) [Datumaro] Fix occluded and z_order attributes export (#1271) zhiltsov-max committed Mar 18, 2020 34 - `occluded` and `z_order` annotation attributes are now correctly passed to Datumaro ( [ #1271 ]( https://github.com/opencv/cvat/pull/1271 ) ) [Datumaro] Allow empty COCO dataset export (#127\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 154.18237495422363,
+      "step": 8,
+      "actor_model": "gpt-5",
+      "llm_time": 18.667296886444092,
+      "actor_reasoning": "I need to open the detailed OpenCV Change Logs page to find the version that added Mask-RCNN support and read its contributors list.",
+      "actor_tool_calls": [
+        {
+          "name": "enhanced_search",
+          "args": {
+            "query": "site:github.com/opencv/opencv/wiki OpenCV Change Logs v2.2-v4.10 Mask-RCNN contributors"
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 157.33392095565796,
+      "tool_time": 3.1504569053649902,
+      "tool_executed": {
+        "name": "enhanced_search",
+        "result": "Found 3 web results with content:\n\n1. OpenCV Change Logs v2.2\u2010v4.10\n   URL: https://github.com/opencv/opencv/wiki/OpenCV-Change-Logs-v2.2%E2%80%90v4.10\n   Site: github.com\n   Summary: Multiple fixes for video decoder, endcoder and camera memory layout. And many other contributions! Contributors. opencv (109 contributors).\n   Content: OpenCV Change Logs v2.2\u2010v4.10 \u00b7 opencv/opencv Wiki \u00b7 GitHub Skip to content Navigation Menu Toggle navigation Sign in Appearance settings Platform AI CODE CREATION GitHub Copilot Write better code with AI GitHub Spark Build and deploy intelligent apps GitHub Models Manage and compare prompts MCP Registry New Integrate external tools DEVELOPER WORKFLOWS Actions Automate any workflow Codespaces Instant dev environments Issues Plan and track work Code Review Manage code changes APPLICATION SECURITY GitHub Advanced Security Find and fix vulnerabilities Code security Secure your code as you build Secret protection Stop leaks before they start EXPLORE Why GitHub Documentation Blog Changelog Marketplace View all features Solutions BY COMPANY SIZE Enterprises Small and medium teams Startups Nonprofits BY USE CASE App Modernization DevSecOps DevOps CI/CD View all use cases BY INDUSTRY Healthcare Financial services Manufacturing Government View all industries View all solutions Resources EXPLORE BY TOPIC AI Software Development DevOps Security View all topics EXPLORE BY TYPE Customer stories Events & webinars Ebooks & reports Business insights GitHub Skills SUPPORT & SERVICES Documentation Customer support Community forum Trust center Partners Open Source COMMUNITY GitHub Sponsors Fund open source developers PROGRAMS Security Lab Maintainer Community Accelerator Archive Program REPOSITORIES Topics Trending Collections Enterprise ENTERPRISE SOLUTIONS Enterprise platform AI-powered developer platform AVAILABLE ADD-ONS GitHub Advanced Security Enterprise-grade security features Copilot for Business Enterprise-grade AI features Premium Support Enterprise-grade 24/7 support Pricing Search or jump to... Search code, repositories, users, issues, pull requests... Search Clear Search syntax tips Provide feedback We read every piece of feedback, and take your input very seriously. Include my email address so I can be contacted Cancel Submit feedback Saved searches Use saved searches to\n\n2. Deep Learning in OpenCV\n   URL: https://github.com/opencv/opencv/wiki/Deep-Learning-in-OpenCV\n   Site: github.com\n   Summary: SSD, Faster-RCNN and Mask-RCNN from TensorFlow Object Detection API ... OpenCV Change Logs v2.2\u2010v4.10. Uh oh! There was an error while ...\n   Content: Deep Learning in OpenCV \u00b7 opencv/opencv Wiki \u00b7 GitHub Skip to content Navigation Menu Toggle navigation Sign in Appearance settings Platform AI CODE CREATION GitHub Copilot Write better code with AI GitHub Spark Build and deploy intelligent apps GitHub Models Manage and compare prompts MCP Registry New Integrate external tools DEVELOPER WORKFLOWS Actions Automate any workflow Codespaces Instant dev environments Issues Plan and track work Code Review Manage code changes APPLICATION SECURITY GitHub Advanced Security Find and fix vulnerabilities Code security Secure your code as you build Secret protection Stop leaks before they start EXPLORE Why GitHub Documentation Blog Changelog Marketplace View all features Solutions BY COMPANY SIZE Enterprises Small and medium teams Startups Nonprofits BY USE CASE App Modernization DevSecOps DevOps CI/CD View all use cases BY INDUSTRY Healthcare Financial services Manufacturing Government View all industries View all solutions Resources EXPLORE BY TOPIC AI Software Development DevOps Security View all topics EXPLORE BY TYPE Customer stories Events & webinars Ebooks & reports Business insights GitHub Skills SUPPORT & SERVICES Documentation Customer support Community forum Trust center Partners Open Source COMMUNITY GitHub Sponsors Fund open source developers PROGRAMS Security Lab Maintainer Community Accelerator Archive Program REPOSITORIES Topics Trending Collections Enterprise ENTERPRISE SOLUTIONS Enterprise platform AI-powered developer platform AVAILABLE ADD-ONS GitHub Advanced Security Enterprise-grade security features Copilot for Business Enterprise-grade AI features Premium Support Enterprise-grade 24/7 support Pricing Search or jump to... Search code, repositories, users, issues, pull requests... Search Clear Search syntax tips Provide feedback We read every piece of feedback, and take your input very seriously. Include my email address so I can be contacted Cancel Submit feedback Saved searches Use saved searches to filte\n\n3. ChangeLog \u00b7 opencv/opencv Wiki\n   URL: https://github.com/opencv/opencv/wiki/changelog\n   Site: github.com\n   Summary: Open Source Computer Vision Library. Contribute to opencv/opencv development by creating an account on GitHub.\n   Content: ChangeLog \u00b7 opencv/opencv Wiki \u00b7 GitHub Skip to content Navigation Menu Toggle navigation Sign in Appearance settings Platform AI CODE CREATION GitHub Copilot Write better code with AI GitHub Spark Build and deploy intelligent apps GitHub Models Manage and compare prompts MCP Registry New Integrate external tools DEVELOPER WORKFLOWS Actions Automate any workflow Codespaces Instant dev environments Issues Plan and track work Code Review Manage code changes APPLICATION SECURITY GitHub Advanced Security Find and fix vulnerabilities Code security Secure your code as you build Secret protection Stop leaks before they start EXPLORE Why GitHub Documentation Blog Changelog Marketplace View all features Solutions BY COMPANY SIZE Enterprises Small and medium teams Startups Nonprofits BY USE CASE App Modernization DevSecOps DevOps CI/CD View all use cases BY INDUSTRY Healthcare Financial services Manufacturing Government View all industries View all solutions Resources EXPLORE BY TOPIC AI Software Development DevOps Security View all topics EXPLORE BY TYPE Customer stories Events & webinars Ebooks & reports Business insights GitHub Skills SUPPORT & SERVICES Documentation Customer support Community forum Trust center Partners Open Source COMMUNITY GitHub Sponsors Fund open source developers PROGRAMS Security Lab Maintainer Community Accelerator Archive Program REPOSITORIES Topics Trending Collections Enterprise ENTERPRISE SOLUTIONS Enterprise platform AI-powered developer platform AVAILABLE ADD-ONS GitHub Advanced Security Enterprise-grade security features Copilot for Business Enterprise-grade AI features Premium Support Enterprise-grade 24/7 support Pricing Search or jump to... Search code, repositories, users, issues, pull requests... Search Clear Search syntax tips Provide feedback We read every piece of feedback, and take your input very seriously. Include my email address so I can be contacted Cancel Submit feedback Saved searches Use saved searches to filter your results\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 172.15276288986206,
+      "step": 9,
+      "actor_model": "gpt-5",
+      "llm_time": 14.816603899002075,
+      "actor_reasoning": "I need to open the OpenCV ChangeLog entry that added Mask-RCNN support and extract the version and contributors list to find a name matching a former Chinese premier.",
+      "actor_tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "OpenCV ChangeLog \"Added support for Mask-RCNN model\" contributors"
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 173.20610189437866,
+      "tool_time": 1.0525221824645996,
+      "tool_executed": {
+        "name": "web_search",
+        "result": "Found 3 relevant web results:\n\n1. ChangeLog \u00b7 opencv/opencv Wiki\n   URL: https://github.com/opencv/opencv/wiki/ChangeLog/1fbc4414210217372cfd0d7ecdfd2ae5dafcc626\n   Site: github.com\n   Summary: Added support for Mask-RCNN model. Follow a guide and use a python sample. Integrated ONNX parser. We now support many popular classification networks. YOLO ...\n\n2. OpenCV Change Logs v2.2\u2010v4.10\n   URL: https://github.com/opencv/opencv/wiki/OpenCV-Change-Logs-v2.2%E2%80%90v4.10\n   Site: github.com\n   Date: Dec 1, 2024\n   Summary: Added support for Mask-RCNN model. Follow a guide and use a python sample. Integrated ONNX parser. We now support many popular ...\n\n3. OpenCV4.0 Change Logs \u7ffb\u8bd1\n   URL: https://blog.csdn.net/maweifei/article/details/83070167\n   Site: blog.csdn.net\n   Date: Oct 16, 2018\n   Summary: Added support for Mask-RCNN model. Follow a guide and use a python sample. Integrated ONNX parser. We now support many popular ...\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 201.7903139591217,
+      "step": 10,
+      "actor_model": "gpt-5",
+      "llm_time": 28.577836751937866,
+      "actor_reasoning": "I need to open a version of the OpenCV changelog with full text so I can see the contributors for the release that added Mask-RCNN support.",
+      "actor_tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "site:raw.githubusercontent.com/wiki/opencv/opencv OpenCV Change Logs v2.2"
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 202.39165592193604,
+      "tool_time": 0.5999979972839355,
+      "tool_executed": {
+        "name": "web_search",
+        "result": "No relevant information found in search results."
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 214.88496780395508,
+      "step": 11,
+      "actor_model": "gpt-5",
+      "llm_time": 12.491013765335083,
+      "actor_reasoning": "I need to open the OpenCV 4.0 release notes page that added Mask\u2011RCNN support and read the contributors list to find a name matching a former Chinese premier.",
+      "actor_tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "OpenCV 4.0 release notes Mask-RCNN support contributors list"
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 215.70530581474304,
+      "tool_time": 0.8190250396728516,
+      "tool_executed": {
+        "name": "web_search",
+        "result": "Found 3 relevant web results:\n\n1. OpenCV 4.0-alpha\n   URL: https://opencv.org/blog/opencv-4-0-alpha/\n   Site: opencv.org\n   Date: Sep 20, 2018\n   Summary: Mask RCNN support and the example \u00b7 Faster object detection when using Intel Inference Engine (a part of Intel OpenVINO) \u00b7 Several stability ...\n\n2. ChangeLog \u00b7 opencv/opencv Wiki - GitHub\n   URL: https://github.com/opencv/opencv/wiki/ChangeLog/1fbc4414210217372cfd0d7ecdfd2ae5dafcc626\n   Site: github.com\n   Summary: Added support for Mask-RCNN model. Follow a guide and use a python sample. Integrated ONNX parser. We now support many popular classification networks. YOLO ...\n\n3. OpenCV 4.0\n   URL: https://opencv.org/blog/opencv-4-0/\n   Site: opencv.org\n   Summary: Contributors. Big thanks to everybody who contributed (here is the incomplete list of patch authors; please, report if you contributed but do ...\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 232.395183801651,
+      "step": 12,
+      "actor_model": "gpt-5",
+      "llm_time": 16.68760395050049,
+      "actor_reasoning": "I need to open the OpenCV 4.0 release blog post to read the contributors list and find any name matching a former Chinese premier.",
+      "actor_tool_calls": [
+        {
+          "name": "enhanced_search",
+          "args": {
+            "query": "https://opencv.org/blog/opencv-4-0/"
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 233.84401273727417,
+      "tool_time": 1.4479169845581055,
+      "tool_executed": {
+        "name": "enhanced_search",
+        "result": "Found 3 web results with content:\n\n1. OpenCV 4.0\n   URL: https://opencv.org/blog/opencv-4-0/\n   Site: opencv.org\n   Summary: After almost 3.5 years since groundbreaking 3.0 release, we are glad to present the first stable release in the 4.x line.\n   Content: Could not extract content from this page\n\n2. OpenCV 4.0-alpha\n   URL: https://opencv.org/blog/opencv-4-0-alpha/\n   Site: opencv.org\n   Summary: What's new: First of all, 4.0 alpha includes all the latest improvements, optimizations and bug fixes from 3.4 branch. In particular: ONNX ...\n   Content: Could not extract content from this page\n\n3. New OpenCV 4.0 Beta & OpenVINO\u2122 toolkit\n   URL: https://opencv.org/blog/new-opencv-4-0-beta-openvino-toolkit/\n   Site: opencv.org\n   Summary: Dear OpenCV Community,. We are glad to announce that OpenCV 4.0 Beta is now available, which includes many new features and enhancements.\n   Content: Could not extract content from this page\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 266.030348777771,
+      "step": 13,
+      "actor_model": "gpt-5",
+      "llm_time": 32.18134784698486,
+      "actor_reasoning": "I need to locate a page that lists the OpenCV 4.0 release contributors to scan for a name matching a former Chinese premier.",
+      "actor_tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "OpenCV 4.0 contributors list site:opencv.org/blog"
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 266.74447083473206,
+      "tool_time": 0.712777853012085,
+      "tool_executed": {
+        "name": "web_search",
+        "result": "Found 3 relevant web results:\n\n1. OpenCV 4.0\n   URL: https://opencv.org/blog/opencv-4-0/\n   Site: opencv.org\n   Date: Nov 20, 2018\n   Summary: Contributors. Big thanks to everybody who contributed (here is the incomplete list of patch authors; please, report if you contributed but do ...\n\n2. OpenCV 4.0-alpha\n   URL: https://opencv.org/blog/opencv-4-0-alpha/\n   Site: opencv.org\n   Date: Sep 20, 2018\n   Summary: ... list of contributors to OpenCV 4.0 alpha (if you contributed but do not see your name here, please let us know):. 5K+ Learners 3 Hours of ...\n\n3. New OpenCV 4.0 Beta & OpenVINO\u2122 toolkit\n   URL: https://opencv.org/blog/new-opencv-4-0-beta-openvino-toolkit/\n   Site: opencv.org\n   Date: Oct 16, 2018\n   Summary: Dear OpenCV Community,. We are glad to announce that OpenCV 4.0 Beta is now available, which includes many new features and enhancements.\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 286.59896183013916,
+      "step": 14,
+      "actor_model": "gpt-5",
+      "llm_time": 19.850595235824585,
+      "actor_reasoning": "I need to find the OpenCV 4.0 alpha contributors list to check for a name matching a former Chinese premier, such as Li Peng.",
+      "actor_tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "OpenCV 4.0 alpha contributors Li Peng"
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 287.38391494750977,
+      "tool_time": 0.7842111587524414,
+      "tool_executed": {
+        "name": "web_search",
+        "result": "Found 3 relevant web results:\n\n1. OpenCV 4.0-alpha\n   URL: https://opencv.org/blog/opencv-4-0-alpha/\n   Site: opencv.org\n   Date: Sep 20, 2018\n   Summary: ... contributors to OpenCV 4.0 alpha (if you contributed but do not see ... Li Peng, Pavel Rojtberg, Rostislav Vasilikhin, cyy, take1014 ...\n\n2. OpenCV 4.0\n   URL: https://opencv.org/blog/opencv-4-0/\n   Site: opencv.org\n   Date: Nov 20, 2018\n   Summary: After almost 3.5 years since groundbreaking 3.0 release, we are glad to present the first stable release in the 4.x line.\n\n3. ChangeLog \u00b7 opencv/opencv Wiki - GitHub\n   URL: https://github.com/opencv/opencv/wiki/ChangeLog/9dc09f369ba5304fd02f4ec21b6daf5027a3a0ed\n   Site: github.com\n   Summary: 0. 4.0.0-alpha: September, 2018. 4.0.0-beta ... Several OpenCL kernels, specially optimized for Intel GPUs, have been contributed by Peng Li and others.\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 298.66806507110596,
+      "step": 15,
+      "actor_model": "gpt-5",
+      "llm_time": 11.2742440700531,
+      "actor_reasoning": "Mask\u2011RCNN support was introduced in OpenCV 4.0 alpha, whose contributors list includes the name Li Peng\u2014the same as a former Chinese premier. \nFINAL ANSWER: Li Peng",
+      "final_answer": "Li Peng"
+    }
+  ],
+  "messages": [
+    {
+      "role": "user",
+      "content": "Which contributor to the version of OpenCV where support was added for the Mask-RCNN model has the same name as a former Chinese head of government when the names are transliterated to the Latin alphabet?"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to find which OpenCV release first added Mask R-CNN support and then identify a contributor with a name matching a former Chinese premier."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 relevant web results:\n\n1. ChangeLog \u00b7 opencv/opencv Wiki - GitHub\n   URL: https://github.com/opencv/opencv/wiki/ChangeLog/1fbc4414210217372cfd0d7ecdfd2ae5dafcc626\n   Site: github.com\n   Summary: Added faster R-CNN support and the corresponding example. Javascript bindings have been extended to cover DNN module. See the corresponding tutorial; Also ...\n\n2. OpenCV DNN : Bridging Classic Vision and Modern Deep Learning\n   URL: https://opencv.org/blog/opencv-dnn-module/\n   Site: opencv.org\n   Date: Nov 12, 2025\n   Summary: Added support for 16-bit floating point (FP16) inference ... With OpenCV's new release in 2025, the DNN module has matured a lot.\n\n3. OpenCV DNN Module and Deep Learning (A Definitive guide)\n   URL: https://learnopencv.com/deep-learning-with-opencvs-dnn-module-a-definitive-guide/\n   Site: learnopencv.com\n   Date: Apr 12, 2021\n   Summary: To learn about neural networks and deep learning with computer vision, the OpenCV DNN module is a great place to start.\n",
+      "name": "web_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to identify the OpenCV release that added Mask R-CNN support and then check its contributors list for a name matching a former Chinese premier."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 relevant web results:\n\n1. ChangeLog \u00b7 opencv/opencv Wiki\n   URL: https://github.com/opencv/opencv/wiki/ChangeLog/1fbc4414210217372cfd0d7ecdfd2ae5dafcc626\n   Site: github.com\n   Summary: Added faster R-CNN support and the corresponding example. Javascript bindings have been extended to cover DNN module. See the corresponding tutorial; Also ...\n\n2. ChangeLog \u00b7 opencv/opencv Wiki\n   URL: https://github.com/opencv/opencv/wiki/changelog\n   Site: github.com\n   Summary: Open Source Computer Vision Library. Contribute to opencv/opencv development by creating an account on GitHub.\n\n3. aws-samples/mask-rcnn-tensorflow\n   URL: https://github.com/aws-samples/mask-rcnn-tensorflow\n   Site: github.com\n   Summary: This is an optimized version of Mask R-CNN based on TensorFlow 2.x, and Tensorpack Faster R-CNN/Mask R-CNN on COCO implementation.\n",
+      "name": "web_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to find the specific OpenCV release that first added Mask R-CNN support from official sources."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 relevant web results:\n\n1. ChangeLog \u00b7 opencv/opencv Wiki\n   URL: https://github.com/opencv/opencv/wiki/ChangeLog/1fbc4414210217372cfd0d7ecdfd2ae5dafcc626\n   Site: github.com\n   Summary: Added support for Mask-RCNN model. Follow a guide and use a python sample ... Added faster R-CNN support and the corresponding example. Javascript ...\n\n2. ChangeLog \u00b7 opencv/opencv Wiki\n   URL: https://github.com/opencv/opencv/wiki/changelog\n   Site: github.com\n   Summary: Open Source Computer Vision Library. Contribute to opencv/opencv development by creating an account on GitHub.\n\n3. Error Running Mask R-CNN Sample with OpenCV 5.0 Alpha\n   URL: https://github.com/opencv/opencv/issues/27240\n   Site: github.com\n   Date: Apr 18, 2025\n   Summary: Detailed description. Hello,. When I run the Mask R-CNN example using OpenCV 5.0 alpha version, an error occurs. The error message is as follows ...\n",
+      "name": "web_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to open the specific OpenCV changelog page that mentions adding Mask-RCNN support and extract the version and its contributors list."
+    },
+    {
+      "role": "tool",
+      "content": "Found 2 web results with content:\n\n1. ChangeLog \u00b7 opencv/opencv Wiki\n   URL: https://github.com/opencv/opencv/wiki/ChangeLog/1fbc4414210217372cfd0d7ecdfd2ae5dafcc626\n   Site: github.com\n   Summary: Added support for Mask-RCNN model. Follow a guide and use a python sample. Integrated ONNX parser. We now support many popular classification networks. YOLO ...\n   Content: ChangeLog \u00b7 opencv/opencv Wiki \u00b7 GitHub Skip to content Navigation Menu Toggle navigation Sign in Appearance settings Platform AI CODE CREATION GitHub Copilot Write better code with AI GitHub Spark Build and deploy intelligent apps GitHub Models Manage and compare prompts MCP Registry New Integrate external tools DEVELOPER WORKFLOWS Actions Automate any workflow Codespaces Instant dev environments Issues Plan and track work Code Review Manage code changes APPLICATION SECURITY GitHub Advanced Security Find and fix vulnerabilities Code security Secure your code as you build Secret protection Stop leaks before they start EXPLORE Why GitHub Documentation Blog Changelog Marketplace View all features Solutions BY COMPANY SIZE Enterprises Small and medium teams Startups Nonprofits BY USE CASE App Modernization DevSecOps DevOps CI/CD View all use cases BY INDUSTRY Healthcare Financial services Manufacturing Government View all industries View all solutions Resources EXPLORE BY TOPIC AI Software Development DevOps Security View all topics EXPLORE BY TYPE Customer stories Events & webinars Ebooks & reports Business insights GitHub Skills SUPPORT & SERVICES Documentation Customer support Community forum Trust center Partners Open Source COMMUNITY GitHub Sponsors Fund open source developers PROGRAMS Security Lab Maintainer Community Accelerator Archive Program REPOSITORIES Topics Trending Collections Enterprise ENTERPRISE SOLUTIONS Enterprise platform AI-powered developer platform AVAILABLE ADD-ONS GitHub Advanced Security Enterprise-grade security features Copilot for Business Enterprise-grade AI features Premium Support Enterprise-grade 24/7 support Pricing Search or jump to... Search code, repositories, users, issues, pull requests... Search Clear Search syntax tips Provide feedback We read every piece of feedback, and take your input very seriously. Include my email address so I can be contacted Cancel Submit feedback Saved searches Use saved searches to filter your results\n\n2. ChangeLog \u00b7 opencv/opencv Wiki\n   URL: https://github.com/opencv/opencv/wiki/ChangeLog/5c9873f455a6335069bf1e9c2c88a94794479929\n   Site: github.com\n   Summary: Added support for Mask-RCNN model. Follow a guide and use a python sample. Integrated ONNX parser. We now support many popular classification networks. YOLO ...\n   Content: ChangeLog \u00b7 opencv/opencv Wiki \u00b7 GitHub Skip to content Navigation Menu Toggle navigation Sign in Appearance settings Platform AI CODE CREATION GitHub Copilot Write better code with AI GitHub Spark Build and deploy intelligent apps GitHub Models Manage and compare prompts MCP Registry New Integrate external tools DEVELOPER WORKFLOWS Actions Automate any workflow Codespaces Instant dev environments Issues Plan and track work Code Review Manage code changes APPLICATION SECURITY GitHub Advanced Security Find and fix vulnerabilities Code security Secure your code as you build Secret protection Stop leaks before they start EXPLORE Why GitHub Documentation Blog Changelog Marketplace View all features Solutions BY COMPANY SIZE Enterprises Small and medium teams Startups Nonprofits BY USE CASE App Modernization DevSecOps DevOps CI/CD View all use cases BY INDUSTRY Healthcare Financial services Manufacturing Government View all industries View all solutions Resources EXPLORE BY TOPIC AI Software Development DevOps Security View all topics EXPLORE BY TYPE Customer stories Events & webinars Ebooks & reports Business insights GitHub Skills SUPPORT & SERVICES Documentation Customer support Community forum Trust center Partners Open Source COMMUNITY GitHub Sponsors Fund open source developers PROGRAMS Security Lab Maintainer Community Accelerator Archive Program REPOSITORIES Topics Trending Collections Enterprise ENTERPRISE SOLUTIONS Enterprise platform AI-powered developer platform AVAILABLE ADD-ONS GitHub Advanced Security Enterprise-grade security features Copilot for Business Enterprise-grade AI features Premium Support Enterprise-grade 24/7 support Pricing Search or jump to... Search code, repositories, users, issues, pull requests... Search Clear Search syntax tips Provide feedback We read every piece of feedback, and take your input very seriously. Include my email address so I can be contacted Cancel Submit feedback Saved searches Use saved searches to filter your results\n",
+      "name": "enhanced_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to open the precise OpenCV ChangeLog section that mentions \"Added support for Mask-RCNN model\" to identify the version and then read the contributors listed there."
+    },
+    {
+      "role": "tool",
+      "content": "Found 2 relevant web results:\n\n1. ChangeLog \u00b7 opencv/opencv Wiki\n   URL: https://github.com/opencv/opencv/wiki/ChangeLog/1fbc4414210217372cfd0d7ecdfd2ae5dafcc626\n   Site: github.com\n   Summary: Added support for Mask-RCNN model. Follow a guide and use a python sample. Integrated ONNX parser. We now support many popular classification networks. YOLO ...\n\n2. OpenCV Change Logs v2.2\u2010v4.10\n   URL: https://github.com/opencv/opencv/wiki/OpenCV-Change-Logs-v2.2%E2%80%90v4.10\n   Site: github.com\n   Date: Dec 1, 2024\n   Summary: Added support for Mask-RCNN model. Follow a guide and use a python sample. Integrated ONNX parser. We now support many popular ...\n",
+      "name": "web_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to locate the exact OpenCV ChangeLog entry that mentions adding Mask R-CNN support and then find the contributors listed on that page."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 relevant web results:\n\n1. ChangeLog \u00b7 opencv/opencv Wiki\n   URL: https://github.com/opencv/opencv/wiki/ChangeLog/1fbc4414210217372cfd0d7ecdfd2ae5dafcc626\n   Site: github.com\n   Summary: Added support for Mask-RCNN model. Follow a guide and use a python sample. Integrated ONNX parser. We now support many popular classification networks. YOLO ...\n\n2. OpenCV Change Logs v2.2\u2010v4.10\n   URL: https://github.com/opencv/opencv/wiki/OpenCV-Change-Logs-v2.2%E2%80%90v4.10\n   Site: github.com\n   Date: Dec 1, 2024\n   Summary: Added support for Mask-RCNN model. Follow a guide and use a python sample. Integrated ONNX parser. We now support many popular ...\n\n3. OpenCV4.0 Change Logs \u7ffb\u8bd1\n   URL: https://blog.csdn.net/maweifei/article/details/83070167\n   Site: blog.csdn.net\n   Date: Oct 16, 2018\n   Summary: Added support for Mask-RCNN model. Follow a guide and use a python sample. Integrated ONNX parser. We now support many popular ...\n",
+      "name": "web_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to open the OpenCV ChangeLog entry that added Mask-RCNN support and read the contributors list to find a name matching a former Chinese premier."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 web results with content:\n\n1. ChangeLog \u00b7 opencv/opencv Wiki - GitHub\n   URL: https://github.com/opencv/opencv/wiki/ChangeLog/1fbc4414210217372cfd0d7ecdfd2ae5dafcc626\n   Site: github.com\n   Summary: Added support for Mask-RCNN model. Follow a guide and use a python sample. Integrated ONNX parser. We now support many popular classification networks. YOLO ...\n   Content: ChangeLog \u00b7 opencv/opencv Wiki \u00b7 GitHub Skip to content Navigation Menu Toggle navigation Sign in Appearance settings Platform AI CODE CREATION GitHub Copilot Write better code with AI GitHub Spark Build and deploy intelligent apps GitHub Models Manage and compare prompts MCP Registry New Integrate external tools DEVELOPER WORKFLOWS Actions Automate any workflow Codespaces Instant dev environments Issues Plan and track work Code Review Manage code changes APPLICATION SECURITY GitHub Advanced Security Find and fix vulnerabilities Code security Secure your code as you build Secret protection Stop leaks before they start EXPLORE Why GitHub Documentation Blog Changelog Marketplace View all features Solutions BY COMPANY SIZE Enterprises Small and medium teams Startups Nonprofits BY USE CASE App Modernization DevSecOps DevOps CI/CD View all use cases BY INDUSTRY Healthcare Financial services Manufacturing Government View all industries View all solutions Resources EXPLORE BY TOPIC AI Software Development DevOps Security View all topics EXPLORE BY TYPE Customer stories Events & webinars Ebooks & reports Business insights GitHub Skills SUPPORT & SERVICES Documentation Customer support Community forum Trust center Partners Open Source COMMUNITY GitHub Sponsors Fund open source developers PROGRAMS Security Lab Maintainer Community Accelerator Archive Program REPOSITORIES Topics Trending Collections Enterprise ENTERPRISE SOLUTIONS Enterprise platform AI-powered developer platform AVAILABLE ADD-ONS GitHub Advanced Security Enterprise-grade security features Copilot for Business Enterprise-grade AI features Premium Support Enterprise-grade 24/7 support Pricing Search or jump to... Search code, repositories, users, issues, pull requests... Search Clear Search syntax tips Provide feedback We read every piece of feedback, and take your input very seriously. Include my email address so I can be contacted Cancel Submit feedback Saved searches Use saved searches to filter your results\n\n2. OpenCV Change Logs v2.2\u2010v4.10 - GitHub\n   URL: https://github.com/opencv/opencv/wiki/OpenCV-Change-Logs-v2.2%E2%80%90v4.10\n   Site: github.com\n   Summary: Added support for Mask-RCNN model. Follow a guide and use a python sample. Integrated ONNX parser. We now support many popular ...\n   Content: OpenCV Change Logs v2.2\u2010v4.10 \u00b7 opencv/opencv Wiki \u00b7 GitHub Skip to content Navigation Menu Toggle navigation Sign in Appearance settings Platform AI CODE CREATION GitHub Copilot Write better code with AI GitHub Spark Build and deploy intelligent apps GitHub Models Manage and compare prompts MCP Registry New Integrate external tools DEVELOPER WORKFLOWS Actions Automate any workflow Codespaces Instant dev environments Issues Plan and track work Code Review Manage code changes APPLICATION SECURITY GitHub Advanced Security Find and fix vulnerabilities Code security Secure your code as you build Secret protection Stop leaks before they start EXPLORE Why GitHub Documentation Blog Changelog Marketplace View all features Solutions BY COMPANY SIZE Enterprises Small and medium teams Startups Nonprofits BY USE CASE App Modernization DevSecOps DevOps CI/CD View all use cases BY INDUSTRY Healthcare Financial services Manufacturing Government View all industries View all solutions Resources EXPLORE BY TOPIC AI Software Development DevOps Security View all topics EXPLORE BY TYPE Customer stories Events & webinars Ebooks & reports Business insights GitHub Skills SUPPORT & SERVICES Documentation Customer support Community forum Trust center Partners Open Source COMMUNITY GitHub Sponsors Fund open source developers PROGRAMS Security Lab Maintainer Community Accelerator Archive Program REPOSITORIES Topics Trending Collections Enterprise ENTERPRISE SOLUTIONS Enterprise platform AI-powered developer platform AVAILABLE ADD-ONS GitHub Advanced Security Enterprise-grade security features Copilot for Business Enterprise-grade AI features Premium Support Enterprise-grade 24/7 support Pricing Search or jump to... Search code, repositories, users, issues, pull requests... Search Clear Search syntax tips Provide feedback We read every piece of feedback, and take your input very seriously. Include my email address so I can be contacted Cancel Submit feedback Saved searches Use saved searches to\n\n3. Blame \u00b7 CHANGELOG.md ...\n   URL: https://science.china-vo.org/gitlab/external/cvat/-/blame/9c443db5a1ab7f7b5f6ec977d7f439745253968a/CHANGELOG.md\n   Site: science.china-vo.org\n   Summary: - Mask-RCNN Auto Annotation Script in OpenVINO format - Yolo Auto Annotation Script ... - Added support for OpenVINO 2020. Nikita ... - Added in a command line ...\n   Content: Blame \u00b7 CHANGELOG.md \u00b7 9c443db5a1ab7f7b5f6ec977d7f439745253968a \u00b7 external / Cvat \u00b7 GitLab Skip to content GitLab Explore Sign in cvat CHANGELOG.md Find file Normal view History Permalink CHANGELOG.md 11.3 KiB Newer Older Port changes from release-0.2 branch (#87) Nikita Manovich committed Sep 25, 2018 1 2 3 4 5 6 # Changelog All notable changes to this project will be documented in this file. The format is based on [ Keep a Changelog ]( https://keepachangelog.com/en/1.0.0/ ) , and this project adheres to [ Semantic Versioning ]( https://semver.org/spec/v2.0.0.html ) . Add information about v0.6.1 release. Nikita Manovich committed Mar 21, 2020 7 ## [1.0.0-alpha] - Unreleased Update develop from release-0.6.0 branch (#1266) Nikita Manovich committed Mar 15, 2020 8 9 10 11 ### Added - ### Changed Add information about v0.6.1 release. Nikita Manovich committed Mar 21, 2020 12 - Update develop from release-0.6.0 branch (#1266) Nikita Manovich committed Mar 15, 2020 13 14 15 16 17 18 19 ### Deprecated - ### Removed - Add information about v0.6.1 release. Nikita Manovich committed Mar 21, 2020 20 21 22 23 24 25 26 27 28 29 30 31 ### Fixed - ### Security - ## [0.6.1] - 2020-03-21 ### Changed - VOC task export now does not use official label map by default, but takes one from the source task to avoid primary-class and class part name clashing ( [ #1275 ]( https://github.com/opencv/cvat/issues/1275 ) ) Update develop from release-0.6.0 branch (#1266) Nikita Manovich committed Mar 15, 2020 32 ### Fixed Fix LabelMe format (#1260) zhiltsov-max committed Mar 18, 2020 33 - File names in LabelMe format export are no longer truncated ( [ #1259 ]( https://github.com/opencv/cvat/issues/1259 ) ) [Datumaro] Fix occluded and z_order attributes export (#1271) zhiltsov-max committed Mar 18, 2020 34 - `occluded` and `z_order` annotation attributes are now correctly passed to Datumaro ( [ #1271 ]( https://github.com/opencv/cvat/pull/1271 ) ) [Datumaro] Allow empty COCO dataset export (#127\n",
+      "name": "enhanced_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to open the detailed OpenCV Change Logs page to find the version that added Mask-RCNN support and read its contributors list."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 web results with content:\n\n1. OpenCV Change Logs v2.2\u2010v4.10\n   URL: https://github.com/opencv/opencv/wiki/OpenCV-Change-Logs-v2.2%E2%80%90v4.10\n   Site: github.com\n   Summary: Multiple fixes for video decoder, endcoder and camera memory layout. And many other contributions! Contributors. opencv (109 contributors).\n   Content: OpenCV Change Logs v2.2\u2010v4.10 \u00b7 opencv/opencv Wiki \u00b7 GitHub Skip to content Navigation Menu Toggle navigation Sign in Appearance settings Platform AI CODE CREATION GitHub Copilot Write better code with AI GitHub Spark Build and deploy intelligent apps GitHub Models Manage and compare prompts MCP Registry New Integrate external tools DEVELOPER WORKFLOWS Actions Automate any workflow Codespaces Instant dev environments Issues Plan and track work Code Review Manage code changes APPLICATION SECURITY GitHub Advanced Security Find and fix vulnerabilities Code security Secure your code as you build Secret protection Stop leaks before they start EXPLORE Why GitHub Documentation Blog Changelog Marketplace View all features Solutions BY COMPANY SIZE Enterprises Small and medium teams Startups Nonprofits BY USE CASE App Modernization DevSecOps DevOps CI/CD View all use cases BY INDUSTRY Healthcare Financial services Manufacturing Government View all industries View all solutions Resources EXPLORE BY TOPIC AI Software Development DevOps Security View all topics EXPLORE BY TYPE Customer stories Events & webinars Ebooks & reports Business insights GitHub Skills SUPPORT & SERVICES Documentation Customer support Community forum Trust center Partners Open Source COMMUNITY GitHub Sponsors Fund open source developers PROGRAMS Security Lab Maintainer Community Accelerator Archive Program REPOSITORIES Topics Trending Collections Enterprise ENTERPRISE SOLUTIONS Enterprise platform AI-powered developer platform AVAILABLE ADD-ONS GitHub Advanced Security Enterprise-grade security features Copilot for Business Enterprise-grade AI features Premium Support Enterprise-grade 24/7 support Pricing Search or jump to... Search code, repositories, users, issues, pull requests... Search Clear Search syntax tips Provide feedback We read every piece of feedback, and take your input very seriously. Include my email address so I can be contacted Cancel Submit feedback Saved searches Use saved searches to\n\n2. Deep Learning in OpenCV\n   URL: https://github.com/opencv/opencv/wiki/Deep-Learning-in-OpenCV\n   Site: github.com\n   Summary: SSD, Faster-RCNN and Mask-RCNN from TensorFlow Object Detection API ... OpenCV Change Logs v2.2\u2010v4.10. Uh oh! There was an error while ...\n   Content: Deep Learning in OpenCV \u00b7 opencv/opencv Wiki \u00b7 GitHub Skip to content Navigation Menu Toggle navigation Sign in Appearance settings Platform AI CODE CREATION GitHub Copilot Write better code with AI GitHub Spark Build and deploy intelligent apps GitHub Models Manage and compare prompts MCP Registry New Integrate external tools DEVELOPER WORKFLOWS Actions Automate any workflow Codespaces Instant dev environments Issues Plan and track work Code Review Manage code changes APPLICATION SECURITY GitHub Advanced Security Find and fix vulnerabilities Code security Secure your code as you build Secret protection Stop leaks before they start EXPLORE Why GitHub Documentation Blog Changelog Marketplace View all features Solutions BY COMPANY SIZE Enterprises Small and medium teams Startups Nonprofits BY USE CASE App Modernization DevSecOps DevOps CI/CD View all use cases BY INDUSTRY Healthcare Financial services Manufacturing Government View all industries View all solutions Resources EXPLORE BY TOPIC AI Software Development DevOps Security View all topics EXPLORE BY TYPE Customer stories Events & webinars Ebooks & reports Business insights GitHub Skills SUPPORT & SERVICES Documentation Customer support Community forum Trust center Partners Open Source COMMUNITY GitHub Sponsors Fund open source developers PROGRAMS Security Lab Maintainer Community Accelerator Archive Program REPOSITORIES Topics Trending Collections Enterprise ENTERPRISE SOLUTIONS Enterprise platform AI-powered developer platform AVAILABLE ADD-ONS GitHub Advanced Security Enterprise-grade security features Copilot for Business Enterprise-grade AI features Premium Support Enterprise-grade 24/7 support Pricing Search or jump to... Search code, repositories, users, issues, pull requests... Search Clear Search syntax tips Provide feedback We read every piece of feedback, and take your input very seriously. Include my email address so I can be contacted Cancel Submit feedback Saved searches Use saved searches to filte\n\n3. ChangeLog \u00b7 opencv/opencv Wiki\n   URL: https://github.com/opencv/opencv/wiki/changelog\n   Site: github.com\n   Summary: Open Source Computer Vision Library. Contribute to opencv/opencv development by creating an account on GitHub.\n   Content: ChangeLog \u00b7 opencv/opencv Wiki \u00b7 GitHub Skip to content Navigation Menu Toggle navigation Sign in Appearance settings Platform AI CODE CREATION GitHub Copilot Write better code with AI GitHub Spark Build and deploy intelligent apps GitHub Models Manage and compare prompts MCP Registry New Integrate external tools DEVELOPER WORKFLOWS Actions Automate any workflow Codespaces Instant dev environments Issues Plan and track work Code Review Manage code changes APPLICATION SECURITY GitHub Advanced Security Find and fix vulnerabilities Code security Secure your code as you build Secret protection Stop leaks before they start EXPLORE Why GitHub Documentation Blog Changelog Marketplace View all features Solutions BY COMPANY SIZE Enterprises Small and medium teams Startups Nonprofits BY USE CASE App Modernization DevSecOps DevOps CI/CD View all use cases BY INDUSTRY Healthcare Financial services Manufacturing Government View all industries View all solutions Resources EXPLORE BY TOPIC AI Software Development DevOps Security View all topics EXPLORE BY TYPE Customer stories Events & webinars Ebooks & reports Business insights GitHub Skills SUPPORT & SERVICES Documentation Customer support Community forum Trust center Partners Open Source COMMUNITY GitHub Sponsors Fund open source developers PROGRAMS Security Lab Maintainer Community Accelerator Archive Program REPOSITORIES Topics Trending Collections Enterprise ENTERPRISE SOLUTIONS Enterprise platform AI-powered developer platform AVAILABLE ADD-ONS GitHub Advanced Security Enterprise-grade security features Copilot for Business Enterprise-grade AI features Premium Support Enterprise-grade 24/7 support Pricing Search or jump to... Search code, repositories, users, issues, pull requests... Search Clear Search syntax tips Provide feedback We read every piece of feedback, and take your input very seriously. Include my email address so I can be contacted Cancel Submit feedback Saved searches Use saved searches to filter your results\n",
+      "name": "enhanced_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to open the OpenCV ChangeLog entry that added Mask-RCNN support and extract the version and contributors list to find a name matching a former Chinese premier."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 relevant web results:\n\n1. ChangeLog \u00b7 opencv/opencv Wiki\n   URL: https://github.com/opencv/opencv/wiki/ChangeLog/1fbc4414210217372cfd0d7ecdfd2ae5dafcc626\n   Site: github.com\n   Summary: Added support for Mask-RCNN model. Follow a guide and use a python sample. Integrated ONNX parser. We now support many popular classification networks. YOLO ...\n\n2. OpenCV Change Logs v2.2\u2010v4.10\n   URL: https://github.com/opencv/opencv/wiki/OpenCV-Change-Logs-v2.2%E2%80%90v4.10\n   Site: github.com\n   Date: Dec 1, 2024\n   Summary: Added support for Mask-RCNN model. Follow a guide and use a python sample. Integrated ONNX parser. We now support many popular ...\n\n3. OpenCV4.0 Change Logs \u7ffb\u8bd1\n   URL: https://blog.csdn.net/maweifei/article/details/83070167\n   Site: blog.csdn.net\n   Date: Oct 16, 2018\n   Summary: Added support for Mask-RCNN model. Follow a guide and use a python sample. Integrated ONNX parser. We now support many popular ...\n",
+      "name": "web_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to open a version of the OpenCV changelog with full text so I can see the contributors for the release that added Mask-RCNN support."
+    },
+    {
+      "role": "tool",
+      "content": "No relevant information found in search results.",
+      "name": "web_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to open the OpenCV 4.0 release notes page that added Mask\u2011RCNN support and read the contributors list to find a name matching a former Chinese premier."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 relevant web results:\n\n1. OpenCV 4.0-alpha\n   URL: https://opencv.org/blog/opencv-4-0-alpha/\n   Site: opencv.org\n   Date: Sep 20, 2018\n   Summary: Mask RCNN support and the example \u00b7 Faster object detection when using Intel Inference Engine (a part of Intel OpenVINO) \u00b7 Several stability ...\n\n2. ChangeLog \u00b7 opencv/opencv Wiki - GitHub\n   URL: https://github.com/opencv/opencv/wiki/ChangeLog/1fbc4414210217372cfd0d7ecdfd2ae5dafcc626\n   Site: github.com\n   Summary: Added support for Mask-RCNN model. Follow a guide and use a python sample. Integrated ONNX parser. We now support many popular classification networks. YOLO ...\n\n3. OpenCV 4.0\n   URL: https://opencv.org/blog/opencv-4-0/\n   Site: opencv.org\n   Summary: Contributors. Big thanks to everybody who contributed (here is the incomplete list of patch authors; please, report if you contributed but do ...\n",
+      "name": "web_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to open the OpenCV 4.0 release blog post to read the contributors list and find any name matching a former Chinese premier."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 web results with content:\n\n1. OpenCV 4.0\n   URL: https://opencv.org/blog/opencv-4-0/\n   Site: opencv.org\n   Summary: After almost 3.5 years since groundbreaking 3.0 release, we are glad to present the first stable release in the 4.x line.\n   Content: Could not extract content from this page\n\n2. OpenCV 4.0-alpha\n   URL: https://opencv.org/blog/opencv-4-0-alpha/\n   Site: opencv.org\n   Summary: What's new: First of all, 4.0 alpha includes all the latest improvements, optimizations and bug fixes from 3.4 branch. In particular: ONNX ...\n   Content: Could not extract content from this page\n\n3. New OpenCV 4.0 Beta & OpenVINO\u2122 toolkit\n   URL: https://opencv.org/blog/new-opencv-4-0-beta-openvino-toolkit/\n   Site: opencv.org\n   Summary: Dear OpenCV Community,. We are glad to announce that OpenCV 4.0 Beta is now available, which includes many new features and enhancements.\n   Content: Could not extract content from this page\n",
+      "name": "enhanced_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to locate a page that lists the OpenCV 4.0 release contributors to scan for a name matching a former Chinese premier."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 relevant web results:\n\n1. OpenCV 4.0\n   URL: https://opencv.org/blog/opencv-4-0/\n   Site: opencv.org\n   Date: Nov 20, 2018\n   Summary: Contributors. Big thanks to everybody who contributed (here is the incomplete list of patch authors; please, report if you contributed but do ...\n\n2. OpenCV 4.0-alpha\n   URL: https://opencv.org/blog/opencv-4-0-alpha/\n   Site: opencv.org\n   Date: Sep 20, 2018\n   Summary: ... list of contributors to OpenCV 4.0 alpha (if you contributed but do not see your name here, please let us know):. 5K+ Learners 3 Hours of ...\n\n3. New OpenCV 4.0 Beta & OpenVINO\u2122 toolkit\n   URL: https://opencv.org/blog/new-opencv-4-0-beta-openvino-toolkit/\n   Site: opencv.org\n   Date: Oct 16, 2018\n   Summary: Dear OpenCV Community,. We are glad to announce that OpenCV 4.0 Beta is now available, which includes many new features and enhancements.\n",
+      "name": "web_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to find the OpenCV 4.0 alpha contributors list to check for a name matching a former Chinese premier, such as Li Peng."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 relevant web results:\n\n1. OpenCV 4.0-alpha\n   URL: https://opencv.org/blog/opencv-4-0-alpha/\n   Site: opencv.org\n   Date: Sep 20, 2018\n   Summary: ... contributors to OpenCV 4.0 alpha (if you contributed but do not see ... Li Peng, Pavel Rojtberg, Rostislav Vasilikhin, cyy, take1014 ...\n\n2. OpenCV 4.0\n   URL: https://opencv.org/blog/opencv-4-0/\n   Site: opencv.org\n   Date: Nov 20, 2018\n   Summary: After almost 3.5 years since groundbreaking 3.0 release, we are glad to present the first stable release in the 4.x line.\n\n3. ChangeLog \u00b7 opencv/opencv Wiki - GitHub\n   URL: https://github.com/opencv/opencv/wiki/ChangeLog/9dc09f369ba5304fd02f4ec21b6daf5027a3a0ed\n   Site: github.com\n   Summary: 0. 4.0.0-alpha: September, 2018. 4.0.0-beta ... Several OpenCL kernels, specially optimized for Intel GPUs, have been contributed by Peng Li and others.\n",
+      "name": "web_search"
+    },
+    {
+      "role": "assistant",
+      "content": "Mask\u2011RCNN support was introduced in OpenCV 4.0 alpha, whose contributors list includes the name Li Peng\u2014the same as a former Chinese premier. \nFINAL ANSWER: Li Peng"
+    }
+  ],
+  "error": null
+}

@@ -1,0 +1,102 @@
+{
+  "task_id": "08c0b6e9-1b43-4c2e-ae55-4e3fce2c2715",
+  "level": "2",
+  "question": "In the film Goldfinger, what color was the object that James Bond concealed himself and his companion Pussy Galore at the end of the film? If there are multiple colors, put them in a comma-separated list in alphabetical order.",
+  "ground_truth": "orange, white",
+  "predicted": "orange, white",
+  "correct": true,
+  "steps": 2,
+  "time_seconds": 26.339842796325684,
+  "actor_model": "gpt-5",
+  "spec_model": "gpt-5-nano",
+  "speculation_enabled": true,
+  "verification_strategy": "jaccard",
+  "spec_hits": 0,
+  "spec_misses": 1,
+  "spec_predictions": 2,
+  "trajectory": [
+    {
+      "node": "start",
+      "question": "In the film Goldfinger, what color was the object that James Bond concealed himself and his companion Pussy Galore at the end of the film? If there are multiple colors, put them in a comma-separated list in alphabetical order.",
+      "timestamp": 0
+    },
+    {
+      "node": "llm",
+      "timestamp": 7.986612796783447,
+      "step": 1,
+      "actor_model": "gpt-5",
+      "llm_time": 7.9816319942474365,
+      "actor_reasoning": "I need to verify the color of the parachute James Bond and Pussy Galore hide under in the final scene of Goldfinger from reliable sources or images.",
+      "actor_tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "Goldfinger final scene parachute color Bond Pussy Galore color of parachute"
+          }
+        }
+      ],
+      "spec_model": "gpt-5-nano",
+      "spec_predictions": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "Goldfinger end scene color object Bond Pussy Galore"
+          },
+          "pre_executed": true,
+          "exec_time": 1.8700919151306152,
+          "spec_inference_time": 6.110779285430908
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 9.95371389389038,
+      "tool_time": 1.9655768871307373,
+      "tool_executed": {
+        "name": "web_search",
+        "result": "Found 3 relevant web results:\n\n1. File:Orange and White Parachute (Goldfinger) National Motor ...\n   URL: https://commons.wikimedia.org/wiki/File:Orange_and_White_Parachute_(Goldfinger)_National_Motor_Museum,_Beaulieu.jpg\n   Site: commons.wikimedia.org\n   Summary: Orange and White Parachute The climax of the movie sees Bond and Goldfinger fight to the death. ... Bond and Pussy Galore leap to safety using the parachute. On ...\n\n2. Goldfinger - Cuban Island - YouTube\n   URL: https://www.youtube.com/watch?v=oPIWBNB7XLI\n   Site: youtube.com\n   Date: Mar 6, 2009\n   Summary: Bond and Pussy Galore eject from their crashing jet and land on a Cuban Island. From Bond Global Missions find out more at ...\n\n3. GOLDFINGER | Bond meets Pussy Galore - YouTube\n   URL: https://www.youtube.com/watch?v=Y-_1NS9kKR4\n   Site: youtube.com\n   Date: Apr 21, 2021\n   Summary: I must be dreaming\u2026\u201d On this day in 1964 Honor Blackman filmed her scene where the no-nonsense Pussy Galore wakes up Bond on board ...\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 26.339653730392456,
+      "step": 2,
+      "actor_model": "gpt-5",
+      "llm_time": 16.382889986038208,
+      "actor_reasoning": "At the end of Goldfinger, Bond and Pussy Galore hide under the parachute canopy, which is orange and white as shown in the prop references.\n\nFINAL ANSWER: orange, white",
+      "spec_model": "gpt-5-nano",
+      "spec_predictions": [
+        {
+          "name": "enhanced_search",
+          "args": {
+            "query": "Goldfinger final parachute color Bond Pussy Galore orange white"
+          },
+          "pre_executed": true,
+          "exec_time": 7.366344928741455,
+          "spec_inference_time": 9.015844106674194
+        }
+      ],
+      "final_answer": "orange, white"
+    }
+  ],
+  "messages": [
+    {
+      "role": "user",
+      "content": "In the film Goldfinger, what color was the object that James Bond concealed himself and his companion Pussy Galore at the end of the film? If there are multiple colors, put them in a comma-separated list in alphabetical order."
+    },
+    {
+      "role": "assistant",
+      "content": "I need to verify the color of the parachute James Bond and Pussy Galore hide under in the final scene of Goldfinger from reliable sources or images."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 relevant web results:\n\n1. File:Orange and White Parachute (Goldfinger) National Motor ...\n   URL: https://commons.wikimedia.org/wiki/File:Orange_and_White_Parachute_(Goldfinger)_National_Motor_Museum,_Beaulieu.jpg\n   Site: commons.wikimedia.org\n   Summary: Orange and White Parachute The climax of the movie sees Bond and Goldfinger fight to the death. ... Bond and Pussy Galore leap to safety using the parachute. On ...\n\n2. Goldfinger - Cuban Island - YouTube\n   URL: https://www.youtube.com/watch?v=oPIWBNB7XLI\n   Site: youtube.com\n   Date: Mar 6, 2009\n   Summary: Bond and Pussy Galore eject from their crashing jet and land on a Cuban Island. From Bond Global Missions find out more at ...\n\n3. GOLDFINGER | Bond meets Pussy Galore - YouTube\n   URL: https://www.youtube.com/watch?v=Y-_1NS9kKR4\n   Site: youtube.com\n   Date: Apr 21, 2021\n   Summary: I must be dreaming\u2026\u201d On this day in 1964 Honor Blackman filmed her scene where the no-nonsense Pussy Galore wakes up Bond on board ...\n",
+      "name": "web_search"
+    },
+    {
+      "role": "assistant",
+      "content": "At the end of Goldfinger, Bond and Pussy Galore hide under the parachute canopy, which is orange and white as shown in the prop references.\n\nFINAL ANSWER: orange, white"
+    }
+  ],
+  "error": null
+}

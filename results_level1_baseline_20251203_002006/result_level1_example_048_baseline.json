@@ -1,0 +1,44 @@
+{
+  "task_id": "50ec8903-b81f-4257-9450-1085afd2c319",
+  "level": "1",
+  "question": "A standard Rubik\u2019s cube has been broken into cubes making up its sides. The cubes are jumbled, and one is removed. There are 6 cubes with one colored face, 12 edge cubes with two colored faces, and 8 corner cubes with three colored faces. All blue cubes have been found. All cubes directly left, right, above, and below the orange center cube have been found, along with the center cube. The green corners have all been found, along with all green that borders yellow. For all orange cubes found, the opposite face\u2019s cubes have been found. The removed cube has two colors on its faces. What are they? Answer using a comma separated list, with the colors ordered alphabetically.",
+  "ground_truth": "green, white",
+  "predicted": "green, white",
+  "correct": true,
+  "steps": 1,
+  "time_seconds": 106.80533504486084,
+  "actor_model": "gpt-5",
+  "spec_model": null,
+  "speculation_enabled": false,
+  "verification_strategy": null,
+  "spec_hits": 0,
+  "spec_misses": 0,
+  "spec_predictions": 0,
+  "trajectory": [
+    {
+      "node": "start",
+      "question": "A standard Rubik\u2019s cube has been broken into cubes making up its sides. The cubes are jumbled, and one is removed. There are 6 cubes with one colored face, 12 edge cubes with two colored faces, and 8 corner cubes with three colored faces. All blue cubes have been found. All cubes directly left, right, above, and below the orange center cube have been found, along with the center cube. The green corners have all been found, along with all green that borders yellow. For all orange cubes found, the opposite face\u2019s cubes have been found. The removed cube has two colors on its faces. What are they? Answer using a comma separated list, with the colors ordered alphabetically.",
+      "timestamp": 0
+    },
+    {
+      "node": "llm",
+      "timestamp": 106.80508303642273,
+      "step": 1,
+      "actor_model": "gpt-5",
+      "llm_time": 106.79899334907532,
+      "actor_reasoning": "We know one missing piece is an edge (two colors). All blue pieces are found, all four orange edges (around the orange center) are found, and by the \u201copposite face\u201d rule all four red edges are found. Also the green-yellow edge is explicitly found, and all green corners are found. This leaves only one edge unaccounted for: the green-white edge.\n\nFINAL ANSWER: green, white",
+      "final_answer": "green, white"
+    }
+  ],
+  "messages": [
+    {
+      "role": "user",
+      "content": "A standard Rubik\u2019s cube has been broken into cubes making up its sides. The cubes are jumbled, and one is removed. There are 6 cubes with one colored face, 12 edge cubes with two colored faces, and 8 corner cubes with three colored faces. All blue cubes have been found. All cubes directly left, right, above, and below the orange center cube have been found, along with the center cube. The green corners have all been found, along with all green that borders yellow. For all orange cubes found, the opposite face\u2019s cubes have been found. The removed cube has two colors on its faces. What are they? Answer using a comma separated list, with the colors ordered alphabetically."
+    },
+    {
+      "role": "assistant",
+      "content": "We know one missing piece is an edge (two colors). All blue pieces are found, all four orange edges (around the orange center) are found, and by the \u201copposite face\u201d rule all four red edges are found. Also the green-yellow edge is explicitly found, and all green corners are found. This leaves only one edge unaccounted for: the green-white edge.\n\nFINAL ANSWER: green, white"
+    }
+  ],
+  "error": null
+}

@@ -1,0 +1,316 @@
+{
+  "task_id": "0bb3b44a-ede5-4db5-a520-4e844b0079c5",
+  "level": "2",
+  "question": "Consider the following symbols: \ud809\udc1c  \ud809\udc10\ud809\udc1a\n\nThis is a number written using the Mesopotamian/Babylonian number system and represented with Sumerian cuneiform. Convert this number into Arabic numerals as a decimal number.",
+  "ground_truth": "536",
+  "predicted": "536",
+  "correct": true,
+  "steps": 9,
+  "time_seconds": 411.38628697395325,
+  "actor_model": "gpt-5",
+  "spec_model": null,
+  "speculation_enabled": false,
+  "verification_strategy": null,
+  "spec_hits": 0,
+  "spec_misses": 0,
+  "spec_predictions": 0,
+  "trajectory": [
+    {
+      "node": "start",
+      "question": "Consider the following symbols: \ud809\udc1c  \ud809\udc10\ud809\udc1a\n\nThis is a number written using the Mesopotamian/Babylonian number system and represented with Sumerian cuneiform. Convert this number into Arabic numerals as a decimal number.",
+      "timestamp": 0
+    },
+    {
+      "node": "llm",
+      "timestamp": 7.863641977310181,
+      "step": 1,
+      "actor_model": "gpt-5",
+      "llm_time": 7.858489036560059,
+      "actor_reasoning": "I need to identify the values of the specific cuneiform numeric signs \ud809\udc1c, \ud809\udc10, and \ud809\udc1a to convert the sexagesimal number to decimal.",
+      "actor_tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "\"\ud809\udc1c\" cuneiform numeric sign value"
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 8.822559118270874,
+      "tool_time": 0.9576430320739746,
+      "tool_executed": {
+        "name": "web_search",
+        "result": "Found 3 relevant web results:\n\n1. Unicode Character \u201c\ud809\udc1c\u201d (U+1241C)\n   URL: https://www.compart.com/en/unicode/U+1241C\n   Site: compart.com\n   Summary: Unicode Character \u201c\ud809\udc1c\u201d (U+1241C) ; Name: Cuneiform Numeric Sign Eight Gesh2 ; Numeric Value: 8 ; Unicode Version: 5.0 (July 2006) ; Block: Cuneiform Numbers and ...\n\n2. Cuneiform Numbers and Punctuation\n   URL: https://en.wikipedia.org/wiki/Cuneiform_Numbers_and_Punctuation\n   Site: en.wikipedia.org\n   Summary: Signs ; \ud809\udc1a, U+1241A, six GE\u0160 ; \ud809\udc1b, U+1241B, seven GE\u0160 ; \ud809\udc1c, U+1241C, eight GE\u0160 ; \ud809\udc1d, U+1241D, nine GE\u0160 ...\n\n3. \ud809\udc32 | cuneiform numeric sign shar2 times gal plus dish (U ...\n   URL: https://graphemica.com/%F0%92%90%B2\n   Site: graphemica.com\n   Summary: \ud809\udc13 \u00b7 \ud809\udc14 \u00b7 \ud809\udc15 \u00b7 \ud809\udc16 \u00b7 \ud809\udc17 \u00b7 \ud809\udc18 \u00b7 \ud809\udc19 \u00b7 \ud809\udc1a \u00b7 \ud809\udc1b \u00b7 \ud809\udc1c \u00b7 \ud809\udc1d \u00b7 \ud809\udc1e \u00b7 \ud809\udc1f. 1242. \ud809\udc20 \u00b7 \ud809\udc21 \u00b7 \ud809\udc22 \u00b7 \ud809\udc23 \u00b7 \ud809\udc24 \u00b7 \ud809\udc25 \u00b7 \ud809\udc26 \u00b7 \ud809\udc27 \u00b7 \ud809\udc28 \u00b7 \ud809\udc29 \u00b7 \ud809\udc2a \u00b7 \ud809\udc2b ... (nv) Numeric Value \u00b7 N. \u00b7 \u00b7. (OAlpha) Other Alphabetic.\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 32.478399991989136,
+      "step": 2,
+      "actor_model": "gpt-5",
+      "llm_time": 23.65337896347046,
+      "actor_reasoning": "I need to confirm the numeric values of the cuneiform signs \ud809\udc10 and \ud809\udc1a to convert the sexagesimal number to decimal accurately.",
+      "actor_tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "Unicode \ud809\udc10 numeric value"
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 33.397944927215576,
+      "tool_time": 0.9183290004730225,
+      "tool_executed": {
+        "name": "web_search",
+        "result": "Found 3 relevant web results:\n\n1. U+12410 CUNEIFORM NUMERIC SIGN FIVE U: \ud809\udc10 - Codepoints\n   URL: https://codepoints.net/U+12410?lang=en\n   Site: codepoints.net\n   Summary: This character is a Letter Number and is mainly used in the Cuneiform script. The codepoint has the numeric value 5.\n\n2. \u201c\ud809\udc13\u201d U+12413 Cuneiform Numeric Sign Eight U Unicode Character\n   URL: https://www.compart.com/en/unicode/U+12413\n   Site: compart.com\n   Summary: Unicode Character \u201c\ud809\udc13\u201d (U+12413) ; Name: Cuneiform Numeric Sign Eight U ; Numeric Value: 8 ; Unicode Version: 5.0 (July 2006) ; Block: Cuneiform Numbers and ...\n\n3. Cuneiform Numbers and Punctuation - Wikipedia\n   URL: https://en.wikipedia.org/wiki/Cuneiform_Numbers_and_Punctuation\n   Site: en.wikipedia.org\n   Summary: A list of all numerals encoded in Unicode, see Numerals in Unicode. In Unicode, the Sumero-Akkadian Cuneiform script is covered in three blocks.\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 94.84187507629395,
+      "step": 3,
+      "actor_model": "gpt-5",
+      "llm_time": 61.43657684326172,
+      "actor_reasoning": "I need to verify the base-10 values for the cuneiform signs U and GE\u0160 (e.g., whether U=10 and GE\u0160 series represent 60s) to correctly interpret the two sexagesimal place groups.",
+      "actor_tool_calls": [
+        {
+          "name": "enhanced_search",
+          "args": {
+            "query": "Cuneiform numbers U sign value 10 GE\u0000S sign value Wikipedia cuneiform numbers tens units sexagesimal Unicode names 'five U' 'six GE\u0000S'"
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 97.05184006690979,
+      "tool_time": 2.208561897277832,
+      "tool_executed": {
+        "name": "enhanced_search",
+        "result": "Found 3 web results with content:\n\n1. Cuneiform Sign List\n   URL: http://home.zcu.cz/~ksaskova/Sign_List.html\n   Site: home.zcu.cz\n   Summary: A\u0160. (1, ANA3, AS3, A\u1e623, A\u0160 (MesZL: see also U.DAR (nos. 670+183)), A\u0160A, A\u0160\u0160A, AZ3, DAL3, DEL, DELE, DE\u01602, DIL, DILI, DI\u01602, E\u016020, GE15, GE\u01604 (MesZL: perhaps ...\n   Content: \u00ef\u00bb\u00bf Cuneiform Sign List\n\n2. Oracc Sign List - U\n   URL: https://oracc.museum.upenn.edu/osl/signlist/o0223333\n   Site: oracc.museum.upenn.edu\n   Summary: CUNEIFORM. \ud809\udd62. VALUESbur\u2083@cu@c1(bur\u2083@c)1(u@c). UNICODEU+12562 = CUNEIFORM NUMERIC SIGN ONE N14 (ACN). LISTSRSP028. AKA1(N14). SYSpcun: 1(N14). COMPOUNDS|EZEN\u00d7U@c ...\n   Content: Could not extract content from this page\n\n3. Cuneiform (Unicode block) - Wikipedia\n   URL: https://en.wikipedia.org/wiki/Cuneiform_(Unicode_block)\n   Site: en.wikipedia.org\n   Summary: Sumero-Akkadian Cuneiform ; \ud808\udd2d, U+1212D, \u1e2aI ; \ud808\udd2e, U+1212E, \u1e2aI x A\u0160 ; \ud808\udd2f \u00b7 U+1212F, \u1e2aI x A\u0160 ; \ud808\udd30, U+12130, \u1e2aI x BAD ...\n   Content: Could not extract content from this page\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 135.90940499305725,
+      "step": 4,
+      "actor_model": "gpt-5",
+      "llm_time": 38.851794958114624,
+      "actor_reasoning": "I need to determine whether the GE\u0160 series represents multiples of 10 within a digit or multiples of 60 as higher place values to interpret the grouped symbols correctly.",
+      "actor_tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "Cuneiform Numeric Sign GE\u00160 numeric values GE\u00160 series \"one gesh\" 60 unicode"
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 137.64288592338562,
+      "tool_time": 1.7320401668548584,
+      "tool_executed": {
+        "name": "web_search",
+        "result": "Found 3 relevant web results:\n\n1. cuneiform numeric sign one geshu (u+1241e)\n   URL: https://www.fileformat.info/info/unicode/char/1241e/index.htm\n   Site: fileformat.info\n   Summary: Unicode Character 'CUNEIFORM NUMERIC SIGN ONE GESHU' (U+1241E) \u00b7 U+1241E browser display \u00b7 Raster image of U+1241E.\n\n2. \ud809\udc1e Cuneiform Numeric Sign One Geshu symbol meaning ...\n   URL: https://symbl.cc/en/1241E/\n   Site: symbl.cc\n   Summary: The symbol \u201cCuneiform Numeric Sign One Geshu\u201d is included in the \u201cCommon numeric signs\u201d subblock of the \u201cCuneiform Numbers and Punctuation\u201d block and was ...\n\n3. Cuneiform Numbers and Punctuation\n   URL: https://unicode.org/charts/nameslist/n_12400.html\n   Site: unicode.org\n   Summary: Cuneiform Numeric Sign One Geshu. 1241F, \ud809\udc1f, Cuneiform Numeric Sign Two Geshu ... Unicode and the Unicode Logo are registered trademarks of Unicode, Inc ...\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 192.84153699874878,
+      "step": 5,
+      "actor_model": "gpt-5",
+      "llm_time": 55.19203305244446,
+      "actor_reasoning": "I need to see the Unicode nameslist around these codepoints to understand how the U and GE\u0160 series combine to form a sexagesimal digit.",
+      "actor_tool_calls": [
+        {
+          "name": "enhanced_search",
+          "args": {
+            "query": "Unicode Cuneiform Numbers and Punctuation nameslist U+12410 U+1241A U+1241C meaning series U GE\n\nS numeric sign 'GE\n' series what values represent"
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 196.23911786079407,
+      "tool_time": 3.3966732025146484,
+      "tool_executed": {
+        "name": "enhanced_search",
+        "result": "Found 3 web results with content:\n\n1. Cuneiform Numbers and Punctuation - Wikipedia\n   URL: https://en.wikipedia.org/wiki/Cuneiform_Numbers_and_Punctuation\n   Site: en.wikipedia.org\n   Summary: The exact Unicode names can be unambiguously recovered by prefixing, \"CUNEIFORM [NUMERIC] SIGN\", replacing \"TIMES\" for \"x\", \"PLUS\" for \"+\" and \"OVER\" for \"/\", ...\n   Content: Cuneiform Numbers and Punctuation - Wikipedia Jump to content Main menu Main menu move to sidebar hide Navigation Main page Contents Current events Random article About Wikipedia Contact us Contribute Help Learn to edit Community portal Recent changes Upload file Special pages Search Search Appearance Donate Create account Log in Personal tools Donate Create account Log in Contents move to sidebar hide (Top) 1 Organization 2 Block 3 Signs 4 History 5 See also 6 References 7 External links Toggle External links subsection 7.1 Font packages Toggle the table of contents Cuneiform Numbers and Punctuation 3 languages Deutsch Fran\u00e7ais \u4e2d\u6587 Edit links Article Talk English Read Edit View history Tools Tools move to sidebar hide Actions Read Edit View history General What links here Related changes Upload file Permanent link Page information Cite this page Get shortened URL Download QR code Print/export Download as PDF Printable version In other projects Wikimedia Commons Wiktionary Wikidata item Appearance move to sidebar hide From Wikipedia, the free encyclopedia See also: Cuneiform (Unicode block) and Early Dynastic Cuneiform (Unicode block) For a list of all numerals encoded in Unicode, see Numerals in Unicode . Unicode character block Cuneiform Numbers and Punctuation Range U+12400..U+1247F (128 code points) Plane SMP Scripts Cuneiform Symbol sets Numeric signs Fractions Punctuation Assigned 116 code points Unused 12 reserved code points Unicode version history 5.0 (2006) 103 (+103) 7.0 (2014) 116 (+13) Unicode documentation Code chart \u2223 Web page Note : [ 1 ] [ 2 ] In Unicode , the Sumero-Akkadian Cuneiform script is covered in three blocks in the Supplementary Multilingual Plane (SMP): U+12000\u2013U+123FF Cuneiform U+12400\u2013U+1247F Cuneiform Numbers and Punctuation U+12480\u2013U+1254F Early Dynastic Cuneiform The sample glyphs in the chart file published by the Unicode Consortium [ 3 ] show the characters in their Classical Sumerian form ( Early Dynastic period , mid 3rd millenni\n\n2. Unicode Character \u201c\ud809\udc1c\u201d (U+1241C) - Compart\n   URL: https://www.compart.com/en/unicode/U+1241C\n   Site: compart.com\n   Summary: Unicode Character \u201c\ud809\udc1c\u201d (U+1241C) ; Name: Cuneiform Numeric Sign Eight Gesh2 ; Numeric Value: 8 ; Unicode Version: 5.0 (July 2006) ; Block: Cuneiform Numbers and ...\n   Content: \u201c\ud809\udc1c\u201d U+1241C Cuneiform Numeric Sign Eight Gesh2 Unicode Character Home IANA Character Sets Planes Blocks Character Categories Bidirectional Classes Combining Classes Decomposition Mirrored Characters Scripts HTML Entities References Install App \u00d7 Deutsch English Fran\u00e7ais Next char Previous char Unicode Character \u201c \ud809\udc1c \u201d (U+1241C) \ud809\udc1c Name: Cuneiform Numeric Sign Eight Gesh2 [1] Numeric Value: 8 [1] Unicode Version: 5.0 (July 2006) [2] Block: Cuneiform Numbers and Punctuation, U+12400 - U+1247F [3] Plane: Supplementary Multilingual Plane, U+10000 - U+1FFFF [3] Script: Cuneiform, Sumero-Akkadian (Xsux) [4] Category: Letter Number (Nl) [1] Bidirectional Class: Left To Right (L) [1] Combining Class: Not Reordered (0) [1] Character is Mirrored: No [1] HTML Entity: &#74780; &#x1241C; UTF-8 Encoding: 0xF0 0x92 0x90 0x9C UTF-16 Encoding: 0xD809 0xDC1C UTF-32 Encoding: 0x0001241C References Unicode Database - UnicodeData Unicode Database - Derived Age Unicode Database - Blocks Unicode Database - Scripts Twitter facebook Linkedin Skip navigation Contact Data protection Imprint \u00a9 2021 Compart AG\n\n3. \ud809\udc1c - U+1241C - decodeunicode.org\n   URL: https://decodeunicode.org/en/u+1241C\n   Site: decodeunicode.org\n   Summary: decodeunicode \u2013 the world's writing systems \u00b7 U+1241C. CUNEIFORM NUMERIC SIGN EIGHT GESH2. \u00b7 Unicode Block U+12400 \u2014 U+1247F. Cuneiform Numbers and Punctuation ...\n   Content: \u00f0\u0092\u0090\u009c - U+1241C -  decodeunicode.org decodeunicode \u00e2\u0080\u0093 the world\u00e2\u0080\u0099s writing systems Unicode Blocks Alphabetic Geographic Adlam - Bamum Bamum - CJK CJK - Combining Combining - Dingbats Dogra - Georgian Georgian - Hebrew Hiragana - Khmer Khojki - Mahajani Mahjong - Miscellaneous Modi - Old Old - Playing Psalter - Supplemental Supplemental - Tangut Telugu - Zanabazar African American Central Asian East Asian European International Middle Eastern Oceania South Asian Southeast Asian Adlam Aegean Numbers Ahom Alchemical Symbols Alphabetic Presentation Forms Anatolian Hieroglyphs Ancient Greek Musical Notation Ancient Greek Numbers Ancient Symbols Arabic Arabic Extended-A Arabic Mathematical Alphabetic Symbols Arabic Presentation Forms-A Arabic Presentation Forms-B Arabic Supplement Armenian Arrows Avestan Balinese Bamum Bamum Supplement Basic Latin Bassa Vah Batak Bengali Bhaiksuki Block Elements Bopomofo Bopomofo Extended Box Drawing Brahmi Braille Patterns Buginese Buhid Byzantine Musical Symbols CJK Compatibility CJK Compatibility Forms CJK Compatibility Ideographs CJK Compatibility Ideographs Supplement CJK Radicals Supplement CJK Strokes CJK Symbols and Punctuation CJK Unified Ideographs CJK Unified Ideographs Extension A CJK Unified Ideographs Extension B CJK Unified Ideographs Extension C CJK Unified Ideographs Extension D CJK Unified Ideographs Extension E CJK Unified Ideographs Extension F Carian Caucasian Albanian Chakma Cham Cherokee Cherokee Supplement Chess Symbols Combining Diacritical Marks Combining Diacritical Marks Extended Combining Diacritical Marks Supplement Combining Diacritical Marks for Symbols Combining Half Marks Common Indic Number Forms Control Pictures Coptic Coptic Epact Numbers Counting Rod Numbers Counting Rod Numerals Cuneiform Cuneiform Numbers and Punctuation Currency Symbols Cypriot Syllabary Cyrillic Cyrillic Extended-A Cyrillic Extended-B Cyrillic Extended-C Cyrillic Supplement Deseret Devanagari Devanagari Extended Dingbats Dogra Do\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 242.19371819496155,
+      "step": 6,
+      "actor_model": "gpt-5",
+      "llm_time": 45.9526150226593,
+      "actor_reasoning": "I need to confirm the numeric value associated with the specific sign \ud809\udc1a to know whether it represents 6 units or a tens series.",
+      "actor_tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "U+1241A cuneiform numeric sign \ud809\udc1a numeric value"
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 243.11570501327515,
+      "tool_time": 0.9205801486968994,
+      "tool_executed": {
+        "name": "web_search",
+        "result": "Found 3 relevant web results:\n\n1. U+1241A CUNEIFORM NUMERIC SIGN SIX GESH2: \ud809\udc1a \u2013 Unicode ...\n   URL: https://codepoints.net/U+1241A?lang=pl\n   Site: codepoints.net\n   Summary: This character is a Letter Number and is mainly used in the Cuneiform script. The codepoint has the numeric value 6. The glyph is not a composition. It has ...\n\n2. \ud809\udc1a U+1241A CUNEIFORM NUMERIC SIGN SIX GESH2\n   URL: https://unicode-explorer.com/c/1241A\n   Site: unicode-explorer.com\n   Summary: \ud809\udc1a CUNEIFORM NUMERIC SIGN SIX GESH2 ; Codepoint, U+1241A ; Copy to the clipboard, Copy ; Block, Cuneiform Numbers and Punctuation ; Sub-Block, Numeric signs.\n\n3. \ud809\udc1a | cuneiform numeric sign six gesh2 (U+1241A) @ Graphemica\n   URL: https://graphemica.com/%F0%92%90%9A\n   Site: graphemica.com\n   Summary: \ud809\udc1a. cuneiform numeric sign six gesh2 (U+1241A). \ud809\udc19 U+12419 \u2022 U+1241B \ud809\udc1b. \u00b7 \u00b7 \u00b7. Info \u00b7 Code \u00b7 Related \u00b7 Chart \u00b7 Encodings \u00b7 Data \u00b7 Words \u00b7 Tags \u00b7 Comments.\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 277.7346761226654,
+      "step": 7,
+      "actor_model": "gpt-5",
+      "llm_time": 34.61401915550232,
+      "actor_reasoning": "I need to verify how the 'U' and 'GESH2' series map to units and tens within a sexagesimal digit versus 'GESHU' for 60 to interpret the groups correctly.",
+      "actor_tool_calls": [
+        {
+          "name": "enhanced_search",
+          "args": {
+            "query": "Unicode Cuneiform Numeric Sign GESH2 tens value 10 20 30 40 50 60 and U series units; difference between GESH2 and GESHU 60 Babylonian numerals Unicode names list mapping"
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 294.17046093940735,
+      "tool_time": 16.434847116470337,
+      "tool_executed": {
+        "name": "enhanced_search",
+        "result": "Found 3 web results with content:\n\n1. Babylonian cuneiform numerals - Wikipedia\n   URL: https://en.wikipedia.org/wiki/Babylonian_cuneiform_numerals\n   Site: en.wikipedia.org\n   Summary: Babylonian cuneiform numerals, also used in Assyria and Chaldea, were written in cuneiform, using a wedge-tipped reed stylus to print a mark on a soft clay ...\n   Content: Babylonian cuneiform numerals - Wikipedia Jump to content Main menu Main menu move to sidebar hide Navigation Main page Contents Current events Random article About Wikipedia Contact us Contribute Help Learn to edit Community portal Recent changes Upload file Special pages Search Search Appearance Donate Create account Log in Personal tools Donate Create account Log in Contents move to sidebar hide (Top) 1 Origin 2 Symbols Toggle Symbols subsection 2.1 Zero 3 See also 4 References Toggle References subsection 4.1 Bibliography 5 External links Toggle the table of contents Babylonian cuneiform numerals 32 languages \u0627\u0644\u0639\u0631\u0628\u064a\u0629 Asturianu Catal\u00e0 Dansk Deutsch \u0395\u03bb\u03bb\u03b7\u03bd\u03b9\u03ba\u03ac Espa\u00f1ol Esperanto Fran\u00e7ais Galego \ud55c\uad6d\uc5b4 Bahasa Indonesia Italiano \u05e2\u05d1\u05e8\u05d9\u05ea Magyar \u041c\u0430\u043a\u0435\u0434\u043e\u043d\u0441\u043a\u0438 \u0d2e\u0d32\u0d2f\u0d3e\u0d33\u0d02 Bahasa Melayu Nederlands \u65e5\u672c\u8a9e Plattd\u00fc\u00fctsch Portugu\u00eas \u0420\u0443\u0441\u0441\u043a\u0438\u0439 Simple English Sloven\u0161\u010dina Srpskohrvatski / \u0441\u0440\u043f\u0441\u043a\u043e\u0445\u0440\u0432\u0430\u0442\u0441\u043a\u0438 Suomi Svenska \u0ba4\u0bae\u0bbf\u0bb4\u0bcd T\u00fcrk\u00e7e \u0423\u043a\u0440\u0430\u0457\u043d\u0441\u044c\u043a\u0430 \u4e2d\u6587 Edit links Article Talk English Read Edit View history Tools Tools move to sidebar hide Actions Read Edit View history General What links here Related changes Upload file Permanent link Page information Cite this page Get shortened URL Download QR code Print/export Download as PDF Printable version In other projects Wikimedia Commons Wikidata item Appearance move to sidebar hide From Wikipedia, the free encyclopedia Numeral system Babylonian cuneiform numerals Babylonian cuneiform numerals , also used in Assyria and Chaldea , were written in cuneiform , using a wedge-tipped reed stylus to print a mark on a soft clay tablet which would be exposed in the sun to harden to create a permanent record. The Babylonians , who were famous for their astronomical observations, as well as their calculations (aided by their invention of the abacus ),  used a sexagesimal (base-60) positional numeral system inherited from either the Sumerian or the Akkadian civilizations. [ 1 ] Neither of the predecessors was a positional system (having a convention for which 'end' of the num\n\n2. [PDF] Unicode Cuneiform Sign Lists\n   URL: https://www.unicode.org/L2/L2023/23071-cuneiform-sign-lists.pdf\n   Site: unicode.org\n   Summary: This document briefly discusses the approach to the complexities of cuneiform sign identity taken by the encoding; it then describes the sign ...\n   Content: L2/23-071 Unicode Cuneiform Sign Lists To: SAH, UTC From: Robin Leroy \ud808\ude6d Date: 2023-03-24 We propose that the UTC authorize a Proposed Draft Unicode Technical Report based on this document. A. Rationale Character identity in the cuneiform script (specifically: Sumero-Akkadian Cuneiform, Xsux) is complex; it is impractical to ascertain it solely from the code charts. The abstract character re\u0301pertoire is also vast, and includes code point sequences as well as individual code points; all of these have many names beyond those given in the code charts. Assyriologists who use the encoded characters therefore depend on ancillary data for character identity; this is however not mentioned by the standard, and has led to confusion. For instance: 1. the documentation of the Open Richly Annotated Cuneiform Corpus (Oracc) mentions the impracticality of the code charts: http://oracc.museum.upenn.edu/saao/knpp/cuneiformrevealed/aboutcuneiform/computercunei form/index.html (see section Unicode Cuneiform); 2. some fonts in the Neo-Assyrian style get some mergers wrong: for instance, we are aware of a font created by an Assyriologist which has \ud808\udc85\u2260\ud808\udc86=\ud808\udc87, whereas the correspondence to sign lists given by the Oracc Global Sign List would give \ud808\udc85=\ud808\udc86\u2260\ud808\udc87, which is consistent with the evolution of those signs; 3. users have complained about the difficulty of using the code charts, especially for Neo-Assyrian texts, see, e.g., https://www.unicode.org/mail-arch/unicode-ml/y2007-m06/0123.html. \u25cb Ken Whistler had suggested that a UTR be created to clarify this; unfortunately no action was taken: https://www.unicode.org/mail-arch/unicode-ml/y2007-m06/0129.html. By clarifying that the encoding is designed to be used in conjunction with ancillary data, and by describing how Oracc provides the necessary data as part of the Oracc Global Sign List, we aim to alleviate that confusion, and facilitate the use of the encoded cuneiform script. It should be noted that the OGSL is the de facto authority on the us\n\n3. [PDF] Archaic cuneiform numerals - Unicode\n   URL: https://www.unicode.org/L2/L2024/24210r-archaic-numerals.pdf\n   Site: unicode.org\n   Summary: This document proposes encoding, at U+12550\u2013U+12586, 311 numerals used in the fourth millennium (Uruk IV and Uruk III periods) and Early ...\n   Content: L2/24-210R Archaic cuneiform numerals RobinLeroy,AnshumanPandey,andSteveTinney 2024-10-23 Contents 1 Summary 2 2 ProposedchangestotheStandard 3 2.1 Corespecificationtext . . . . . . . . . . . . . . . . . . . . . . . . . . . 3 2.2 Codecharts . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 5 2.3 Properties . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 12 2.3.1 Name,General_Category,Numeric_Value,etc.. . . . . . . . . 12 2.3.2 Line_Break . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 16 2.3.3 Script . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 16 2.3.4 Script_Extensions . . . . . . . . . . . . . . . . . . . . . . . . . 16 2.3.5 Block . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 16 3 Rationaleforcurviform\u2013cuneiformdisunification 17 3.1 Thecuneiformencodingmodel . . . . . . . . . . . . . . . . . . . . . . 17 3.2 Argumentsforcurviform\u2013cuneiformunification . . . . . . . . . . . . 17 3.3 AprimeronclassicUrIIIandOldBabylonianmetrologies . . . . . . 19 3.3.1 Thediscretecountingsystem . . . . . . . . . . . . . . . . . . 19 3.3.2 Theareasystem . . . . . . . . . . . . . . . . . . . . . . . . . . 20 3.3.3 Thecapacitysystem . . . . . . . . . . . . . . . . . . . . . . . 21 3.3.4 Thelengthsystem. . . . . . . . . . . . . . . . . . . . . . . . . 22 3.3.5 Fractions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 22 3.4 Curviformnumeralsinearlymetrologies . . . . . . . . . . . . . . . . 22 3.4.1 Fieldlengthsin\u014airsu . . . . . . . . . . . . . . . . . . . . . . . 23 3.4.2 Dykelengthsin\u014airsu. . . . . . . . . . . . . . . . . . . . . . . 24 3.4.3 Butter,cheeseandwheatin\u014airsu . . . . . . . . . . . . . . . 24 3.4.4 GraininEbla . . . . . . . . . . . . . . . . . . . . . . . . . . . . 25 3.4.5 Useinmodernpublications . . . . . . . . . . . . . . . . . . . 27 3.5 Non-numericusage . . . . . . . . . . . .\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 370.78532099723816,
+      "step": 8,
+      "actor_model": "gpt-5",
+      "llm_time": 76.60753989219666,
+      "actor_reasoning": "I want to confirm that the U series corresponds to tens and GE\u01602 to units in Babylonian numeral composition so I can parse the groups correctly.",
+      "actor_tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "Cuneiform numeric sign U tens GE\u0000\u0000\u0000"
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 372.14049100875854,
+      "tool_time": 1.3543109893798828,
+      "tool_executed": {
+        "name": "web_search",
+        "result": "Found 3 relevant web results:\n\n1. Cuneiform (Unicode block) - Wikipedia\n   URL: https://en.wikipedia.org/wiki/Cuneiform_(Unicode_block)\n   Site: en.wikipedia.org\n   Summary: Sumero-Akkadian Cuneiform ; \ud808\udd2d, U+1212D, \u1e2aI ; \ud808\udd2e, U+1212E, \u1e2aI x A\u0160 ; \ud808\udd2f \u00b7 U+1212F, \u1e2aI x A\u0160 ; \ud808\udd30, U+12130, \u1e2aI x BAD ...\n\n2. Cuneiform Sign List\n   URL: http://home.zcu.cz/~ksaskova/Sign_List.html\n   Site: home.zcu.cz\n   Summary: \ud808\udc44. \ud808\udc44. BAL. (BALA, BUL3, PAL, PALA4, PUL3). (ePSD; Akkadian Dictionary) ; \ud808\udc45. \ud808\udc45. BAL over BAL. (ePSD; Akkadian Dictionary) ; \ud808\udd08. \ud808\udd08. GIR \u00b7 (GER2, GIRI2 (MesZL: Deimel ...\n\n3. [PDF] Twelve cuneiform ten\u00fb numerals - Unicode\n   URL: https://www.unicode.org/L2/L2024/24270-tenu-numerals.pdf\n   Site: unicode.org\n   Date: Dec 17, 2024\n   Summary: The existing numerals in the \ud808\udc39 series are named U+12039 \ud808\udc39 CUNEIFORM SIGN ASH. ZIDA TENU for the first one and U+1244A\u2013U+1244E \ud809\udc4a\u2013\ud809\udc4e CUNEIFORM ...\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 411.3847749233246,
+      "step": 9,
+      "actor_model": "gpt-5",
+      "llm_time": 39.235321044921875,
+      "actor_reasoning": "The first group \ud809\udc1c is eight GESH2 = 8; the second group \ud809\udc10\ud809\udc1a is five U plus six GESH2 = 50 + 6 = 56; interpreted as sexagesimal 8,56 this equals 8\u00d760 + 56 = 536.\n\nFINAL ANSWER: 536",
+      "final_answer": "536"
+    }
+  ],
+  "messages": [
+    {
+      "role": "user",
+      "content": "Consider the following symbols: \ud809\udc1c  \ud809\udc10\ud809\udc1a\n\nThis is a number written using the Mesopotamian/Babylonian number system and represented with Sumerian cuneiform. Convert this number into Arabic numerals as a decimal number."
+    },
+    {
+      "role": "assistant",
+      "content": "I need to identify the values of the specific cuneiform numeric signs \ud809\udc1c, \ud809\udc10, and \ud809\udc1a to convert the sexagesimal number to decimal."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 relevant web results:\n\n1. Unicode Character \u201c\ud809\udc1c\u201d (U+1241C)\n   URL: https://www.compart.com/en/unicode/U+1241C\n   Site: compart.com\n   Summary: Unicode Character \u201c\ud809\udc1c\u201d (U+1241C) ; Name: Cuneiform Numeric Sign Eight Gesh2 ; Numeric Value: 8 ; Unicode Version: 5.0 (July 2006) ; Block: Cuneiform Numbers and ...\n\n2. Cuneiform Numbers and Punctuation\n   URL: https://en.wikipedia.org/wiki/Cuneiform_Numbers_and_Punctuation\n   Site: en.wikipedia.org\n   Summary: Signs ; \ud809\udc1a, U+1241A, six GE\u0160 ; \ud809\udc1b, U+1241B, seven GE\u0160 ; \ud809\udc1c, U+1241C, eight GE\u0160 ; \ud809\udc1d, U+1241D, nine GE\u0160 ...\n\n3. \ud809\udc32 | cuneiform numeric sign shar2 times gal plus dish (U ...\n   URL: https://graphemica.com/%F0%92%90%B2\n   Site: graphemica.com\n   Summary: \ud809\udc13 \u00b7 \ud809\udc14 \u00b7 \ud809\udc15 \u00b7 \ud809\udc16 \u00b7 \ud809\udc17 \u00b7 \ud809\udc18 \u00b7 \ud809\udc19 \u00b7 \ud809\udc1a \u00b7 \ud809\udc1b \u00b7 \ud809\udc1c \u00b7 \ud809\udc1d \u00b7 \ud809\udc1e \u00b7 \ud809\udc1f. 1242. \ud809\udc20 \u00b7 \ud809\udc21 \u00b7 \ud809\udc22 \u00b7 \ud809\udc23 \u00b7 \ud809\udc24 \u00b7 \ud809\udc25 \u00b7 \ud809\udc26 \u00b7 \ud809\udc27 \u00b7 \ud809\udc28 \u00b7 \ud809\udc29 \u00b7 \ud809\udc2a \u00b7 \ud809\udc2b ... (nv) Numeric Value \u00b7 N. \u00b7 \u00b7. (OAlpha) Other Alphabetic.\n",
+      "name": "web_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to confirm the numeric values of the cuneiform signs \ud809\udc10 and \ud809\udc1a to convert the sexagesimal number to decimal accurately."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 relevant web results:\n\n1. U+12410 CUNEIFORM NUMERIC SIGN FIVE U: \ud809\udc10 - Codepoints\n   URL: https://codepoints.net/U+12410?lang=en\n   Site: codepoints.net\n   Summary: This character is a Letter Number and is mainly used in the Cuneiform script. The codepoint has the numeric value 5.\n\n2. \u201c\ud809\udc13\u201d U+12413 Cuneiform Numeric Sign Eight U Unicode Character\n   URL: https://www.compart.com/en/unicode/U+12413\n   Site: compart.com\n   Summary: Unicode Character \u201c\ud809\udc13\u201d (U+12413) ; Name: Cuneiform Numeric Sign Eight U ; Numeric Value: 8 ; Unicode Version: 5.0 (July 2006) ; Block: Cuneiform Numbers and ...\n\n3. Cuneiform Numbers and Punctuation - Wikipedia\n   URL: https://en.wikipedia.org/wiki/Cuneiform_Numbers_and_Punctuation\n   Site: en.wikipedia.org\n   Summary: A list of all numerals encoded in Unicode, see Numerals in Unicode. In Unicode, the Sumero-Akkadian Cuneiform script is covered in three blocks.\n",
+      "name": "web_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to verify the base-10 values for the cuneiform signs U and GE\u0160 (e.g., whether U=10 and GE\u0160 series represent 60s) to correctly interpret the two sexagesimal place groups."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 web results with content:\n\n1. Cuneiform Sign List\n   URL: http://home.zcu.cz/~ksaskova/Sign_List.html\n   Site: home.zcu.cz\n   Summary: A\u0160. (1, ANA3, AS3, A\u1e623, A\u0160 (MesZL: see also U.DAR (nos. 670+183)), A\u0160A, A\u0160\u0160A, AZ3, DAL3, DEL, DELE, DE\u01602, DIL, DILI, DI\u01602, E\u016020, GE15, GE\u01604 (MesZL: perhaps ...\n   Content: \u00ef\u00bb\u00bf Cuneiform Sign List\n\n2. Oracc Sign List - U\n   URL: https://oracc.museum.upenn.edu/osl/signlist/o0223333\n   Site: oracc.museum.upenn.edu\n   Summary: CUNEIFORM. \ud809\udd62. VALUESbur\u2083@cu@c1(bur\u2083@c)1(u@c). UNICODEU+12562 = CUNEIFORM NUMERIC SIGN ONE N14 (ACN). LISTSRSP028. AKA1(N14). SYSpcun: 1(N14). COMPOUNDS|EZEN\u00d7U@c ...\n   Content: Could not extract content from this page\n\n3. Cuneiform (Unicode block) - Wikipedia\n   URL: https://en.wikipedia.org/wiki/Cuneiform_(Unicode_block)\n   Site: en.wikipedia.org\n   Summary: Sumero-Akkadian Cuneiform ; \ud808\udd2d, U+1212D, \u1e2aI ; \ud808\udd2e, U+1212E, \u1e2aI x A\u0160 ; \ud808\udd2f \u00b7 U+1212F, \u1e2aI x A\u0160 ; \ud808\udd30, U+12130, \u1e2aI x BAD ...\n   Content: Could not extract content from this page\n",
+      "name": "enhanced_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to determine whether the GE\u0160 series represents multiples of 10 within a digit or multiples of 60 as higher place values to interpret the grouped symbols correctly."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 relevant web results:\n\n1. cuneiform numeric sign one geshu (u+1241e)\n   URL: https://www.fileformat.info/info/unicode/char/1241e/index.htm\n   Site: fileformat.info\n   Summary: Unicode Character 'CUNEIFORM NUMERIC SIGN ONE GESHU' (U+1241E) \u00b7 U+1241E browser display \u00b7 Raster image of U+1241E.\n\n2. \ud809\udc1e Cuneiform Numeric Sign One Geshu symbol meaning ...\n   URL: https://symbl.cc/en/1241E/\n   Site: symbl.cc\n   Summary: The symbol \u201cCuneiform Numeric Sign One Geshu\u201d is included in the \u201cCommon numeric signs\u201d subblock of the \u201cCuneiform Numbers and Punctuation\u201d block and was ...\n\n3. Cuneiform Numbers and Punctuation\n   URL: https://unicode.org/charts/nameslist/n_12400.html\n   Site: unicode.org\n   Summary: Cuneiform Numeric Sign One Geshu. 1241F, \ud809\udc1f, Cuneiform Numeric Sign Two Geshu ... Unicode and the Unicode Logo are registered trademarks of Unicode, Inc ...\n",
+      "name": "web_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to see the Unicode nameslist around these codepoints to understand how the U and GE\u0160 series combine to form a sexagesimal digit."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 web results with content:\n\n1. Cuneiform Numbers and Punctuation - Wikipedia\n   URL: https://en.wikipedia.org/wiki/Cuneiform_Numbers_and_Punctuation\n   Site: en.wikipedia.org\n   Summary: The exact Unicode names can be unambiguously recovered by prefixing, \"CUNEIFORM [NUMERIC] SIGN\", replacing \"TIMES\" for \"x\", \"PLUS\" for \"+\" and \"OVER\" for \"/\", ...\n   Content: Cuneiform Numbers and Punctuation - Wikipedia Jump to content Main menu Main menu move to sidebar hide Navigation Main page Contents Current events Random article About Wikipedia Contact us Contribute Help Learn to edit Community portal Recent changes Upload file Special pages Search Search Appearance Donate Create account Log in Personal tools Donate Create account Log in Contents move to sidebar hide (Top) 1 Organization 2 Block 3 Signs 4 History 5 See also 6 References 7 External links Toggle External links subsection 7.1 Font packages Toggle the table of contents Cuneiform Numbers and Punctuation 3 languages Deutsch Fran\u00e7ais \u4e2d\u6587 Edit links Article Talk English Read Edit View history Tools Tools move to sidebar hide Actions Read Edit View history General What links here Related changes Upload file Permanent link Page information Cite this page Get shortened URL Download QR code Print/export Download as PDF Printable version In other projects Wikimedia Commons Wiktionary Wikidata item Appearance move to sidebar hide From Wikipedia, the free encyclopedia See also: Cuneiform (Unicode block) and Early Dynastic Cuneiform (Unicode block) For a list of all numerals encoded in Unicode, see Numerals in Unicode . Unicode character block Cuneiform Numbers and Punctuation Range U+12400..U+1247F (128 code points) Plane SMP Scripts Cuneiform Symbol sets Numeric signs Fractions Punctuation Assigned 116 code points Unused 12 reserved code points Unicode version history 5.0 (2006) 103 (+103) 7.0 (2014) 116 (+13) Unicode documentation Code chart \u2223 Web page Note : [ 1 ] [ 2 ] In Unicode , the Sumero-Akkadian Cuneiform script is covered in three blocks in the Supplementary Multilingual Plane (SMP): U+12000\u2013U+123FF Cuneiform U+12400\u2013U+1247F Cuneiform Numbers and Punctuation U+12480\u2013U+1254F Early Dynastic Cuneiform The sample glyphs in the chart file published by the Unicode Consortium [ 3 ] show the characters in their Classical Sumerian form ( Early Dynastic period , mid 3rd millenni\n\n2. Unicode Character \u201c\ud809\udc1c\u201d (U+1241C) - Compart\n   URL: https://www.compart.com/en/unicode/U+1241C\n   Site: compart.com\n   Summary: Unicode Character \u201c\ud809\udc1c\u201d (U+1241C) ; Name: Cuneiform Numeric Sign Eight Gesh2 ; Numeric Value: 8 ; Unicode Version: 5.0 (July 2006) ; Block: Cuneiform Numbers and ...\n   Content: \u201c\ud809\udc1c\u201d U+1241C Cuneiform Numeric Sign Eight Gesh2 Unicode Character Home IANA Character Sets Planes Blocks Character Categories Bidirectional Classes Combining Classes Decomposition Mirrored Characters Scripts HTML Entities References Install App \u00d7 Deutsch English Fran\u00e7ais Next char Previous char Unicode Character \u201c \ud809\udc1c \u201d (U+1241C) \ud809\udc1c Name: Cuneiform Numeric Sign Eight Gesh2 [1] Numeric Value: 8 [1] Unicode Version: 5.0 (July 2006) [2] Block: Cuneiform Numbers and Punctuation, U+12400 - U+1247F [3] Plane: Supplementary Multilingual Plane, U+10000 - U+1FFFF [3] Script: Cuneiform, Sumero-Akkadian (Xsux) [4] Category: Letter Number (Nl) [1] Bidirectional Class: Left To Right (L) [1] Combining Class: Not Reordered (0) [1] Character is Mirrored: No [1] HTML Entity: &#74780; &#x1241C; UTF-8 Encoding: 0xF0 0x92 0x90 0x9C UTF-16 Encoding: 0xD809 0xDC1C UTF-32 Encoding: 0x0001241C References Unicode Database - UnicodeData Unicode Database - Derived Age Unicode Database - Blocks Unicode Database - Scripts Twitter facebook Linkedin Skip navigation Contact Data protection Imprint \u00a9 2021 Compart AG\n\n3. \ud809\udc1c - U+1241C - decodeunicode.org\n   URL: https://decodeunicode.org/en/u+1241C\n   Site: decodeunicode.org\n   Summary: decodeunicode \u2013 the world's writing systems \u00b7 U+1241C. CUNEIFORM NUMERIC SIGN EIGHT GESH2. \u00b7 Unicode Block U+12400 \u2014 U+1247F. Cuneiform Numbers and Punctuation ...\n   Content: \u00f0\u0092\u0090\u009c - U+1241C -  decodeunicode.org decodeunicode \u00e2\u0080\u0093 the world\u00e2\u0080\u0099s writing systems Unicode Blocks Alphabetic Geographic Adlam - Bamum Bamum - CJK CJK - Combining Combining - Dingbats Dogra - Georgian Georgian - Hebrew Hiragana - Khmer Khojki - Mahajani Mahjong - Miscellaneous Modi - Old Old - Playing Psalter - Supplemental Supplemental - Tangut Telugu - Zanabazar African American Central Asian East Asian European International Middle Eastern Oceania South Asian Southeast Asian Adlam Aegean Numbers Ahom Alchemical Symbols Alphabetic Presentation Forms Anatolian Hieroglyphs Ancient Greek Musical Notation Ancient Greek Numbers Ancient Symbols Arabic Arabic Extended-A Arabic Mathematical Alphabetic Symbols Arabic Presentation Forms-A Arabic Presentation Forms-B Arabic Supplement Armenian Arrows Avestan Balinese Bamum Bamum Supplement Basic Latin Bassa Vah Batak Bengali Bhaiksuki Block Elements Bopomofo Bopomofo Extended Box Drawing Brahmi Braille Patterns Buginese Buhid Byzantine Musical Symbols CJK Compatibility CJK Compatibility Forms CJK Compatibility Ideographs CJK Compatibility Ideographs Supplement CJK Radicals Supplement CJK Strokes CJK Symbols and Punctuation CJK Unified Ideographs CJK Unified Ideographs Extension A CJK Unified Ideographs Extension B CJK Unified Ideographs Extension C CJK Unified Ideographs Extension D CJK Unified Ideographs Extension E CJK Unified Ideographs Extension F Carian Caucasian Albanian Chakma Cham Cherokee Cherokee Supplement Chess Symbols Combining Diacritical Marks Combining Diacritical Marks Extended Combining Diacritical Marks Supplement Combining Diacritical Marks for Symbols Combining Half Marks Common Indic Number Forms Control Pictures Coptic Coptic Epact Numbers Counting Rod Numbers Counting Rod Numerals Cuneiform Cuneiform Numbers and Punctuation Currency Symbols Cypriot Syllabary Cyrillic Cyrillic Extended-A Cyrillic Extended-B Cyrillic Extended-C Cyrillic Supplement Deseret Devanagari Devanagari Extended Dingbats Dogra Do\n",
+      "name": "enhanced_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to confirm the numeric value associated with the specific sign \ud809\udc1a to know whether it represents 6 units or a tens series."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 relevant web results:\n\n1. U+1241A CUNEIFORM NUMERIC SIGN SIX GESH2: \ud809\udc1a \u2013 Unicode ...\n   URL: https://codepoints.net/U+1241A?lang=pl\n   Site: codepoints.net\n   Summary: This character is a Letter Number and is mainly used in the Cuneiform script. The codepoint has the numeric value 6. The glyph is not a composition. It has ...\n\n2. \ud809\udc1a U+1241A CUNEIFORM NUMERIC SIGN SIX GESH2\n   URL: https://unicode-explorer.com/c/1241A\n   Site: unicode-explorer.com\n   Summary: \ud809\udc1a CUNEIFORM NUMERIC SIGN SIX GESH2 ; Codepoint, U+1241A ; Copy to the clipboard, Copy ; Block, Cuneiform Numbers and Punctuation ; Sub-Block, Numeric signs.\n\n3. \ud809\udc1a | cuneiform numeric sign six gesh2 (U+1241A) @ Graphemica\n   URL: https://graphemica.com/%F0%92%90%9A\n   Site: graphemica.com\n   Summary: \ud809\udc1a. cuneiform numeric sign six gesh2 (U+1241A). \ud809\udc19 U+12419 \u2022 U+1241B \ud809\udc1b. \u00b7 \u00b7 \u00b7. Info \u00b7 Code \u00b7 Related \u00b7 Chart \u00b7 Encodings \u00b7 Data \u00b7 Words \u00b7 Tags \u00b7 Comments.\n",
+      "name": "web_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to verify how the 'U' and 'GESH2' series map to units and tens within a sexagesimal digit versus 'GESHU' for 60 to interpret the groups correctly."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 web results with content:\n\n1. Babylonian cuneiform numerals - Wikipedia\n   URL: https://en.wikipedia.org/wiki/Babylonian_cuneiform_numerals\n   Site: en.wikipedia.org\n   Summary: Babylonian cuneiform numerals, also used in Assyria and Chaldea, were written in cuneiform, using a wedge-tipped reed stylus to print a mark on a soft clay ...\n   Content: Babylonian cuneiform numerals - Wikipedia Jump to content Main menu Main menu move to sidebar hide Navigation Main page Contents Current events Random article About Wikipedia Contact us Contribute Help Learn to edit Community portal Recent changes Upload file Special pages Search Search Appearance Donate Create account Log in Personal tools Donate Create account Log in Contents move to sidebar hide (Top) 1 Origin 2 Symbols Toggle Symbols subsection 2.1 Zero 3 See also 4 References Toggle References subsection 4.1 Bibliography 5 External links Toggle the table of contents Babylonian cuneiform numerals 32 languages \u0627\u0644\u0639\u0631\u0628\u064a\u0629 Asturianu Catal\u00e0 Dansk Deutsch \u0395\u03bb\u03bb\u03b7\u03bd\u03b9\u03ba\u03ac Espa\u00f1ol Esperanto Fran\u00e7ais Galego \ud55c\uad6d\uc5b4 Bahasa Indonesia Italiano \u05e2\u05d1\u05e8\u05d9\u05ea Magyar \u041c\u0430\u043a\u0435\u0434\u043e\u043d\u0441\u043a\u0438 \u0d2e\u0d32\u0d2f\u0d3e\u0d33\u0d02 Bahasa Melayu Nederlands \u65e5\u672c\u8a9e Plattd\u00fc\u00fctsch Portugu\u00eas \u0420\u0443\u0441\u0441\u043a\u0438\u0439 Simple English Sloven\u0161\u010dina Srpskohrvatski / \u0441\u0440\u043f\u0441\u043a\u043e\u0445\u0440\u0432\u0430\u0442\u0441\u043a\u0438 Suomi Svenska \u0ba4\u0bae\u0bbf\u0bb4\u0bcd T\u00fcrk\u00e7e \u0423\u043a\u0440\u0430\u0457\u043d\u0441\u044c\u043a\u0430 \u4e2d\u6587 Edit links Article Talk English Read Edit View history Tools Tools move to sidebar hide Actions Read Edit View history General What links here Related changes Upload file Permanent link Page information Cite this page Get shortened URL Download QR code Print/export Download as PDF Printable version In other projects Wikimedia Commons Wikidata item Appearance move to sidebar hide From Wikipedia, the free encyclopedia Numeral system Babylonian cuneiform numerals Babylonian cuneiform numerals , also used in Assyria and Chaldea , were written in cuneiform , using a wedge-tipped reed stylus to print a mark on a soft clay tablet which would be exposed in the sun to harden to create a permanent record. The Babylonians , who were famous for their astronomical observations, as well as their calculations (aided by their invention of the abacus ),  used a sexagesimal (base-60) positional numeral system inherited from either the Sumerian or the Akkadian civilizations. [ 1 ] Neither of the predecessors was a positional system (having a convention for which 'end' of the num\n\n2. [PDF] Unicode Cuneiform Sign Lists\n   URL: https://www.unicode.org/L2/L2023/23071-cuneiform-sign-lists.pdf\n   Site: unicode.org\n   Summary: This document briefly discusses the approach to the complexities of cuneiform sign identity taken by the encoding; it then describes the sign ...\n   Content: L2/23-071 Unicode Cuneiform Sign Lists To: SAH, UTC From: Robin Leroy \ud808\ude6d Date: 2023-03-24 We propose that the UTC authorize a Proposed Draft Unicode Technical Report based on this document. A. Rationale Character identity in the cuneiform script (specifically: Sumero-Akkadian Cuneiform, Xsux) is complex; it is impractical to ascertain it solely from the code charts. The abstract character re\u0301pertoire is also vast, and includes code point sequences as well as individual code points; all of these have many names beyond those given in the code charts. Assyriologists who use the encoded characters therefore depend on ancillary data for character identity; this is however not mentioned by the standard, and has led to confusion. For instance: 1. the documentation of the Open Richly Annotated Cuneiform Corpus (Oracc) mentions the impracticality of the code charts: http://oracc.museum.upenn.edu/saao/knpp/cuneiformrevealed/aboutcuneiform/computercunei form/index.html (see section Unicode Cuneiform); 2. some fonts in the Neo-Assyrian style get some mergers wrong: for instance, we are aware of a font created by an Assyriologist which has \ud808\udc85\u2260\ud808\udc86=\ud808\udc87, whereas the correspondence to sign lists given by the Oracc Global Sign List would give \ud808\udc85=\ud808\udc86\u2260\ud808\udc87, which is consistent with the evolution of those signs; 3. users have complained about the difficulty of using the code charts, especially for Neo-Assyrian texts, see, e.g., https://www.unicode.org/mail-arch/unicode-ml/y2007-m06/0123.html. \u25cb Ken Whistler had suggested that a UTR be created to clarify this; unfortunately no action was taken: https://www.unicode.org/mail-arch/unicode-ml/y2007-m06/0129.html. By clarifying that the encoding is designed to be used in conjunction with ancillary data, and by describing how Oracc provides the necessary data as part of the Oracc Global Sign List, we aim to alleviate that confusion, and facilitate the use of the encoded cuneiform script. It should be noted that the OGSL is the de facto authority on the us\n\n3. [PDF] Archaic cuneiform numerals - Unicode\n   URL: https://www.unicode.org/L2/L2024/24210r-archaic-numerals.pdf\n   Site: unicode.org\n   Summary: This document proposes encoding, at U+12550\u2013U+12586, 311 numerals used in the fourth millennium (Uruk IV and Uruk III periods) and Early ...\n   Content: L2/24-210R Archaic cuneiform numerals RobinLeroy,AnshumanPandey,andSteveTinney 2024-10-23 Contents 1 Summary 2 2 ProposedchangestotheStandard 3 2.1 Corespecificationtext . . . . . . . . . . . . . . . . . . . . . . . . . . . 3 2.2 Codecharts . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 5 2.3 Properties . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 12 2.3.1 Name,General_Category,Numeric_Value,etc.. . . . . . . . . 12 2.3.2 Line_Break . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 16 2.3.3 Script . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 16 2.3.4 Script_Extensions . . . . . . . . . . . . . . . . . . . . . . . . . 16 2.3.5 Block . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 16 3 Rationaleforcurviform\u2013cuneiformdisunification 17 3.1 Thecuneiformencodingmodel . . . . . . . . . . . . . . . . . . . . . . 17 3.2 Argumentsforcurviform\u2013cuneiformunification . . . . . . . . . . . . 17 3.3 AprimeronclassicUrIIIandOldBabylonianmetrologies . . . . . . 19 3.3.1 Thediscretecountingsystem . . . . . . . . . . . . . . . . . . 19 3.3.2 Theareasystem . . . . . . . . . . . . . . . . . . . . . . . . . . 20 3.3.3 Thecapacitysystem . . . . . . . . . . . . . . . . . . . . . . . 21 3.3.4 Thelengthsystem. . . . . . . . . . . . . . . . . . . . . . . . . 22 3.3.5 Fractions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 22 3.4 Curviformnumeralsinearlymetrologies . . . . . . . . . . . . . . . . 22 3.4.1 Fieldlengthsin\u014airsu . . . . . . . . . . . . . . . . . . . . . . . 23 3.4.2 Dykelengthsin\u014airsu. . . . . . . . . . . . . . . . . . . . . . . 24 3.4.3 Butter,cheeseandwheatin\u014airsu . . . . . . . . . . . . . . . 24 3.4.4 GraininEbla . . . . . . . . . . . . . . . . . . . . . . . . . . . . 25 3.4.5 Useinmodernpublications . . . . . . . . . . . . . . . . . . . 27 3.5 Non-numericusage . . . . . . . . . . . .\n",
+      "name": "enhanced_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I want to confirm that the U series corresponds to tens and GE\u01602 to units in Babylonian numeral composition so I can parse the groups correctly."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 relevant web results:\n\n1. Cuneiform (Unicode block) - Wikipedia\n   URL: https://en.wikipedia.org/wiki/Cuneiform_(Unicode_block)\n   Site: en.wikipedia.org\n   Summary: Sumero-Akkadian Cuneiform ; \ud808\udd2d, U+1212D, \u1e2aI ; \ud808\udd2e, U+1212E, \u1e2aI x A\u0160 ; \ud808\udd2f \u00b7 U+1212F, \u1e2aI x A\u0160 ; \ud808\udd30, U+12130, \u1e2aI x BAD ...\n\n2. Cuneiform Sign List\n   URL: http://home.zcu.cz/~ksaskova/Sign_List.html\n   Site: home.zcu.cz\n   Summary: \ud808\udc44. \ud808\udc44. BAL. (BALA, BUL3, PAL, PALA4, PUL3). (ePSD; Akkadian Dictionary) ; \ud808\udc45. \ud808\udc45. BAL over BAL. (ePSD; Akkadian Dictionary) ; \ud808\udd08. \ud808\udd08. GIR \u00b7 (GER2, GIRI2 (MesZL: Deimel ...\n\n3. [PDF] Twelve cuneiform ten\u00fb numerals - Unicode\n   URL: https://www.unicode.org/L2/L2024/24270-tenu-numerals.pdf\n   Site: unicode.org\n   Date: Dec 17, 2024\n   Summary: The existing numerals in the \ud808\udc39 series are named U+12039 \ud808\udc39 CUNEIFORM SIGN ASH. ZIDA TENU for the first one and U+1244A\u2013U+1244E \ud809\udc4a\u2013\ud809\udc4e CUNEIFORM ...\n",
+      "name": "web_search"
+    },
+    {
+      "role": "assistant",
+      "content": "The first group \ud809\udc1c is eight GESH2 = 8; the second group \ud809\udc10\ud809\udc1a is five U plus six GESH2 = 50 + 6 = 56; interpreted as sexagesimal 8,56 this equals 8\u00d760 + 56 = 536.\n\nFINAL ANSWER: 536"
+    }
+  ],
+  "error": null
+}

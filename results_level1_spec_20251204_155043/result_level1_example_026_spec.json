@@ -1,0 +1,102 @@
+{
+  "task_id": "9d191bce-651d-4746-be2d-7ef8ecadb9c2",
+  "level": "1",
+  "question": "Examine the video at https://www.youtube.com/watch?v=1htKBjuUWec.\n\nWhat does Teal'c say in response to the question \"Isn't that hot?\"",
+  "ground_truth": "Extremely",
+  "predicted": "Extremely",
+  "correct": true,
+  "steps": 2,
+  "time_seconds": 36.81365394592285,
+  "actor_model": "gpt-5",
+  "spec_model": "gpt-5-nano",
+  "speculation_enabled": true,
+  "verification_strategy": "jaccard",
+  "spec_hits": 0,
+  "spec_misses": 1,
+  "spec_predictions": 2,
+  "trajectory": [
+    {
+      "node": "start",
+      "question": "Examine the video at https://www.youtube.com/watch?v=1htKBjuUWec.\n\nWhat does Teal'c say in response to the question \"Isn't that hot?\"",
+      "timestamp": 0
+    },
+    {
+      "node": "llm",
+      "timestamp": 15.343130111694336,
+      "step": 1,
+      "actor_model": "gpt-5",
+      "llm_time": 15.33725905418396,
+      "actor_reasoning": "I need to find the specific line from the YouTube video, so I'll search for the video and its transcript or quotes.",
+      "actor_tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "1htKBjuUWec Teal'c Isn't that hot?"
+          }
+        }
+      ],
+      "spec_model": "gpt-5-nano",
+      "spec_predictions": [
+        {
+          "name": "enhanced_search",
+          "args": {
+            "query": "Teal'c \"Isn't that hot?\" Stargate SG-1 quote"
+          },
+          "pre_executed": true,
+          "exec_time": 9.783742904663086,
+          "spec_inference_time": 5.552685976028442
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 18.302531957626343,
+      "tool_time": 2.9577977657318115,
+      "tool_executed": {
+        "name": "web_search",
+        "result": "Found 3 relevant web results:\n\n1. Teal'c coffee first time - YouTube\n   URL: https://www.youtube.com/watch?v=1htKBjuUWec\n   Site: youtube.com\n   Date: Jul 12, 2012\n   Summary: Wow this coffee's great I was just thinking that yeah is that cinnamon chicory tea oak isn't that hot extremely.\n\n2. Hear me out... Best Teal'c moment in the show? : r/Stargate - Reddit\n   URL: https://www.reddit.com/r/Stargate/comments/1ld1g7n/hear_me_out_best_tealc_moment_in_the_show/\n   Site: reddit.com\n   Date: Jun 16, 2025\n   Summary: And, of course, the famous Teal'c coffee scene: \"Isn't that hot?\" \"Extremely\" - S3 E16 Urgo. 50 upvotes \u00b7 8 comments. [Request] Teal'c Gif and ...\n\n3. What is the funniest scene in the entire series. - Facebook\n   URL: https://www.facebook.com/groups/stargatefansunited/posts/10162067968523713/\n   Site: facebook.com\n   Date: Nov 13, 2024\n   Summary: ... Teal'c who's drinking coffee straight from the pot: \"Isn't that hot ?\". .. \"Extremely !\" https://youtu. be/1htKBjuUWec?feature=shared.\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 36.813441038131714,
+      "step": 2,
+      "actor_model": "gpt-5",
+      "llm_time": 18.508455991744995,
+      "actor_reasoning": "Multiple sources referencing that clip, including the video title/summary and fan discussions, quote Teal'c\u2019s reply as \u201cExtremely.\u201d \nFINAL ANSWER: Extremely",
+      "spec_model": "gpt-5-nano",
+      "spec_predictions": [
+        {
+          "name": "enhanced_search",
+          "args": {
+            "query": "\"Isn't that hot?\" Teal'c Extremely"
+          },
+          "pre_executed": true,
+          "exec_time": 8.516162157058716,
+          "spec_inference_time": 9.991687059402466
+        }
+      ],
+      "final_answer": "Extremely"
+    }
+  ],
+  "messages": [
+    {
+      "role": "user",
+      "content": "Examine the video at https://www.youtube.com/watch?v=1htKBjuUWec.\n\nWhat does Teal'c say in response to the question \"Isn't that hot?\""
+    },
+    {
+      "role": "assistant",
+      "content": "I need to find the specific line from the YouTube video, so I'll search for the video and its transcript or quotes."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 relevant web results:\n\n1. Teal'c coffee first time - YouTube\n   URL: https://www.youtube.com/watch?v=1htKBjuUWec\n   Site: youtube.com\n   Date: Jul 12, 2012\n   Summary: Wow this coffee's great I was just thinking that yeah is that cinnamon chicory tea oak isn't that hot extremely.\n\n2. Hear me out... Best Teal'c moment in the show? : r/Stargate - Reddit\n   URL: https://www.reddit.com/r/Stargate/comments/1ld1g7n/hear_me_out_best_tealc_moment_in_the_show/\n   Site: reddit.com\n   Date: Jun 16, 2025\n   Summary: And, of course, the famous Teal'c coffee scene: \"Isn't that hot?\" \"Extremely\" - S3 E16 Urgo. 50 upvotes \u00b7 8 comments. [Request] Teal'c Gif and ...\n\n3. What is the funniest scene in the entire series. - Facebook\n   URL: https://www.facebook.com/groups/stargatefansunited/posts/10162067968523713/\n   Site: facebook.com\n   Date: Nov 13, 2024\n   Summary: ... Teal'c who's drinking coffee straight from the pot: \"Isn't that hot ?\". .. \"Extremely !\" https://youtu. be/1htKBjuUWec?feature=shared.\n",
+      "name": "web_search"
+    },
+    {
+      "role": "assistant",
+      "content": "Multiple sources referencing that clip, including the video title/summary and fan discussions, quote Teal'c\u2019s reply as \u201cExtremely.\u201d \nFINAL ANSWER: Extremely"
+    }
+  ],
+  "error": null
+}

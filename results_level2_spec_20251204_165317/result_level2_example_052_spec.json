@@ -1,0 +1,517 @@
+{
+  "task_id": "0a3cd321-3e76-4622-911b-0fda2e5d6b1a",
+  "level": "2",
+  "question": "According to the World Bank, which countries had gross savings of over 35% of GDP for every year in the period 2001-2010? Give your answer as a comma-separated list of countries in alphabetical order. Use the countries most common names in english when answering.",
+  "ground_truth": "Brunei, China, Morocco, Singapore",
+  "predicted": "Brunei, China, Morocco, Singapore",
+  "correct": true,
+  "steps": 12,
+  "time_seconds": 432.92431473731995,
+  "actor_model": "gpt-5",
+  "spec_model": "gpt-5-nano",
+  "speculation_enabled": true,
+  "verification_strategy": "jaccard",
+  "spec_hits": 0,
+  "spec_misses": 11,
+  "spec_predictions": 8,
+  "trajectory": [
+    {
+      "node": "start",
+      "question": "According to the World Bank, which countries had gross savings of over 35% of GDP for every year in the period 2001-2010? Give your answer as a comma-separated list of countries in alphabetical order. Use the countries most common names in english when answering.",
+      "timestamp": 0
+    },
+    {
+      "node": "llm",
+      "timestamp": 16.87407159805298,
+      "step": 1,
+      "actor_model": "gpt-5",
+      "llm_time": 16.867031812667847,
+      "actor_reasoning": "I need to find the World Bank indicator for gross savings and access the data for 2001-2010 to filter countries above 35% in all years.",
+      "actor_tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "World Bank gross savings (% of GDP) indicator code"
+          }
+        }
+      ],
+      "spec_model": "gpt-5-nano",
+      "spec_predictions": [
+        {
+          "name": "enhanced_search",
+          "args": {
+            "query": "World Bank gross savings (% of GDP) 2001-2010 data by country"
+          },
+          "pre_executed": true,
+          "exec_time": 5.828572034835815,
+          "spec_inference_time": 11.037312030792236
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 18.74355673789978,
+      "tool_time": 1.8681108951568604,
+      "tool_executed": {
+        "name": "web_search",
+        "result": "Found 3 relevant web results:\n\n1. Gross savings (% of GDP) - Glossary | DataBank - World Bank\n   URL: https://databank.worldbank.org/metadataglossary/world-development-indicators/series/NY.GNS.ICTR.ZS\n   Site: databank.worldbank.org\n   Summary: Code, NY.GNS.ICTR.ZS. Indicator Name, Gross savings (% of GDP). Short definition, Savings is an amount that represent the part of disposable income ...\n\n2. Gross savings (% of GDP) - World Bank Open Data\n   URL: https://data.worldbank.org/indicator/NY.GNS.ICTR.ZS\n   Site: data.worldbank.org\n   Summary: Gross savings (% of GDP) \u00b7 Gross savings (current LCU) \u00b7 Gross savings (current US$) \u00b7 Gross savings (% of GNI) \u00b7 GDP per capita growth (annual %) \u00b7 Adjusted net ...\n\n3. saving - World Development Indicators | DataBank\n   URL: https://databank.worldbank.org/id/384adcf6\n   Site: databank.worldbank.org\n   Summary: External balance on goods and services (% of GDP), 1.8, 0.3 ; Gross savings (% of GDP), 30.3, 28.6 ; Gross domestic savings (% of GDP), 27.5, 26.2 ; Trade (% of ...\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 100.37914776802063,
+      "step": 2,
+      "actor_model": "gpt-5",
+      "llm_time": 81.63147068023682,
+      "actor_reasoning": "I need to retrieve the World Bank API JSON for gross savings (% of GDP) for all countries from 2001 to 2010 to compute which meet the >35% criterion.",
+      "actor_tool_calls": [
+        {
+          "name": "enhanced_search",
+          "args": {
+            "query": "http://api.worldbank.org/v2/country/all/indicator/NY.GNS.ICTR.ZS?date=2001:2010&format=json&per_page=20000"
+          }
+        }
+      ],
+      "spec_model": "gpt-5-nano",
+      "spec_predictions": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "gross savings (% of GDP) 2001-2010 by country World Bank NY.GNS.ICTR.ZS"
+          },
+          "pre_executed": true,
+          "exec_time": 2.252997875213623,
+          "spec_inference_time": 6.50520396232605
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 105.57362985610962,
+      "tool_time": 5.1933958530426025,
+      "tool_executed": {
+        "name": "enhanced_search",
+        "result": "Found 3 web results with content:\n\n1. Gross savings (% of GDP) - Glossary | DataBank - World Bank\n   URL: https://databank.worldbank.org/metadataglossary/world-development-indicators/series/NY.GNS.ICTR.ZS\n   Site: databank.worldbank.org\n   Summary: Code, NY.GNS.ICTR.ZS. Indicator Name, Gross savings (% of GDP). Short definition, Savings is an amount that represent the part of disposable income ...\n   Content: Glossary | DataBank Help us improve this section of the site. Can we get your feedback? Click here Toggle navigation Home About Data Research Learning News Projects & Operations Publications Countries Topics English Espa\u00f1ol Fran\u00e7ais \u0639\u0631\u0628\u064a \u0420\u0443\u0441\u0441\u043a\u0438\u0439 \u4e2d\u6587 View all \u00bb DataBank This page is in English Espa\u00f1ol Fran\u00e7ais \u0639\u0631\u0628\u064a \u4e2d\u6587 Log in Now WB Staff Login Public Login Tweets Like Share + Google+ Digg \u4eba\u4eba\u7f51 \u65b0\u6d6a\u5fae\u535a Stumble Upon DataBank Home Databases Create Report Saved Reports Saved Datasets Metadata Glossary What's New World Development Indicators was updated on December 4, 2025 International Debt Statistics: DSSI was updated on December 3, 2025 International Debt Statistics was updated on December 3, 2025 Global Economic Monitor (GEM) was updated on November 13, 2025 Metadata Glossary Select Database Indicator Country Classification Download Filtered Results: 10 Remove filter Code NY.GNS.ICTR.ZS Indicator Name Gross savings (% of GDP) Short definition Savings is an amount that represent the part of disposable income (adjusted for the\n\n\nchange in pension entitlements) that is not spent on final consumption. Gross savings are calculated as gross national income less total consumption, plus net transfers. This indicator is expressed as a percentage of Gross Domestic Product (GDP) which is the total income earned through the production of goods and services in an economic territory during an accounting period. Long definition Savings is an amount that represent the part of disposable income (adjusted for the\n\n\nchange in pension entitlements) that is not spent on final consumption. Gross savings are calculated as gross national income less total consumption, plus net transfers. This indicator is expressed as a percentage of Gross Domestic Product (GDP) which is the total income earned through the production of goods and services in an economic territory during an accounting period. Source Country official statistics, National Statistical Organizations and/or Central Banks;\nNational Acco\n\n2. World Development Indicators | DataBank\n   URL: https://databank.worldbank.org/source/world-development-indicators\n   Site: databank.worldbank.org\n   Summary: World Development Indicators (WDI) is the primary World Bank collection of development indicators, compiled from officially recognized international sources ...\n   Content: World Development Indicators | DataBank Help us improve this section of the site. Can we get your feedback? Click here Sign In WB Staff Login Public Login This page is in English Espa\u00f1ol Fran\u00e7ais \u0639\u0631\u0628\u064a \u4e2d\u6587 DataBank World Development Indicators Table Chart Map Metadata Download options Excel CSV Tabbed TXT Data on this page only - formatted Metadata Advanced options Update Variables Layout Styles Save Share Embed Database Available | Selected 1 Database preview ON OFF Filter Filter Search Country Available 266 | Selected 0 All Countries Aggregates All Countries Aggregates Select all Unselect all Invert selection Filter Search Filter Hierarchy Showing - of Sort Remove all No variables selected Create Custom Group Additional\n                            Options Metadata (Optional) Display Country List Clear Add \u00d7 Custom Country The Custom Country option allows you to create your own customized\n                        country groups from country selection panel. Click on Custom Country. A new box will open. Click on the desired countries listed\n                        in the country selection panel. Enter the group name in the Enter Group Title box\n                        and click on Add. The new country group will be added to the right panel. To edit an existing country group, click on the Edit link in the current selection\n                        panel in right side. Now you can add new countries or remove the countries to an\n                        existing customized group. 1. Click on the additional countries listed in the country selection panel. 2. To remove the country from the group double click on the country or select the\n                        country and click Remove button. 3. Click on Add to save changes to your customized group. Note: Editing the group name will create a new custom group. You can remove the customized group by clicking on the Delete button in the current selection panel in right side Close Select region (Mapping purpose) Select income (Ma\n\n3. Indicators - World Bank Open Data\n   URL: https://data.worldbank.org/indicator\n   Site: data.worldbank.org\n   Summary: Indicators \u00b7 Agriculture & Rural Development \u00b7 Aid Effectiveness \u00b7 Climate Change \u00b7 Economy & Growth \u00b7 Education \u00b7 Energy & Mining \u00b7 Environment \u00b7 External Debt.\n   Content: Indicators | Data Data HOME ECONOMIES THEMES DATA & RESOURCES ABOUT English Espa\u00f1ol Fran\u00e7ais \u0627\u0644\u0639\u0631\u0628\u064a\u0629 \u4e2d\u6587 Close Browse World Development Indicators by Country or Indicator DataBank Microdata Data Catalog Menu Microdata Data Catalog DataBank Browse World Development Indicators by Country Indicator About Us Get Started FAQ Help Desk Contact Data Programs Improving Statistical Capacity Global Data Facility International Comparison Program & Purchasing Power Parity International Household Survey Network (IHSN) Joint External Debt Hub Open Data Toolkit Quarterly External Debt Statistics Products World Development Indicators International Debt Statistics Other Books and Reports Country & Lending Groups Data Portals and Tools Development Goals Terms of Use For Developers Indicators Agriculture & Rural Development Aid Effectiveness Climate Change Economy & Growth Education Energy & Mining Environment External Debt Financial Sector Gender Health Infrastructure Poverty Private Sector Public Sector Science & Technology Social Development Social Protection & Labor Trade Urban Development Featured indicators All indicators Agriculture & Rural Development Agricultural irrigated land (% of total agricultural land) Agricultural land (% of land area) Agriculture, forestry, and fishing, value added (% of GDP) Arable land (% of land area) Arable land (hectares per person) Cereal yield (kg per hectare) Crop production index (2014-2016 = 100) Employment in agriculture, female (% of female employment) (modeled ILO estimate) Employment in agriculture, male (% of male employment) (modeled ILO estimate) Fertilizer consumption (kilograms per hectare of arable land) Food production index (2014-2016 = 100) Forest area (% of land area) Forest area (sq. km) Land area (sq. km) Land under cereal production (hectares) Livestock production index (2014-2016 = 100) Permanent cropland (% of land area) Rural population Rural population (% of total population) Surface area (sq. km) Aid Effectiveness Grants\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 137.1622178554535,
+      "step": 3,
+      "actor_model": "gpt-5",
+      "llm_time": 31.573745012283325,
+      "actor_reasoning": "I need to retrieve the World Bank API JSON for gross savings (% of GDP) for all countries for 2001-2010 to programmatically filter those above 35% each year.",
+      "actor_tool_calls": [
+        {
+          "name": "enhanced_search",
+          "args": {
+            "query": "site:api.worldbank.org NY.GNS.ICTR.ZS 2001:2010 format=json"
+          }
+        }
+      ],
+      "spec_model": "gpt-5-nano",
+      "spec_predictions": [
+        {
+          "name": "code_generate",
+          "args": {
+            "task_description": "Write Python code to fetch World Bank data for indicator NY.GNS.ICTR.ZS (Gross savings % of GDP) for all countries from 2001 to 2010, and return a comma-separated list of country names (common English names) that have >35% in every year 2001-2010. Exclude countries with any missing year data. Output the final comma-separated list in alphabetical order."
+          },
+          "pre_executed": true,
+          "exec_time": 0.006193876266479492,
+          "spec_inference_time": 29.011972188949585
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 139.1454336643219,
+      "tool_time": 1.981464147567749,
+      "tool_executed": {
+        "name": "enhanced_search",
+        "result": "No relevant information found in search results."
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 174.4105589389801,
+      "step": 4,
+      "actor_model": "gpt-5",
+      "llm_time": 35.25855112075806,
+      "actor_reasoning": "I will query the World Bank API for gross savings (% of GDP) for all economies from 2001 to 2010 and compute which countries exceed 35% in every year.",
+      "actor_tool_calls": [
+        {
+          "name": "code_exec",
+          "args": {
+            "code": "import json, sys, math, textwrap, statistics\nimport urllib.request\nimport urllib.parse\n\nbase = 'http://api.worldbank.org/v2/country/all/indicator/NY.GNS.ICTR.ZS'\nparams = {\n    'date': '2001:2010',\n    'format': 'json',\n    'per_page': '20000'\n}\nurl = base + '?' + urllib.parse.urlencode(params)\n\nwith urllib.request.urlopen(url, timeout=30) as resp:\n    data = json.load(resp)\n\n# data[0] contains metadata, data[1] contains list of observations\nmeta, obs = data\n\n# Collect values per country and year\nfrom collections import defaultdict\nvals = defaultdict(dict)\nnames = {}\nregions = {}\n\nfor item in obs:\n    country = item['country']['value']\n    code = item['countryiso3code']\n    region = item['region']['value'] if isinstance(item.get('region'), dict) else item.get('region')\n    year = item['date']\n    value = item['value']\n    names[code] = country\n    regions[code] = region\n    if value is not None:\n        vals[code][int(year)] = float(value)\n\nyears = list(range(2001, 2010+1))\n\n# Filter to non-aggregates (exclude region == 'Aggregates') and where all years present and > 35\nqualified = []\nfor code in vals:\n    if regions.get(code) == 'Aggregates':\n        continue\n    # Require all years present\n    if all(y in vals[code] for y in years) and all(vals[code][y] > 35 for y in years):\n        qualified.append((names[code], code))\n\nqualified_sorted = sorted(qualified, key=lambda x: x[0])\nqualified_sorted[:20], len(qualified_sorted)"
+          }
+        }
+      ],
+      "spec_model": "gpt-5-nano",
+      "spec_predictions": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "World Bank NY.GNS.ICTR.ZS API 2001 2010"
+          },
+          "pre_executed": true,
+          "exec_time": 2.5885589122772217,
+          "spec_inference_time": 4.55724310874939
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 180.23533487319946,
+      "tool_time": 5.823171854019165,
+      "tool_executed": {
+        "name": "code_exec",
+        "result": "Error: Traceback (most recent call last):\n  File \"/Users/charles/spec_tool_call/spec_tool_call/tools/code_exec_tool.py\", line 57, in execute_python_code\n    exec(code, restricted_globals, local_vars)\n  File \"<string>\", line 44, in <module>\n  File \"<string>\", line 44, in <genexpr>\nNameError: name 'vals' is not defined. Did you mean: 'vars'?\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 216.85244965553284,
+      "step": 5,
+      "actor_model": "gpt-5",
+      "llm_time": 36.613561153411865,
+      "actor_reasoning": "I need to programmatically query the World Bank API for NY.GNS.ICTR.ZS (gross savings % of GDP) for 2001-2010 and filter countries with values >35% in every year, excluding aggregates.",
+      "actor_tool_calls": [
+        {
+          "name": "code_exec",
+          "args": {
+            "code": "import requests, json\n\n# Fetch list of countries to exclude aggregates\ncountries_url = 'https://api.worldbank.org/v2/country?format=json&per_page=400'\nresp = requests.get(countries_url)\nmeta, data = resp.json()\n# Keep ISO3 and names for non-aggregates (region id != 'NA' and not Aggregates)\nvalid_iso3 = {}\nfor c in data:\n    # In WB API, aggregates have region['id'] == 'NA'\n    if c.get('region', {}).get('id') != 'NA':\n        valid_iso3[c['id']] = c['name']\n\n# Fetch indicator data for 2001-2010\nind_url = 'https://api.worldbank.org/v2/country/all/indicator/NY.GNS.ICTR.ZS?date=2001:2010&format=json&per_page=20000'\nind_resp = requests.get(ind_url)\nind = ind_resp.json()\nmeta2, rows = ind\n\n# Build dict iso3 -> {year: value}\nvals = {}\nfor r in rows:\n    iso = r.get('countryiso3code')\n    if iso not in valid_iso3:\n        continue\n    year = r.get('date')\n    val = r.get('value')\n    if iso not in vals:\n        vals[iso] = {}\n    vals[iso][year] = val\n\n# Check criterion: for years 2001-2010 (inclusive), value strictly > 35\nyears = [str(y) for y in range(2001, 2011)]\nqualified = []\nfor iso, yv in vals.items():\n    ok = True\n    for y in years:\n        v = yv.get(y)\n        if v is None or not isinstance(v, (int, float)) or not (v > 35):\n            ok = False\n            break\n    if ok:\n        qualified.append((valid_iso3[iso], iso))\n\n# Sort alphabetically by country common English name\nqualified_sorted = sorted([name for name, iso in qualified])\nprint(len(qualified_sorted))\nprint(qualified_sorted)\n"
+          }
+        }
+      ],
+      "spec_model": "gpt-5-nano",
+      "spec_predictions": [
+        {
+          "name": "code_generate",
+          "args": {
+            "task_description": "Attempt to fetch World Bank gross savings data (NY.GNS.ICTR.ZS) for 2001-2010 via API and identify countries with >35% of GDP in every year, returning a comma-separated list of country names in alphabetical order. Build robust Python code to parse API JSON (country name in English), handle missing values, cast numeric values, and output sorted country names joined by commas."
+          },
+          "pre_executed": true,
+          "exec_time": 0.0022041797637939453,
+          "spec_inference_time": 36.61067581176758
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 220.49739694595337,
+      "tool_time": 3.6435179710388184,
+      "tool_executed": {
+        "name": "code_exec",
+        "result": "4\n['Brunei Darussalam', 'China', 'Morocco', 'Singapore']\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 253.53055000305176,
+      "step": 6,
+      "actor_model": "gpt-5",
+      "llm_time": 33.02803587913513,
+      "actor_reasoning": "I will query the World Bank API for gross savings (% of GDP) for 2001-2010 and compute which sovereign countries exceed 35% in every year, excluding aggregates.",
+      "actor_tool_calls": [
+        {
+          "name": "code_exec",
+          "args": {
+            "code": "import json, math, sys, textwrap, urllib.request\n\n# Fetch World Bank data for gross savings (% of GDP) 2001-2010\nurl = 'https://api.worldbank.org/v2/country/all/indicator/NY.GNS.ICTR.ZS?date=2001:2010&format=json&per_page=20000'\nwith urllib.request.urlopen(url, timeout=30) as r:\n    data = json.load(r)\n\nmeta, rows = data\n\n# Build data structure per country, excluding aggregates (region value == 'Aggregates')\nby = {}\nfor rec in rows:\n    # Skip if no country info\n    ctry = rec.get('country')\n    if not ctry:\n        continue\n    name = ctry.get('value')\n    region = rec.get('region', {}).get('id') if isinstance(rec.get('region'), dict) else None\n    # In this API, region is under rec['country']['id']? Let's inspect one row shape\n    # For safety, check rec keys\n    # The standard WB v2 API rows look like: { 'indicator': {...}, 'country': {'id': 'ABW','value': 'Aruba'}, 'countryiso3code': 'ABW', 'date': '2010', 'value': 12.3, 'unit': '', 'obs_status': '', 'decimal': 1 }\n    # There is also a 'region' field at the country metadata level only when using country endpoint; here each row doesn't include region. So we need separate country list or filter by countryiso3code and exclude where countryiso3code == 'XN...' No, better: fetch country metadata once.\n    pass"
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 256.15036964416504,
+      "tool_time": 2.618942975997925,
+      "tool_executed": {
+        "name": "code_exec",
+        "result": ""
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 278.80427980422974,
+      "step": 7,
+      "actor_model": "gpt-5",
+      "llm_time": 22.65096402168274,
+      "actor_reasoning": "I need to query the World Bank API for NY.GNS.ICTR.ZS for 2001-2010, exclude aggregates, and filter countries with values strictly greater than 35 for every year.",
+      "actor_tool_calls": [
+        {
+          "name": "code_exec",
+          "args": {
+            "code": "import requests, math\n\n# Fetch World Bank data for gross savings (% of GDP) 2001-2010\nurl = 'https://api.worldbank.org/v2/country/all/indicator/NY.GNS.ICTR.ZS'\nparams = {\n    'date': '2001:2010',\n    'per_page': 20000,\n    'format': 'json'\n}\nresp = requests.get(url, params=params, timeout=30)\nresp.raise_for_status()\njs = resp.json()\n# js[0] has paging, js[1] has data entries\nentries = js[1]\n\n# Build mapping country name -> {year: value}\nfrom collections import defaultdict\nvalues = defaultdict(dict)\n# We will also collect country metadata via the entry fields\n\nfor e in entries:\n    # Exclude aggregates: region is None / 'Aggregates' present in countryiso3code? Use region value\n    country = e.get('country')\n    if not country:\n        continue\n    region = country.get('region', {})\n    if isinstance(region, dict):\n        region_value = region.get('value')\n    else:\n        region_value = None\n    # exclude if Aggregates or region value is 'Aggregates'\n    if region_value == 'Aggregates':\n        continue\n    # Also filter out non-countries like 'World', 'High income' etc that often have region.value='Aggregates'\n    # If region_value is None, be conservative and skip\n    if region_value is None:\n        continue\n\n    cname = country.get('value')\n    year = e.get('date')\n    val = e.get('value')\n    if val is None:\n        continue\n    try:\n        v = float(val)\n    except:\n        continue\n    values[cname][year] = v\n\nyears = [str(y) for y in range(2001, 2011)]\nres = []\nfor cname, d in values.items():\n    if all(y in d and d[y] is not None and float(d[y]) > 35.0 for y in years):\n        res.append(cname)\n\nres_sorted = sorted(res)\nprint(len(res_sorted))\nprint(res_sorted)"
+          }
+        }
+      ],
+      "spec_model": "gpt-5-nano",
+      "spec_predictions": [
+        {
+          "name": "code_generate",
+          "args": {
+            "task_description": "Generate Python code to print the final answer as a comma-separated list of countries in alphabetical order, given the set ['Brunei Darussalam', 'China', 'Morocco', 'Singapore']."
+          },
+          "pre_executed": true,
+          "exec_time": 0.0015022754669189453,
+          "spec_inference_time": 14.670278310775757
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 280.3802378177643,
+      "tool_time": 1.5748350620269775,
+      "tool_executed": {
+        "name": "code_exec",
+        "result": "0\n[]\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 305.08085560798645,
+      "step": 8,
+      "actor_model": "gpt-5",
+      "llm_time": 24.69577193260193,
+      "actor_reasoning": "I need to fetch World Bank API data for NY.GNS.ICTR.ZS for 2001-2010 and country metadata to exclude aggregates, then compute which countries exceed 35 every year.",
+      "actor_tool_calls": [
+        {
+          "name": "code_exec",
+          "args": {
+            "code": "import requests, math\n\n# Fetch country metadata to exclude aggregates\ncountries_url = 'http://api.worldbank.org/v2/country?format=json&per_page=400'\nmeta = requests.get(countries_url).json()\ncountry_meta = meta[1]\niso3_to_name = {}\nvalid_iso3 = set()\nfor c in country_meta:\n    # Exclude aggregates: region['id']=='NA' typically indicates aggregates\n    region = c.get('region', {})\n    if region and region.get('id') != 'NA':\n        valid_iso3.add(c['id'])\n        iso3_to_name[c['id']] = c['name']\n\n# Fetch indicator data for 2001-2010\nind_url = 'http://api.worldbank.org/v2/country/all/indicator/NY.GNS.ICTR.ZS?date=2001:2010&format=json&per_page=20000'\nresp = requests.get(ind_url).json()\n# resp[0] has paging info; resp[1] is data list\nrows = resp[1]\n\nfrom collections import defaultdict\nvals = defaultdict(dict)\nfor r in rows:\n    iso = r.get('countryiso3code')\n    date = r.get('date')\n    value = r.get('value')\n    if iso in valid_iso3 and value is not None:\n        vals[iso][int(date)] = float(value)\n\neligible = []\nfor iso in valid_iso3:\n    # ensure all years 2001..2010 present and strictly > 35\n    ok = True\n    for y in range(2001, 2011):\n        v = vals.get(iso, {}).get(y)\n        if v is None or not (v > 35.0):\n            ok = False\n            break\n    if ok:\n        eligible.append(iso3_to_name[iso])\n\neligible_sorted = sorted(eligible)\nprint(len(eligible_sorted))\nprint(eligible_sorted)\n"
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 311.3188216686249,
+      "tool_time": 6.2365710735321045,
+      "tool_executed": {
+        "name": "code_exec",
+        "result": "4\n['Brunei Darussalam', 'China', 'Morocco', 'Singapore']\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 342.4046206474304,
+      "step": 9,
+      "actor_model": "gpt-5",
+      "llm_time": 31.0795419216156,
+      "actor_reasoning": "I need to programmatically query the World Bank API for gross savings (% of GDP) 2001-2010 and filter countries with values strictly above 35% every year, excluding aggregates.",
+      "actor_tool_calls": [
+        {
+          "name": "code_exec",
+          "args": {
+            "code": "import requests, math\n\n# Fetch all countries metadata\ndef get_countries():\n    url = 'https://api.worldbank.org/v2/country?format=json&per_page=400'\n    j = requests.get(url, timeout=30).json()\n    countries = []\n    for c in j[1]:\n        # Exclude aggregates (region.id == 'NA')\n        if c['region'] and c['region']['id'] != 'NA':\n            countries.append({\n                'id': c['id'],\n                'name': c['name']\n            })\n    return countries\n\n# Fetch indicator for given country codes and years\n\ndef get_indicator(country_codes, indicator, date_range):\n    # join country codes\n    codes_str = ';'.join(country_codes)\n    url = f'https://api.worldbank.org/v2/country/{codes_str}/indicator/{indicator}?date={date_range}&format=json&per_page=20000'\n    j = requests.get(url, timeout=60).json()\n    if not isinstance(j, list) or len(j) < 2 or j[1] is None:\n        return []\n    return j[1]\n\ncountries = get_countries()\ncountry_map = {c['id']: c['name'] for c in countries}\n\nindicator = 'NY.GNS.ICTR.ZS'\ndate_range = '2001:2010'\n\n# Because of URL length limits, fetch in chunks\nids = [c['id'] for c in countries]\nchunks = [ids[i:i+50] for i in range(0, len(ids), 50)]\n\nfrom collections import defaultdict\nvalues = defaultdict(dict)  # values[country_id][year] = value\n\nfor chunk in chunks:\n    data = get_indicator(chunk, indicator, date_range)\n    for rec in data:\n        cid = rec['country']['id']\n        year = int(rec['date'])\n        val = rec['value']\n        if val is not None:\n            values[cid][year] = float(val)\n\nqualifying = []\nfor cid in ids:\n    yrs = values.get(cid, {})\n    ok = True\n    for y in range(2001, 2011):\n        if y not in yrs or not (yrs[y] > 35.0):\n            ok = False\n            break\n    if ok:\n        qualifying.append(country_map[cid])\n\nqualifying_sorted = sorted(qualifying)\nprint(len(qualifying_sorted))\nprint(qualifying_sorted)",
+            "timeout": 120
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 342.42348074913025,
+      "tool_time": 0.01668405532836914,
+      "tool_executed": {
+        "name": "code_exec",
+        "result": "Error: Traceback (most recent call last):\n  File \"/Users/charles/spec_tool_call/spec_tool_call/tools/code_exec_tool.py\", line 57, in execute_python_code\n    exec(code, restricted_globals, local_vars)\n  File \"<string>\", line 28, in <module>\n  File \"<string>\", line 6, in get_countries\nNameError: name 'requests' is not defined\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 368.9225296974182,
+      "step": 10,
+      "actor_model": "gpt-5",
+      "llm_time": 26.49193501472473,
+      "actor_reasoning": "I will fetch World Bank API JSON for NY.GNS.ICTR.ZS for 2001-2010 and country metadata, exclude aggregates, then compute which countries have values strictly greater than 35 for every year.",
+      "actor_tool_calls": [
+        {
+          "name": "code_exec",
+          "args": {
+            "code": "import json, urllib.request\n\n# Fetch country list to exclude aggregates\ncountries_url = 'http://api.worldbank.org/v2/country?format=json&per_page=400'\nwith urllib.request.urlopen(countries_url) as r:\n    countries_data = json.loads(r.read().decode('utf-8'))\n\ncountry_list = countries_data[1]\ncountry_isos = {c['id']: c['name'] for c in country_list if c.get('region', {}).get('value') != 'Aggregates'}\n\n# Fetch indicator data for 2001-2010\nindicator_url = 'http://api.worldbank.org/v2/country/all/indicator/NY.GNS.ICTR.ZS?format=json&per_page=20000&date=2001:2010'\nwith urllib.request.urlopen(indicator_url) as r:\n    ind_data = json.loads(r.read().decode('utf-8'))\n\nrecords = ind_data[1]\n\nfrom collections import defaultdict\nvals = defaultdict(dict)\nfor rec in records:\n    iso3 = rec.get('countryiso3code')\n    year = rec.get('date')\n    val = rec.get('value')\n    if iso3 in country_isos:\n        vals[iso3][int(year)] = val\n\nqualified = []\nfor iso3, yvals in vals.items():\n    ok = True\n    for y in range(2001, 2011):\n        v = yvals.get(y)\n        if v is None or not (v > 35):\n            ok = False\n            break\n    if ok:\n        qualified.append(country_isos[iso3])\n\nqualified_sorted = sorted(set(qualified))\nprint(len(qualified_sorted))\nprint(qualified_sorted)\n"
+          }
+        }
+      ],
+      "spec_model": "gpt-5-nano",
+      "spec_predictions": [
+        {
+          "name": "code_generate",
+          "args": {
+            "task_description": "Generate a Python script to fetch NY.GNS.ICTR.ZS (Gross savings as % of GDP) from the World Bank API for 2001-2010 across all countries, filter to those with values >35 in every year, exclude aggregates, and map country codes to English common country names. Output the final list of country names in alphabetical order as a comma-separated string.",
+            "context": "World Bank Open Data API"
+          },
+          "pre_executed": true,
+          "exec_time": 0.004998922348022461,
+          "spec_inference_time": 24.653407096862793
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 377.0104298591614,
+      "tool_time": 8.086508750915527,
+      "tool_executed": {
+        "name": "code_exec",
+        "result": "4\n['Brunei Darussalam', 'China', 'Morocco', 'Singapore']\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 409.0419509410858,
+      "step": 11,
+      "actor_model": "gpt-5",
+      "llm_time": 32.02007293701172,
+      "actor_reasoning": "I need to programmatically query the World Bank API for NY.GNS.ICTR.ZS for 2001-2010, exclude aggregates, ensure all 10 years have data, and filter countries with values strictly greater than 35 in every year.",
+      "actor_tool_calls": [
+        {
+          "name": "code_exec",
+          "args": {
+            "code": "import json, sys, math, urllib.request\n\n# Fetch data from World Bank API for 2001-2010 for all countries\nurl = 'https://api.worldbank.org/v2/country/all/indicator/NY.GNS.ICTR.ZS?format=json&per_page=20000&date=2001:2010'\nwith urllib.request.urlopen(url) as f:\n    data = json.loads(f.read().decode())\n\n# data[1] contains list of observations\nobs = data[1]\n\n# Build country metadata map and values per country-year\nfrom collections import defaultdict\nvalues = defaultdict(dict)\ncountry_meta = {}\nfor o in obs:\n    c = o['country']\n    cid = c['id']\n    cname = c['value']\n    # region id 'NA' corresponds to aggregates in WB API\n    region_id = c.get('region', {}).get('id')\n    # Some responses embed region at top-level of country object for indicator queries\n    # Ensure we capture aggregate flag\n    is_aggregate = (region_id == 'NA')\n    country_meta[cid] = {\n        'name': cname,\n        'is_aggregate': is_aggregate,\n    }\n    year = o['date']\n    val = o['value']\n    if val is not None:\n        try:\n            v = float(val)\n        except:\n            continue\n        values[cid][int(year)] = v\n\n# Filter countries: not aggregate, have values for all years 2001-2010 inclusive, and all > 35\nresult = []\nrequired_years = list(range(2001, 2011))\nfor cid, year_map in values.items():\n    meta = country_meta.get(cid, {})\n    if meta.get('is_aggregate'):\n        continue\n    # skip non-sovereign special aggregates that may have NA region but are territories? usually region NA only for aggregates\n    # Ensure we have all years\n    if not all(y in year_map for y in required_years):\n        continue\n    if all(year_map[y] > 35 for y in required_years):\n        result.append(meta.get('name', cid))\n\n# Sort alphabetically by common name as returned by WB\nresult_sorted = sorted(result)\nprint(len(result_sorted))\nprint(result_sorted)"
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 411.86041498184204,
+      "tool_time": 2.8174550533294678,
+      "tool_executed": {
+        "name": "code_exec",
+        "result": "Error: Traceback (most recent call last):\n  File \"/Users/charles/spec_tool_call/spec_tool_call/tools/code_exec_tool.py\", line 57, in execute_python_code\n    exec(code, restricted_globals, local_vars)\n  File \"<string>\", line 46, in <module>\n  File \"<string>\", line 46, in <genexpr>\nNameError: name 'year_map' is not defined\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 432.9233238697052,
+      "step": 12,
+      "actor_model": "gpt-5",
+      "llm_time": 21.056931018829346,
+      "actor_reasoning": "Using the World Bank gross savings indicator NY.GNS.ICTR.ZS for 2001-2010 and requiring strictly greater than 35% each year, the countries that meet the criterion are:\n\nFINAL ANSWER: Brunei, China, Morocco, Singapore",
+      "spec_model": "gpt-5-nano",
+      "spec_predictions": [
+        {
+          "name": "code_generate",
+          "args": {
+            "task_description": "Provide a corrected, minimal Python script that defines year_map before usage and fetches World Bank gross savings data (NY.GNS.ICTR.ZS) for 2001-2010 using the API, preparing to filter countries with >35% across all years.",
+            "context": "The user previously encountered a NameError for year_map in code execution. This script should fix that by defining year_map and performing a basic fetch of data from the World Bank API."
+          },
+          "pre_executed": true,
+          "exec_time": 0.006761074066162109,
+          "spec_inference_time": 19.2879900932312
+        }
+      ],
+      "final_answer": "Brunei, China, Morocco, Singapore"
+    }
+  ],
+  "messages": [
+    {
+      "role": "user",
+      "content": "According to the World Bank, which countries had gross savings of over 35% of GDP for every year in the period 2001-2010? Give your answer as a comma-separated list of countries in alphabetical order. Use the countries most common names in english when answering."
+    },
+    {
+      "role": "assistant",
+      "content": "I need to find the World Bank indicator for gross savings and access the data for 2001-2010 to filter countries above 35% in all years."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 relevant web results:\n\n1. Gross savings (% of GDP) - Glossary | DataBank - World Bank\n   URL: https://databank.worldbank.org/metadataglossary/world-development-indicators/series/NY.GNS.ICTR.ZS\n   Site: databank.worldbank.org\n   Summary: Code, NY.GNS.ICTR.ZS. Indicator Name, Gross savings (% of GDP). Short definition, Savings is an amount that represent the part of disposable income ...\n\n2. Gross savings (% of GDP) - World Bank Open Data\n   URL: https://data.worldbank.org/indicator/NY.GNS.ICTR.ZS\n   Site: data.worldbank.org\n   Summary: Gross savings (% of GDP) \u00b7 Gross savings (current LCU) \u00b7 Gross savings (current US$) \u00b7 Gross savings (% of GNI) \u00b7 GDP per capita growth (annual %) \u00b7 Adjusted net ...\n\n3. saving - World Development Indicators | DataBank\n   URL: https://databank.worldbank.org/id/384adcf6\n   Site: databank.worldbank.org\n   Summary: External balance on goods and services (% of GDP), 1.8, 0.3 ; Gross savings (% of GDP), 30.3, 28.6 ; Gross domestic savings (% of GDP), 27.5, 26.2 ; Trade (% of ...\n",
+      "name": "web_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to retrieve the World Bank API JSON for gross savings (% of GDP) for all countries from 2001 to 2010 to compute which meet the >35% criterion."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 web results with content:\n\n1. Gross savings (% of GDP) - Glossary | DataBank - World Bank\n   URL: https://databank.worldbank.org/metadataglossary/world-development-indicators/series/NY.GNS.ICTR.ZS\n   Site: databank.worldbank.org\n   Summary: Code, NY.GNS.ICTR.ZS. Indicator Name, Gross savings (% of GDP). Short definition, Savings is an amount that represent the part of disposable income ...\n   Content: Glossary | DataBank Help us improve this section of the site. Can we get your feedback? Click here Toggle navigation Home About Data Research Learning News Projects & Operations Publications Countries Topics English Espa\u00f1ol Fran\u00e7ais \u0639\u0631\u0628\u064a \u0420\u0443\u0441\u0441\u043a\u0438\u0439 \u4e2d\u6587 View all \u00bb DataBank This page is in English Espa\u00f1ol Fran\u00e7ais \u0639\u0631\u0628\u064a \u4e2d\u6587 Log in Now WB Staff Login Public Login Tweets Like Share + Google+ Digg \u4eba\u4eba\u7f51 \u65b0\u6d6a\u5fae\u535a Stumble Upon DataBank Home Databases Create Report Saved Reports Saved Datasets Metadata Glossary What's New World Development Indicators was updated on December 4, 2025 International Debt Statistics: DSSI was updated on December 3, 2025 International Debt Statistics was updated on December 3, 2025 Global Economic Monitor (GEM) was updated on November 13, 2025 Metadata Glossary Select Database Indicator Country Classification Download Filtered Results: 10 Remove filter Code NY.GNS.ICTR.ZS Indicator Name Gross savings (% of GDP) Short definition Savings is an amount that represent the part of disposable income (adjusted for the\n\n\nchange in pension entitlements) that is not spent on final consumption. Gross savings are calculated as gross national income less total consumption, plus net transfers. This indicator is expressed as a percentage of Gross Domestic Product (GDP) which is the total income earned through the production of goods and services in an economic territory during an accounting period. Long definition Savings is an amount that represent the part of disposable income (adjusted for the\n\n\nchange in pension entitlements) that is not spent on final consumption. Gross savings are calculated as gross national income less total consumption, plus net transfers. This indicator is expressed as a percentage of Gross Domestic Product (GDP) which is the total income earned through the production of goods and services in an economic territory during an accounting period. Source Country official statistics, National Statistical Organizations and/or Central Banks;\nNational Acco\n\n2. World Development Indicators | DataBank\n   URL: https://databank.worldbank.org/source/world-development-indicators\n   Site: databank.worldbank.org\n   Summary: World Development Indicators (WDI) is the primary World Bank collection of development indicators, compiled from officially recognized international sources ...\n   Content: World Development Indicators | DataBank Help us improve this section of the site. Can we get your feedback? Click here Sign In WB Staff Login Public Login This page is in English Espa\u00f1ol Fran\u00e7ais \u0639\u0631\u0628\u064a \u4e2d\u6587 DataBank World Development Indicators Table Chart Map Metadata Download options Excel CSV Tabbed TXT Data on this page only - formatted Metadata Advanced options Update Variables Layout Styles Save Share Embed Database Available | Selected 1 Database preview ON OFF Filter Filter Search Country Available 266 | Selected 0 All Countries Aggregates All Countries Aggregates Select all Unselect all Invert selection Filter Search Filter Hierarchy Showing - of Sort Remove all No variables selected Create Custom Group Additional\n                            Options Metadata (Optional) Display Country List Clear Add \u00d7 Custom Country The Custom Country option allows you to create your own customized\n                        country groups from country selection panel. Click on Custom Country. A new box will open. Click on the desired countries listed\n                        in the country selection panel. Enter the group name in the Enter Group Title box\n                        and click on Add. The new country group will be added to the right panel. To edit an existing country group, click on the Edit link in the current selection\n                        panel in right side. Now you can add new countries or remove the countries to an\n                        existing customized group. 1. Click on the additional countries listed in the country selection panel. 2. To remove the country from the group double click on the country or select the\n                        country and click Remove button. 3. Click on Add to save changes to your customized group. Note: Editing the group name will create a new custom group. You can remove the customized group by clicking on the Delete button in the current selection panel in right side Close Select region (Mapping purpose) Select income (Ma\n\n3. Indicators - World Bank Open Data\n   URL: https://data.worldbank.org/indicator\n   Site: data.worldbank.org\n   Summary: Indicators \u00b7 Agriculture & Rural Development \u00b7 Aid Effectiveness \u00b7 Climate Change \u00b7 Economy & Growth \u00b7 Education \u00b7 Energy & Mining \u00b7 Environment \u00b7 External Debt.\n   Content: Indicators | Data Data HOME ECONOMIES THEMES DATA & RESOURCES ABOUT English Espa\u00f1ol Fran\u00e7ais \u0627\u0644\u0639\u0631\u0628\u064a\u0629 \u4e2d\u6587 Close Browse World Development Indicators by Country or Indicator DataBank Microdata Data Catalog Menu Microdata Data Catalog DataBank Browse World Development Indicators by Country Indicator About Us Get Started FAQ Help Desk Contact Data Programs Improving Statistical Capacity Global Data Facility International Comparison Program & Purchasing Power Parity International Household Survey Network (IHSN) Joint External Debt Hub Open Data Toolkit Quarterly External Debt Statistics Products World Development Indicators International Debt Statistics Other Books and Reports Country & Lending Groups Data Portals and Tools Development Goals Terms of Use For Developers Indicators Agriculture & Rural Development Aid Effectiveness Climate Change Economy & Growth Education Energy & Mining Environment External Debt Financial Sector Gender Health Infrastructure Poverty Private Sector Public Sector Science & Technology Social Development Social Protection & Labor Trade Urban Development Featured indicators All indicators Agriculture & Rural Development Agricultural irrigated land (% of total agricultural land) Agricultural land (% of land area) Agriculture, forestry, and fishing, value added (% of GDP) Arable land (% of land area) Arable land (hectares per person) Cereal yield (kg per hectare) Crop production index (2014-2016 = 100) Employment in agriculture, female (% of female employment) (modeled ILO estimate) Employment in agriculture, male (% of male employment) (modeled ILO estimate) Fertilizer consumption (kilograms per hectare of arable land) Food production index (2014-2016 = 100) Forest area (% of land area) Forest area (sq. km) Land area (sq. km) Land under cereal production (hectares) Livestock production index (2014-2016 = 100) Permanent cropland (% of land area) Rural population Rural population (% of total population) Surface area (sq. km) Aid Effectiveness Grants\n",
+      "name": "enhanced_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to retrieve the World Bank API JSON for gross savings (% of GDP) for all countries for 2001-2010 to programmatically filter those above 35% each year."
+    },
+    {
+      "role": "tool",
+      "content": "No relevant information found in search results.",
+      "name": "enhanced_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I will query the World Bank API for gross savings (% of GDP) for all economies from 2001 to 2010 and compute which countries exceed 35% in every year."
+    },
+    {
+      "role": "tool",
+      "content": "Error: Traceback (most recent call last):\n  File \"/Users/charles/spec_tool_call/spec_tool_call/tools/code_exec_tool.py\", line 57, in execute_python_code\n    exec(code, restricted_globals, local_vars)\n  File \"<string>\", line 44, in <module>\n  File \"<string>\", line 44, in <genexpr>\nNameError: name 'vals' is not defined. Did you mean: 'vars'?\n",
+      "name": "code_exec"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to programmatically query the World Bank API for NY.GNS.ICTR.ZS (gross savings % of GDP) for 2001-2010 and filter countries with values >35% in every year, excluding aggregates."
+    },
+    {
+      "role": "tool",
+      "content": "4\n['Brunei Darussalam', 'China', 'Morocco', 'Singapore']\n",
+      "name": "code_exec"
+    },
+    {
+      "role": "assistant",
+      "content": "I will query the World Bank API for gross savings (% of GDP) for 2001-2010 and compute which sovereign countries exceed 35% in every year, excluding aggregates."
+    },
+    {
+      "role": "tool",
+      "content": "",
+      "name": "code_exec"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to query the World Bank API for NY.GNS.ICTR.ZS for 2001-2010, exclude aggregates, and filter countries with values strictly greater than 35 for every year."
+    },
+    {
+      "role": "tool",
+      "content": "0\n[]\n",
+      "name": "code_exec"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to fetch World Bank API data for NY.GNS.ICTR.ZS for 2001-2010 and country metadata to exclude aggregates, then compute which countries exceed 35 every year."
+    },
+    {
+      "role": "tool",
+      "content": "4\n['Brunei Darussalam', 'China', 'Morocco', 'Singapore']\n",
+      "name": "code_exec"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to programmatically query the World Bank API for gross savings (% of GDP) 2001-2010 and filter countries with values strictly above 35% every year, excluding aggregates."
+    },
+    {
+      "role": "tool",
+      "content": "Error: Traceback (most recent call last):\n  File \"/Users/charles/spec_tool_call/spec_tool_call/tools/code_exec_tool.py\", line 57, in execute_python_code\n    exec(code, restricted_globals, local_vars)\n  File \"<string>\", line 28, in <module>\n  File \"<string>\", line 6, in get_countries\nNameError: name 'requests' is not defined\n",
+      "name": "code_exec"
+    },
+    {
+      "role": "assistant",
+      "content": "I will fetch World Bank API JSON for NY.GNS.ICTR.ZS for 2001-2010 and country metadata, exclude aggregates, then compute which countries have values strictly greater than 35 for every year."
+    },
+    {
+      "role": "tool",
+      "content": "4\n['Brunei Darussalam', 'China', 'Morocco', 'Singapore']\n",
+      "name": "code_exec"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to programmatically query the World Bank API for NY.GNS.ICTR.ZS for 2001-2010, exclude aggregates, ensure all 10 years have data, and filter countries with values strictly greater than 35 in every year."
+    },
+    {
+      "role": "tool",
+      "content": "Error: Traceback (most recent call last):\n  File \"/Users/charles/spec_tool_call/spec_tool_call/tools/code_exec_tool.py\", line 57, in execute_python_code\n    exec(code, restricted_globals, local_vars)\n  File \"<string>\", line 46, in <module>\n  File \"<string>\", line 46, in <genexpr>\nNameError: name 'year_map' is not defined\n",
+      "name": "code_exec"
+    },
+    {
+      "role": "assistant",
+      "content": "Using the World Bank gross savings indicator NY.GNS.ICTR.ZS for 2001-2010 and requiring strictly greater than 35% each year, the countries that meet the criterion are:\n\nFINAL ANSWER: Brunei, China, Morocco, Singapore"
+    }
+  ],
+  "error": null
+}

@@ -1,0 +1,148 @@
+{
+  "task_id": "7d4a7d1d-cac6-44a8-96e8-ea9584a70825",
+  "level": "1",
+  "question": "According to Girls Who Code, how long did it take in years for the percentage of computer scientists that were women to change by 13% from a starting point of 37%?",
+  "ground_truth": "22",
+  "predicted": "22",
+  "correct": true,
+  "steps": 3,
+  "time_seconds": 50.68447422981262,
+  "actor_model": "gpt-5",
+  "spec_model": "gpt-5-nano",
+  "speculation_enabled": true,
+  "verification_strategy": "jaccard",
+  "spec_hits": 0,
+  "spec_misses": 2,
+  "spec_predictions": 3,
+  "trajectory": [
+    {
+      "node": "start",
+      "question": "According to Girls Who Code, how long did it take in years for the percentage of computer scientists that were women to change by 13% from a starting point of 37%?",
+      "timestamp": 0
+    },
+    {
+      "node": "llm",
+      "timestamp": 9.085090160369873,
+      "step": 1,
+      "actor_model": "gpt-5",
+      "llm_time": 9.08136796951294,
+      "actor_reasoning": "I need to quickly find the specific Girls Who Code source that mentions a 13% change from 37% and the number of years it took.",
+      "actor_tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "Girls Who Code 37% 13% years how long did it take for percentage of computer scientists that were women to change by 13% from 37%"
+          }
+        }
+      ],
+      "spec_model": "gpt-5-nano",
+      "spec_predictions": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "Girls Who Code 37% women in computer science"
+          },
+          "pre_executed": true,
+          "exec_time": 3.260755777359009,
+          "spec_inference_time": 5.819967031478882
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 11.110720157623291,
+      "tool_time": 2.024097204208374,
+      "tool_executed": {
+        "name": "web_search",
+        "result": "Found 3 relevant web results:\n\n1. We're on a mission to close the gender gap in tech. - Girls Who Code\n   URL: https://girlswhocode.com/about-us\n   Site: girlswhocode.com\n   Summary: In 1995, 37% of computer scientists were women. Today, it's only 24%. The percent will continue to decline if we do nothing. We know that the biggest drop ...\n\n2. Changing the Curve: Women in Computing - UC Berkeley Online\n   URL: https://ischoolonline.berkeley.edu/blog/women-computing-computer-science/\n   Site: ischoolonline.berkeley.edu\n   Date: Jul 14, 2021\n   Summary: In 2020, women comprised 36 percent of computer systems analysts, 12 percent of information security analysts, 21 percent of computer ...\n\n3. Coding for Gender Equality | Scientific American\n   URL: https://www.scientificamerican.com/article/coding-for-gender-equality/\n   Site: scientificamerican.com\n   Date: Sep 1, 2017\n   Summary: In 1984 37 percent of computer science majors were women. Today that number is just 18 percent. It is no coincidence that in the 1980s ...\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 29.478357076644897,
+      "step": 2,
+      "actor_model": "gpt-5",
+      "llm_time": 18.36655592918396,
+      "actor_reasoning": "I need to open the Girls Who Code page and extract the exact phrasing and any date context to compute the years between 1995 and \"today.\"",
+      "actor_tool_calls": [
+        {
+          "name": "enhanced_search",
+          "args": {
+            "query": "Girls Who Code In 1995, 37% of computer scientists were women. Today, it's only 24% site:girlswhocode.com about-us"
+          }
+        }
+      ],
+      "spec_model": "gpt-5-nano",
+      "spec_predictions": [
+        {
+          "name": "enhanced_search",
+          "args": {
+            "query": "Girls Who Code 1995 37% computer scientists were women today 24% date"
+          },
+          "pre_executed": true,
+          "exec_time": 7.896078109741211,
+          "spec_inference_time": 7.556768894195557
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 32.62746500968933,
+      "tool_time": 3.1482958793640137,
+      "tool_executed": {
+        "name": "enhanced_search",
+        "result": "Found 1 web results with content:\n\n1. We're on a mission to close the gender gap in tech.\n   URL: https://girlswhocode.com/about-us\n   Site: girlswhocode.com\n   Summary: The gender gap in computing is getting worse. In 1995, 37% of computer scientists were women. Today, it's only 24%. The percent will continue to decline if ...See more\n   Content: Girls Who Code | About Us You need to enable JavaScript to run this app. We're on a mission to close the gender gap in tech. AI and EMERGING TECHNOLOGY Breaking down barriers to AI and other emergent technologies. We\u2019ve developed an AI curriculum that will reach over 200,000 students in the U.S; launched two new AI programs and a Data Science course; and are teaching students how to use AI for financial literacy, producing music, and so much more. 760,000 Served Girls Who Code has served 760,000 girls, women, and nonbinary individuals 330,000 Alumni There are 330,000 Girls Who Code alumni who are college-aged or post-college aged 8,000 AI Students We taught over 8,000 students about AI through our Summer Programs in 2024 The gender gap in computing is getting worse. In 1995, 37% of computer scientists were women. Today, it\u2019s only 24%. The percent will continue to decline if we do nothing. \n\nWe know that the biggest drop off of girls in computer science is between the ages of 13 and 17. 1995 2017 2022 37 % 24 % 22 % % of women in Computer Science Girls Who Code is changing the game We're reaching girls around the world and are on track to close the gender gap in new entry-level tech jobs by 2030. Support Girls Who Code! Your contribution will help to inspire, educate, and equip girls with the computing skills to become change agents in their communities. Donate Now 14.9B Engagements Globally Through our online resources, campaigns, books, and advocacy work - in the U.S. and around the world. 760,000 Girls, Women and Nonbinary Individuals Coding Through our in-person programming including our Summer Immersion Program, Clubs, and College Loops 50% HUGs Over half of the girls we serve come from historically underrepresented groups. Our Values These are the values that define our organization. Bravery We believe being brave is about being resilient, persistent, and ambitious. Sisterhood We believe that diverse ability, culture, identity, and opinion makes our organizatio\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 50.68411207199097,
+      "step": 3,
+      "actor_model": "gpt-5",
+      "llm_time": 18.053175687789917,
+      "actor_reasoning": "Girls Who Code\u2019s About page shows 37% in 1995 and 24% in 2017, a 13 percentage point change over 22 years.\n\nFINAL ANSWER: 22",
+      "spec_model": "gpt-5-nano",
+      "spec_predictions": [
+        {
+          "name": "calculate",
+          "args": {
+            "expression": "2024 - 1995"
+          },
+          "pre_executed": true,
+          "exec_time": 0.001714944839477539,
+          "spec_inference_time": 10.67523980140686
+        }
+      ],
+      "final_answer": "22"
+    }
+  ],
+  "messages": [
+    {
+      "role": "user",
+      "content": "According to Girls Who Code, how long did it take in years for the percentage of computer scientists that were women to change by 13% from a starting point of 37%?"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to quickly find the specific Girls Who Code source that mentions a 13% change from 37% and the number of years it took."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 relevant web results:\n\n1. We're on a mission to close the gender gap in tech. - Girls Who Code\n   URL: https://girlswhocode.com/about-us\n   Site: girlswhocode.com\n   Summary: In 1995, 37% of computer scientists were women. Today, it's only 24%. The percent will continue to decline if we do nothing. We know that the biggest drop ...\n\n2. Changing the Curve: Women in Computing - UC Berkeley Online\n   URL: https://ischoolonline.berkeley.edu/blog/women-computing-computer-science/\n   Site: ischoolonline.berkeley.edu\n   Date: Jul 14, 2021\n   Summary: In 2020, women comprised 36 percent of computer systems analysts, 12 percent of information security analysts, 21 percent of computer ...\n\n3. Coding for Gender Equality | Scientific American\n   URL: https://www.scientificamerican.com/article/coding-for-gender-equality/\n   Site: scientificamerican.com\n   Date: Sep 1, 2017\n   Summary: In 1984 37 percent of computer science majors were women. Today that number is just 18 percent. It is no coincidence that in the 1980s ...\n",
+      "name": "web_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to open the Girls Who Code page and extract the exact phrasing and any date context to compute the years between 1995 and \"today.\""
+    },
+    {
+      "role": "tool",
+      "content": "Found 1 web results with content:\n\n1. We're on a mission to close the gender gap in tech.\n   URL: https://girlswhocode.com/about-us\n   Site: girlswhocode.com\n   Summary: The gender gap in computing is getting worse. In 1995, 37% of computer scientists were women. Today, it's only 24%. The percent will continue to decline if ...See more\n   Content: Girls Who Code | About Us You need to enable JavaScript to run this app. We're on a mission to close the gender gap in tech. AI and EMERGING TECHNOLOGY Breaking down barriers to AI and other emergent technologies. We\u2019ve developed an AI curriculum that will reach over 200,000 students in the U.S; launched two new AI programs and a Data Science course; and are teaching students how to use AI for financial literacy, producing music, and so much more. 760,000 Served Girls Who Code has served 760,000 girls, women, and nonbinary individuals 330,000 Alumni There are 330,000 Girls Who Code alumni who are college-aged or post-college aged 8,000 AI Students We taught over 8,000 students about AI through our Summer Programs in 2024 The gender gap in computing is getting worse. In 1995, 37% of computer scientists were women. Today, it\u2019s only 24%. The percent will continue to decline if we do nothing. \n\nWe know that the biggest drop off of girls in computer science is between the ages of 13 and 17. 1995 2017 2022 37 % 24 % 22 % % of women in Computer Science Girls Who Code is changing the game We're reaching girls around the world and are on track to close the gender gap in new entry-level tech jobs by 2030. Support Girls Who Code! Your contribution will help to inspire, educate, and equip girls with the computing skills to become change agents in their communities. Donate Now 14.9B Engagements Globally Through our online resources, campaigns, books, and advocacy work - in the U.S. and around the world. 760,000 Girls, Women and Nonbinary Individuals Coding Through our in-person programming including our Summer Immersion Program, Clubs, and College Loops 50% HUGs Over half of the girls we serve come from historically underrepresented groups. Our Values These are the values that define our organization. Bravery We believe being brave is about being resilient, persistent, and ambitious. Sisterhood We believe that diverse ability, culture, identity, and opinion makes our organizatio\n",
+      "name": "enhanced_search"
+    },
+    {
+      "role": "assistant",
+      "content": "Girls Who Code\u2019s About page shows 37% in 1995 and 24% in 2017, a 13 percentage point change over 22 years.\n\nFINAL ANSWER: 22"
+    }
+  ],
+  "error": null
+}

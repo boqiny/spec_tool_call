@@ -1,0 +1,458 @@
+{
+  "task_id": "dc22a632-937f-4e6a-b72f-ba0ff3f5ff97",
+  "level": "1",
+  "question": "What was the complete title of the book in which two James Beard Award winners recommended the restaurant where Ali Khan enjoyed a New Mexican staple in his cost-conscious TV show that started in 2015? Write the numbers in plain text if there are some in the title.",
+  "ground_truth": "Five Hundred Things To Eat Before It's Too Late: and the Very Best Places to Eat Them",
+  "predicted": "five hundred things to eat before it\u2019s too late: and the very best places to eat them",
+  "correct": false,
+  "steps": 10,
+  "time_seconds": 232.65206098556519,
+  "actor_model": "gpt-5",
+  "spec_model": "gpt-5-nano",
+  "speculation_enabled": true,
+  "verification_strategy": "jaccard",
+  "spec_hits": 1,
+  "spec_misses": 8,
+  "spec_predictions": 9,
+  "trajectory": [
+    {
+      "node": "start",
+      "question": "What was the complete title of the book in which two James Beard Award winners recommended the restaurant where Ali Khan enjoyed a New Mexican staple in his cost-conscious TV show that started in 2015? Write the numbers in plain text if there are some in the title.",
+      "timestamp": 0
+    },
+    {
+      "node": "llm",
+      "timestamp": 17.089879035949707,
+      "step": 1,
+      "actor_model": "gpt-5",
+      "llm_time": 17.087180852890015,
+      "actor_reasoning": "I need to identify the Cheap Eats episode and restaurant, then find the book by two James Beard Award winners that recommended it.",
+      "actor_tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "Ali Khan Cheap Eats New Mexican staple restaurant recommended by book two James Beard Award winners"
+          }
+        }
+      ],
+      "spec_model": "gpt-5-nano",
+      "spec_predictions": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "Ali Khan Cheap Eats New Mexican staple restaurant green chile book recommended by two James Beard Award winners"
+          },
+          "pre_executed": true,
+          "exec_time": 3.2724521160125732,
+          "spec_inference_time": 7.5529608726501465
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 17.09113097190857,
+      "tool_time": 3.2724521160125732,
+      "tool_executed": {
+        "name": "web_search",
+        "result": "Found 3 relevant web results:\n\n1. 165 Traces - Invariant Explorer\n   URL: https://explorer.invariantlabs.ai/u/feixieliz/gaia_magentic-one/t/18\n   Site: explorer.invariantlabs.ai\n   Summary: (-> WebSurfer) Search for the New Mexican staple Ali Khan featured in 'Cheap Eats' and identify the recommended restaurant. Orchestrator.\n\n2. Cooking Channel - Ali Khan Eats\n   URL: https://alikhaneats.com/tag/cooking-channel/\n   Site: alikhaneats.com\n   Summary: When it came time for Cheap Eats to come down South, Birmingham AL was high on the ...\n\n3. MikeMpapa/orm-v0-truncated-binary \u00b7 Datasets at Hugging Face\n   URL: https://huggingface.co/datasets/MikeMpapa/orm-v0-truncated-binary\n   Site: huggingface.co\n   Summary: [Cheap Eats: Cooking Channel Previews New Ali Khan ...](https ... Beard Award winners recommended the restaurant where Ali Khan enjoyed a New Mexican ...\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 34.37933707237244,
+      "step": 2,
+      "actor_model": "gpt-5",
+      "llm_time": 17.286872148513794,
+      "actor_reasoning": "I need to quickly identify which Cheap Eats episode featured a New Mexican staple and the restaurant, then trace a book recommendation by two James Beard Award winners tied to that restaurant.",
+      "actor_tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "Cheap Eats Ali Khan New Mexican staple restaurant recommended by two James Beard Award winners book recommendation"
+          }
+        }
+      ],
+      "spec_model": "gpt-5-nano",
+      "spec_predictions": [
+        {
+          "name": "enhanced_search",
+          "args": {
+            "query": "Cheap Eats Ali Khan New Mexican staple two James Beard Award winners recommended the restaurant"
+          },
+          "pre_executed": true,
+          "exec_time": 8.849726915359497,
+          "spec_inference_time": 6.139013290405273
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 36.631657123565674,
+      "tool_time": 2.2508480548858643,
+      "tool_executed": {
+        "name": "web_search",
+        "result": "Found 3 relevant web results:\n\n1. 165 Traces - Invariant Explorer\n   URL: https://explorer.invariantlabs.ai/u/feixieliz/gaia_magentic-one/t/18\n   Site: explorer.invariantlabs.ai\n   Summary: \"answer\": \"Look for information on the New Mexican staple featured in 'Cheap Eats', the relevant restaurant, and try to find associated book recommendations by ...\n\n2. Chicago Food Tour - Ali Khan Eats\n   URL: https://alikhaneats.com/chicago-food-tour/\n   Site: alikhaneats.com\n   Date: Aug 4, 2025\n   Summary: Many of them are cheap eats too. The eats I'm sharing on this Chicago Food Tour are those tried and true iconic Chicago food icons. Foods that ...\n\n3. Ali's Best Bites: Recapping May Foodie Finds With Ali Khan - YouTube\n   URL: https://www.youtube.com/watch?v=dsvga-_531Q\n   Site: youtube.com\n   Date: Jun 18, 2024\n   Summary: ... Food India? Street Food 8K\u20225.4M views \u00b7 8:04. Go to channel \u00b7 The Best Homemade Sloppy Joes Ever! In The Kitchen With Gina Young New 1.4K views.\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 54.13839101791382,
+      "step": 3,
+      "actor_model": "gpt-5",
+      "llm_time": 17.490820169448853,
+      "actor_reasoning": "I need to identify the Cheap Eats episode and restaurant featuring a New Mexican staple, then find the book by two James Beard Award winners that recommended that restaurant.",
+      "actor_tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "Ali Khan Cheap Eats New Mexican staple episode restaurant recommended by book two James Beard Award winners"
+          }
+        }
+      ],
+      "spec_model": "gpt-5-nano",
+      "spec_predictions": [
+        {
+          "name": "enhanced_search",
+          "args": {
+            "query": "Cheap Eats Ali Khan New Mexican staple restaurant recommended by two James Beard Award winners book title"
+          },
+          "pre_executed": true,
+          "exec_time": 6.467205286026001,
+          "spec_inference_time": 7.4173338413238525
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 57.12668490409851,
+      "tool_time": 2.9868228435516357,
+      "tool_executed": {
+        "name": "web_search",
+        "result": "Found 3 relevant web results:\n\n1. 165 Traces - Invariant Explorer\n   URL: https://explorer.invariantlabs.ai/u/feixieliz/gaia_magentic-one/t/18\n   Site: explorer.invariantlabs.ai\n   Summary: \"reason\": \"WebSurfer needs to find the New Mexican staple Ali Khan enjoyed on 'Cheap Eats' and the corresponding recommended restaurant.\",. \"answer ...\n\n2. Cooking Channel - Ali Khan Eats\n   URL: https://alikhaneats.com/tag/cooking-channel/\n   Site: alikhaneats.com\n   Summary: Cheap Eats New Orleans was an episode I could make over and over again ... Being closer to the border means the Mexican food gets a little more ...\n\n3. Ali's Best Bites: Recapping May Foodie Finds With Ali Khan - YouTube\n   URL: https://www.youtube.com/watch?v=dsvga-_531Q\n   Site: youtube.com\n   Date: Jun 18, 2024\n   Summary: ... Food India? Street Food 8K\u20225.4M views \u00b7 8:04. Go to channel \u00b7 The Best Homemade Sloppy Joes Ever! In The Kitchen With Gina Young New 1.4K views.\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 78.66111421585083,
+      "step": 4,
+      "actor_model": "gpt-5",
+      "llm_time": 21.531271934509277,
+      "actor_reasoning": "I need to identify the Cheap Eats episode featuring a New Mexican staple, the restaurant, and then find the exact book title by two James Beard Award winners who recommended that restaurant.",
+      "actor_tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "Ali Khan Cheap Eats New Mexican staple Albuquerque breakfast burrito Frontier Restaurant book recommended by Jane and Michael Stern Roadfood"
+          }
+        }
+      ],
+      "spec_model": "gpt-5-nano",
+      "spec_predictions": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "Ali Khan Cheap Eats New Mexican staple restaurant recommended by two James Beard Award winners book title"
+          },
+          "pre_executed": true,
+          "exec_time": 2.3354551792144775,
+          "spec_inference_time": 5.812599182128906
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 81.16966986656189,
+      "tool_time": 2.5072021484375,
+      "tool_executed": {
+        "name": "web_search",
+        "result": "Found 3 relevant web results:\n\n1. Frontier - Albuquerque, NM | Review & What to Eat - Roadfood\n   URL: https://roadfood.com/restaurants/frontier/\n   Site: roadfood.com\n   Summary: I have a little bone to pick with the Sterns over their Frontier Restaurant review. They said that the best thing on the breakfast menu is the burrito. Not true ...\n\n2. Frontier Restaurant: Home\n   URL: https://www.frontierrestaurant.com/\n   Site: frontierrestaurant.com\n   Summary: An Albuquerque tradition located across from the University of New Mexico, serving great breakfasts, burritos, burgers, roasted green chile, homemade flour ...\n\n3. Breakfast Burrito In Frontier Restaurant | TasteAtlas | Recommended ...\n   URL: https://www.tasteatlas.com/frontierrestaurant/breakfast-burrito\n   Site: tasteatlas.com\n   Summary: Breakfast Burrito in Frontier Restaurant, Albuquerque, is a famous dish recommended by Jane & Michael Stern and 7 more food critics.\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 98.08999919891357,
+      "step": 5,
+      "actor_model": "gpt-5",
+      "llm_time": 16.91827917098999,
+      "actor_reasoning": "I need to quickly check which Cheap Eats episode featured a New Mexican staple in Albuquerque and confirm the restaurant and related book reference.",
+      "actor_tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "Cheap Eats Albuquerque Ali Khan Frontier Restaurant breakfast burrito"
+          }
+        }
+      ],
+      "spec_model": "gpt-5-nano",
+      "spec_predictions": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "Frontier Restaurant Albuquerque Jane Stern Michael Stern Roadfood book title"
+          },
+          "pre_executed": true,
+          "exec_time": 1.8319900035858154,
+          "spec_inference_time": 12.826358079910278
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 100.14632105827332,
+      "tool_time": 2.0549190044403076,
+      "tool_executed": {
+        "name": "web_search",
+        "result": "Found 3 relevant web results:\n\n1. Papa Felipe's Mexican Restaurant - Albuquerque, New Mexico\n   URL: https://www.nmgastronome.com/?p=4572\n   Site: nmgastronome.com\n   Date: Mar 22, 2025\n   Summary: In an episode entitled \u201cCheap Eats,\u201d host and food blogger Ali Khan had dinner at Papa Felipe's where he enjoyed a sopaipilla stuffed with carne ...\n\n2. The Frontier Restaurant in Albuquerque, New Mexico, a ... - Facebook\n   URL: https://www.facebook.com/groups/albuquerquefoodies/posts/1293202775204478/\n   Site: facebook.com\n   Date: Nov 8, 2024\n   Summary: Very cool town and there's a great place to eat breakfast, lunch or dinner - The Range Cafe. ... breakfast burritos filled with eggs, cheese, hash ...\n\n3. Albuquerque, NM - Diners, Drive-Ins and Dives, Man v Food, Best ...\n   URL: https://www.foodiepie.com/list.php?c=Albuquerque-NM\n   Site: foodiepie.com\n   Summary: Frontier Restaurant See Frontier Restaurant Video ($). (2387 ratings). 2400 Central Ave SE Map It! Albuquerque, NM 87106 (505) 266-0550 www.frontierrestaurant.\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 119.78824925422668,
+      "step": 6,
+      "actor_model": "gpt-5",
+      "llm_time": 19.638854026794434,
+      "actor_reasoning": "I need to confirm which Cheap Eats episode featured the New Mexican staple and identify the restaurant and any book recommendations tied to it.",
+      "actor_tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "Ali Khan Cheap Eats Albuquerque sopapilla Papa Felipe's Cheap Eats"
+          }
+        }
+      ],
+      "spec_model": "gpt-5-nano",
+      "spec_predictions": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "Jane and Michael Stern Frontier Restaurant Albuquerque Roadfood book title"
+          },
+          "pre_executed": true,
+          "exec_time": 2.653686046600342,
+          "spec_inference_time": 14.540166139602661
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 121.52521014213562,
+      "tool_time": 1.73539400100708,
+      "tool_executed": {
+        "name": "web_search",
+        "result": "Found 3 relevant web results:\n\n1. Papa Felipe's Mexican Restaurant - Albuquerque, New Mexico\n   URL: https://www.nmgastronome.com/?p=4572\n   Site: nmgastronome.com\n   Date: Mar 22, 2025\n   Summary: In an episode entitled \u201cCheap Eats,\u201d host and food blogger Ali Khan ... The sopapilla was OK as well. I've had better, but I've certainly ...\n\n2. Papa Felipe's to be featured on Cooking Channel - KOAT\n   URL: https://www.koat.com/article/albuquerque-s-papa-felipe-s-to-be-featured-on-cooking-channel/5070993\n   Site: koat.com\n   Date: Apr 20, 2016\n   Summary: In the episode, \"Cheap Eats\" host and food blogger Ali Khan is searching for the best deals in Albuquerque for breakfast, lunch, a snack and ...\n\n3. Albuquerque restaurant to be featured on 'Cheap Eats' - KRQE\n   URL: https://www.krqe.com/news/albuquerque-restaurant-to-be-featured-on-cheap-eats/\n   Site: krqe.com\n   Date: Apr 20, 2016\n   Summary: The show will feature the restaurants famous carne adovada stuffed sopaipilla. The show is set to air on April 28th. Add as preferred source on ...\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 145.45152807235718,
+      "step": 7,
+      "actor_model": "gpt-5",
+      "llm_time": 23.92391800880432,
+      "actor_reasoning": "I need to verify whether Jane and Michael Stern (James Beard Award winners) recommended the specific Albuquerque restaurant featured on Cheap Eats and identify the exact book title where they did so.",
+      "actor_tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "Jane Michael Stern recommended Papa Felipe's Albuquerque Roadfood book"
+          }
+        }
+      ],
+      "spec_model": "gpt-5-nano",
+      "spec_predictions": [
+        {
+          "name": "enhanced_search",
+          "args": {
+            "query": "Roadfood Jane Stern Michael Stern complete title The Coast-to-Coast Guide to 1,000 Delicious Places James Beard Award winners Cheap Eats Albuquerque Papa Felipe's sopaipilla"
+          },
+          "pre_executed": true,
+          "exec_time": 9.012097120285034,
+          "spec_inference_time": 14.910938739776611
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 147.5252721309662,
+      "tool_time": 2.072369337081909,
+      "tool_executed": {
+        "name": "web_search",
+        "result": "Found 3 relevant web results:\n\n1. Papa Felipe's Mexican Restaurant - Albuquerque, New Mexico\n   URL: https://www.nmgastronome.com/?p=4572\n   Site: nmgastronome.com\n   Date: Mar 22, 2025\n   Summary: In 2009, James Beard Award-winning food journalists Jane and Michael Stern published a terrific tome entitled 500 Things to Eat Before It's ...\n\n2. Roadfood: Revised Edition: Stern, Jane, Stern, Michael - Amazon.com\n   URL: https://www.amazon.com/Roadfood-Revised-Jane-Stern/dp/0767922646\n   Site: amazon.com\n   Summary: This indispensable guide is bigger and better than ever, covering nearly 600 of the country's best local eateries from Maine to California.\n\n3. Roadfood Honor Roll: The 100 | The Splendid Table\n   URL: https://www.splendidtable.org/story/2014/06/26/roadfood-honor-roll-the-100\n   Site: splendidtable.org\n   Date: Jun 26, 2014\n   Summary: Jane Stern is the co-author of several books, including Roadfood and 500 Things to Eat Before It's Too Late. For Roadfood.com, she drives around ...\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 159.62809705734253,
+      "step": 8,
+      "actor_model": "gpt-5",
+      "llm_time": 12.10060429573059,
+      "actor_reasoning": "I need to read the full article about Papa Felipe's to verify which book by Jane and Michael Stern recommended it and capture the exact complete title.",
+      "actor_tool_calls": [
+        {
+          "name": "enhanced_search",
+          "args": {
+            "query": "nmgastronome Papa Felipe's Jane Michael Stern 500 Things to Eat Before It's Too Late recommendation"
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 167.7479441165924,
+      "tool_time": 8.118421077728271,
+      "tool_executed": {
+        "name": "enhanced_search",
+        "result": "Found 3 web results with content:\n\n1. Papa Felipe's Mexican Restaurant - Albuquerque, New Mexico\n   URL: https://www.nmgastronome.com/?p=4572\n   Site: nmgastronome.com\n   Summary: In 2009, James Beard Award-winning food journalists Jane and Michael Stern published a terrific tome entitled 500 Things to Eat Before It's ...\n   Content: Papa Felipe's Mexican Restaurant - Albuquerque, New Mexico - Gil's Thrilling (And Filling) Blog Skip to content Tuesday, December 9, 2025 facebook Instagram Gil's Thrilling (And Filling) Blog Follow the Culinary Ruminations of New Mexico's Sesquipedalian Sybarite.  1,498  Restaurant Reviews, More Than 14,800 Visitor Comments\u2026And Counting! Home About This Blog Albuquerque Restaurant Index New Mexico Restaurant Index Santa Fe Restaurant Index USA Restaurant Index Gone But Not Forgotten Your Feedback Thrilling Archives Search for: Albuquerque New Mexican New Mexico Rated 23 Papa Felipe\u2019s Mexican Restaurant \u2013 Albuquerque, New Mexico Gil Garduno March 20, 2025 March 22, 2025 5:24 PM Papa Felipe\u2019s, an Albuquerque Institution In 2009, James Beard Award-winning food journalists Jane and Michael Stern published a terrific tome entitled 500 Things to Eat Before It\u2019s Too Late . Despite the ominous (some might say fatalistic) name, the book is actually a celebration of the best dishes that are unique to this country. The Sterns, who have been focusing on quirky All-American food haunts since 1977, describe in delicious detail, the best dishes proffered at roadside stands, cafes, street carts throughout the fruited plain. Farolitos Festoon the Path to the Bar In an interview with the Wall Street Journal , Michael Stern was asked if the inclusion of the words \u201c too late \u201d in the book\u2019s title referred to the \u201c death of the small eatery, or the reader\u2019s impending doom from eating too much fried chicken, French fries and fried fish .\u201d He indicated he was referring to \u201c the impending onslaught of the nutrition police who will make all of this stuff illegal one of these days .\u201d He also warned of the loss of \u201csome variety and some local specialties that were once easy to find and are now hard or impossible to find due to chain restaurants.\u201d One of Papa Felipe\u2019s Dining Rooms Despite the onslaught of the ubiquitous national food chain, Stern was optimistic that \u201cAmericans have become mor\n\n2. 500 Things To Eat Before It's Too Late: and the Very Best Places to ...\n   URL: https://www.amazon.com/500-Things-Eat-Before-Late/dp/0547059078\n   Site: amazon.com\n   Summary: When \"bests\" abound--hot dogs, hamburgers, pizza, apple pie, doughnuts--the Sterns rank their offerings. Sidebars feature profiles of idiosyncratic creators, ...\n   Content: 500 Things To Eat Before It's Too Late: and the Very Best Places to Eat Them: Stern, Jane, Stern, Michael: 9780547059075: Amazon.com: Books Skip to Main content About this item About this item About this item Buying options Compare with similar items Videos Reviews Keyboard shortcuts Search alt + / Cart shift + alt + C Home shift + alt + H Orders shift + alt + O Add to cart shift + alt + K Show/Hide shortcuts shift + alt + Z To move between items, use your keyboard's up or down arrows. .us Delivering to The Dalles 97058 Update location Books Select the department you want to search in All Departments Alexa Skills Amazon Autos Amazon Devices Amazon Global Store Amazon Haul Amazon One Medical Amazon Pharmacy Amazon Resale Appliances Apps & Games Arts, Crafts & Sewing Audible Books & Originals Automotive Parts & Accessories Baby Beauty & Personal Care Books CDs & Vinyl Cell Phones & Accessories Clothing, Shoes & Jewelry Women's Clothing, Shoes & Jewelry Men's Clothing, Shoes & Jewelry Girl's Clothing, Shoes & Jewelry Boy's Clothing, Shoes & Jewelry Baby Clothing, Shoes & Jewelry Collectibles & Fine Art Computers Credit and Payment Cards Digital Music Electronics Garden & Outdoor Gift Cards Grocery & Gourmet Food Handmade Health, Household & Baby Care Home & Business Services Home & Kitchen Industrial & Scientific Just for Prime Kindle Store Luggage & Travel Gear Luxury Stores Magazine Subscriptions Movies & TV Musical Instruments Office Products Pet Supplies Premium Beauty Prime Video Smart Home Software Sports & Outdoors Subscribe & Save Subscription Boxes Tools & Home Improvement Toys & Games Under $10 Video Games Search Amazon EN Hello, sign in Account & Lists Returns & Orders 0 Cart All Holiday Gifts Amazon Haul Medical Care Luxury Best Sellers Amazon Basics Today's Deals Books New Releases Registry Gift Cards Smart Home Prime Customer Service Pharmacy Music Amazon Home Sports & Outdoors Fashion Toys & Games Beauty & Personal Care Sell Shop By Interest Automotive C\n\n3. Friends Of Gil (FOG) Dinner: A Great Time Had by All\n   URL: https://www.nmgastronome.com/?p=38042\n   Site: nmgastronome.com\n   Summary: Friends of Gil Enjoying Great Food and Stimulating Conversation at Papa Felipe's. \u201cLaughter is brightest where food is best.\u201d\n   Content: Friends Of Gil (FOG) Dinner: A Great Time Had by All - Gil's Thrilling (And Filling) Blog Skip to content Tuesday, December 9, 2025 facebook Instagram Gil's Thrilling (And Filling) Blog Follow the Culinary Ruminations of New Mexico's Sesquipedalian Sybarite.  1,498  Restaurant Reviews, More Than 14,800 Visitor Comments\u2026And Counting! Home About This Blog Albuquerque Restaurant Index New Mexico Restaurant Index Santa Fe Restaurant Index USA Restaurant Index Gone But Not Forgotten Your Feedback Thrilling Archives Search for: Announcements Friends Of Gil (FOG) Dinner: A Great Time Had by All Gil Garduno November 6, 2015 July 15, 2018 11:33 PM Friends of Gil Enjoying Great Food and Stimulating Conversation at Papa Felipe\u2019s \u201cLaughter is brightest where food is best.\u201d \u2013 Irish Proverb Hearty laughter, stimulating conversation and great food were the order of the  evening on Friday, November 6th at 7PM when the Friends of Gil (FOG) got together at Papa Felipe\u2019s for an evening of mirth, merriment and munching on some of the city\u2019s best and most creative New Mexican food.  Four new FOGs (including one delightful ruffian)\u2013Dale, Shirley, Lea and Stephanie\u2013fit right in with what has become a rather tight-knit cast of characters. In addition to breaking sopaipillas and tortillas, some of Albuquerque\u2019s most passionate and knowledgeable foodies were seen oohing and aahing\u201d at photos being passed around the table of our four-legged children.  Something else we have in common, it appears, is the love of dogs of all breeds and sizes.   Overheard were conversations centering around such diverse topics as anthropological linguistics, travel, photography and of course, food. The lull after a very satisfying meal Jen observed that the far northeast heights isn\u2019t often an area of the city you\u2019d associate with great New Mexican food.  Papa Felipe\u2019s changed a few minds and awoke several of us to the infinite possibilities of New Mexican standards that are \u201cjust a bit different.\u201d  Papa Felipe\u2019\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 189.84291887283325,
+      "step": 9,
+      "actor_model": "gpt-5",
+      "llm_time": 22.092694997787476,
+      "actor_reasoning": "I need to verify which exact book by Jane and Michael Stern recommended Papa Felipe's, the restaurant featured on Cheap Eats.",
+      "actor_tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "Papa Felipe's 500 Things to Eat Before It's Too Late Stern"
+          }
+        }
+      ],
+      "spec_model": "gpt-5-nano",
+      "spec_predictions": [
+        {
+          "name": "enhanced_search",
+          "args": {
+            "query": "Papa Felipe's Albuquerque Cheap Eats Jane and Michael Stern 500 Things To Eat Before It's Too Late"
+          },
+          "pre_executed": true,
+          "exec_time": 9.011090993881226,
+          "spec_inference_time": 13.080625772476196
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 192.45534896850586,
+      "tool_time": 2.611617088317871,
+      "tool_executed": {
+        "name": "web_search",
+        "result": "Found 3 relevant web results:\n\n1. 500 Things To Eat Before It's Too Late: and the Very Best Places to ...\n   URL: https://www.amazon.com/500-Things-Eat-Before-Late/dp/0547059078\n   Site: amazon.com\n   Summary: When \"bests\" abound--hot dogs, hamburgers, pizza, apple pie, doughnuts--the Sterns rank their offerings. Sidebars feature profiles of idiosyncratic creators, ...\n\n2. Papa Felipe's Mexican Restaurant - Albuquerque, New Mexico\n   URL: https://www.nmgastronome.com/?p=4572\n   Site: nmgastronome.com\n   Date: Mar 22, 2025\n   Summary: In 2009, James Beard Award-winning food journalists Jane and Michael Stern published a terrific tome entitled 500 Things to Eat Before It's ...\n\n3. 500 Things to Eat Before It's Too Late: and the Very Best Places to ...\n   URL: https://www.barnesandnoble.com/w/500-things-to-eat-before-its-too-late-jane-stern/1111827042\n   Site: barnesandnoble.com\n   Summary: This indispensable guide is organized by region, then by state. Each entry captures the food in luscious detail and gives the lowdown on the caf\u00e9, roadside ...\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 232.65137314796448,
+      "step": 10,
+      "actor_model": "gpt-5",
+      "llm_time": 40.189467906951904,
+      "actor_reasoning": "Ali Khan\u2019s Cheap Eats featured Papa Felipe\u2019s carne adovada stuffed sopaipilla in Albuquerque; James Beard Award winners Jane and Michael Stern recommended that restaurant in their book, whose full title is below with the number written out.\n\nFINAL ANSWER: five hundred things to eat before it\u2019s too late: and the very best places to eat them",
+      "spec_model": "gpt-5-nano",
+      "spec_predictions": [
+        {
+          "name": "enhanced_search",
+          "args": {
+            "query": "500 Things to Eat Before It's Too Late: and the Very Best Places to Eat Them complete title Jane Stern Michael Stern"
+          },
+          "pre_executed": true,
+          "exec_time": 27.08047890663147,
+          "spec_inference_time": 10.920869827270508
+        }
+      ],
+      "final_answer": "five hundred things to eat before it\u2019s too late: and the very best places to eat them"
+    }
+  ],
+  "messages": [
+    {
+      "role": "user",
+      "content": "What was the complete title of the book in which two James Beard Award winners recommended the restaurant where Ali Khan enjoyed a New Mexican staple in his cost-conscious TV show that started in 2015? Write the numbers in plain text if there are some in the title."
+    },
+    {
+      "role": "assistant",
+      "content": "I need to identify the Cheap Eats episode and restaurant, then find the book by two James Beard Award winners that recommended it."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 relevant web results:\n\n1. 165 Traces - Invariant Explorer\n   URL: https://explorer.invariantlabs.ai/u/feixieliz/gaia_magentic-one/t/18\n   Site: explorer.invariantlabs.ai\n   Summary: (-> WebSurfer) Search for the New Mexican staple Ali Khan featured in 'Cheap Eats' and identify the recommended restaurant. Orchestrator.\n\n2. Cooking Channel - Ali Khan Eats\n   URL: https://alikhaneats.com/tag/cooking-channel/\n   Site: alikhaneats.com\n   Summary: When it came time for Cheap Eats to come down South, Birmingham AL was high on the ...\n\n3. MikeMpapa/orm-v0-truncated-binary \u00b7 Datasets at Hugging Face\n   URL: https://huggingface.co/datasets/MikeMpapa/orm-v0-truncated-binary\n   Site: huggingface.co\n   Summary: [Cheap Eats: Cooking Channel Previews New Ali Khan ...](https ... Beard Award winners recommended the restaurant where Ali Khan enjoyed a New Mexican ...\n",
+      "name": "web_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to quickly identify which Cheap Eats episode featured a New Mexican staple and the restaurant, then trace a book recommendation by two James Beard Award winners tied to that restaurant."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 relevant web results:\n\n1. 165 Traces - Invariant Explorer\n   URL: https://explorer.invariantlabs.ai/u/feixieliz/gaia_magentic-one/t/18\n   Site: explorer.invariantlabs.ai\n   Summary: \"answer\": \"Look for information on the New Mexican staple featured in 'Cheap Eats', the relevant restaurant, and try to find associated book recommendations by ...\n\n2. Chicago Food Tour - Ali Khan Eats\n   URL: https://alikhaneats.com/chicago-food-tour/\n   Site: alikhaneats.com\n   Date: Aug 4, 2025\n   Summary: Many of them are cheap eats too. The eats I'm sharing on this Chicago Food Tour are those tried and true iconic Chicago food icons. Foods that ...\n\n3. Ali's Best Bites: Recapping May Foodie Finds With Ali Khan - YouTube\n   URL: https://www.youtube.com/watch?v=dsvga-_531Q\n   Site: youtube.com\n   Date: Jun 18, 2024\n   Summary: ... Food India? Street Food 8K\u20225.4M views \u00b7 8:04. Go to channel \u00b7 The Best Homemade Sloppy Joes Ever! In The Kitchen With Gina Young New 1.4K views.\n",
+      "name": "web_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to identify the Cheap Eats episode and restaurant featuring a New Mexican staple, then find the book by two James Beard Award winners that recommended that restaurant."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 relevant web results:\n\n1. 165 Traces - Invariant Explorer\n   URL: https://explorer.invariantlabs.ai/u/feixieliz/gaia_magentic-one/t/18\n   Site: explorer.invariantlabs.ai\n   Summary: \"reason\": \"WebSurfer needs to find the New Mexican staple Ali Khan enjoyed on 'Cheap Eats' and the corresponding recommended restaurant.\",. \"answer ...\n\n2. Cooking Channel - Ali Khan Eats\n   URL: https://alikhaneats.com/tag/cooking-channel/\n   Site: alikhaneats.com\n   Summary: Cheap Eats New Orleans was an episode I could make over and over again ... Being closer to the border means the Mexican food gets a little more ...\n\n3. Ali's Best Bites: Recapping May Foodie Finds With Ali Khan - YouTube\n   URL: https://www.youtube.com/watch?v=dsvga-_531Q\n   Site: youtube.com\n   Date: Jun 18, 2024\n   Summary: ... Food India? Street Food 8K\u20225.4M views \u00b7 8:04. Go to channel \u00b7 The Best Homemade Sloppy Joes Ever! In The Kitchen With Gina Young New 1.4K views.\n",
+      "name": "web_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to identify the Cheap Eats episode featuring a New Mexican staple, the restaurant, and then find the exact book title by two James Beard Award winners who recommended that restaurant."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 relevant web results:\n\n1. Frontier - Albuquerque, NM | Review & What to Eat - Roadfood\n   URL: https://roadfood.com/restaurants/frontier/\n   Site: roadfood.com\n   Summary: I have a little bone to pick with the Sterns over their Frontier Restaurant review. They said that the best thing on the breakfast menu is the burrito. Not true ...\n\n2. Frontier Restaurant: Home\n   URL: https://www.frontierrestaurant.com/\n   Site: frontierrestaurant.com\n   Summary: An Albuquerque tradition located across from the University of New Mexico, serving great breakfasts, burritos, burgers, roasted green chile, homemade flour ...\n\n3. Breakfast Burrito In Frontier Restaurant | TasteAtlas | Recommended ...\n   URL: https://www.tasteatlas.com/frontierrestaurant/breakfast-burrito\n   Site: tasteatlas.com\n   Summary: Breakfast Burrito in Frontier Restaurant, Albuquerque, is a famous dish recommended by Jane & Michael Stern and 7 more food critics.\n",
+      "name": "web_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to quickly check which Cheap Eats episode featured a New Mexican staple in Albuquerque and confirm the restaurant and related book reference."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 relevant web results:\n\n1. Papa Felipe's Mexican Restaurant - Albuquerque, New Mexico\n   URL: https://www.nmgastronome.com/?p=4572\n   Site: nmgastronome.com\n   Date: Mar 22, 2025\n   Summary: In an episode entitled \u201cCheap Eats,\u201d host and food blogger Ali Khan had dinner at Papa Felipe's where he enjoyed a sopaipilla stuffed with carne ...\n\n2. The Frontier Restaurant in Albuquerque, New Mexico, a ... - Facebook\n   URL: https://www.facebook.com/groups/albuquerquefoodies/posts/1293202775204478/\n   Site: facebook.com\n   Date: Nov 8, 2024\n   Summary: Very cool town and there's a great place to eat breakfast, lunch or dinner - The Range Cafe. ... breakfast burritos filled with eggs, cheese, hash ...\n\n3. Albuquerque, NM - Diners, Drive-Ins and Dives, Man v Food, Best ...\n   URL: https://www.foodiepie.com/list.php?c=Albuquerque-NM\n   Site: foodiepie.com\n   Summary: Frontier Restaurant See Frontier Restaurant Video ($). (2387 ratings). 2400 Central Ave SE Map It! Albuquerque, NM 87106 (505) 266-0550 www.frontierrestaurant.\n",
+      "name": "web_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to confirm which Cheap Eats episode featured the New Mexican staple and identify the restaurant and any book recommendations tied to it."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 relevant web results:\n\n1. Papa Felipe's Mexican Restaurant - Albuquerque, New Mexico\n   URL: https://www.nmgastronome.com/?p=4572\n   Site: nmgastronome.com\n   Date: Mar 22, 2025\n   Summary: In an episode entitled \u201cCheap Eats,\u201d host and food blogger Ali Khan ... The sopapilla was OK as well. I've had better, but I've certainly ...\n\n2. Papa Felipe's to be featured on Cooking Channel - KOAT\n   URL: https://www.koat.com/article/albuquerque-s-papa-felipe-s-to-be-featured-on-cooking-channel/5070993\n   Site: koat.com\n   Date: Apr 20, 2016\n   Summary: In the episode, \"Cheap Eats\" host and food blogger Ali Khan is searching for the best deals in Albuquerque for breakfast, lunch, a snack and ...\n\n3. Albuquerque restaurant to be featured on 'Cheap Eats' - KRQE\n   URL: https://www.krqe.com/news/albuquerque-restaurant-to-be-featured-on-cheap-eats/\n   Site: krqe.com\n   Date: Apr 20, 2016\n   Summary: The show will feature the restaurants famous carne adovada stuffed sopaipilla. The show is set to air on April 28th. Add as preferred source on ...\n",
+      "name": "web_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to verify whether Jane and Michael Stern (James Beard Award winners) recommended the specific Albuquerque restaurant featured on Cheap Eats and identify the exact book title where they did so."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 relevant web results:\n\n1. Papa Felipe's Mexican Restaurant - Albuquerque, New Mexico\n   URL: https://www.nmgastronome.com/?p=4572\n   Site: nmgastronome.com\n   Date: Mar 22, 2025\n   Summary: In 2009, James Beard Award-winning food journalists Jane and Michael Stern published a terrific tome entitled 500 Things to Eat Before It's ...\n\n2. Roadfood: Revised Edition: Stern, Jane, Stern, Michael - Amazon.com\n   URL: https://www.amazon.com/Roadfood-Revised-Jane-Stern/dp/0767922646\n   Site: amazon.com\n   Summary: This indispensable guide is bigger and better than ever, covering nearly 600 of the country's best local eateries from Maine to California.\n\n3. Roadfood Honor Roll: The 100 | The Splendid Table\n   URL: https://www.splendidtable.org/story/2014/06/26/roadfood-honor-roll-the-100\n   Site: splendidtable.org\n   Date: Jun 26, 2014\n   Summary: Jane Stern is the co-author of several books, including Roadfood and 500 Things to Eat Before It's Too Late. For Roadfood.com, she drives around ...\n",
+      "name": "web_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to read the full article about Papa Felipe's to verify which book by Jane and Michael Stern recommended it and capture the exact complete title."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 web results with content:\n\n1. Papa Felipe's Mexican Restaurant - Albuquerque, New Mexico\n   URL: https://www.nmgastronome.com/?p=4572\n   Site: nmgastronome.com\n   Summary: In 2009, James Beard Award-winning food journalists Jane and Michael Stern published a terrific tome entitled 500 Things to Eat Before It's ...\n   Content: Papa Felipe's Mexican Restaurant - Albuquerque, New Mexico - Gil's Thrilling (And Filling) Blog Skip to content Tuesday, December 9, 2025 facebook Instagram Gil's Thrilling (And Filling) Blog Follow the Culinary Ruminations of New Mexico's Sesquipedalian Sybarite.  1,498  Restaurant Reviews, More Than 14,800 Visitor Comments\u2026And Counting! Home About This Blog Albuquerque Restaurant Index New Mexico Restaurant Index Santa Fe Restaurant Index USA Restaurant Index Gone But Not Forgotten Your Feedback Thrilling Archives Search for: Albuquerque New Mexican New Mexico Rated 23 Papa Felipe\u2019s Mexican Restaurant \u2013 Albuquerque, New Mexico Gil Garduno March 20, 2025 March 22, 2025 5:24 PM Papa Felipe\u2019s, an Albuquerque Institution In 2009, James Beard Award-winning food journalists Jane and Michael Stern published a terrific tome entitled 500 Things to Eat Before It\u2019s Too Late . Despite the ominous (some might say fatalistic) name, the book is actually a celebration of the best dishes that are unique to this country. The Sterns, who have been focusing on quirky All-American food haunts since 1977, describe in delicious detail, the best dishes proffered at roadside stands, cafes, street carts throughout the fruited plain. Farolitos Festoon the Path to the Bar In an interview with the Wall Street Journal , Michael Stern was asked if the inclusion of the words \u201c too late \u201d in the book\u2019s title referred to the \u201c death of the small eatery, or the reader\u2019s impending doom from eating too much fried chicken, French fries and fried fish .\u201d He indicated he was referring to \u201c the impending onslaught of the nutrition police who will make all of this stuff illegal one of these days .\u201d He also warned of the loss of \u201csome variety and some local specialties that were once easy to find and are now hard or impossible to find due to chain restaurants.\u201d One of Papa Felipe\u2019s Dining Rooms Despite the onslaught of the ubiquitous national food chain, Stern was optimistic that \u201cAmericans have become mor\n\n2. 500 Things To Eat Before It's Too Late: and the Very Best Places to ...\n   URL: https://www.amazon.com/500-Things-Eat-Before-Late/dp/0547059078\n   Site: amazon.com\n   Summary: When \"bests\" abound--hot dogs, hamburgers, pizza, apple pie, doughnuts--the Sterns rank their offerings. Sidebars feature profiles of idiosyncratic creators, ...\n   Content: 500 Things To Eat Before It's Too Late: and the Very Best Places to Eat Them: Stern, Jane, Stern, Michael: 9780547059075: Amazon.com: Books Skip to Main content About this item About this item About this item Buying options Compare with similar items Videos Reviews Keyboard shortcuts Search alt + / Cart shift + alt + C Home shift + alt + H Orders shift + alt + O Add to cart shift + alt + K Show/Hide shortcuts shift + alt + Z To move between items, use your keyboard's up or down arrows. .us Delivering to The Dalles 97058 Update location Books Select the department you want to search in All Departments Alexa Skills Amazon Autos Amazon Devices Amazon Global Store Amazon Haul Amazon One Medical Amazon Pharmacy Amazon Resale Appliances Apps & Games Arts, Crafts & Sewing Audible Books & Originals Automotive Parts & Accessories Baby Beauty & Personal Care Books CDs & Vinyl Cell Phones & Accessories Clothing, Shoes & Jewelry Women's Clothing, Shoes & Jewelry Men's Clothing, Shoes & Jewelry Girl's Clothing, Shoes & Jewelry Boy's Clothing, Shoes & Jewelry Baby Clothing, Shoes & Jewelry Collectibles & Fine Art Computers Credit and Payment Cards Digital Music Electronics Garden & Outdoor Gift Cards Grocery & Gourmet Food Handmade Health, Household & Baby Care Home & Business Services Home & Kitchen Industrial & Scientific Just for Prime Kindle Store Luggage & Travel Gear Luxury Stores Magazine Subscriptions Movies & TV Musical Instruments Office Products Pet Supplies Premium Beauty Prime Video Smart Home Software Sports & Outdoors Subscribe & Save Subscription Boxes Tools & Home Improvement Toys & Games Under $10 Video Games Search Amazon EN Hello, sign in Account & Lists Returns & Orders 0 Cart All Holiday Gifts Amazon Haul Medical Care Luxury Best Sellers Amazon Basics Today's Deals Books New Releases Registry Gift Cards Smart Home Prime Customer Service Pharmacy Music Amazon Home Sports & Outdoors Fashion Toys & Games Beauty & Personal Care Sell Shop By Interest Automotive C\n\n3. Friends Of Gil (FOG) Dinner: A Great Time Had by All\n   URL: https://www.nmgastronome.com/?p=38042\n   Site: nmgastronome.com\n   Summary: Friends of Gil Enjoying Great Food and Stimulating Conversation at Papa Felipe's. \u201cLaughter is brightest where food is best.\u201d\n   Content: Friends Of Gil (FOG) Dinner: A Great Time Had by All - Gil's Thrilling (And Filling) Blog Skip to content Tuesday, December 9, 2025 facebook Instagram Gil's Thrilling (And Filling) Blog Follow the Culinary Ruminations of New Mexico's Sesquipedalian Sybarite.  1,498  Restaurant Reviews, More Than 14,800 Visitor Comments\u2026And Counting! Home About This Blog Albuquerque Restaurant Index New Mexico Restaurant Index Santa Fe Restaurant Index USA Restaurant Index Gone But Not Forgotten Your Feedback Thrilling Archives Search for: Announcements Friends Of Gil (FOG) Dinner: A Great Time Had by All Gil Garduno November 6, 2015 July 15, 2018 11:33 PM Friends of Gil Enjoying Great Food and Stimulating Conversation at Papa Felipe\u2019s \u201cLaughter is brightest where food is best.\u201d \u2013 Irish Proverb Hearty laughter, stimulating conversation and great food were the order of the  evening on Friday, November 6th at 7PM when the Friends of Gil (FOG) got together at Papa Felipe\u2019s for an evening of mirth, merriment and munching on some of the city\u2019s best and most creative New Mexican food.  Four new FOGs (including one delightful ruffian)\u2013Dale, Shirley, Lea and Stephanie\u2013fit right in with what has become a rather tight-knit cast of characters. In addition to breaking sopaipillas and tortillas, some of Albuquerque\u2019s most passionate and knowledgeable foodies were seen oohing and aahing\u201d at photos being passed around the table of our four-legged children.  Something else we have in common, it appears, is the love of dogs of all breeds and sizes.   Overheard were conversations centering around such diverse topics as anthropological linguistics, travel, photography and of course, food. The lull after a very satisfying meal Jen observed that the far northeast heights isn\u2019t often an area of the city you\u2019d associate with great New Mexican food.  Papa Felipe\u2019s changed a few minds and awoke several of us to the infinite possibilities of New Mexican standards that are \u201cjust a bit different.\u201d  Papa Felipe\u2019\n",
+      "name": "enhanced_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to verify which exact book by Jane and Michael Stern recommended Papa Felipe's, the restaurant featured on Cheap Eats."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 relevant web results:\n\n1. 500 Things To Eat Before It's Too Late: and the Very Best Places to ...\n   URL: https://www.amazon.com/500-Things-Eat-Before-Late/dp/0547059078\n   Site: amazon.com\n   Summary: When \"bests\" abound--hot dogs, hamburgers, pizza, apple pie, doughnuts--the Sterns rank their offerings. Sidebars feature profiles of idiosyncratic creators, ...\n\n2. Papa Felipe's Mexican Restaurant - Albuquerque, New Mexico\n   URL: https://www.nmgastronome.com/?p=4572\n   Site: nmgastronome.com\n   Date: Mar 22, 2025\n   Summary: In 2009, James Beard Award-winning food journalists Jane and Michael Stern published a terrific tome entitled 500 Things to Eat Before It's ...\n\n3. 500 Things to Eat Before It's Too Late: and the Very Best Places to ...\n   URL: https://www.barnesandnoble.com/w/500-things-to-eat-before-its-too-late-jane-stern/1111827042\n   Site: barnesandnoble.com\n   Summary: This indispensable guide is organized by region, then by state. Each entry captures the food in luscious detail and gives the lowdown on the caf\u00e9, roadside ...\n",
+      "name": "web_search"
+    },
+    {
+      "role": "assistant",
+      "content": "Ali Khan\u2019s Cheap Eats featured Papa Felipe\u2019s carne adovada stuffed sopaipilla in Albuquerque; James Beard Award winners Jane and Michael Stern recommended that restaurant in their book, whose full title is below with the number written out.\n\nFINAL ANSWER: five hundred things to eat before it\u2019s too late: and the very best places to eat them"
+    }
+  ],
+  "error": null
+}

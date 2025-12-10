@@ -1,0 +1,44 @@
+{
+  "task_id": "50ec8903-b81f-4257-9450-1085afd2c319",
+  "level": "1",
+  "question": "A standard Rubik\u2019s cube has been broken into cubes making up its sides. The cubes are jumbled, and one is removed. There are 6 cubes with one colored face, 12 edge cubes with two colored faces, and 8 corner cubes with three colored faces. All blue cubes have been found. All cubes directly left, right, above, and below the orange center cube have been found, along with the center cube. The green corners have all been found, along with all green that borders yellow. For all orange cubes found, the opposite face\u2019s cubes have been found. The removed cube has two colors on its faces. What are they? Answer using a comma separated list, with the colors ordered alphabetically.",
+  "ground_truth": "green, white",
+  "predicted": "green,white",
+  "correct": true,
+  "steps": 1,
+  "time_seconds": 171.0001039505005,
+  "actor_model": "gpt-5",
+  "spec_model": "gpt-5-nano",
+  "speculation_enabled": true,
+  "verification_strategy": "jaccard",
+  "spec_hits": 0,
+  "spec_misses": 0,
+  "spec_predictions": 0,
+  "trajectory": [
+    {
+      "node": "start",
+      "question": "A standard Rubik\u2019s cube has been broken into cubes making up its sides. The cubes are jumbled, and one is removed. There are 6 cubes with one colored face, 12 edge cubes with two colored faces, and 8 corner cubes with three colored faces. All blue cubes have been found. All cubes directly left, right, above, and below the orange center cube have been found, along with the center cube. The green corners have all been found, along with all green that borders yellow. For all orange cubes found, the opposite face\u2019s cubes have been found. The removed cube has two colors on its faces. What are they? Answer using a comma separated list, with the colors ordered alphabetically.",
+      "timestamp": 0
+    },
+    {
+      "node": "llm",
+      "timestamp": 170.9998381137848,
+      "step": 1,
+      "actor_model": "gpt-5",
+      "llm_time": 170.99224400520325,
+      "actor_reasoning": "We need an edge piece since it has two colors. All blue pieces are accounted for, so the missing edge cannot include blue. The four orange-face edges (white\u2013orange, yellow\u2013orange, orange\u2013green, orange\u2013blue) are found, and by the \u201copposite face\u201d rule their red counterparts (white\u2013red, yellow\u2013red, red\u2013green, red\u2013blue) are found. Additionally, the green\u2013yellow edge is found. Together with the blue edges (white\u2013blue, yellow\u2013blue, red\u2013blue, orange\u2013blue), the only edge not listed is white\u2013green.\n\nFINAL ANSWER: green,white",
+      "final_answer": "green,white"
+    }
+  ],
+  "messages": [
+    {
+      "role": "user",
+      "content": "A standard Rubik\u2019s cube has been broken into cubes making up its sides. The cubes are jumbled, and one is removed. There are 6 cubes with one colored face, 12 edge cubes with two colored faces, and 8 corner cubes with three colored faces. All blue cubes have been found. All cubes directly left, right, above, and below the orange center cube have been found, along with the center cube. The green corners have all been found, along with all green that borders yellow. For all orange cubes found, the opposite face\u2019s cubes have been found. The removed cube has two colors on its faces. What are they? Answer using a comma separated list, with the colors ordered alphabetically."
+    },
+    {
+      "role": "assistant",
+      "content": "We need an edge piece since it has two colors. All blue pieces are accounted for, so the missing edge cannot include blue. The four orange-face edges (white\u2013orange, yellow\u2013orange, orange\u2013green, orange\u2013blue) are found, and by the \u201copposite face\u201d rule their red counterparts (white\u2013red, yellow\u2013red, red\u2013green, red\u2013blue) are found. Additionally, the green\u2013yellow edge is found. Together with the blue edges (white\u2013blue, yellow\u2013blue, red\u2013blue, orange\u2013blue), the only edge not listed is white\u2013green.\n\nFINAL ANSWER: green,white"
+    }
+  ],
+  "error": null
+}

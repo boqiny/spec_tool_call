@@ -1,0 +1,240 @@
+{
+  "task_id": "f2feb6a4-363c-4c09-a804-0db564eafd68",
+  "level": "2",
+  "question": "I\u2019m thinking about selling my home, so I want to learn more about how homes in my area sold recently. I live in Pearl City, Hawaii, which is on the island of Oahu. I know two homes near me that sold in 2022 were 2072 Akaikai Loop, and 2017 Komo Mai Drive. Find which of those homes sold for more in 2022, and tell me how much it sold for. Don\u2019t put commas or decimal places in the answer.",
+  "ground_truth": "900000",
+  "predicted": "2072 Akaikai Loop, 1190000",
+  "correct": false,
+  "steps": 5,
+  "time_seconds": 85.97840118408203,
+  "actor_model": "gpt-5",
+  "spec_model": "gpt-5-nano",
+  "speculation_enabled": true,
+  "verification_strategy": "jaccard",
+  "spec_hits": 1,
+  "spec_misses": 3,
+  "spec_predictions": 5,
+  "trajectory": [
+    {
+      "node": "start",
+      "question": "I\u2019m thinking about selling my home, so I want to learn more about how homes in my area sold recently. I live in Pearl City, Hawaii, which is on the island of Oahu. I know two homes near me that sold in 2022 were 2072 Akaikai Loop, and 2017 Komo Mai Drive. Find which of those homes sold for more in 2022, and tell me how much it sold for. Don\u2019t put commas or decimal places in the answer.",
+      "timestamp": 0
+    },
+    {
+      "node": "llm",
+      "timestamp": 7.7436559200286865,
+      "step": 1,
+      "actor_model": "gpt-5",
+      "llm_time": 7.735289096832275,
+      "actor_reasoning": "I need to quickly find real estate listing pages that show the 2022 sale price for 2072 Akaikai Loop and 2017 Komo Mai Drive.",
+      "actor_tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "2072 Akaikai Loop 2022 sold price"
+          }
+        }
+      ],
+      "spec_model": "gpt-5-nano",
+      "spec_predictions": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "2072 Akaikai Loop Pearl City 2022 sale price"
+          },
+          "pre_executed": true,
+          "exec_time": 2.311918258666992,
+          "spec_inference_time": 5.422445058822632
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 10.18071985244751,
+      "tool_time": 2.4354450702667236,
+      "tool_executed": {
+        "name": "web_search",
+        "result": "Found 3 relevant web results:\n\n1. 2072 Akaikai Loop Pearl City HI 96782 sold on 12-14-2022\n   URL: https://www.oahure.com/SearchMLS_Details.php?MLSNumber=202221852&PropertyType=RES\n   Site: oahure.com\n   Summary: Property History ; Sold Price: $1,190,000 ; Assessed Total: $873,800 ; Land: $761,300 ; Building: $112,500 ; Details * Showing Request with 20% Rebate * Questions? * ...\n\n2. 2072 Akaikai Loop, Pearl City, HI 96782 - Redfin\n   URL: https://www.redfin.com/HI/Pearl-City/2072-Akaikai-Loop-96782/home/91455538\n   Site: redfin.com\n   Summary: 4 beds, 2 baths, 1628 sq. ft. house located at 2072 Akaikai Loop, Pearl City, HI 96782 sold for $1190000 on Mar 7, 2024. MLS# 202324462.\n\n3. 2072 Akaikai Loop, Pearl City, HI 96782 | Zillow\n   URL: https://www.zillow.com/homedetails/2072-Akaikai-Loop-Pearl-City-HI-96782/702713_zpid/\n   Site: zillow.com\n   Summary: Price history ; 3/7/2024, Sold, $1,190,000-0.7%$731/sqft ; Source: HiCentral MLS #202324462. Report a problem ; 2/2/2024, Pending sale, $1,198,000$736/sqft ; Source ...\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 18.607616186141968,
+      "step": 2,
+      "actor_model": "gpt-5",
+      "llm_time": 8.423492670059204,
+      "actor_reasoning": "I need to find the 2022 sale price for 2017 Komo Mai Drive to compare it with 2072 Akaikai Loop.",
+      "actor_tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "2017 Komo Mai Drive 2022 sold price"
+          }
+        }
+      ],
+      "spec_model": "gpt-5-nano",
+      "spec_predictions": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "2017 Komo Mai Drive Pearl City 2022 sold price"
+          },
+          "pre_executed": true,
+          "exec_time": 2.5787363052368164,
+          "spec_inference_time": 5.84391188621521
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 18.609156847000122,
+      "tool_time": 2.5787363052368164,
+      "tool_executed": {
+        "name": "web_search",
+        "result": "Found 3 relevant web results:\n\n1. 2017 Komo Mai Dr, Pearl City, HI 96782 | Zillow\n   URL: https://www.zillow.com/homedetails/2017-Komo-Mai-Dr-Pearl-City-HI-96782/702815_zpid/\n   Site: zillow.com\n   Summary: 2017 Komo Mai Dr, Pearl City, HI 96782 \u00b7 Price history. Date, Event, Price. 8/17/2023, Sold, $1,080,000$668/sqft. Source: HiCentral MLS #202306398. Report a ...\n\n2. 2017 Komo Mai Dr, Pearl City, HI 96782 - Redfin\n   URL: https://www.redfin.com/HI/Pearl-City/2017-Komo-Mai-Dr-96782/home/91455567\n   Site: redfin.com\n   Summary: 4 beds, 3 baths, 1617 sq. ft. house located at 2017 Komo Mai Dr, Pearl City, HI 96782 sold for $1080000 on Aug 17, 2023. MLS# 202306398. JULY 9TH OPEN HOUSE ...\n\n3. Daily life planning and decision-making - Tongyi DeepResearch\n   URL: https://tongyi-agent.github.io/showcase/pages/show_2.html\n   Site: tongyi-agent.github.io\n   Summary: Summary: The property at 2017 Komo Mai Drive sold in August 2022 for $900,000. Multiple public record entries show the sale on August 1 and August 5, 2022, each ...\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 35.13947129249573,
+      "step": 3,
+      "actor_model": "gpt-5",
+      "llm_time": 16.52772879600525,
+      "actor_reasoning": "I need to locate an authoritative listing or MLS history that shows the 2022 sale price for 2017 Komo Mai Drive.",
+      "actor_tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "2017 Komo Mai Dr 2022 sold price MLS Oahure"
+          }
+        }
+      ],
+      "spec_model": "gpt-5-nano",
+      "spec_predictions": [
+        {
+          "name": "enhanced_search",
+          "args": {
+            "query": "2017 Komo Mai Dr Pearl City 2022 sold price"
+          },
+          "pre_executed": true,
+          "exec_time": 7.7841808795928955,
+          "spec_inference_time": 8.742763757705688
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 37.045417070388794,
+      "tool_time": 1.9043080806732178,
+      "tool_executed": {
+        "name": "web_search",
+        "result": "Found 3 relevant web results:\n\n1. Oahu Real Estate Search Results\n   URL: https://www.oahure.com/SearchResults.php?MLSNumber1Compare=2817897&Neighborhood1=PEARL%20CITY-UPPER&SQFTRoofedLivingMin=1,533&SQFTRoofedLivingMax=2,299&PropertyType=RES&Screen=Spreadsheet&Status=Active%2C+In+Escrow%2C+Sold+2+Years&NA=TaxAssessedValueLand+Asc&OrderBy=TaxAmount+Desc\n   Site: oahure.com\n   Summary: Sold \u00b7 $1,100,000 \u00b7 $1,100,000 \u00b7 $419, $0, $6,919 \u00b7 Pearl City \u00b7 Pearl City-Upper \u00b7 1381 Komo Mai Drive \u00b7 Average, $1,150,000, 11-15-2023, 68, 105%, 5, 3/0, 15 ...\n\n2. 2017 Komo Mai Dr, Pearl City, HI 96782 - Redfin\n   URL: https://www.redfin.com/HI/Pearl-City/2017-Komo-Mai-Dr-96782/home/91455567\n   Site: redfin.com\n   Summary: 4 beds, 3 baths, 1617 sq. ft. house located at 2017 Komo Mai Dr, Pearl City, HI 96782 sold for $1080000 on Aug 17, 2023. MLS# 202306398.\n\n3. 2017 Komo Mai Dr - Honolulu Board of REALTORS\n   URL: https://hicentral.com/202306398\n   Site: hicentral.com\n   Date: Mar 15, 2023\n   Summary: Sale. 202306398. Home \u00b7 For Sale. 2017 Komo Mai Dr Pearl City, HI 96782. For Sale. Sold. Sold Price. $1,080,000 (FS). List Price. $1,080,000 (FS).\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 54.85248804092407,
+      "step": 4,
+      "actor_model": "gpt-5",
+      "llm_time": 17.80307388305664,
+      "actor_reasoning": "I need detailed page content to confirm the 2022 sale price for 2017 Komo Mai Drive from an authoritative source.",
+      "actor_tool_calls": [
+        {
+          "name": "enhanced_search",
+          "args": {
+            "query": "2017 Komo Mai Drive 2022 sold price"
+          }
+        }
+      ],
+      "spec_model": "gpt-5-nano",
+      "spec_predictions": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "2017 Komo Mai Dr Pearl City 2022 sold price"
+          },
+          "pre_executed": true,
+          "exec_time": 2.5235037803649902,
+          "spec_inference_time": 15.278454065322876
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 58.71077609062195,
+      "tool_time": 3.8570821285247803,
+      "tool_executed": {
+        "name": "enhanced_search",
+        "result": "Found 3 web results with content:\n\n1. 2017 Komo Mai Dr, Pearl City, HI 96782 | Zillow\n   URL: https://www.zillow.com/homedetails/2017-Komo-Mai-Dr-Pearl-City-HI-96782/702815_zpid/\n   Site: zillow.com\n   Summary: Price history ; 8/17/2023, Sold, $1,080,000$668/sqft ; Source: HiCentral MLS #202306398. Report a problem ; 8/8/2023, Pending sale, $1,080,000$668/sqft ; Source: ...\n   Content: HTTP error occurred: 403 Client Error: Forbidden for url: https://www.zillow.com/homedetails/2017-Komo-Mai-Dr-Pearl-City-HI-96782/702815_zpid/\n\n2. 2017 Komo Mai Dr, Pearl City, HI 96782 - Redfin\n   URL: https://www.redfin.com/HI/Pearl-City/2017-Komo-Mai-Dr-96782/home/91455567\n   Site: redfin.com\n   Summary: Aug 5, 2022. Sold (MLS) (Sold) \u00b7 $900,000 ; Jun 20, 2022. Listed (Active) \u00b7 $875,000.\n   Content: 2017 Komo Mai Dr, Pearl City, HI 96782 | Redfin Search Open app Feed Favorites & comments Saved searches My homes My Redfin agent Appointments Open house schedule Search for sale Search rentals Sell my home List my home for rent Redfin Premier Be a Redfin agent Notification settings Buy \u25be Popular Searches Homes for sale Condos for sale Land for sale Open houses Buying Options Buy with Redfin Redfin Premier Buying Resources Affordability calculator Home buying guide Free home buying classes US housing market Rent \u25be Rental Resources Renter dashboard Rental market tracker How much rent can I afford? Should I rent or buy? Renter guide Redfin Rental Tools List my home for rent Rental Tools dashboard US rental market trends Should I sell or rent my home? Sell \u25be My Home What's my home worth? My home dashboard Redfin Selling Options Why sell with Redfin? Redfin Premier Redfin Full Service Find an agent Selling Resources Home selling guide Will selling pay off? Home improvement trends Mortgage \u25be Mortgage rates Get prequalified Today's mortgage rates Today's refinance rates Home equity loan Calculators Payment calculator How much can I afford? Rent vs. buy How to get pre-approved Real Estate Agents \u25be Find an Agent Join as a Redfin Agent Join our referral network Agent Resource Center Feed Join / Sign in Search Overview Sale & tax history Property details Neighborhood Climate Favorite Edit Facts Share OFF MARKET Street View Redesign OFF MARKET \u2014 SOLD AUG 2023 FOR $1,080,000 $1,151,850 Redfin Estimate 4 bd \u2022 3 ba \u2022 1,617 sq ft 2017 Komo Mai Dr , Pearl City, HI 96782 Claim home Claim home to manage this property View dashboard Edit facts Manage photos Rates have dropped Lower mortgage rates could mean more buyers and higher sale prices. Learn more About this home JULY 9TH OPEN HOUSE 1 PM to 5 PM.  Breezy, Tranquil home in an established neighborhood.  With the possibility of a rental income or in-laws' space.  IMMACULATE!.  Located at the very entrance of Pacific  Palisades.  Cl\n\n3. Daily life planning and decision-making - Tongyi DeepResearch\n   URL: https://tongyi-agent.github.io/showcase/pages/show_2.html\n   Site: tongyi-agent.github.io\n   Summary: Summary: The property at 2017 Komo Mai Drive sold in August 2022 for $900,000. Multiple public record entries show the sale on August 1 and August 5, 2022, each ...\n   Content: Daily life planning and decision-making Daily life planning and decision-making DeepResearch Agent Running 0/0 0% Speed: 0.5x 1x 2x 4x\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 85.97788715362549,
+      "step": 5,
+      "actor_model": "gpt-5",
+      "llm_time": 27.26249599456787,
+      "actor_reasoning": "I checked 2022 sale records: 2072 Akaikai Loop sold on December 14 2022 for 1190000 (Oahure), and 2017 Komo Mai Drive sold on August 5 2022 for 900000 (Redfin MLS history). Therefore, 2072 Akaikai Loop sold for more in 2022.\n\nFINAL ANSWER: 2072 Akaikai Loop, 1190000",
+      "spec_model": "gpt-5-nano",
+      "spec_predictions": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "2072 Akaikai Loop Pearl City 2022 sold price"
+          },
+          "pre_executed": true,
+          "exec_time": 2.2155091762542725,
+          "spec_inference_time": 13.581165790557861
+        }
+      ],
+      "final_answer": "2072 Akaikai Loop, 1190000"
+    }
+  ],
+  "messages": [
+    {
+      "role": "user",
+      "content": "I\u2019m thinking about selling my home, so I want to learn more about how homes in my area sold recently. I live in Pearl City, Hawaii, which is on the island of Oahu. I know two homes near me that sold in 2022 were 2072 Akaikai Loop, and 2017 Komo Mai Drive. Find which of those homes sold for more in 2022, and tell me how much it sold for. Don\u2019t put commas or decimal places in the answer."
+    },
+    {
+      "role": "assistant",
+      "content": "I need to quickly find real estate listing pages that show the 2022 sale price for 2072 Akaikai Loop and 2017 Komo Mai Drive."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 relevant web results:\n\n1. 2072 Akaikai Loop Pearl City HI 96782 sold on 12-14-2022\n   URL: https://www.oahure.com/SearchMLS_Details.php?MLSNumber=202221852&PropertyType=RES\n   Site: oahure.com\n   Summary: Property History ; Sold Price: $1,190,000 ; Assessed Total: $873,800 ; Land: $761,300 ; Building: $112,500 ; Details * Showing Request with 20% Rebate * Questions? * ...\n\n2. 2072 Akaikai Loop, Pearl City, HI 96782 - Redfin\n   URL: https://www.redfin.com/HI/Pearl-City/2072-Akaikai-Loop-96782/home/91455538\n   Site: redfin.com\n   Summary: 4 beds, 2 baths, 1628 sq. ft. house located at 2072 Akaikai Loop, Pearl City, HI 96782 sold for $1190000 on Mar 7, 2024. MLS# 202324462.\n\n3. 2072 Akaikai Loop, Pearl City, HI 96782 | Zillow\n   URL: https://www.zillow.com/homedetails/2072-Akaikai-Loop-Pearl-City-HI-96782/702713_zpid/\n   Site: zillow.com\n   Summary: Price history ; 3/7/2024, Sold, $1,190,000-0.7%$731/sqft ; Source: HiCentral MLS #202324462. Report a problem ; 2/2/2024, Pending sale, $1,198,000$736/sqft ; Source ...\n",
+      "name": "web_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to find the 2022 sale price for 2017 Komo Mai Drive to compare it with 2072 Akaikai Loop."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 relevant web results:\n\n1. 2017 Komo Mai Dr, Pearl City, HI 96782 | Zillow\n   URL: https://www.zillow.com/homedetails/2017-Komo-Mai-Dr-Pearl-City-HI-96782/702815_zpid/\n   Site: zillow.com\n   Summary: 2017 Komo Mai Dr, Pearl City, HI 96782 \u00b7 Price history. Date, Event, Price. 8/17/2023, Sold, $1,080,000$668/sqft. Source: HiCentral MLS #202306398. Report a ...\n\n2. 2017 Komo Mai Dr, Pearl City, HI 96782 - Redfin\n   URL: https://www.redfin.com/HI/Pearl-City/2017-Komo-Mai-Dr-96782/home/91455567\n   Site: redfin.com\n   Summary: 4 beds, 3 baths, 1617 sq. ft. house located at 2017 Komo Mai Dr, Pearl City, HI 96782 sold for $1080000 on Aug 17, 2023. MLS# 202306398. JULY 9TH OPEN HOUSE ...\n\n3. Daily life planning and decision-making - Tongyi DeepResearch\n   URL: https://tongyi-agent.github.io/showcase/pages/show_2.html\n   Site: tongyi-agent.github.io\n   Summary: Summary: The property at 2017 Komo Mai Drive sold in August 2022 for $900,000. Multiple public record entries show the sale on August 1 and August 5, 2022, each ...\n",
+      "name": "web_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to locate an authoritative listing or MLS history that shows the 2022 sale price for 2017 Komo Mai Drive."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 relevant web results:\n\n1. Oahu Real Estate Search Results\n   URL: https://www.oahure.com/SearchResults.php?MLSNumber1Compare=2817897&Neighborhood1=PEARL%20CITY-UPPER&SQFTRoofedLivingMin=1,533&SQFTRoofedLivingMax=2,299&PropertyType=RES&Screen=Spreadsheet&Status=Active%2C+In+Escrow%2C+Sold+2+Years&NA=TaxAssessedValueLand+Asc&OrderBy=TaxAmount+Desc\n   Site: oahure.com\n   Summary: Sold \u00b7 $1,100,000 \u00b7 $1,100,000 \u00b7 $419, $0, $6,919 \u00b7 Pearl City \u00b7 Pearl City-Upper \u00b7 1381 Komo Mai Drive \u00b7 Average, $1,150,000, 11-15-2023, 68, 105%, 5, 3/0, 15 ...\n\n2. 2017 Komo Mai Dr, Pearl City, HI 96782 - Redfin\n   URL: https://www.redfin.com/HI/Pearl-City/2017-Komo-Mai-Dr-96782/home/91455567\n   Site: redfin.com\n   Summary: 4 beds, 3 baths, 1617 sq. ft. house located at 2017 Komo Mai Dr, Pearl City, HI 96782 sold for $1080000 on Aug 17, 2023. MLS# 202306398.\n\n3. 2017 Komo Mai Dr - Honolulu Board of REALTORS\n   URL: https://hicentral.com/202306398\n   Site: hicentral.com\n   Date: Mar 15, 2023\n   Summary: Sale. 202306398. Home \u00b7 For Sale. 2017 Komo Mai Dr Pearl City, HI 96782. For Sale. Sold. Sold Price. $1,080,000 (FS). List Price. $1,080,000 (FS).\n",
+      "name": "web_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need detailed page content to confirm the 2022 sale price for 2017 Komo Mai Drive from an authoritative source."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 web results with content:\n\n1. 2017 Komo Mai Dr, Pearl City, HI 96782 | Zillow\n   URL: https://www.zillow.com/homedetails/2017-Komo-Mai-Dr-Pearl-City-HI-96782/702815_zpid/\n   Site: zillow.com\n   Summary: Price history ; 8/17/2023, Sold, $1,080,000$668/sqft ; Source: HiCentral MLS #202306398. Report a problem ; 8/8/2023, Pending sale, $1,080,000$668/sqft ; Source: ...\n   Content: HTTP error occurred: 403 Client Error: Forbidden for url: https://www.zillow.com/homedetails/2017-Komo-Mai-Dr-Pearl-City-HI-96782/702815_zpid/\n\n2. 2017 Komo Mai Dr, Pearl City, HI 96782 - Redfin\n   URL: https://www.redfin.com/HI/Pearl-City/2017-Komo-Mai-Dr-96782/home/91455567\n   Site: redfin.com\n   Summary: Aug 5, 2022. Sold (MLS) (Sold) \u00b7 $900,000 ; Jun 20, 2022. Listed (Active) \u00b7 $875,000.\n   Content: 2017 Komo Mai Dr, Pearl City, HI 96782 | Redfin Search Open app Feed Favorites & comments Saved searches My homes My Redfin agent Appointments Open house schedule Search for sale Search rentals Sell my home List my home for rent Redfin Premier Be a Redfin agent Notification settings Buy \u25be Popular Searches Homes for sale Condos for sale Land for sale Open houses Buying Options Buy with Redfin Redfin Premier Buying Resources Affordability calculator Home buying guide Free home buying classes US housing market Rent \u25be Rental Resources Renter dashboard Rental market tracker How much rent can I afford? Should I rent or buy? Renter guide Redfin Rental Tools List my home for rent Rental Tools dashboard US rental market trends Should I sell or rent my home? Sell \u25be My Home What's my home worth? My home dashboard Redfin Selling Options Why sell with Redfin? Redfin Premier Redfin Full Service Find an agent Selling Resources Home selling guide Will selling pay off? Home improvement trends Mortgage \u25be Mortgage rates Get prequalified Today's mortgage rates Today's refinance rates Home equity loan Calculators Payment calculator How much can I afford? Rent vs. buy How to get pre-approved Real Estate Agents \u25be Find an Agent Join as a Redfin Agent Join our referral network Agent Resource Center Feed Join / Sign in Search Overview Sale & tax history Property details Neighborhood Climate Favorite Edit Facts Share OFF MARKET Street View Redesign OFF MARKET \u2014 SOLD AUG 2023 FOR $1,080,000 $1,151,850 Redfin Estimate 4 bd \u2022 3 ba \u2022 1,617 sq ft 2017 Komo Mai Dr , Pearl City, HI 96782 Claim home Claim home to manage this property View dashboard Edit facts Manage photos Rates have dropped Lower mortgage rates could mean more buyers and higher sale prices. Learn more About this home JULY 9TH OPEN HOUSE 1 PM to 5 PM.  Breezy, Tranquil home in an established neighborhood.  With the possibility of a rental income or in-laws' space.  IMMACULATE!.  Located at the very entrance of Pacific  Palisades.  Cl\n\n3. Daily life planning and decision-making - Tongyi DeepResearch\n   URL: https://tongyi-agent.github.io/showcase/pages/show_2.html\n   Site: tongyi-agent.github.io\n   Summary: Summary: The property at 2017 Komo Mai Drive sold in August 2022 for $900,000. Multiple public record entries show the sale on August 1 and August 5, 2022, each ...\n   Content: Daily life planning and decision-making Daily life planning and decision-making DeepResearch Agent Running 0/0 0% Speed: 0.5x 1x 2x 4x\n",
+      "name": "enhanced_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I checked 2022 sale records: 2072 Akaikai Loop sold on December 14 2022 for 1190000 (Oahure), and 2017 Komo Mai Drive sold on August 5 2022 for 900000 (Redfin MLS history). Therefore, 2072 Akaikai Loop sold for more in 2022.\n\nFINAL ANSWER: 2072 Akaikai Loop, 1190000"
+    }
+  ],
+  "error": null
+}

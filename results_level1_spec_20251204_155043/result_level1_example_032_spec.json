@@ -1,0 +1,112 @@
+{
+  "task_id": "305ac316-eef6-4446-960a-92d80d542f82",
+  "level": "1",
+  "question": "Who did the actor who played Ray in the Polish-language version of Everybody Loves Raymond play in Magda M.? Give only the first name.",
+  "ground_truth": "Wojciech",
+  "predicted": "Wojciech",
+  "correct": true,
+  "steps": 3,
+  "time_seconds": 78.31295776367188,
+  "actor_model": "gpt-5",
+  "spec_model": "gpt-5-nano",
+  "speculation_enabled": true,
+  "verification_strategy": "jaccard",
+  "spec_hits": 0,
+  "spec_misses": 2,
+  "spec_predictions": 0,
+  "trajectory": [
+    {
+      "node": "start",
+      "question": "Who did the actor who played Ray in the Polish-language version of Everybody Loves Raymond play in Magda M.? Give only the first name.",
+      "timestamp": 0
+    },
+    {
+      "node": "llm",
+      "timestamp": 41.84566593170166,
+      "step": 1,
+      "actor_model": "gpt-5",
+      "llm_time": 41.83699679374695,
+      "actor_reasoning": "I need to confirm which actor played Ray in the Polish adaptation of Everybody Loves Raymond and identify his role name in Magda M.",
+      "actor_tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "actor who played Ray in Polish version of Everybody Loves Raymond played in Magda M. who did he play"
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 45.06927680969238,
+      "tool_time": 3.222667932510376,
+      "tool_executed": {
+        "name": "web_search",
+        "result": "Found 3 relevant web results:\n\n1. Wszyscy kochaj\u0105 Romana - Wikipedia\n   URL: https://en.wikipedia.org/wiki/Wszyscy_kochaj%C4%85_Romana\n   Site: en.wikipedia.org\n   Summary: Bart\u0142omiej Kasprzykowski as Roman (Ray) \u00b7 Aneta Todorczuk-Perchu\u0107 as Dorota (Debra) \u00b7 Anna Seniuk as Maryla (Marie) \u00b7 Joachim Lam\u017ca as Zygmunt (Frank) \u00b7 Tede as ...\n\n2. Wszyscy kochaja Romana (TV Series 2011\u20132012) - IMDb\n   URL: https://www.imdb.com/title/tt2255669/\n   Site: imdb.com\n   Summary: Top Cast42 ; Bartek Kasprzykowski \u00b7 Roman ; Aneta Todorczuk-Perchuc \u00b7 Dorota ; Joachim Lamza \u00b7 Tadeusz ; TeDe \u00b7 Robert ; Anna Glegolska \u00b7 Zosia.\n\n3. m-ric/agents_small_benchmark \u00b7 Datasets at Hugging Face\n   URL: https://huggingface.co/datasets/m-ric/agents_small_benchmark\n   Site: huggingface.co\n   Summary: Who did the actor who played Ray in the Polish-language version of Everybody Loves Raymond play in Magda M.? Give only the first name. Wojciech. GAIA. How ...\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 63.14668297767639,
+      "step": 2,
+      "actor_model": "gpt-5",
+      "llm_time": 18.07247281074524,
+      "actor_reasoning": "I need to confirm the character name Bart\u0142omiej Kasprzykowski played in Magda M. to answer with just the first name.",
+      "actor_tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "Bart\u000142omiej Kasprzykowski Magda M. postac imie"
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 65.54530191421509,
+      "tool_time": 2.3973679542541504,
+      "tool_executed": {
+        "name": "web_search",
+        "result": "Found 3 relevant web results:\n\n1. Bart\u0142omiej Kasprzykowski \u2013 Wikipedia, wolna encyklopedia\n   URL: https://pl.wikipedia.org/wiki/Bart%C5%82omiej_Kasprzykowski\n   Site: pl.wikipedia.org\n   Summary: 2005\u20132007: Magda M. \u2013 Wojciech P\u0142aska, przyjaciel i wsp\u00f3lnik Piotra; 2007: Hania \u2013 Janek Gabriel, przyjaciel Oli; 2007: Niania \u2013 Bartek (odc. 82); 2007: Halo ...\n\n2. Bartek Kasprzykowski as Wojciech Plaska - Magda M. - IMDb\n   URL: https://m.imdb.com/title/tt0471052/characters/nm0440761/?ref_=tt_cl_c_4\n   Site: m.imdb.com\n   Summary: Magda M. (TV Series 2005\u2013 ) - Bartek Kasprzykowski as Wojciech Plaska.\n\n3. Magda M. \u2013 Wikipedia, wolna encyklopedia\n   URL: https://pl.wikipedia.org/wiki/Magda_M.\n   Site: pl.wikipedia.org\n   Summary: Bartek Kasprzykowski, Wojciech P\u0142aska. Krzysztof Stelmaszyk, Wiktor Walig\u00f3ra. Katarzyna Herman, Karolina Walig\u00f3ra. Ewa Kasprzyk, Teresa Mi\u0142owicz, matka Magdy.\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 78.31272172927856,
+      "step": 3,
+      "actor_model": "gpt-5",
+      "llm_time": 12.762957096099854,
+      "actor_reasoning": "The actor who played Ray in the Polish version (Bart\u0142omiej Kasprzykowski) played Wojciech P\u0142aska in Magda M., so the first name is Wojciech.\nFINAL ANSWER: Wojciech",
+      "final_answer": "Wojciech"
+    }
+  ],
+  "messages": [
+    {
+      "role": "user",
+      "content": "Who did the actor who played Ray in the Polish-language version of Everybody Loves Raymond play in Magda M.? Give only the first name."
+    },
+    {
+      "role": "assistant",
+      "content": "I need to confirm which actor played Ray in the Polish adaptation of Everybody Loves Raymond and identify his role name in Magda M."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 relevant web results:\n\n1. Wszyscy kochaj\u0105 Romana - Wikipedia\n   URL: https://en.wikipedia.org/wiki/Wszyscy_kochaj%C4%85_Romana\n   Site: en.wikipedia.org\n   Summary: Bart\u0142omiej Kasprzykowski as Roman (Ray) \u00b7 Aneta Todorczuk-Perchu\u0107 as Dorota (Debra) \u00b7 Anna Seniuk as Maryla (Marie) \u00b7 Joachim Lam\u017ca as Zygmunt (Frank) \u00b7 Tede as ...\n\n2. Wszyscy kochaja Romana (TV Series 2011\u20132012) - IMDb\n   URL: https://www.imdb.com/title/tt2255669/\n   Site: imdb.com\n   Summary: Top Cast42 ; Bartek Kasprzykowski \u00b7 Roman ; Aneta Todorczuk-Perchuc \u00b7 Dorota ; Joachim Lamza \u00b7 Tadeusz ; TeDe \u00b7 Robert ; Anna Glegolska \u00b7 Zosia.\n\n3. m-ric/agents_small_benchmark \u00b7 Datasets at Hugging Face\n   URL: https://huggingface.co/datasets/m-ric/agents_small_benchmark\n   Site: huggingface.co\n   Summary: Who did the actor who played Ray in the Polish-language version of Everybody Loves Raymond play in Magda M.? Give only the first name. Wojciech. GAIA. How ...\n",
+      "name": "web_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to confirm the character name Bart\u0142omiej Kasprzykowski played in Magda M. to answer with just the first name."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 relevant web results:\n\n1. Bart\u0142omiej Kasprzykowski \u2013 Wikipedia, wolna encyklopedia\n   URL: https://pl.wikipedia.org/wiki/Bart%C5%82omiej_Kasprzykowski\n   Site: pl.wikipedia.org\n   Summary: 2005\u20132007: Magda M. \u2013 Wojciech P\u0142aska, przyjaciel i wsp\u00f3lnik Piotra; 2007: Hania \u2013 Janek Gabriel, przyjaciel Oli; 2007: Niania \u2013 Bartek (odc. 82); 2007: Halo ...\n\n2. Bartek Kasprzykowski as Wojciech Plaska - Magda M. - IMDb\n   URL: https://m.imdb.com/title/tt0471052/characters/nm0440761/?ref_=tt_cl_c_4\n   Site: m.imdb.com\n   Summary: Magda M. (TV Series 2005\u2013 ) - Bartek Kasprzykowski as Wojciech Plaska.\n\n3. Magda M. \u2013 Wikipedia, wolna encyklopedia\n   URL: https://pl.wikipedia.org/wiki/Magda_M.\n   Site: pl.wikipedia.org\n   Summary: Bartek Kasprzykowski, Wojciech P\u0142aska. Krzysztof Stelmaszyk, Wiktor Walig\u00f3ra. Katarzyna Herman, Karolina Walig\u00f3ra. Ewa Kasprzyk, Teresa Mi\u0142owicz, matka Magdy.\n",
+      "name": "web_search"
+    },
+    {
+      "role": "assistant",
+      "content": "The actor who played Ray in the Polish version (Bart\u0142omiej Kasprzykowski) played Wojciech P\u0142aska in Magda M., so the first name is Wojciech.\nFINAL ANSWER: Wojciech"
+    }
+  ],
+  "error": null
+}

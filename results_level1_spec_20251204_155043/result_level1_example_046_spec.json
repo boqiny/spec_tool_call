@@ -1,0 +1,332 @@
+{
+  "task_id": "a0068077-79f4-461a-adfe-75c1a4148545",
+  "level": "1",
+  "question": "What was the actual enrollment count of the clinical trial on H. pylori in acne vulgaris patients from Jan-May 2018 as listed on the NIH website?",
+  "ground_truth": "90",
+  "predicted": "90",
+  "correct": true,
+  "steps": 7,
+  "time_seconds": 131.55961298942566,
+  "actor_model": "gpt-5",
+  "spec_model": "gpt-5-nano",
+  "speculation_enabled": true,
+  "verification_strategy": "jaccard",
+  "spec_hits": 2,
+  "spec_misses": 4,
+  "spec_predictions": 7,
+  "trajectory": [
+    {
+      "node": "start",
+      "question": "What was the actual enrollment count of the clinical trial on H. pylori in acne vulgaris patients from Jan-May 2018 as listed on the NIH website?",
+      "timestamp": 0
+    },
+    {
+      "node": "llm",
+      "timestamp": 9.585721969604492,
+      "step": 1,
+      "actor_model": "gpt-5",
+      "llm_time": 9.582565784454346,
+      "actor_reasoning": "I need to locate the specific ClinicalTrials.gov record for the H. pylori in acne vulgaris study to find the reported actual enrollment.",
+      "actor_tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "H. pylori acne vulgaris Jan May 2018 clinical trial actual enrollment site:clinicaltrials.gov"
+          }
+        }
+      ],
+      "spec_model": "gpt-5-nano",
+      "spec_predictions": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "H. pylori acne vulgaris clinical trial enrollment 2018 site:clinicaltrials.gov"
+          },
+          "pre_executed": true,
+          "exec_time": 2.009923219680786,
+          "spec_inference_time": 5.492276906967163
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 9.58657693862915,
+      "tool_time": 2.009923219680786,
+      "tool_executed": {
+        "name": "web_search",
+        "result": "Found 3 relevant web results:\n\n1. Prevalence of H.Pylori in Patients With Acne Vulgaris ...\n   URL: https://clinicaltrials.gov/study/NCT03411733\n   Site: clinicaltrials.gov\n   Summary: An entry on ClinicalTrials.gov that contains a summary of a clinical study's protocol information, including the recruitment status; eligibility criteria; ...\n\n2. clinical investigation report cyron/01/2021\n   URL: https://cdn.clinicaltrials.gov/large-docs/05/NCT04735705/Prot_SAP_000.pdf\n   Site: cdn.clinicaltrials.gov\n   Date: Apr 5, 2022\n   Summary: The results obtained show very clearly that during the 3 months of treatment with Cerviron\u00ae, out of the 47 participants who initially showed ...\n\n3. The Effect of Pretreatment for Propionibacterium Acnes on ...\n   URL: https://www.clinicaltrials.gov/study/NCT04112407\n   Site: clinicaltrials.gov\n   Summary: The main reason for the clinical trial. The types of primary purpose are: treatment, prevention, diagnostic, supportive care, screening, health services ...\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 32.61689591407776,
+      "step": 2,
+      "actor_model": "gpt-5",
+      "llm_time": 23.02873992919922,
+      "actor_reasoning": "I need to open the ClinicalTrials.gov record for NCT03411733 to read the \"Actual Enrollment\" number listed on the page.",
+      "actor_tool_calls": [
+        {
+          "name": "enhanced_search",
+          "args": {
+            "query": "NCT03411733 clinicaltrials.gov actual enrollment"
+          }
+        }
+      ],
+      "spec_model": "gpt-5-nano",
+      "spec_predictions": [
+        {
+          "name": "enhanced_search",
+          "args": {
+            "query": "NCT03411733 actual enrollment"
+          },
+          "pre_executed": true,
+          "exec_time": 16.400149822235107,
+          "spec_inference_time": 6.628170013427734
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 40.99266791343689,
+      "tool_time": 8.374832153320312,
+      "tool_executed": {
+        "name": "enhanced_search",
+        "result": "Found 3 web results with content:\n\n1. Prevalence of H.Pylori in Patients With Acne Vulgaris Acne Vulgaris\n   URL: https://clinicaltrials.gov/study/NCT03411733\n   Site: clinicaltrials.gov\n   Summary: ClinicalTrials.gov ID NCT03411733. Sponsor Sohag University. Information provided by Dina Ali, Sohag University (Responsible Party). Last Update Posted 2018-05 ...\n   Content: ClinicalTrials.gov Hide glossary Glossary Study record managers: refer to the Data Element Definitions if submitting registration or results information. Search for terms\n\n2. ClinicalTrials.gov: Home\n   URL: https://clinicaltrials.gov/\n   Site: clinicaltrials.gov\n   Summary: The actual date on which the first participant was enrolled in a clinical study. The \"estimated\" study start date is the date that the researchers think ...\n   Content: ClinicalTrials.gov Hide glossary Glossary Study record managers: refer to the Data Element Definitions if submitting registration or results information. Search for terms\n\n3. How to Search for Clinical Studies | ClinicalTrials.gov\n   URL: https://clinicaltrials.gov/find-studies/how-to-search\n   Site: clinicaltrials.gov\n   Summary: Learn how to use the search tool on the ClinicalTrials.gov home page to find clinical studies, and how to narrow search results.\n   Content: ClinicalTrials.gov Hide glossary Glossary Study record managers: refer to the Data Element Definitions if submitting registration or results information. Search for terms\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 54.8867609500885,
+      "step": 3,
+      "actor_model": "gpt-5",
+      "llm_time": 13.891451120376587,
+      "actor_reasoning": "I need to open the ClinicalTrials.gov record NCT03411733 and extract the \"Actual Enrollment\" number from the page.",
+      "actor_tool_calls": [
+        {
+          "name": "enhanced_search",
+          "args": {
+            "query": "NCT03411733 Actual Enrollment Prevalence of H.Pylori in Patients With Acne Vulgaris site:clinicaltrials.gov"
+          }
+        }
+      ],
+      "spec_model": "gpt-5-nano",
+      "spec_predictions": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "NCT03411733 actual enrollment"
+          },
+          "pre_executed": true,
+          "exec_time": 2.881397247314453,
+          "spec_inference_time": 11.009607076644897
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 57.179486989974976,
+      "tool_time": 2.29128098487854,
+      "tool_executed": {
+        "name": "enhanced_search",
+        "result": "Found 1 web results with content:\n\n1. Prevalence of H.Pylori in Patients With Acne Vulgaris ...\n   URL: https://clinicaltrials.gov/study/NCT03411733\n   Site: clinicaltrials.gov\n   Summary: A type of observational study that collects information about patients' medical conditions and/or treatments to better understand how a condition or treatment ...\n   Content: ClinicalTrials.gov Hide glossary Glossary Study record managers: refer to the Data Element Definitions if submitting registration or results information. Search for terms\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 74.57038187980652,
+      "step": 4,
+      "actor_model": "gpt-5",
+      "llm_time": 17.386659145355225,
+      "actor_reasoning": "I need to open the ClinicalTrials.gov NCT03411733 page to read the Actual Enrollment value directly from the record.",
+      "actor_tool_calls": [
+        {
+          "name": "enhanced_search",
+          "args": {
+            "query": "https://clinicaltrials.gov/study/NCT03411733"
+          }
+        }
+      ],
+      "spec_model": "gpt-5-nano",
+      "spec_predictions": [
+        {
+          "name": "enhanced_search",
+          "args": {
+            "query": "NCT03411733 actual enrollment ClinicalTrials.gov"
+          },
+          "pre_executed": true,
+          "exec_time": 3.5148870944976807,
+          "spec_inference_time": 13.870894193649292
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 78.98019480705261,
+      "tool_time": 4.408862829208374,
+      "tool_executed": {
+        "name": "enhanced_search",
+        "result": "Found 3 web results with content:\n\n1. Prevalence of H.Pylori in Patients With Acne Vulgaris Acne Vulgaris\n   URL: https://clinicaltrials.gov/study/NCT03411733\n   Site: clinicaltrials.gov\n   Summary: For general information about clinical research, read Learn About Studies(https://clinicaltrials.gov/study-basics/learn-about-studies). Eligibility Criteria.\n   Content: ClinicalTrials.gov Hide glossary Glossary Study record managers: refer to the Data Element Definitions if submitting registration or results information. Search for terms\n\n2. Study Details | NCT00811733 | A Phase II Trial of Ofatumumab in ...\n   URL: https://clinicaltrials.gov/study/NCT00811733\n   Site: clinicaltrials.gov\n   Summary: It identifies a study on ClinicalTrials.gov whose last known status was recruiting; not yet recruiting; or active, not recruiting but that has passed its ...\n   Content: ClinicalTrials.gov Hide glossary Glossary Study record managers: refer to the Data Element Definitions if submitting registration or results information. Search for terms\n\n3. Effects of GLP-1 RAs on Weight and Metabolic Indicators in Obese ...\n   URL: https://clinicaltrials.gov/study/NCT03671733\n   Site: clinicaltrials.gov\n   Summary: For general information about clinical research, read Learn About Studies(https://clinicaltrials.gov/study-basics/learn-about-studies). Eligibility Criteria.\n   Content: ClinicalTrials.gov Hide glossary Glossary Study record managers: refer to the Data Element Definitions if submitting registration or results information. Search for terms\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 89.43906998634338,
+      "step": 5,
+      "actor_model": "gpt-5",
+      "llm_time": 10.456118106842041,
+      "actor_reasoning": "I need to quickly look up the ClinicalTrials.gov record to find the \"Actual Enrollment\" number for NCT03411733.",
+      "actor_tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "NCT03411733 actual enrollment ClinicalTrials.gov H. pylori acne vulgaris"
+          }
+        }
+      ],
+      "spec_model": "gpt-5-nano",
+      "spec_predictions": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "NCT03411733 actual enrollment"
+          },
+          "pre_executed": true,
+          "exec_time": 2.7703192234039307,
+          "spec_inference_time": 7.685324192047119
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 92.97704100608826,
+      "tool_time": 3.537039041519165,
+      "tool_executed": {
+        "name": "web_search",
+        "result": "Found 3 relevant web results:\n\n1. Prevalence of H.Pylori in Patients With Acne Vulgaris Acne Vulgaris\n   URL: https://clinicaltrials.gov/study/NCT03411733\n   Site: clinicaltrials.gov\n   Summary: Prevalence of H.Pylori in Patients With Acne Vulgaris Acne Vulgaris. ClinicalTrials.gov ID NCT03411733. Sponsor Sohag University. Information provided by Dina ...\n\n2. Prevalence of H.Pylori in Patients With Acne Vulgaris ... - MedPath\n   URL: https://trial.medpath.com/clinical-trial/bfcf188d95316330/nct03411733-prevalence-h-pylori-acne-vulgaris\n   Site: trial.medpath.com\n   Summary: The objective of the study is to investigate prevalence of H.Pylori infection among acne vulgaris patients.\n\n3. [PDF] Beneficial Reasoning Behaviors in Agentic Search and Effective ...\n   URL: https://arxiv.org/pdf/2510.06534\n   Site: arxiv.org\n   Date: Oct 8, 2025\n   Summary: The NIH clinical trial on H. pylori and acne vulgaris from January to May 2018 (NCT03411733) had an enrollment count of 100 participants. </ ...\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 113.68729996681213,
+      "step": 6,
+      "actor_model": "gpt-5",
+      "llm_time": 20.70750594139099,
+      "actor_reasoning": "I need to open the ClinicalTrials.gov record NCT03411733 and extract the \"Actual Enrollment\" value directly from the page content.",
+      "actor_tool_calls": [
+        {
+          "name": "enhanced_search",
+          "args": {
+            "query": "NCT03411733 \"Actual Enrollment\""
+          }
+        }
+      ],
+      "spec_model": "gpt-5-nano",
+      "spec_predictions": [
+        {
+          "name": "enhanced_search",
+          "args": {
+            "query": "NCT03411733 actual enrollment"
+          },
+          "pre_executed": true,
+          "exec_time": 7.560354709625244,
+          "spec_inference_time": 8.260533094406128
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 113.68899488449097,
+      "tool_time": 7.560354709625244,
+      "tool_executed": {
+        "name": "enhanced_search",
+        "result": "Found 3 web results with content:\n\n1. Prevalence of H.Pylori in Patients With Acne Vulgaris Acne Vulgaris\n   URL: https://clinicaltrials.gov/study/NCT03411733\n   Site: clinicaltrials.gov\n   Summary: Details for study NCT03411733, | ClinicalTrials ... Enrollment ( Actual ). 90. Study Type. Observational. Resource links provided by ...\n   Content: ClinicalTrials.gov Hide glossary Glossary Study record managers: refer to the Data Element Definitions if submitting registration or results information. Search for terms\n\n2. [PDF] Beneficial Reasoning Behaviors in Agentic Search and Effective ...\n   URL: https://arxiv.org/pdf/2510.06534\n   Site: arxiv.org\n   Summary: The NIH clinical trial on H. pylori and acne vulgaris from January to May 2018 (NCT03411733) had an enrollment count of 100 participants. </ ...\n   Content: BENEFICIAL REASONING BEHAVIORS IN AGENTIC SEARCH AND EFFECTIVE POST-TRAINING TO OBTAIN THEM JiaheJin AbhijayPaladugu ChenyanXiong LanguageTechnologiesInstitute,CarnegieMellonUniversity {jjiahe,apaladug,cx}@andrew.cmu.edu ABSTRACT Agenticsearchleverageslargelanguagemodels(LLMs)tosolvecomplexuserinformationneeds byexecutingamulti-stepprocessofplanning,searching,andsynthesizinginformationtoprovide answers. This paradigm introduces unique challenges for LLMs\u2019 agentic reasoning capabilities wheninteractingwithretrievalsystemsandthebroaderweb. Inthispaper, weproposeanLLM- basedpipelinetostudyeffectivereasoningbehaviorpatternsinagenticsearchbycomparingand analyzingsuccessfulandunsuccessfultrajectories. Usingthispipeline,weidentifyfourbeneficial reasoningbehaviors: InformationVerification,AuthorityEvaluation,AdaptiveSearch,andError Recovery. Based on these findings, we propose a technique called Behavior Priming to train agenticsearchmodels. Itsynthesizestrajectoriesthatexhibitthesefourbehaviorsandintegrates them into the agentic search model through supervised fine-tuning (SFT), followed by standard reinforcementlearning(RL).ExperimentsonQwen3-1.7BandLlama3.2-3B-Instructacrossthree webbenchmarksandsevenmulti-hopQAbenchmarksdemonstratethatbehaviorpriming1)yields significantperformancegainscomparedtotrainingmodelswithRLdirectly, and2)outperforms otherSFT-then-RLbaselines,suchasthoseSFTonrandomlyselectedtrajectoriesorontrajectories withmerelycorrectoutcomes. Crucially,wedemonstratethatthedesiredreasoningbehaviorsin the SFT data, rather than the correctness of the final answer, is the critical factor for achieving strongfinalperformanceinRL:SFTontrajectorieswithreasoningbehaviorsbutincorrectanswers leadstocomparableperformancewithSFTonthosewithreasoningbehaviorsandcorrectanswers. Ouranalysisfurtherrevealstheunderlyingmechanism: theintroducedreasoningbehaviorsendow modelswithmoreeffectiveexploration(higherpass@kandentropy)andtest-timescaling(longer trajectories) capabilities, p\n\n3. Acne - MalaCards\n   URL: https://www.malacards.org/card/acne\n   Site: malacards.org\n   Summary: Integrated disease information for Acne including associated genes, mutations, phenotypes, pathways, drugs, and more - integrated from 78 data sources.\n   Content: HTTP error occurred: 403 Client Error: Forbidden for url: https://www.malacards.org/card/acne\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 131.55945992469788,
+      "step": 7,
+      "actor_model": "gpt-5",
+      "llm_time": 17.86762309074402,
+      "actor_reasoning": "The ClinicalTrials.gov record for NCT03411733 lists \u201cEnrollment (Actual): 90\u201d for the Jan\u2013May 2018 observational study period.\n\nFINAL ANSWER: 90",
+      "spec_model": "gpt-5-nano",
+      "spec_predictions": [
+        {
+          "name": "enhanced_search",
+          "args": {
+            "query": "NCT03411733 actual enrollment"
+          },
+          "pre_executed": true,
+          "exec_time": 8.24911904335022,
+          "spec_inference_time": 9.617621898651123
+        }
+      ],
+      "final_answer": "90"
+    }
+  ],
+  "messages": [
+    {
+      "role": "user",
+      "content": "What was the actual enrollment count of the clinical trial on H. pylori in acne vulgaris patients from Jan-May 2018 as listed on the NIH website?"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to locate the specific ClinicalTrials.gov record for the H. pylori in acne vulgaris study to find the reported actual enrollment."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 relevant web results:\n\n1. Prevalence of H.Pylori in Patients With Acne Vulgaris ...\n   URL: https://clinicaltrials.gov/study/NCT03411733\n   Site: clinicaltrials.gov\n   Summary: An entry on ClinicalTrials.gov that contains a summary of a clinical study's protocol information, including the recruitment status; eligibility criteria; ...\n\n2. clinical investigation report cyron/01/2021\n   URL: https://cdn.clinicaltrials.gov/large-docs/05/NCT04735705/Prot_SAP_000.pdf\n   Site: cdn.clinicaltrials.gov\n   Date: Apr 5, 2022\n   Summary: The results obtained show very clearly that during the 3 months of treatment with Cerviron\u00ae, out of the 47 participants who initially showed ...\n\n3. The Effect of Pretreatment for Propionibacterium Acnes on ...\n   URL: https://www.clinicaltrials.gov/study/NCT04112407\n   Site: clinicaltrials.gov\n   Summary: The main reason for the clinical trial. The types of primary purpose are: treatment, prevention, diagnostic, supportive care, screening, health services ...\n",
+      "name": "web_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to open the ClinicalTrials.gov record for NCT03411733 to read the \"Actual Enrollment\" number listed on the page."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 web results with content:\n\n1. Prevalence of H.Pylori in Patients With Acne Vulgaris Acne Vulgaris\n   URL: https://clinicaltrials.gov/study/NCT03411733\n   Site: clinicaltrials.gov\n   Summary: ClinicalTrials.gov ID NCT03411733. Sponsor Sohag University. Information provided by Dina Ali, Sohag University (Responsible Party). Last Update Posted 2018-05 ...\n   Content: ClinicalTrials.gov Hide glossary Glossary Study record managers: refer to the Data Element Definitions if submitting registration or results information. Search for terms\n\n2. ClinicalTrials.gov: Home\n   URL: https://clinicaltrials.gov/\n   Site: clinicaltrials.gov\n   Summary: The actual date on which the first participant was enrolled in a clinical study. The \"estimated\" study start date is the date that the researchers think ...\n   Content: ClinicalTrials.gov Hide glossary Glossary Study record managers: refer to the Data Element Definitions if submitting registration or results information. Search for terms\n\n3. How to Search for Clinical Studies | ClinicalTrials.gov\n   URL: https://clinicaltrials.gov/find-studies/how-to-search\n   Site: clinicaltrials.gov\n   Summary: Learn how to use the search tool on the ClinicalTrials.gov home page to find clinical studies, and how to narrow search results.\n   Content: ClinicalTrials.gov Hide glossary Glossary Study record managers: refer to the Data Element Definitions if submitting registration or results information. Search for terms\n",
+      "name": "enhanced_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to open the ClinicalTrials.gov record NCT03411733 and extract the \"Actual Enrollment\" number from the page."
+    },
+    {
+      "role": "tool",
+      "content": "Found 1 web results with content:\n\n1. Prevalence of H.Pylori in Patients With Acne Vulgaris ...\n   URL: https://clinicaltrials.gov/study/NCT03411733\n   Site: clinicaltrials.gov\n   Summary: A type of observational study that collects information about patients' medical conditions and/or treatments to better understand how a condition or treatment ...\n   Content: ClinicalTrials.gov Hide glossary Glossary Study record managers: refer to the Data Element Definitions if submitting registration or results information. Search for terms\n",
+      "name": "enhanced_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to open the ClinicalTrials.gov NCT03411733 page to read the Actual Enrollment value directly from the record."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 web results with content:\n\n1. Prevalence of H.Pylori in Patients With Acne Vulgaris Acne Vulgaris\n   URL: https://clinicaltrials.gov/study/NCT03411733\n   Site: clinicaltrials.gov\n   Summary: For general information about clinical research, read Learn About Studies(https://clinicaltrials.gov/study-basics/learn-about-studies). Eligibility Criteria.\n   Content: ClinicalTrials.gov Hide glossary Glossary Study record managers: refer to the Data Element Definitions if submitting registration or results information. Search for terms\n\n2. Study Details | NCT00811733 | A Phase II Trial of Ofatumumab in ...\n   URL: https://clinicaltrials.gov/study/NCT00811733\n   Site: clinicaltrials.gov\n   Summary: It identifies a study on ClinicalTrials.gov whose last known status was recruiting; not yet recruiting; or active, not recruiting but that has passed its ...\n   Content: ClinicalTrials.gov Hide glossary Glossary Study record managers: refer to the Data Element Definitions if submitting registration or results information. Search for terms\n\n3. Effects of GLP-1 RAs on Weight and Metabolic Indicators in Obese ...\n   URL: https://clinicaltrials.gov/study/NCT03671733\n   Site: clinicaltrials.gov\n   Summary: For general information about clinical research, read Learn About Studies(https://clinicaltrials.gov/study-basics/learn-about-studies). Eligibility Criteria.\n   Content: ClinicalTrials.gov Hide glossary Glossary Study record managers: refer to the Data Element Definitions if submitting registration or results information. Search for terms\n",
+      "name": "enhanced_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to quickly look up the ClinicalTrials.gov record to find the \"Actual Enrollment\" number for NCT03411733."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 relevant web results:\n\n1. Prevalence of H.Pylori in Patients With Acne Vulgaris Acne Vulgaris\n   URL: https://clinicaltrials.gov/study/NCT03411733\n   Site: clinicaltrials.gov\n   Summary: Prevalence of H.Pylori in Patients With Acne Vulgaris Acne Vulgaris. ClinicalTrials.gov ID NCT03411733. Sponsor Sohag University. Information provided by Dina ...\n\n2. Prevalence of H.Pylori in Patients With Acne Vulgaris ... - MedPath\n   URL: https://trial.medpath.com/clinical-trial/bfcf188d95316330/nct03411733-prevalence-h-pylori-acne-vulgaris\n   Site: trial.medpath.com\n   Summary: The objective of the study is to investigate prevalence of H.Pylori infection among acne vulgaris patients.\n\n3. [PDF] Beneficial Reasoning Behaviors in Agentic Search and Effective ...\n   URL: https://arxiv.org/pdf/2510.06534\n   Site: arxiv.org\n   Date: Oct 8, 2025\n   Summary: The NIH clinical trial on H. pylori and acne vulgaris from January to May 2018 (NCT03411733) had an enrollment count of 100 participants. </ ...\n",
+      "name": "web_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to open the ClinicalTrials.gov record NCT03411733 and extract the \"Actual Enrollment\" value directly from the page content."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 web results with content:\n\n1. Prevalence of H.Pylori in Patients With Acne Vulgaris Acne Vulgaris\n   URL: https://clinicaltrials.gov/study/NCT03411733\n   Site: clinicaltrials.gov\n   Summary: Details for study NCT03411733, | ClinicalTrials ... Enrollment ( Actual ). 90. Study Type. Observational. Resource links provided by ...\n   Content: ClinicalTrials.gov Hide glossary Glossary Study record managers: refer to the Data Element Definitions if submitting registration or results information. Search for terms\n\n2. [PDF] Beneficial Reasoning Behaviors in Agentic Search and Effective ...\n   URL: https://arxiv.org/pdf/2510.06534\n   Site: arxiv.org\n   Summary: The NIH clinical trial on H. pylori and acne vulgaris from January to May 2018 (NCT03411733) had an enrollment count of 100 participants. </ ...\n   Content: BENEFICIAL REASONING BEHAVIORS IN AGENTIC SEARCH AND EFFECTIVE POST-TRAINING TO OBTAIN THEM JiaheJin AbhijayPaladugu ChenyanXiong LanguageTechnologiesInstitute,CarnegieMellonUniversity {jjiahe,apaladug,cx}@andrew.cmu.edu ABSTRACT Agenticsearchleverageslargelanguagemodels(LLMs)tosolvecomplexuserinformationneeds byexecutingamulti-stepprocessofplanning,searching,andsynthesizinginformationtoprovide answers. This paradigm introduces unique challenges for LLMs\u2019 agentic reasoning capabilities wheninteractingwithretrievalsystemsandthebroaderweb. Inthispaper, weproposeanLLM- basedpipelinetostudyeffectivereasoningbehaviorpatternsinagenticsearchbycomparingand analyzingsuccessfulandunsuccessfultrajectories. Usingthispipeline,weidentifyfourbeneficial reasoningbehaviors: InformationVerification,AuthorityEvaluation,AdaptiveSearch,andError Recovery. Based on these findings, we propose a technique called Behavior Priming to train agenticsearchmodels. Itsynthesizestrajectoriesthatexhibitthesefourbehaviorsandintegrates them into the agentic search model through supervised fine-tuning (SFT), followed by standard reinforcementlearning(RL).ExperimentsonQwen3-1.7BandLlama3.2-3B-Instructacrossthree webbenchmarksandsevenmulti-hopQAbenchmarksdemonstratethatbehaviorpriming1)yields significantperformancegainscomparedtotrainingmodelswithRLdirectly, and2)outperforms otherSFT-then-RLbaselines,suchasthoseSFTonrandomlyselectedtrajectoriesorontrajectories withmerelycorrectoutcomes. Crucially,wedemonstratethatthedesiredreasoningbehaviorsin the SFT data, rather than the correctness of the final answer, is the critical factor for achieving strongfinalperformanceinRL:SFTontrajectorieswithreasoningbehaviorsbutincorrectanswers leadstocomparableperformancewithSFTonthosewithreasoningbehaviorsandcorrectanswers. Ouranalysisfurtherrevealstheunderlyingmechanism: theintroducedreasoningbehaviorsendow modelswithmoreeffectiveexploration(higherpass@kandentropy)andtest-timescaling(longer trajectories) capabilities, p\n\n3. Acne - MalaCards\n   URL: https://www.malacards.org/card/acne\n   Site: malacards.org\n   Summary: Integrated disease information for Acne including associated genes, mutations, phenotypes, pathways, drugs, and more - integrated from 78 data sources.\n   Content: HTTP error occurred: 403 Client Error: Forbidden for url: https://www.malacards.org/card/acne\n",
+      "name": "enhanced_search"
+    },
+    {
+      "role": "assistant",
+      "content": "The ClinicalTrials.gov record for NCT03411733 lists \u201cEnrollment (Actual): 90\u201d for the Jan\u2013May 2018 observational study period.\n\nFINAL ANSWER: 90"
+    }
+  ],
+  "error": null
+}

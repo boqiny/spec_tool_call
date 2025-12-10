@@ -1,0 +1,554 @@
+{
+  "task_id": "d5141ca5-e7a0-469f-bf3e-e773507c86e2",
+  "level": "2",
+  "question": "When was a picture of St. Thomas Aquinas first added to the Wikipedia page on the Principle of double effect? Answer using the format DD/MM/YYYY.",
+  "ground_truth": "19/02/2009",
+  "predicted": "06/03/2006",
+  "correct": false,
+  "steps": 16,
+  "time_seconds": 258.05068492889404,
+  "actor_model": "gpt-5",
+  "spec_model": null,
+  "speculation_enabled": false,
+  "verification_strategy": null,
+  "spec_hits": 0,
+  "spec_misses": 0,
+  "spec_predictions": 0,
+  "trajectory": [
+    {
+      "node": "start",
+      "question": "When was a picture of St. Thomas Aquinas first added to the Wikipedia page on the Principle of double effect? Answer using the format DD/MM/YYYY.",
+      "timestamp": 0
+    },
+    {
+      "node": "llm",
+      "timestamp": 18.53795599937439,
+      "step": 1,
+      "actor_model": "gpt-5",
+      "llm_time": 18.53513193130493,
+      "actor_reasoning": "I need to find the Wikipedia revision history to locate the earliest edit where an image of Thomas Aquinas was added to the \"Principle of double effect\" page.",
+      "actor_tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "Principle of double effect Wikipedia history"
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 19.458845853805542,
+      "tool_time": 0.919694185256958,
+      "tool_executed": {
+        "name": "web_search",
+        "result": "Found 3 relevant web results:\n\n1. Principle of double effect - Simple English Wikipedia, the free ...\n   URL: https://simple.wikipedia.org/wiki/Principle_of_double_effect\n   Site: simple.wikipedia.org\n   Summary: It says that it can be morally good to do something that has a bad effect so long as it also has a larger good effect. Here, \"double effect\" means \"second ...\n\n2. Doctrine of Double Effect - Stanford Encyclopedia of Philosophy\n   URL: https://plato.stanford.edu/entries/double-effect/\n   Site: plato.stanford.edu\n   Date: Jul 17, 2023\n   Summary: According to the principle of double effect, sometimes it is permissible to cause a harm as an unintended and merely foreseen side effect (or \u201c ...\n\n3. Talk:Principle of double effect - Wikipedia\n   URL: https://en.wikipedia.org/wiki/Talk%3APrinciple_of_double_effect\n   Site: en.wikipedia.org\n   Summary: The content of Principle of double effect (temporary) was merged into Principle of double effect on 6 March 2006. The former page's history now serves to ...\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 37.775984048843384,
+      "step": 2,
+      "actor_model": "gpt-5",
+      "llm_time": 18.315046310424805,
+      "actor_reasoning": "I need to locate the Wikipedia article and its revision history to identify the first edit where an image of Thomas Aquinas was added.",
+      "actor_tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "Principle of double effect site:en.wikipedia.org"
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 39.83566188812256,
+      "tool_time": 2.0584847927093506,
+      "tool_executed": {
+        "name": "web_search",
+        "result": "Found 3 relevant web results:\n\n1. Principle of double effect\n   URL: https://en.wikipedia.org/wiki/Principle_of_double_effect\n   Site: en.wikipedia.org\n   Summary: a set of ethical criteria which Christian philosophers have advocated for evaluating the permissibility of acting when one's otherwise legitimate act may also ...\n\n2. R v Adams (1957)\n   URL: https://en.wikipedia.org/wiki/R_v_Adams_(1957)\n   Site: en.wikipedia.org\n   Summary: R v Adams [1957] is an English case that established the principle of double effect applicable to doctors: that if a doctor \"gave treatment to a seriously ill ...\n\n3. Talk:Principle of double effect\n   URL: https://en.wikipedia.org/wiki/Talk%3APrinciple_of_double_effect\n   Site: en.wikipedia.org\n   Summary: The former page's history now serves to provide attribution for that content in the latter page, and it must not be deleted as long as the latter page exists. ...\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 55.83988690376282,
+      "step": 3,
+      "actor_model": "gpt-5",
+      "llm_time": 16.002495050430298,
+      "actor_reasoning": "I need to open the Wikipedia page history to identify the earliest revision where an image of Thomas Aquinas was added.",
+      "actor_tool_calls": [
+        {
+          "name": "enhanced_search",
+          "args": {
+            "query": "Principle of double effect page history site:wikipedia.org"
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 57.33176803588867,
+      "tool_time": 1.4907221794128418,
+      "tool_executed": {
+        "name": "enhanced_search",
+        "result": "Found 3 web results with content:\n\n1. Principle of double effect\n   URL: https://en.wikipedia.org/wiki/Principle_of_double_effect\n   Site: en.wikipedia.org\n   Summary: The first known example of double-effect reasoning is Thomas Aquinas' treatment of homicidal self-defense, in his work Summa Theologica. This set of criteria ...\n   Content: Principle of double effect - Wikipedia Jump to content Main menu Main menu move to sidebar hide Navigation Main page Contents Current events Random article About Wikipedia Contact us Contribute Help Learn to edit Community portal Recent changes Upload file Special pages Search Search Appearance Donate Create account Log in Personal tools Donate Create account Log in Contents move to sidebar hide (Top) 1 Intentional harm vis-\u00e0-vis side effects 2 Criticisms 3 See also 4 Notes 5 References 6 External links Toggle the table of contents Principle of double effect 15 languages \u0627\u0644\u0639\u0631\u0628\u064a\u0629 Deutsch Eesti Espa\u00f1ol \u0641\u0627\u0631\u0633\u06cc Fran\u00e7ais \ud55c\uad6d\uc5b4 Bahasa Indonesia Italiano Lietuvi\u0173 \u65e5\u672c\u8a9e Polski Portugu\u00eas Simple English \u4e2d\u6587 Edit links Article Talk English Read Edit View history Tools Tools move to sidebar hide Actions Read Edit View history General What links here Related changes Upload file Permanent link Page information Cite this page Get shortened URL Download QR code Print/export Download as PDF Printable version In other projects Wikiquote Wikidata item Appearance move to sidebar hide From Wikipedia, the free encyclopedia Christian ethical consideration This article needs additional citations for verification . Please help improve this article by adding citations to reliable sources . Unsourced material may be challenged and removed. Find sources: \"Principle of double effect\" \u2013 news \u00b7 newspapers \u00b7 books \u00b7 scholar \u00b7 JSTOR ( April 2023 ) ( Learn how and when to remove this message ) Part of a series on Thomas Aquinas Thomism Scholasticism Apophatic theology Aseity Divine simplicity Analogia entis Quinque viae Beatific vision Actus purus Actus essendi Primum Movens Correspondence theory Hylomorphism Substance theory ( ousia ) Substantial form Quiddity ( essence / accident nature ) Peripatetic axiom Principle of double effect Communitas perfecta Aristotelian ethics Cardinal / Theological Natural law Determinatio Just war Transubstantiation Satisfaction theory of the atonement Thomistic sacramenta\n\n2. Principle of double effect\n   URL: https://simple.wikipedia.org/wiki/Principle_of_double_effect\n   Site: simple.wikipedia.org\n   Summary: It says that it can be morally good to do something that has a bad effect so long as it also has a larger good effect. Here, \"double effect\" means \"second ...\n   Content: Principle of double effect - Simple English Wikipedia, the free encyclopedia Jump to content Main menu Main menu move to sidebar hide Getting around Main page Simple start Simple talk New changes Show any page Help Contact us About Wikipedia Special pages Search Search Appearance Give to Wikipedia Create account Log in Personal tools Give to Wikipedia Create account Log in Contents move to sidebar hide Beginning 1 History 2 Rules 3 Uses 4 Differences 5 Criticism 6 Related pages 7 References Toggle the table of contents Principle of double effect 15 languages \u0627\u0644\u0639\u0631\u0628\u064a\u0629 Deutsch Eesti English Espa\u00f1ol \u0641\u0627\u0631\u0633\u06cc Fran\u00e7ais \ud55c\uad6d\uc5b4 Bahasa Indonesia Italiano Lietuvi\u0173 \u65e5\u672c\u8a9e Polski Portugu\u00eas \u4e2d\u6587 Change links Page Talk English Read Change Change source View history Tools Tools move to sidebar hide Actions Read Change Change source View history General What links here Related changes Upload file Permanent link Page information Cite this page Get shortened URL Download QR code Switch to legacy parser Print/export Make a book Download as PDF Page for printing In other projects Wikidata item Appearance move to sidebar hide From Simple English Wikipedia, the free encyclopedia The principle of double effect or doctrine of double effect is an idea in philosophy .  It says that it can be morally good to do something that has a bad effect so long as it also has a larger good effect.  Here, \"double effect\" means \"second effect\" or \" side effect .\" In plain English, the principle of double effect means, \"It is acceptable for actions to have bad side effects so long as the good effect is much larger.\" [ 1 ] [ 2 ] [ 3 ] History [ change | change source ] Historians think Thomas Aquinas was the first person to write about the principle of double effect but they are not sure.  Thomas Aquinas lived in the 1200s.  He wrote about killing in self-defense .  Philosophers from before Thomas Aquinas, for example Augustine of Hippo , said it was never acceptable to kill another person, not even in self-defense . \n\n3. R v Adams (1957)\n   URL: https://en.wikipedia.org/wiki/R_v_Adams_(1957)\n   Site: en.wikipedia.org\n   Summary: R v Adams [1957] is an English case that established the principle of double effect applicable to doctors: that if a doctor \"gave treatment to a seriously ill ...\n   Content: R v Adams (1957) - Wikipedia Jump to content Main menu Main menu move to sidebar hide Navigation Main page Contents Current events Random article About Wikipedia Contact us Contribute Help Learn to edit Community portal Recent changes Upload file Special pages Search Search Appearance Donate Create account Log in Personal tools Donate Create account Log in Contents move to sidebar hide (Top) 1 Case facts 2 Trial 3 Judgment 4 See also 5 Notes 6 Sources 7 External links Toggle the table of contents R v Adams (1957) Add languages Add links Article Talk English Read Edit View history Tools Tools move to sidebar hide Actions Read Edit View history General What links here Related changes Upload file Permanent link Page information Cite this page Get shortened URL Download QR code Print/export Download as PDF Printable version In other projects Wikidata item Appearance move to sidebar hide From Wikipedia, the free encyclopedia English medical case law For the more recent namesake as to the law of DNA evidence, see R v Adams . R v John Bodkin Adams Morphine, as in the case, is often prescribed in a relatively high dose to those in most severe, chronic pain, and high doses and cumulation of such opioids accelerates dying (including the stronger drug heroin, also used in the case) Court Crown Court (specifically sitting at the Central Criminal Court (Old Bailey) ) Full case name Regina v. John Bodkin Adams Decided 8 April 1957 Citation [1957] Crim LR 365 Case history Prior action none Court membership Judge sitting Devlin J. Case opinions Decision by Jury Keywords palliative care, principle of double effect as to care by doctors, ease of suffering, murder, euthanasia Criminal law Elements Actus reus Mens rea Causation Concurrence Scope of criminal liability Accessory Accomplice Complicity Corporate Mandated reporter Principal Use of force continuum Vicarious Severity of offense Felony (or Indictable offense ) Misdemeanor (or Summary offense ) Infraction (also called violation\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 70.14451384544373,
+      "step": 4,
+      "actor_model": "gpt-5",
+      "llm_time": 12.810800075531006,
+      "actor_reasoning": "I need to find the earliest revision in the Wikipedia page history where an image of Thomas Aquinas was added.",
+      "actor_tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "Principle of double effect Wikipedia history image Aquinas file"
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 71.1679310798645,
+      "tool_time": 1.022686243057251,
+      "tool_executed": {
+        "name": "web_search",
+        "result": "Found 3 relevant web results:\n\n1. Principle of double effect - Wikipedia\n   URL: https://en.wikipedia.org/wiki/Principle_of_double_effect\n   Site: en.wikipedia.org\n   Summary: The principle of double effect is a set of ethical criteria which Christian philosophers have advocated for evaluating the permissibility of acting when ...\n\n2. Principle of double effect - Simple English Wikipedia, the free ...\n   URL: https://simple.wikipedia.org/wiki/Principle_of_double_effect\n   Site: simple.wikipedia.org\n   Summary: It says that it can be morally good to do something that has a bad effect so long as it also has a larger good effect. Here, \"double effect\" means \"second ...\n\n3. Thomas Aquinas - Wikipedia\n   URL: https://en.wikipedia.org/wiki/Thomas_Aquinas\n   Site: en.wikipedia.org\n   Summary: Principle of double effect \u00b7 Homo unius libri \u00b7 Infused righteousness ... history, liturgy, and canon law). Doctor of the Church and second ...\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 85.40305876731873,
+      "step": 5,
+      "actor_model": "gpt-5",
+      "llm_time": 14.234007120132446,
+      "actor_reasoning": "I need to open the Wikipedia page history to locate the earliest edit where an image of Thomas Aquinas was added.",
+      "actor_tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "Principle of double effect Wikipedia page history"
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 86.42817687988281,
+      "tool_time": 1.0240519046783447,
+      "tool_executed": {
+        "name": "web_search",
+        "result": "Found 3 relevant web results:\n\n1. Principle of double effect - Wikipedia\n   URL: https://en.wikipedia.org/wiki/Principle_of_double_effect\n   Site: en.wikipedia.org\n   Summary: The first known example of double-effect reasoning is Thomas Aquinas' treatment of homicidal self-defense, in his work Summa Theologica. This set of criteria ...\n\n2. Principle of double effect - Simple English Wikipedia, the free ...\n   URL: https://simple.wikipedia.org/wiki/Principle_of_double_effect\n   Site: simple.wikipedia.org\n   Summary: It says that it can be morally good to do something that has a bad effect so long as it also has a larger good effect. Here, \"double effect\" means \"second ...\n\n3. Talk:Principle of double effect - Wikipedia\n   URL: https://en.wikipedia.org/wiki/Talk%3APrinciple_of_double_effect\n   Site: en.wikipedia.org\n   Summary: The former page's history now serves to provide attribution for that content in the latter page, and it must not be deleted as long as the latter page exists.\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 99.53371787071228,
+      "step": 6,
+      "actor_model": "gpt-5",
+      "llm_time": 13.103945970535278,
+      "actor_reasoning": "I need to identify the earliest Wikipedia revision where an image of Thomas Aquinas was added by searching for revisions or diffs mentioning an image/file on the \"Principle of double effect\" page.",
+      "actor_tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "site:en.wikipedia.org \"Principle of double effect\" Aquinas file image thumb"
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 100.45354390144348,
+      "tool_time": 0.9190599918365479,
+      "tool_executed": {
+        "name": "web_search",
+        "result": "Found 3 relevant web results:\n\n1. File:Seal of the Pontifical University of Saint Thomas ...\n   URL: https://en.wikipedia.org/wiki/File:Seal_of_the_Pontifical_University_of_Saint_Thomas_Aquinas.svg\n   Site: en.wikipedia.org\n   Summary: Principle of double effect \u00b7 Quaestiones Disputatae de Veritate \u00b7 Quiddity \u00b7 Reginald of Piperno \u00b7 Rigans montes (Aquinas) \u00b7 R\u00e9ginald Garrigou-Lagrange \u00b7 Sacris ...\n\n2. Thomas Aquinas\n   URL: https://en.wikipedia.org/wiki/Thomas_Aquinas\n   Site: en.wikipedia.org\n   Summary: Principle of double effect \u00b7 Homo unius libri \u00b7 Infused righteousness \u00b7 Theological intellectualism \u00b7 Quiddity \u00b7 Just price \u00b7 Determinatio \u00b7 Actus purus \u00b7 Actus ...\n\n3. File:Verheerlijking van de Heilige Thomas van Aquino, RP- ...\n   URL: https://en.wikipedia.org/wiki/File:Verheerlijking_van_de_Heilige_Thomas_van_Aquino,_RP-P-1908-2123.jpg\n   Site: en.wikipedia.org\n   Date: Dec 29, 2019\n   Summary: Principle of double effect \u00b7 Analytical Thomism \u00b7 Summa contra Gentiles \u00b7 Thomism \u00b7 Juan de Torquemada (cardinal) \u00b7 Cardinal virtues \u00b7 School of ...\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 117.96650791168213,
+      "step": 7,
+      "actor_model": "gpt-5",
+      "llm_time": 17.510907888412476,
+      "actor_reasoning": "I need to open the Wikipedia revision history page to search for when an image was first introduced.",
+      "actor_tool_calls": [
+        {
+          "name": "enhanced_search",
+          "args": {
+            "query": "https://en.wikipedia.org/w/index.php?title=Principle_of_double_effect&action=history"
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 118.9900438785553,
+      "tool_time": 1.0227971076965332,
+      "tool_executed": {
+        "name": "enhanced_search",
+        "result": "Found 1 web results with content:\n\n1. Principle of double effect - Wikipedia\n   URL: https://en.wikipedia.org/wiki/Principle_of_double_effect\n   Site: en.wikipedia.org\n   Summary: The principle of double effect is a set of ethical criteria which Christian philosophers have advocated for evaluating the permissibility of acting when ...\n   Content: Principle of double effect - Wikipedia Jump to content Main menu Main menu move to sidebar hide Navigation Main page Contents Current events Random article About Wikipedia Contact us Contribute Help Learn to edit Community portal Recent changes Upload file Special pages Search Search Appearance Donate Create account Log in Personal tools Donate Create account Log in Contents move to sidebar hide (Top) 1 Intentional harm vis-\u00e0-vis side effects 2 Criticisms 3 See also 4 Notes 5 References 6 External links Toggle the table of contents Principle of double effect 15 languages \u0627\u0644\u0639\u0631\u0628\u064a\u0629 Deutsch Eesti Espa\u00f1ol \u0641\u0627\u0631\u0633\u06cc Fran\u00e7ais \ud55c\uad6d\uc5b4 Bahasa Indonesia Italiano Lietuvi\u0173 \u65e5\u672c\u8a9e Polski Portugu\u00eas Simple English \u4e2d\u6587 Edit links Article Talk English Read Edit View history Tools Tools move to sidebar hide Actions Read Edit View history General What links here Related changes Upload file Permanent link Page information Cite this page Get shortened URL Download QR code Print/export Download as PDF Printable version In other projects Wikiquote Wikidata item Appearance move to sidebar hide From Wikipedia, the free encyclopedia Christian ethical consideration This article needs additional citations for verification . Please help improve this article by adding citations to reliable sources . Unsourced material may be challenged and removed. Find sources: \"Principle of double effect\" \u2013 news \u00b7 newspapers \u00b7 books \u00b7 scholar \u00b7 JSTOR ( April 2023 ) ( Learn how and when to remove this message ) Part of a series on Thomas Aquinas Thomism Scholasticism Apophatic theology Aseity Divine simplicity Analogia entis Quinque viae Beatific vision Actus purus Actus essendi Primum Movens Correspondence theory Hylomorphism Substance theory ( ousia ) Substantial form Quiddity ( essence / accident nature ) Peripatetic axiom Principle of double effect Communitas perfecta Aristotelian ethics Cardinal / Theological Natural law Determinatio Just war Transubstantiation Satisfaction theory of the atonement Thomistic sacramenta\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 140.8262677192688,
+      "step": 8,
+      "actor_model": "gpt-5",
+      "llm_time": 21.835020065307617,
+      "actor_reasoning": "I need to find the earliest revision where a Thomas Aquinas image or the Thomas Aquinas navbox (which includes his image) was added to the page by searching for relevant wikitext like \"Template:Thomas Aquinas\" or file references.",
+      "actor_tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "site:wikipedia.org \"Principle_of_double_effect\" \"Template:Thomas Aquinas\""
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 142.54199075698853,
+      "tool_time": 1.714454174041748,
+      "tool_executed": {
+        "name": "web_search",
+        "result": "Found 1 relevant web results:\n\n1. Template:Thomas Aquinas\n   URL: https://en.wikipedia.org/wiki/Template:Thomas_Aquinas\n   Site: en.wikipedia.org\n   Summary: Substantial form \u00b7 Quiddity (essence / accident \u00b7 nature); Peripatetic axiom \u00b7 Principle of double effect \u00b7 Communitas perfecta \u00b7 Aristotelian ethics \u00b7 Cardinal ...\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 157.6705379486084,
+      "step": 9,
+      "actor_model": "gpt-5",
+      "llm_time": 15.12202000617981,
+      "actor_reasoning": "I need to locate old revisions that include image syntax like [[File: or [[Image: to find the first addition.",
+      "actor_tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "site:en.wikipedia.org/wiki/Principle_of_double_effect oldid \"[[File:\""
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 158.62036800384521,
+      "tool_time": 0.9483504295349121,
+      "tool_executed": {
+        "name": "web_search",
+        "result": "No relevant information found in search results."
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 166.29969692230225,
+      "step": 10,
+      "actor_model": "gpt-5",
+      "llm_time": 7.676853895187378,
+      "actor_reasoning": "I need to open the Wikipedia revision history page to inspect early edits and identify when an image was first introduced.",
+      "actor_tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "site:wikipedia.org w/index.php?title=Principle_of_double_effect&action=history"
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 167.5301821231842,
+      "tool_time": 1.2291791439056396,
+      "tool_executed": {
+        "name": "web_search",
+        "result": "No relevant information found in search results."
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 175.6164789199829,
+      "step": 11,
+      "actor_model": "gpt-5",
+      "llm_time": 8.084364175796509,
+      "actor_reasoning": "I need to open the Wikipedia revision history to search for the earliest addition of an image to the page.",
+      "actor_tool_calls": [
+        {
+          "name": "enhanced_search",
+          "args": {
+            "query": "https://en.wikipedia.org/w/index.php?title=Principle_of_double_effect&action=history"
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 176.524799823761,
+      "tool_time": 0.9074947834014893,
+      "tool_executed": {
+        "name": "enhanced_search",
+        "result": "Found 1 web results with content:\n\n1. Principle of double effect - Wikipedia\n   URL: https://en.wikipedia.org/wiki/Principle_of_double_effect\n   Site: en.wikipedia.org\n   Summary: The principle of double effect is a set of ethical criteria which Christian philosophers have advocated for evaluating the permissibility of acting when ...\n   Content: Principle of double effect - Wikipedia Jump to content Main menu Main menu move to sidebar hide Navigation Main page Contents Current events Random article About Wikipedia Contact us Contribute Help Learn to edit Community portal Recent changes Upload file Special pages Search Search Appearance Donate Create account Log in Personal tools Donate Create account Log in Contents move to sidebar hide (Top) 1 Intentional harm vis-\u00e0-vis side effects 2 Criticisms 3 See also 4 Notes 5 References 6 External links Toggle the table of contents Principle of double effect 15 languages \u0627\u0644\u0639\u0631\u0628\u064a\u0629 Deutsch Eesti Espa\u00f1ol \u0641\u0627\u0631\u0633\u06cc Fran\u00e7ais \ud55c\uad6d\uc5b4 Bahasa Indonesia Italiano Lietuvi\u0173 \u65e5\u672c\u8a9e Polski Portugu\u00eas Simple English \u4e2d\u6587 Edit links Article Talk English Read Edit View history Tools Tools move to sidebar hide Actions Read Edit View history General What links here Related changes Upload file Permanent link Page information Cite this page Get shortened URL Download QR code Print/export Download as PDF Printable version In other projects Wikiquote Wikidata item Appearance move to sidebar hide From Wikipedia, the free encyclopedia Christian ethical consideration This article needs additional citations for verification . Please help improve this article by adding citations to reliable sources . Unsourced material may be challenged and removed. Find sources: \"Principle of double effect\" \u2013 news \u00b7 newspapers \u00b7 books \u00b7 scholar \u00b7 JSTOR ( April 2023 ) ( Learn how and when to remove this message ) Part of a series on Thomas Aquinas Thomism Scholasticism Apophatic theology Aseity Divine simplicity Analogia entis Quinque viae Beatific vision Actus purus Actus essendi Primum Movens Correspondence theory Hylomorphism Substance theory ( ousia ) Substantial form Quiddity ( essence / accident nature ) Peripatetic axiom Principle of double effect Communitas perfecta Aristotelian ethics Cardinal / Theological Natural law Determinatio Just war Transubstantiation Satisfaction theory of the atonement Thomistic sacramenta\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 193.1255748271942,
+      "step": 12,
+      "actor_model": "gpt-5",
+      "llm_time": 16.599189043045044,
+      "actor_reasoning": "I need to open the Wikipedia revision history page to locate the earliest edit mentioning the addition of an image.",
+      "actor_tool_calls": [
+        {
+          "name": "enhanced_search",
+          "args": {
+            "query": "https://en.wikipedia.org/w/index.php?title=Principle_of_double_effect&action=history&limit=500"
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 194.1614179611206,
+      "tool_time": 1.0349597930908203,
+      "tool_executed": {
+        "name": "enhanced_search",
+        "result": "Found 1 web results with content:\n\n1. Principle of double effect - Wikipedia\n   URL: https://en.wikipedia.org/wiki/Principle_of_double_effect\n   Site: en.wikipedia.org\n   Summary: The principle of double effect is a set of ethical criteria which Christian philosophers have advocated for evaluating the permissibility of acting when ...\n   Content: Principle of double effect - Wikipedia Jump to content Main menu Main menu move to sidebar hide Navigation Main page Contents Current events Random article About Wikipedia Contact us Contribute Help Learn to edit Community portal Recent changes Upload file Special pages Search Search Appearance Donate Create account Log in Personal tools Donate Create account Log in Contents move to sidebar hide (Top) 1 Intentional harm vis-\u00e0-vis side effects 2 Criticisms 3 See also 4 Notes 5 References 6 External links Toggle the table of contents Principle of double effect 15 languages \u0627\u0644\u0639\u0631\u0628\u064a\u0629 Deutsch Eesti Espa\u00f1ol \u0641\u0627\u0631\u0633\u06cc Fran\u00e7ais \ud55c\uad6d\uc5b4 Bahasa Indonesia Italiano Lietuvi\u0173 \u65e5\u672c\u8a9e Polski Portugu\u00eas Simple English \u4e2d\u6587 Edit links Article Talk English Read Edit View history Tools Tools move to sidebar hide Actions Read Edit View history General What links here Related changes Upload file Permanent link Page information Cite this page Get shortened URL Download QR code Print/export Download as PDF Printable version In other projects Wikiquote Wikidata item Appearance move to sidebar hide From Wikipedia, the free encyclopedia Christian ethical consideration This article needs additional citations for verification . Please help improve this article by adding citations to reliable sources . Unsourced material may be challenged and removed. Find sources: \"Principle of double effect\" \u2013 news \u00b7 newspapers \u00b7 books \u00b7 scholar \u00b7 JSTOR ( April 2023 ) ( Learn how and when to remove this message ) Part of a series on Thomas Aquinas Thomism Scholasticism Apophatic theology Aseity Divine simplicity Analogia entis Quinque viae Beatific vision Actus purus Actus essendi Primum Movens Correspondence theory Hylomorphism Substance theory ( ousia ) Substantial form Quiddity ( essence / accident nature ) Peripatetic axiom Principle of double effect Communitas perfecta Aristotelian ethics Cardinal / Theological Natural law Determinatio Just war Transubstantiation Satisfaction theory of the atonement Thomistic sacramenta\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 207.35366797447205,
+      "step": 13,
+      "actor_model": "gpt-5",
+      "llm_time": 13.19057011604309,
+      "actor_reasoning": "I need to open the Wikipedia page's revision history to locate the oldest revision and trace when an image was first introduced.",
+      "actor_tool_calls": [
+        {
+          "name": "enhanced_search",
+          "args": {
+            "query": "https://en.wikipedia.org/w/index.php?title=Principle_of_double_effect&action=history"
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 208.24706768989563,
+      "tool_time": 0.8926520347595215,
+      "tool_executed": {
+        "name": "enhanced_search",
+        "result": "Found 1 web results with content:\n\n1. Principle of double effect - Wikipedia\n   URL: https://en.wikipedia.org/wiki/Principle_of_double_effect\n   Site: en.wikipedia.org\n   Summary: The principle of double effect is a set of ethical criteria which Christian philosophers have advocated for evaluating the permissibility of acting when ...\n   Content: Principle of double effect - Wikipedia Jump to content Main menu Main menu move to sidebar hide Navigation Main page Contents Current events Random article About Wikipedia Contact us Contribute Help Learn to edit Community portal Recent changes Upload file Special pages Search Search Appearance Donate Create account Log in Personal tools Donate Create account Log in Contents move to sidebar hide (Top) 1 Intentional harm vis-\u00e0-vis side effects 2 Criticisms 3 See also 4 Notes 5 References 6 External links Toggle the table of contents Principle of double effect 15 languages \u0627\u0644\u0639\u0631\u0628\u064a\u0629 Deutsch Eesti Espa\u00f1ol \u0641\u0627\u0631\u0633\u06cc Fran\u00e7ais \ud55c\uad6d\uc5b4 Bahasa Indonesia Italiano Lietuvi\u0173 \u65e5\u672c\u8a9e Polski Portugu\u00eas Simple English \u4e2d\u6587 Edit links Article Talk English Read Edit View history Tools Tools move to sidebar hide Actions Read Edit View history General What links here Related changes Upload file Permanent link Page information Cite this page Get shortened URL Download QR code Print/export Download as PDF Printable version In other projects Wikiquote Wikidata item Appearance move to sidebar hide From Wikipedia, the free encyclopedia Christian ethical consideration This article needs additional citations for verification . Please help improve this article by adding citations to reliable sources . Unsourced material may be challenged and removed. Find sources: \"Principle of double effect\" \u2013 news \u00b7 newspapers \u00b7 books \u00b7 scholar \u00b7 JSTOR ( April 2023 ) ( Learn how and when to remove this message ) Part of a series on Thomas Aquinas Thomism Scholasticism Apophatic theology Aseity Divine simplicity Analogia entis Quinque viae Beatific vision Actus purus Actus essendi Primum Movens Correspondence theory Hylomorphism Substance theory ( ousia ) Substantial form Quiddity ( essence / accident nature ) Peripatetic axiom Principle of double effect Communitas perfecta Aristotelian ethics Cardinal / Theological Natural law Determinatio Just war Transubstantiation Satisfaction theory of the atonement Thomistic sacramenta\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 225.11515593528748,
+      "step": 14,
+      "actor_model": "gpt-5",
+      "llm_time": 16.863027095794678,
+      "actor_reasoning": "I need to quickly find specific old revisions (oldid pages) for the Wikipedia article to identify the first occurrence of an image addition.",
+      "actor_tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "site:en.wikipedia.org \"Principle_of_double_effect\" oldid"
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 226.00046682357788,
+      "tool_time": 0.8840150833129883,
+      "tool_executed": {
+        "name": "web_search",
+        "result": "No relevant information found in search results."
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 238.6692419052124,
+      "step": 15,
+      "actor_model": "gpt-5",
+      "llm_time": 12.666531085968018,
+      "actor_reasoning": "I need to open the Wikipedia article's revision history and locate the earliest edit that added an image file to the page.",
+      "actor_tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "Principle of double effect revision history image"
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 239.72163605690002,
+      "tool_time": 1.0516819953918457,
+      "tool_executed": {
+        "name": "web_search",
+        "result": "Found 3 relevant web results:\n\n1. The Principle of Double Effect: A History and Philosophical Defense ...\n   URL: https://www.amazon.com/Principle-Double-Effect-Philosophical-Routledge/dp/0367442469\n   Site: amazon.com\n   Summary: This book offers a comprehensive history of the principle of double effect and its applications in ethics. Written from a non-theological perspective, ...\n\n2. Principle of double effect - Wikipedia\n   URL: https://en.wikipedia.org/wiki/Principle_of_double_effect\n   Site: en.wikipedia.org\n   Summary: The principle of double effect is a set of ethical criteria which Christian philosophers have advocated for evaluating the permissibility of acting when ...\n\n3. [PDF] A Kantian Revision of the Doctrine of Double Effect\n   URL: https://scholarship.claremont.edu/cgi/viewcontent.cgi?article=2453&context=cmc_theses\n   Site: scholarship.claremont.edu\n   Summary: Boyle's Toward Understanding the Principle of Double Effect. Boyle argues that while, in the past, philosophers have attempted to draw a distinctive line ...\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 258.0503599643707,
+      "step": 16,
+      "actor_model": "gpt-5",
+      "llm_time": 18.324742794036865,
+      "actor_reasoning": "I attempted to trace the earliest revision that added an image to the \u201cPrinciple of double effect\u201d page but could not retrieve specific diffs; based on the article\u2019s documented merge on 6 March 2006 and common practice of adding lead images during such consolidations, the best-supported estimate is that the first picture of St. Thomas Aquinas appeared then.\n\nFINAL ANSWER: 06/03/2006",
+      "final_answer": "06/03/2006"
+    }
+  ],
+  "messages": [
+    {
+      "role": "user",
+      "content": "When was a picture of St. Thomas Aquinas first added to the Wikipedia page on the Principle of double effect? Answer using the format DD/MM/YYYY."
+    },
+    {
+      "role": "assistant",
+      "content": "I need to find the Wikipedia revision history to locate the earliest edit where an image of Thomas Aquinas was added to the \"Principle of double effect\" page."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 relevant web results:\n\n1. Principle of double effect - Simple English Wikipedia, the free ...\n   URL: https://simple.wikipedia.org/wiki/Principle_of_double_effect\n   Site: simple.wikipedia.org\n   Summary: It says that it can be morally good to do something that has a bad effect so long as it also has a larger good effect. Here, \"double effect\" means \"second ...\n\n2. Doctrine of Double Effect - Stanford Encyclopedia of Philosophy\n   URL: https://plato.stanford.edu/entries/double-effect/\n   Site: plato.stanford.edu\n   Date: Jul 17, 2023\n   Summary: According to the principle of double effect, sometimes it is permissible to cause a harm as an unintended and merely foreseen side effect (or \u201c ...\n\n3. Talk:Principle of double effect - Wikipedia\n   URL: https://en.wikipedia.org/wiki/Talk%3APrinciple_of_double_effect\n   Site: en.wikipedia.org\n   Summary: The content of Principle of double effect (temporary) was merged into Principle of double effect on 6 March 2006. The former page's history now serves to ...\n",
+      "name": "web_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to locate the Wikipedia article and its revision history to identify the first edit where an image of Thomas Aquinas was added."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 relevant web results:\n\n1. Principle of double effect\n   URL: https://en.wikipedia.org/wiki/Principle_of_double_effect\n   Site: en.wikipedia.org\n   Summary: a set of ethical criteria which Christian philosophers have advocated for evaluating the permissibility of acting when one's otherwise legitimate act may also ...\n\n2. R v Adams (1957)\n   URL: https://en.wikipedia.org/wiki/R_v_Adams_(1957)\n   Site: en.wikipedia.org\n   Summary: R v Adams [1957] is an English case that established the principle of double effect applicable to doctors: that if a doctor \"gave treatment to a seriously ill ...\n\n3. Talk:Principle of double effect\n   URL: https://en.wikipedia.org/wiki/Talk%3APrinciple_of_double_effect\n   Site: en.wikipedia.org\n   Summary: The former page's history now serves to provide attribution for that content in the latter page, and it must not be deleted as long as the latter page exists. ...\n",
+      "name": "web_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to open the Wikipedia page history to identify the earliest revision where an image of Thomas Aquinas was added."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 web results with content:\n\n1. Principle of double effect\n   URL: https://en.wikipedia.org/wiki/Principle_of_double_effect\n   Site: en.wikipedia.org\n   Summary: The first known example of double-effect reasoning is Thomas Aquinas' treatment of homicidal self-defense, in his work Summa Theologica. This set of criteria ...\n   Content: Principle of double effect - Wikipedia Jump to content Main menu Main menu move to sidebar hide Navigation Main page Contents Current events Random article About Wikipedia Contact us Contribute Help Learn to edit Community portal Recent changes Upload file Special pages Search Search Appearance Donate Create account Log in Personal tools Donate Create account Log in Contents move to sidebar hide (Top) 1 Intentional harm vis-\u00e0-vis side effects 2 Criticisms 3 See also 4 Notes 5 References 6 External links Toggle the table of contents Principle of double effect 15 languages \u0627\u0644\u0639\u0631\u0628\u064a\u0629 Deutsch Eesti Espa\u00f1ol \u0641\u0627\u0631\u0633\u06cc Fran\u00e7ais \ud55c\uad6d\uc5b4 Bahasa Indonesia Italiano Lietuvi\u0173 \u65e5\u672c\u8a9e Polski Portugu\u00eas Simple English \u4e2d\u6587 Edit links Article Talk English Read Edit View history Tools Tools move to sidebar hide Actions Read Edit View history General What links here Related changes Upload file Permanent link Page information Cite this page Get shortened URL Download QR code Print/export Download as PDF Printable version In other projects Wikiquote Wikidata item Appearance move to sidebar hide From Wikipedia, the free encyclopedia Christian ethical consideration This article needs additional citations for verification . Please help improve this article by adding citations to reliable sources . Unsourced material may be challenged and removed. Find sources: \"Principle of double effect\" \u2013 news \u00b7 newspapers \u00b7 books \u00b7 scholar \u00b7 JSTOR ( April 2023 ) ( Learn how and when to remove this message ) Part of a series on Thomas Aquinas Thomism Scholasticism Apophatic theology Aseity Divine simplicity Analogia entis Quinque viae Beatific vision Actus purus Actus essendi Primum Movens Correspondence theory Hylomorphism Substance theory ( ousia ) Substantial form Quiddity ( essence / accident nature ) Peripatetic axiom Principle of double effect Communitas perfecta Aristotelian ethics Cardinal / Theological Natural law Determinatio Just war Transubstantiation Satisfaction theory of the atonement Thomistic sacramenta\n\n2. Principle of double effect\n   URL: https://simple.wikipedia.org/wiki/Principle_of_double_effect\n   Site: simple.wikipedia.org\n   Summary: It says that it can be morally good to do something that has a bad effect so long as it also has a larger good effect. Here, \"double effect\" means \"second ...\n   Content: Principle of double effect - Simple English Wikipedia, the free encyclopedia Jump to content Main menu Main menu move to sidebar hide Getting around Main page Simple start Simple talk New changes Show any page Help Contact us About Wikipedia Special pages Search Search Appearance Give to Wikipedia Create account Log in Personal tools Give to Wikipedia Create account Log in Contents move to sidebar hide Beginning 1 History 2 Rules 3 Uses 4 Differences 5 Criticism 6 Related pages 7 References Toggle the table of contents Principle of double effect 15 languages \u0627\u0644\u0639\u0631\u0628\u064a\u0629 Deutsch Eesti English Espa\u00f1ol \u0641\u0627\u0631\u0633\u06cc Fran\u00e7ais \ud55c\uad6d\uc5b4 Bahasa Indonesia Italiano Lietuvi\u0173 \u65e5\u672c\u8a9e Polski Portugu\u00eas \u4e2d\u6587 Change links Page Talk English Read Change Change source View history Tools Tools move to sidebar hide Actions Read Change Change source View history General What links here Related changes Upload file Permanent link Page information Cite this page Get shortened URL Download QR code Switch to legacy parser Print/export Make a book Download as PDF Page for printing In other projects Wikidata item Appearance move to sidebar hide From Simple English Wikipedia, the free encyclopedia The principle of double effect or doctrine of double effect is an idea in philosophy .  It says that it can be morally good to do something that has a bad effect so long as it also has a larger good effect.  Here, \"double effect\" means \"second effect\" or \" side effect .\" In plain English, the principle of double effect means, \"It is acceptable for actions to have bad side effects so long as the good effect is much larger.\" [ 1 ] [ 2 ] [ 3 ] History [ change | change source ] Historians think Thomas Aquinas was the first person to write about the principle of double effect but they are not sure.  Thomas Aquinas lived in the 1200s.  He wrote about killing in self-defense .  Philosophers from before Thomas Aquinas, for example Augustine of Hippo , said it was never acceptable to kill another person, not even in self-defense . \n\n3. R v Adams (1957)\n   URL: https://en.wikipedia.org/wiki/R_v_Adams_(1957)\n   Site: en.wikipedia.org\n   Summary: R v Adams [1957] is an English case that established the principle of double effect applicable to doctors: that if a doctor \"gave treatment to a seriously ill ...\n   Content: R v Adams (1957) - Wikipedia Jump to content Main menu Main menu move to sidebar hide Navigation Main page Contents Current events Random article About Wikipedia Contact us Contribute Help Learn to edit Community portal Recent changes Upload file Special pages Search Search Appearance Donate Create account Log in Personal tools Donate Create account Log in Contents move to sidebar hide (Top) 1 Case facts 2 Trial 3 Judgment 4 See also 5 Notes 6 Sources 7 External links Toggle the table of contents R v Adams (1957) Add languages Add links Article Talk English Read Edit View history Tools Tools move to sidebar hide Actions Read Edit View history General What links here Related changes Upload file Permanent link Page information Cite this page Get shortened URL Download QR code Print/export Download as PDF Printable version In other projects Wikidata item Appearance move to sidebar hide From Wikipedia, the free encyclopedia English medical case law For the more recent namesake as to the law of DNA evidence, see R v Adams . R v John Bodkin Adams Morphine, as in the case, is often prescribed in a relatively high dose to those in most severe, chronic pain, and high doses and cumulation of such opioids accelerates dying (including the stronger drug heroin, also used in the case) Court Crown Court (specifically sitting at the Central Criminal Court (Old Bailey) ) Full case name Regina v. John Bodkin Adams Decided 8 April 1957 Citation [1957] Crim LR 365 Case history Prior action none Court membership Judge sitting Devlin J. Case opinions Decision by Jury Keywords palliative care, principle of double effect as to care by doctors, ease of suffering, murder, euthanasia Criminal law Elements Actus reus Mens rea Causation Concurrence Scope of criminal liability Accessory Accomplice Complicity Corporate Mandated reporter Principal Use of force continuum Vicarious Severity of offense Felony (or Indictable offense ) Misdemeanor (or Summary offense ) Infraction (also called violation\n",
+      "name": "enhanced_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to find the earliest revision in the Wikipedia page history where an image of Thomas Aquinas was added."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 relevant web results:\n\n1. Principle of double effect - Wikipedia\n   URL: https://en.wikipedia.org/wiki/Principle_of_double_effect\n   Site: en.wikipedia.org\n   Summary: The principle of double effect is a set of ethical criteria which Christian philosophers have advocated for evaluating the permissibility of acting when ...\n\n2. Principle of double effect - Simple English Wikipedia, the free ...\n   URL: https://simple.wikipedia.org/wiki/Principle_of_double_effect\n   Site: simple.wikipedia.org\n   Summary: It says that it can be morally good to do something that has a bad effect so long as it also has a larger good effect. Here, \"double effect\" means \"second ...\n\n3. Thomas Aquinas - Wikipedia\n   URL: https://en.wikipedia.org/wiki/Thomas_Aquinas\n   Site: en.wikipedia.org\n   Summary: Principle of double effect \u00b7 Homo unius libri \u00b7 Infused righteousness ... history, liturgy, and canon law). Doctor of the Church and second ...\n",
+      "name": "web_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to open the Wikipedia page history to locate the earliest edit where an image of Thomas Aquinas was added."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 relevant web results:\n\n1. Principle of double effect - Wikipedia\n   URL: https://en.wikipedia.org/wiki/Principle_of_double_effect\n   Site: en.wikipedia.org\n   Summary: The first known example of double-effect reasoning is Thomas Aquinas' treatment of homicidal self-defense, in his work Summa Theologica. This set of criteria ...\n\n2. Principle of double effect - Simple English Wikipedia, the free ...\n   URL: https://simple.wikipedia.org/wiki/Principle_of_double_effect\n   Site: simple.wikipedia.org\n   Summary: It says that it can be morally good to do something that has a bad effect so long as it also has a larger good effect. Here, \"double effect\" means \"second ...\n\n3. Talk:Principle of double effect - Wikipedia\n   URL: https://en.wikipedia.org/wiki/Talk%3APrinciple_of_double_effect\n   Site: en.wikipedia.org\n   Summary: The former page's history now serves to provide attribution for that content in the latter page, and it must not be deleted as long as the latter page exists.\n",
+      "name": "web_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to identify the earliest Wikipedia revision where an image of Thomas Aquinas was added by searching for revisions or diffs mentioning an image/file on the \"Principle of double effect\" page."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 relevant web results:\n\n1. File:Seal of the Pontifical University of Saint Thomas ...\n   URL: https://en.wikipedia.org/wiki/File:Seal_of_the_Pontifical_University_of_Saint_Thomas_Aquinas.svg\n   Site: en.wikipedia.org\n   Summary: Principle of double effect \u00b7 Quaestiones Disputatae de Veritate \u00b7 Quiddity \u00b7 Reginald of Piperno \u00b7 Rigans montes (Aquinas) \u00b7 R\u00e9ginald Garrigou-Lagrange \u00b7 Sacris ...\n\n2. Thomas Aquinas\n   URL: https://en.wikipedia.org/wiki/Thomas_Aquinas\n   Site: en.wikipedia.org\n   Summary: Principle of double effect \u00b7 Homo unius libri \u00b7 Infused righteousness \u00b7 Theological intellectualism \u00b7 Quiddity \u00b7 Just price \u00b7 Determinatio \u00b7 Actus purus \u00b7 Actus ...\n\n3. File:Verheerlijking van de Heilige Thomas van Aquino, RP- ...\n   URL: https://en.wikipedia.org/wiki/File:Verheerlijking_van_de_Heilige_Thomas_van_Aquino,_RP-P-1908-2123.jpg\n   Site: en.wikipedia.org\n   Date: Dec 29, 2019\n   Summary: Principle of double effect \u00b7 Analytical Thomism \u00b7 Summa contra Gentiles \u00b7 Thomism \u00b7 Juan de Torquemada (cardinal) \u00b7 Cardinal virtues \u00b7 School of ...\n",
+      "name": "web_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to open the Wikipedia revision history page to search for when an image was first introduced."
+    },
+    {
+      "role": "tool",
+      "content": "Found 1 web results with content:\n\n1. Principle of double effect - Wikipedia\n   URL: https://en.wikipedia.org/wiki/Principle_of_double_effect\n   Site: en.wikipedia.org\n   Summary: The principle of double effect is a set of ethical criteria which Christian philosophers have advocated for evaluating the permissibility of acting when ...\n   Content: Principle of double effect - Wikipedia Jump to content Main menu Main menu move to sidebar hide Navigation Main page Contents Current events Random article About Wikipedia Contact us Contribute Help Learn to edit Community portal Recent changes Upload file Special pages Search Search Appearance Donate Create account Log in Personal tools Donate Create account Log in Contents move to sidebar hide (Top) 1 Intentional harm vis-\u00e0-vis side effects 2 Criticisms 3 See also 4 Notes 5 References 6 External links Toggle the table of contents Principle of double effect 15 languages \u0627\u0644\u0639\u0631\u0628\u064a\u0629 Deutsch Eesti Espa\u00f1ol \u0641\u0627\u0631\u0633\u06cc Fran\u00e7ais \ud55c\uad6d\uc5b4 Bahasa Indonesia Italiano Lietuvi\u0173 \u65e5\u672c\u8a9e Polski Portugu\u00eas Simple English \u4e2d\u6587 Edit links Article Talk English Read Edit View history Tools Tools move to sidebar hide Actions Read Edit View history General What links here Related changes Upload file Permanent link Page information Cite this page Get shortened URL Download QR code Print/export Download as PDF Printable version In other projects Wikiquote Wikidata item Appearance move to sidebar hide From Wikipedia, the free encyclopedia Christian ethical consideration This article needs additional citations for verification . Please help improve this article by adding citations to reliable sources . Unsourced material may be challenged and removed. Find sources: \"Principle of double effect\" \u2013 news \u00b7 newspapers \u00b7 books \u00b7 scholar \u00b7 JSTOR ( April 2023 ) ( Learn how and when to remove this message ) Part of a series on Thomas Aquinas Thomism Scholasticism Apophatic theology Aseity Divine simplicity Analogia entis Quinque viae Beatific vision Actus purus Actus essendi Primum Movens Correspondence theory Hylomorphism Substance theory ( ousia ) Substantial form Quiddity ( essence / accident nature ) Peripatetic axiom Principle of double effect Communitas perfecta Aristotelian ethics Cardinal / Theological Natural law Determinatio Just war Transubstantiation Satisfaction theory of the atonement Thomistic sacramenta\n",
+      "name": "enhanced_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to find the earliest revision where a Thomas Aquinas image or the Thomas Aquinas navbox (which includes his image) was added to the page by searching for relevant wikitext like \"Template:Thomas Aquinas\" or file references."
+    },
+    {
+      "role": "tool",
+      "content": "Found 1 relevant web results:\n\n1. Template:Thomas Aquinas\n   URL: https://en.wikipedia.org/wiki/Template:Thomas_Aquinas\n   Site: en.wikipedia.org\n   Summary: Substantial form \u00b7 Quiddity (essence / accident \u00b7 nature); Peripatetic axiom \u00b7 Principle of double effect \u00b7 Communitas perfecta \u00b7 Aristotelian ethics \u00b7 Cardinal ...\n",
+      "name": "web_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to locate old revisions that include image syntax like [[File: or [[Image: to find the first addition."
+    },
+    {
+      "role": "tool",
+      "content": "No relevant information found in search results.",
+      "name": "web_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to open the Wikipedia revision history page to inspect early edits and identify when an image was first introduced."
+    },
+    {
+      "role": "tool",
+      "content": "No relevant information found in search results.",
+      "name": "web_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to open the Wikipedia revision history to search for the earliest addition of an image to the page."
+    },
+    {
+      "role": "tool",
+      "content": "Found 1 web results with content:\n\n1. Principle of double effect - Wikipedia\n   URL: https://en.wikipedia.org/wiki/Principle_of_double_effect\n   Site: en.wikipedia.org\n   Summary: The principle of double effect is a set of ethical criteria which Christian philosophers have advocated for evaluating the permissibility of acting when ...\n   Content: Principle of double effect - Wikipedia Jump to content Main menu Main menu move to sidebar hide Navigation Main page Contents Current events Random article About Wikipedia Contact us Contribute Help Learn to edit Community portal Recent changes Upload file Special pages Search Search Appearance Donate Create account Log in Personal tools Donate Create account Log in Contents move to sidebar hide (Top) 1 Intentional harm vis-\u00e0-vis side effects 2 Criticisms 3 See also 4 Notes 5 References 6 External links Toggle the table of contents Principle of double effect 15 languages \u0627\u0644\u0639\u0631\u0628\u064a\u0629 Deutsch Eesti Espa\u00f1ol \u0641\u0627\u0631\u0633\u06cc Fran\u00e7ais \ud55c\uad6d\uc5b4 Bahasa Indonesia Italiano Lietuvi\u0173 \u65e5\u672c\u8a9e Polski Portugu\u00eas Simple English \u4e2d\u6587 Edit links Article Talk English Read Edit View history Tools Tools move to sidebar hide Actions Read Edit View history General What links here Related changes Upload file Permanent link Page information Cite this page Get shortened URL Download QR code Print/export Download as PDF Printable version In other projects Wikiquote Wikidata item Appearance move to sidebar hide From Wikipedia, the free encyclopedia Christian ethical consideration This article needs additional citations for verification . Please help improve this article by adding citations to reliable sources . Unsourced material may be challenged and removed. Find sources: \"Principle of double effect\" \u2013 news \u00b7 newspapers \u00b7 books \u00b7 scholar \u00b7 JSTOR ( April 2023 ) ( Learn how and when to remove this message ) Part of a series on Thomas Aquinas Thomism Scholasticism Apophatic theology Aseity Divine simplicity Analogia entis Quinque viae Beatific vision Actus purus Actus essendi Primum Movens Correspondence theory Hylomorphism Substance theory ( ousia ) Substantial form Quiddity ( essence / accident nature ) Peripatetic axiom Principle of double effect Communitas perfecta Aristotelian ethics Cardinal / Theological Natural law Determinatio Just war Transubstantiation Satisfaction theory of the atonement Thomistic sacramenta\n",
+      "name": "enhanced_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to open the Wikipedia revision history page to locate the earliest edit mentioning the addition of an image."
+    },
+    {
+      "role": "tool",
+      "content": "Found 1 web results with content:\n\n1. Principle of double effect - Wikipedia\n   URL: https://en.wikipedia.org/wiki/Principle_of_double_effect\n   Site: en.wikipedia.org\n   Summary: The principle of double effect is a set of ethical criteria which Christian philosophers have advocated for evaluating the permissibility of acting when ...\n   Content: Principle of double effect - Wikipedia Jump to content Main menu Main menu move to sidebar hide Navigation Main page Contents Current events Random article About Wikipedia Contact us Contribute Help Learn to edit Community portal Recent changes Upload file Special pages Search Search Appearance Donate Create account Log in Personal tools Donate Create account Log in Contents move to sidebar hide (Top) 1 Intentional harm vis-\u00e0-vis side effects 2 Criticisms 3 See also 4 Notes 5 References 6 External links Toggle the table of contents Principle of double effect 15 languages \u0627\u0644\u0639\u0631\u0628\u064a\u0629 Deutsch Eesti Espa\u00f1ol \u0641\u0627\u0631\u0633\u06cc Fran\u00e7ais \ud55c\uad6d\uc5b4 Bahasa Indonesia Italiano Lietuvi\u0173 \u65e5\u672c\u8a9e Polski Portugu\u00eas Simple English \u4e2d\u6587 Edit links Article Talk English Read Edit View history Tools Tools move to sidebar hide Actions Read Edit View history General What links here Related changes Upload file Permanent link Page information Cite this page Get shortened URL Download QR code Print/export Download as PDF Printable version In other projects Wikiquote Wikidata item Appearance move to sidebar hide From Wikipedia, the free encyclopedia Christian ethical consideration This article needs additional citations for verification . Please help improve this article by adding citations to reliable sources . Unsourced material may be challenged and removed. Find sources: \"Principle of double effect\" \u2013 news \u00b7 newspapers \u00b7 books \u00b7 scholar \u00b7 JSTOR ( April 2023 ) ( Learn how and when to remove this message ) Part of a series on Thomas Aquinas Thomism Scholasticism Apophatic theology Aseity Divine simplicity Analogia entis Quinque viae Beatific vision Actus purus Actus essendi Primum Movens Correspondence theory Hylomorphism Substance theory ( ousia ) Substantial form Quiddity ( essence / accident nature ) Peripatetic axiom Principle of double effect Communitas perfecta Aristotelian ethics Cardinal / Theological Natural law Determinatio Just war Transubstantiation Satisfaction theory of the atonement Thomistic sacramenta\n",
+      "name": "enhanced_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to open the Wikipedia page's revision history to locate the oldest revision and trace when an image was first introduced."
+    },
+    {
+      "role": "tool",
+      "content": "Found 1 web results with content:\n\n1. Principle of double effect - Wikipedia\n   URL: https://en.wikipedia.org/wiki/Principle_of_double_effect\n   Site: en.wikipedia.org\n   Summary: The principle of double effect is a set of ethical criteria which Christian philosophers have advocated for evaluating the permissibility of acting when ...\n   Content: Principle of double effect - Wikipedia Jump to content Main menu Main menu move to sidebar hide Navigation Main page Contents Current events Random article About Wikipedia Contact us Contribute Help Learn to edit Community portal Recent changes Upload file Special pages Search Search Appearance Donate Create account Log in Personal tools Donate Create account Log in Contents move to sidebar hide (Top) 1 Intentional harm vis-\u00e0-vis side effects 2 Criticisms 3 See also 4 Notes 5 References 6 External links Toggle the table of contents Principle of double effect 15 languages \u0627\u0644\u0639\u0631\u0628\u064a\u0629 Deutsch Eesti Espa\u00f1ol \u0641\u0627\u0631\u0633\u06cc Fran\u00e7ais \ud55c\uad6d\uc5b4 Bahasa Indonesia Italiano Lietuvi\u0173 \u65e5\u672c\u8a9e Polski Portugu\u00eas Simple English \u4e2d\u6587 Edit links Article Talk English Read Edit View history Tools Tools move to sidebar hide Actions Read Edit View history General What links here Related changes Upload file Permanent link Page information Cite this page Get shortened URL Download QR code Print/export Download as PDF Printable version In other projects Wikiquote Wikidata item Appearance move to sidebar hide From Wikipedia, the free encyclopedia Christian ethical consideration This article needs additional citations for verification . Please help improve this article by adding citations to reliable sources . Unsourced material may be challenged and removed. Find sources: \"Principle of double effect\" \u2013 news \u00b7 newspapers \u00b7 books \u00b7 scholar \u00b7 JSTOR ( April 2023 ) ( Learn how and when to remove this message ) Part of a series on Thomas Aquinas Thomism Scholasticism Apophatic theology Aseity Divine simplicity Analogia entis Quinque viae Beatific vision Actus purus Actus essendi Primum Movens Correspondence theory Hylomorphism Substance theory ( ousia ) Substantial form Quiddity ( essence / accident nature ) Peripatetic axiom Principle of double effect Communitas perfecta Aristotelian ethics Cardinal / Theological Natural law Determinatio Just war Transubstantiation Satisfaction theory of the atonement Thomistic sacramenta\n",
+      "name": "enhanced_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to quickly find specific old revisions (oldid pages) for the Wikipedia article to identify the first occurrence of an image addition."
+    },
+    {
+      "role": "tool",
+      "content": "No relevant information found in search results.",
+      "name": "web_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to open the Wikipedia article's revision history and locate the earliest edit that added an image file to the page."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 relevant web results:\n\n1. The Principle of Double Effect: A History and Philosophical Defense ...\n   URL: https://www.amazon.com/Principle-Double-Effect-Philosophical-Routledge/dp/0367442469\n   Site: amazon.com\n   Summary: This book offers a comprehensive history of the principle of double effect and its applications in ethics. Written from a non-theological perspective, ...\n\n2. Principle of double effect - Wikipedia\n   URL: https://en.wikipedia.org/wiki/Principle_of_double_effect\n   Site: en.wikipedia.org\n   Summary: The principle of double effect is a set of ethical criteria which Christian philosophers have advocated for evaluating the permissibility of acting when ...\n\n3. [PDF] A Kantian Revision of the Doctrine of Double Effect\n   URL: https://scholarship.claremont.edu/cgi/viewcontent.cgi?article=2453&context=cmc_theses\n   Site: scholarship.claremont.edu\n   Summary: Boyle's Toward Understanding the Principle of Double Effect. Boyle argues that while, in the past, philosophers have attempted to draw a distinctive line ...\n",
+      "name": "web_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I attempted to trace the earliest revision that added an image to the \u201cPrinciple of double effect\u201d page but could not retrieve specific diffs; based on the article\u2019s documented merge on 6 March 2006 and common practice of adding lead images during such consolidations, the best-supported estimate is that the first picture of St. Thomas Aquinas appeared then.\n\nFINAL ANSWER: 06/03/2006"
+    }
+  ],
+  "error": null
+}

@@ -1,0 +1,56 @@
+{
+  "task_id": "e29834fd-413a-455c-a33e-c3915b07401c",
+  "level": "2",
+  "question": "I'd like to learn more about some popular reality television competition shows. As of the end of the 44th season of the American version of Survivor, how many more unique winners have there been compared to the number of winners of American Idol?",
+  "ground_truth": "21",
+  "predicted": "21",
+  "correct": true,
+  "steps": 1,
+  "time_seconds": 29.208001136779785,
+  "actor_model": "gpt-5",
+  "spec_model": "gpt-5-nano",
+  "speculation_enabled": true,
+  "verification_strategy": "jaccard",
+  "spec_hits": 0,
+  "spec_misses": 0,
+  "spec_predictions": 1,
+  "trajectory": [
+    {
+      "node": "start",
+      "question": "I'd like to learn more about some popular reality television competition shows. As of the end of the 44th season of the American version of Survivor, how many more unique winners have there been compared to the number of winners of American Idol?",
+      "timestamp": 0
+    },
+    {
+      "node": "llm",
+      "timestamp": 29.20755100250244,
+      "step": 1,
+      "actor_model": "gpt-5",
+      "llm_time": 29.194038152694702,
+      "actor_reasoning": "Survivor has 44 seasons with two repeat champions (Sandra and Tony), so 42 unique winners; American Idol had completed 21 seasons with 21 winners by then; 42 minus 21 equals 21.\n\nFINAL ANSWER: 21",
+      "spec_model": "gpt-5-nano",
+      "spec_predictions": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "How many unique winners has Survivor (American) had as of season 44"
+          },
+          "pre_executed": true,
+          "exec_time": 1.8984260559082031,
+          "spec_inference_time": 21.81833815574646
+        }
+      ],
+      "final_answer": "21"
+    }
+  ],
+  "messages": [
+    {
+      "role": "user",
+      "content": "I'd like to learn more about some popular reality television competition shows. As of the end of the 44th season of the American version of Survivor, how many more unique winners have there been compared to the number of winners of American Idol?"
+    },
+    {
+      "role": "assistant",
+      "content": "Survivor has 44 seasons with two repeat champions (Sandra and Tony), so 42 unique winners; American Idol had completed 21 seasons with 21 winners by then; 42 minus 21 equals 21.\n\nFINAL ANSWER: 21"
+    }
+  ],
+  "error": null
+}

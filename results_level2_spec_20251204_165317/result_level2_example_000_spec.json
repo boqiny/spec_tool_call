@@ -1,0 +1,240 @@
+{
+  "task_id": "c61d22de-5f6c-4958-a7f6-5e9707bd3466",
+  "level": "2",
+  "question": "A paper about AI regulation that was originally submitted to arXiv.org in June 2022 shows a figure with three axes, where each axis has a label word at both ends. Which of these words is used to describe a type of society in a Physics and Society article submitted to arXiv.org on August 11, 2016?",
+  "ground_truth": "egalitarian",
+  "predicted": "egalitarian",
+  "correct": true,
+  "steps": 5,
+  "time_seconds": 56.126524925231934,
+  "actor_model": "gpt-5",
+  "spec_model": "gpt-5-nano",
+  "speculation_enabled": true,
+  "verification_strategy": "jaccard",
+  "spec_hits": 3,
+  "spec_misses": 1,
+  "spec_predictions": 5,
+  "trajectory": [
+    {
+      "node": "start",
+      "question": "A paper about AI regulation that was originally submitted to arXiv.org in June 2022 shows a figure with three axes, where each axis has a label word at both ends. Which of these words is used to describe a type of society in a Physics and Society article submitted to arXiv.org on August 11, 2016?",
+      "timestamp": 0
+    },
+    {
+      "node": "llm",
+      "timestamp": 6.367995977401733,
+      "step": 1,
+      "actor_model": "gpt-5",
+      "llm_time": 6.138476848602295,
+      "actor_reasoning": "I need to locate the June 2022 arXiv AI regulation paper and inspect its figure with three labeled axes, then cross-reference those labels with an August 11, 2016 Physics and Society arXiv article.",
+      "actor_tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "arXiv June 2022 AI regulation figure three axes labels ends paper arXiv AI regulation"
+          }
+        }
+      ],
+      "spec_model": "gpt-5-nano",
+      "spec_predictions": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "arXiv June 2022 AI regulation paper figure three axes labels at both ends axis labels words at ends arXiv AI regulation June 2022 figure with three axes"
+          },
+          "pre_executed": true,
+          "exec_time": 0.9374949932098389,
+          "spec_inference_time": 4.851867914199829
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 6.369711875915527,
+      "tool_time": 0.9374949932098389,
+      "tool_executed": {
+        "name": "web_search",
+        "result": "Found 3 relevant web results:\n\n1. [PDF] An Interdisciplinary Perspective on AI Regulation - arXiv\n   URL: https://arxiv.org/pdf/2207.01510\n   Site: arxiv.org\n   Date: Jun 8, 2022\n   Summary: We have identified three axes along which different perspectives in the debate about AI Regulation for preventing unfairness and ...\n\n2. GAIA: A Benchmark for General AI Assistants\n   URL: https://ukgovernmentbeis.github.io/inspect_evals/evals/assistants/gaia/\n   Site: ukgovernmentbeis.github.io\n   Summary: A paper about AI regulation that was originally submitted to arXiv.org in June 2022 shows a figure with three axes, where each axis has a label word at both ...\n\n3. GAIA/benchmark_gaia.ipynb at main \u00b7 aymeric-roucher/GAIA - GitHub\n   URL: https://github.com/aymeric-roucher/GAIA/blob/main/benchmark_gaia.ipynb\n   Site: github.com\n   Summary: A paper about AI regulation that was originally submitted to arXiv.org in June 2022 shows a figure with three axes, where each axis has a label word at both ...\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 18.00446391105652,
+      "step": 2,
+      "actor_model": "gpt-5",
+      "llm_time": 11.632828950881958,
+      "actor_reasoning": "I want to open and extract detailed content from the June 2022 arXiv paper (2207.01510) to find the figure and its axis labels.",
+      "actor_tool_calls": [
+        {
+          "name": "enhanced_search",
+          "args": {
+            "query": "arXiv 2207.01510 An Interdisciplinary Perspective on AI Regulation figure axes labels three axes"
+          }
+        }
+      ],
+      "spec_model": "gpt-5-nano",
+      "spec_predictions": [
+        {
+          "name": "enhanced_search",
+          "args": {
+            "query": "An Interdisciplinary Perspective on AI Regulation arXiv 2022 figure three axes labels"
+          },
+          "pre_executed": true,
+          "exec_time": 3.550032138824463,
+          "spec_inference_time": 8.082002878189087
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 18.005372047424316,
+      "tool_time": 3.550032138824463,
+      "tool_executed": {
+        "name": "enhanced_search",
+        "result": "Found 3 web results with content:\n\n1. [PDF] An Interdisciplinary Perspective on AI Regulation - arXiv\n   URL: https://arxiv.org/pdf/2207.01510\n   Site: arxiv.org\n   Summary: Then, we map these perspectives along three axes of interests: (i) Standardization vs. Localization, (ii) Utilitarianism vs. Egalitarianism, and ...\n   Content: Fairness in Agreement With European Values: An Interdisciplinary Perspective on AI Regulation Alejandra Bringas Colmenarejo1, Luca Nannini2, Alisa Rieger3, Kristen M. Scott4, Xuan Zhao5, Gourab K. Patro6, Gjergji Kasneci7, and Katharina Kinder-Kurlanda8 1University of Southampton, United Kingdom 2Minsait - Indra Sistemas and CiTIUS, Universidade de Santiago de Compostela, Spain 3Delft University of Technology, Netherlands 4KU Leuven, Belgium 5SCHUFA Holding AG and University of Tuebingen, Germany 6IIT Kharagpur, India and L3S Research Center, Germany 7SCHUFA Holding AG and University of Tuebingen, Germany 8Digital Age Research Center, University of Klagenfurt, Austria July 5, 2022 Abstract With increasing digitalization, Artificial Intelligence (AI) is becoming ubiquitous. AI-based systems to identify, optimize, automate, and scale solutions to complex economic and societal problemsarebeingproposedandimplemented. Thishasmotivatedregulationefforts,including the Proposal of an EU AI Act. This interdisciplinary position paper considers various concerns surrounding fairness and discrimination in AI, and discusses how AI regulations address them, focusing on (but not limited to) the Proposal. We first look at AI and fairness through the lenses of law, (AI) industry, sociotechnology, and (moral) philosophy, and present various per- spectives. Then,wemaptheseperspectivesalongthreeaxesofinterests:(i) Standardization vs. Localization, (ii) Utilitarianism vs. Egalitarianism, and (iii) Consequential vs. Deontological ethics which leads us to identify a pattern of common arguments and tensions between these axes. Positioning the discussion within the axes of interest and with a focus on reconciling the keytensions, weidentifyandproposetherolesAIRegulationshouldtaketomaketheendeavor of the AI Act a success in terms of AI fairness concerns. 1 Introduction AI applications have grown at an unprecedented rate in recent years and have become ubiquitous in our society. While often dep\n\n2. An Interdisciplinary Perspective on AI Regulation - arXiv\n   URL: https://arxiv.org/abs/2207.01510\n   Site: arxiv.org\n   Summary: Then, we map these perspectives along three axes of interests: (i) Standardization vs. Localization, (ii) Utilitarianism vs. Egalitarianism, and ...\n   Content: [2207.01510] Fairness in Agreement With European Values: An Interdisciplinary Perspective on AI Regulation Skip to main content We gratefully acknowledge support from the Simons Foundation, member institutions , and all contributors. Donate > cs > arXiv:2207.01510 Help | Advanced Search All fields Title Author Abstract Comments Journal reference ACM classification MSC classification Report number arXiv identifier DOI ORCID arXiv author ID Help pages Full text Search open search GO open navigation menu quick links Login Help Pages About Computer Science > Computers and Society arXiv:2207.01510 (cs) [Submitted on 8 Jun 2022] Title: Fairness in Agreement With European Values: An Interdisciplinary Perspective on AI Regulation Authors: Alejandra Bringas Colmenarejo , Luca Nannini , Alisa Rieger , Kristen M. Scott , Xuan Zhao , Gourab K. Patro , Gjergji Kasneci , Katharina Kinder-Kurlanda View a PDF of the paper titled Fairness in Agreement With European Values: An Interdisciplinary Perspective on AI Regulation, by Alejandra Bringas Colmenarejo and 7 other authors View PDF Abstract: With increasing digitalization, Artificial Intelligence (AI) is becoming ubiquitous. AI-based systems to identify, optimize, automate, and scale solutions to complex economic and societal problems are being proposed and implemented. This has motivated regulation efforts, including the Proposal of an EU AI Act. This interdisciplinary position paper considers various concerns surrounding fairness and discrimination in AI, and discusses how AI regulations address them, focusing on (but not limited to) the Proposal. We first look at AI and fairness through the lenses of law, (AI) industry, sociotechnology, and (moral) philosophy, and present various perspectives. Then, we map these perspectives along three axes of interests: (i) Standardization vs. Localization, (ii) Utilitarianism vs. Egalitarianism, and (iii) Consequential vs. Deontological ethics which leads us to identify a pattern of common a\n\n3. An Interdisciplinary Perspective on AI Regulation - ResearchGate\n   URL: https://www.researchgate.net/publication/361765355_Fairness_in_Agreement_With_European_Values_An_Interdisciplinary_Perspective_on_AI_Regulation\n   Site: researchgate.net\n   Summary: Then, we map these perspectives along three axes of interests: (i) Standardization vs. Localization, (ii) Utilitarianism vs. Egalitarianism, and ...\n   Content: HTTP error occurred: 403 Client Error: Forbidden for url: https://www.researchgate.net/publication/361765355_Fairness_in_Agreement_With_European_Values_An_Interdisciplinary_Perspective_on_AI_Regulation\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 31.933187007904053,
+      "step": 3,
+      "actor_model": "gpt-5",
+      "llm_time": 13.925827980041504,
+      "actor_reasoning": "I need to identify the August 11, 2016 arXiv Physics and Society article and see if it uses any of the axis label words (e.g., egalitarian, utilitarian) to describe a type of society.",
+      "actor_tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "site:arxiv.org \"Physics and Society\" 2016 \"August 11\" arXiv"
+          }
+        }
+      ],
+      "spec_model": "gpt-5-nano",
+      "spec_predictions": [
+        {
+          "name": "enhanced_search",
+          "args": {
+            "query": "arXiv Physics and Society 2016 Aug 11 egalitarian society"
+          },
+          "pre_executed": true,
+          "exec_time": 4.065320253372192,
+          "spec_inference_time": 9.860092878341675
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 33.09018921852112,
+      "tool_time": 1.1559669971466064,
+      "tool_executed": {
+        "name": "web_search",
+        "result": "Found 3 relevant web results:\n\n1. In-the-Flow Agentic System Optimization for Effective ...\n   URL: https://arxiv.org/html/2510.05592v1\n   Site: arxiv.org\n   Date: Oct 7, 2025\n   Summary: ... Physics and Society article arXiv August 11, 2016\u201d, add_citations=True) Report issue for preceding element. Description: Search for specific ...\n\n2. In-the-Flow Agentic System Optimization for Effective ...\n   URL: https://arxiv.org/pdf/2510.05592\n   Site: arxiv.org\n   Summary: by Z Li \u00b7 2025 \u00b7 Cited by 3 \u2014 execution = tool.execute(query=\"Physics and Society article arXiv August 11,. 2016\", add citations=True). Description: Search for specific ...\n\n3. Joshua Grochow's articles on arXiv\n   URL: https://arxiv.org/a/grochow_j_1.html\n   Site: arxiv.org\n   Summary: ... (August 11, 2022) gcc:9431. Subjects: Data Structures and Algorithms (cs.DS) ... Subjects: Physics and Society (physics.soc-ph); Multiagent Systems (cs.MA); ...\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 39.22576904296875,
+      "step": 4,
+      "actor_model": "gpt-5",
+      "llm_time": 6.133345127105713,
+      "actor_reasoning": "I need to find the Physics and Society arXiv article submitted on August 11, 2016 and check if it uses any of the axis label words (e.g., egalitarian, utilitarian) to describe a type of society.",
+      "actor_tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "site:arxiv.org \"Physics and Society\" August 11 2016 arXiv"
+          }
+        }
+      ],
+      "spec_model": "gpt-5-nano",
+      "spec_predictions": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "arXiv Physics and Society August 11, 2016"
+          },
+          "pre_executed": true,
+          "exec_time": 1.011265754699707,
+          "spec_inference_time": 5.121464967727661
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 39.22717213630676,
+      "tool_time": 1.011265754699707,
+      "tool_executed": {
+        "name": "web_search",
+        "result": "Found 3 relevant web results:\n\n1. Phase transition from egalitarian to hierarchical societies driven by ...\n   URL: https://arxiv.org/abs/1608.03637\n   Site: arxiv.org\n   Summary: The paper models a society with competing cognitive and social constraints, predicting that hierarchy decreases with encephalization and increases with group ...\n\n2. Physics and Society Aug 2016 - arXiv\n   URL: https://arxiv.org/list/physics.soc-ph/2016-08\n   Site: arxiv.org\n   Summary: Physics and Society. Authors and titles for August 2016. Total of 128 entries : 1-50 51-100 101-128. Showing up to 50 entries per page: fewer | more | all.\n\n3. Project-based physics labs using low-cost open-source hardware\n   URL: https://arxiv.org/abs/1601.06659\n   Site: arxiv.org\n   Date: Jan 25, 2016\n   Summary: Abstract page for arXiv paper 1601.06659: Project-based physics labs using low-cost open-source hardware.\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 56.1261351108551,
+      "step": 5,
+      "actor_model": "gpt-5",
+      "llm_time": 16.894428968429565,
+      "actor_reasoning": "The June 2022 paper\u2019s axis labels include utilitarianism vs egalitarianism; the August 11, 2016 Physics and Society paper refers to an egalitarian society, so the overlapping label word is egalitarian.\n\nFINAL ANSWER: egalitarian",
+      "spec_model": "gpt-5-nano",
+      "spec_predictions": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "Phase transition from egalitarian to hierarchical societies arXiv 1608.03637"
+          },
+          "pre_executed": true,
+          "exec_time": 1.1376192569732666,
+          "spec_inference_time": 10.555130243301392
+        }
+      ],
+      "final_answer": "egalitarian"
+    }
+  ],
+  "messages": [
+    {
+      "role": "user",
+      "content": "A paper about AI regulation that was originally submitted to arXiv.org in June 2022 shows a figure with three axes, where each axis has a label word at both ends. Which of these words is used to describe a type of society in a Physics and Society article submitted to arXiv.org on August 11, 2016?"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to locate the June 2022 arXiv AI regulation paper and inspect its figure with three labeled axes, then cross-reference those labels with an August 11, 2016 Physics and Society arXiv article."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 relevant web results:\n\n1. [PDF] An Interdisciplinary Perspective on AI Regulation - arXiv\n   URL: https://arxiv.org/pdf/2207.01510\n   Site: arxiv.org\n   Date: Jun 8, 2022\n   Summary: We have identified three axes along which different perspectives in the debate about AI Regulation for preventing unfairness and ...\n\n2. GAIA: A Benchmark for General AI Assistants\n   URL: https://ukgovernmentbeis.github.io/inspect_evals/evals/assistants/gaia/\n   Site: ukgovernmentbeis.github.io\n   Summary: A paper about AI regulation that was originally submitted to arXiv.org in June 2022 shows a figure with three axes, where each axis has a label word at both ...\n\n3. GAIA/benchmark_gaia.ipynb at main \u00b7 aymeric-roucher/GAIA - GitHub\n   URL: https://github.com/aymeric-roucher/GAIA/blob/main/benchmark_gaia.ipynb\n   Site: github.com\n   Summary: A paper about AI regulation that was originally submitted to arXiv.org in June 2022 shows a figure with three axes, where each axis has a label word at both ...\n",
+      "name": "web_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I want to open and extract detailed content from the June 2022 arXiv paper (2207.01510) to find the figure and its axis labels."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 web results with content:\n\n1. [PDF] An Interdisciplinary Perspective on AI Regulation - arXiv\n   URL: https://arxiv.org/pdf/2207.01510\n   Site: arxiv.org\n   Summary: Then, we map these perspectives along three axes of interests: (i) Standardization vs. Localization, (ii) Utilitarianism vs. Egalitarianism, and ...\n   Content: Fairness in Agreement With European Values: An Interdisciplinary Perspective on AI Regulation Alejandra Bringas Colmenarejo1, Luca Nannini2, Alisa Rieger3, Kristen M. Scott4, Xuan Zhao5, Gourab K. Patro6, Gjergji Kasneci7, and Katharina Kinder-Kurlanda8 1University of Southampton, United Kingdom 2Minsait - Indra Sistemas and CiTIUS, Universidade de Santiago de Compostela, Spain 3Delft University of Technology, Netherlands 4KU Leuven, Belgium 5SCHUFA Holding AG and University of Tuebingen, Germany 6IIT Kharagpur, India and L3S Research Center, Germany 7SCHUFA Holding AG and University of Tuebingen, Germany 8Digital Age Research Center, University of Klagenfurt, Austria July 5, 2022 Abstract With increasing digitalization, Artificial Intelligence (AI) is becoming ubiquitous. AI-based systems to identify, optimize, automate, and scale solutions to complex economic and societal problemsarebeingproposedandimplemented. Thishasmotivatedregulationefforts,including the Proposal of an EU AI Act. This interdisciplinary position paper considers various concerns surrounding fairness and discrimination in AI, and discusses how AI regulations address them, focusing on (but not limited to) the Proposal. We first look at AI and fairness through the lenses of law, (AI) industry, sociotechnology, and (moral) philosophy, and present various per- spectives. Then,wemaptheseperspectivesalongthreeaxesofinterests:(i) Standardization vs. Localization, (ii) Utilitarianism vs. Egalitarianism, and (iii) Consequential vs. Deontological ethics which leads us to identify a pattern of common arguments and tensions between these axes. Positioning the discussion within the axes of interest and with a focus on reconciling the keytensions, weidentifyandproposetherolesAIRegulationshouldtaketomaketheendeavor of the AI Act a success in terms of AI fairness concerns. 1 Introduction AI applications have grown at an unprecedented rate in recent years and have become ubiquitous in our society. While often dep\n\n2. An Interdisciplinary Perspective on AI Regulation - arXiv\n   URL: https://arxiv.org/abs/2207.01510\n   Site: arxiv.org\n   Summary: Then, we map these perspectives along three axes of interests: (i) Standardization vs. Localization, (ii) Utilitarianism vs. Egalitarianism, and ...\n   Content: [2207.01510] Fairness in Agreement With European Values: An Interdisciplinary Perspective on AI Regulation Skip to main content We gratefully acknowledge support from the Simons Foundation, member institutions , and all contributors. Donate > cs > arXiv:2207.01510 Help | Advanced Search All fields Title Author Abstract Comments Journal reference ACM classification MSC classification Report number arXiv identifier DOI ORCID arXiv author ID Help pages Full text Search open search GO open navigation menu quick links Login Help Pages About Computer Science > Computers and Society arXiv:2207.01510 (cs) [Submitted on 8 Jun 2022] Title: Fairness in Agreement With European Values: An Interdisciplinary Perspective on AI Regulation Authors: Alejandra Bringas Colmenarejo , Luca Nannini , Alisa Rieger , Kristen M. Scott , Xuan Zhao , Gourab K. Patro , Gjergji Kasneci , Katharina Kinder-Kurlanda View a PDF of the paper titled Fairness in Agreement With European Values: An Interdisciplinary Perspective on AI Regulation, by Alejandra Bringas Colmenarejo and 7 other authors View PDF Abstract: With increasing digitalization, Artificial Intelligence (AI) is becoming ubiquitous. AI-based systems to identify, optimize, automate, and scale solutions to complex economic and societal problems are being proposed and implemented. This has motivated regulation efforts, including the Proposal of an EU AI Act. This interdisciplinary position paper considers various concerns surrounding fairness and discrimination in AI, and discusses how AI regulations address them, focusing on (but not limited to) the Proposal. We first look at AI and fairness through the lenses of law, (AI) industry, sociotechnology, and (moral) philosophy, and present various perspectives. Then, we map these perspectives along three axes of interests: (i) Standardization vs. Localization, (ii) Utilitarianism vs. Egalitarianism, and (iii) Consequential vs. Deontological ethics which leads us to identify a pattern of common a\n\n3. An Interdisciplinary Perspective on AI Regulation - ResearchGate\n   URL: https://www.researchgate.net/publication/361765355_Fairness_in_Agreement_With_European_Values_An_Interdisciplinary_Perspective_on_AI_Regulation\n   Site: researchgate.net\n   Summary: Then, we map these perspectives along three axes of interests: (i) Standardization vs. Localization, (ii) Utilitarianism vs. Egalitarianism, and ...\n   Content: HTTP error occurred: 403 Client Error: Forbidden for url: https://www.researchgate.net/publication/361765355_Fairness_in_Agreement_With_European_Values_An_Interdisciplinary_Perspective_on_AI_Regulation\n",
+      "name": "enhanced_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to identify the August 11, 2016 arXiv Physics and Society article and see if it uses any of the axis label words (e.g., egalitarian, utilitarian) to describe a type of society."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 relevant web results:\n\n1. In-the-Flow Agentic System Optimization for Effective ...\n   URL: https://arxiv.org/html/2510.05592v1\n   Site: arxiv.org\n   Date: Oct 7, 2025\n   Summary: ... Physics and Society article arXiv August 11, 2016\u201d, add_citations=True) Report issue for preceding element. Description: Search for specific ...\n\n2. In-the-Flow Agentic System Optimization for Effective ...\n   URL: https://arxiv.org/pdf/2510.05592\n   Site: arxiv.org\n   Summary: by Z Li \u00b7 2025 \u00b7 Cited by 3 \u2014 execution = tool.execute(query=\"Physics and Society article arXiv August 11,. 2016\", add citations=True). Description: Search for specific ...\n\n3. Joshua Grochow's articles on arXiv\n   URL: https://arxiv.org/a/grochow_j_1.html\n   Site: arxiv.org\n   Summary: ... (August 11, 2022) gcc:9431. Subjects: Data Structures and Algorithms (cs.DS) ... Subjects: Physics and Society (physics.soc-ph); Multiagent Systems (cs.MA); ...\n",
+      "name": "web_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to find the Physics and Society arXiv article submitted on August 11, 2016 and check if it uses any of the axis label words (e.g., egalitarian, utilitarian) to describe a type of society."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 relevant web results:\n\n1. Phase transition from egalitarian to hierarchical societies driven by ...\n   URL: https://arxiv.org/abs/1608.03637\n   Site: arxiv.org\n   Summary: The paper models a society with competing cognitive and social constraints, predicting that hierarchy decreases with encephalization and increases with group ...\n\n2. Physics and Society Aug 2016 - arXiv\n   URL: https://arxiv.org/list/physics.soc-ph/2016-08\n   Site: arxiv.org\n   Summary: Physics and Society. Authors and titles for August 2016. Total of 128 entries : 1-50 51-100 101-128. Showing up to 50 entries per page: fewer | more | all.\n\n3. Project-based physics labs using low-cost open-source hardware\n   URL: https://arxiv.org/abs/1601.06659\n   Site: arxiv.org\n   Date: Jan 25, 2016\n   Summary: Abstract page for arXiv paper 1601.06659: Project-based physics labs using low-cost open-source hardware.\n",
+      "name": "web_search"
+    },
+    {
+      "role": "assistant",
+      "content": "The June 2022 paper\u2019s axis labels include utilitarianism vs egalitarianism; the August 11, 2016 Physics and Society paper refers to an egalitarian society, so the overlapping label word is egalitarian.\n\nFINAL ANSWER: egalitarian"
+    }
+  ],
+  "error": null
+}

@@ -1,0 +1,56 @@
+{
+  "task_id": "e2d69698-bc99-4e85-9880-67eaccd66e6c",
+  "level": "2",
+  "question": "As of August 2023, who is the only winner of the US version of Survivor to be born in the month of May?",
+  "ground_truth": "Michele Fitzgerald",
+  "predicted": "Michele Fitzgerald",
+  "correct": true,
+  "steps": 1,
+  "time_seconds": 26.271780252456665,
+  "actor_model": "gpt-5",
+  "spec_model": "gpt-5-nano",
+  "speculation_enabled": true,
+  "verification_strategy": "jaccard",
+  "spec_hits": 0,
+  "spec_misses": 0,
+  "spec_predictions": 1,
+  "trajectory": [
+    {
+      "node": "start",
+      "question": "As of August 2023, who is the only winner of the US version of Survivor to be born in the month of May?",
+      "timestamp": 0
+    },
+    {
+      "node": "llm",
+      "timestamp": 26.27146315574646,
+      "step": 1,
+      "actor_model": "gpt-5",
+      "llm_time": 26.266118049621582,
+      "actor_reasoning": "Michele Fitzgerald is the only US Survivor winner with a May birthday (May 5, 1990). \nFINAL ANSWER: Michele Fitzgerald",
+      "spec_model": "gpt-5-nano",
+      "spec_predictions": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "Survivor US winners born in May"
+          },
+          "pre_executed": true,
+          "exec_time": 2.4281551837921143,
+          "spec_inference_time": 4.598120927810669
+        }
+      ],
+      "final_answer": "Michele Fitzgerald"
+    }
+  ],
+  "messages": [
+    {
+      "role": "user",
+      "content": "As of August 2023, who is the only winner of the US version of Survivor to be born in the month of May?"
+    },
+    {
+      "role": "assistant",
+      "content": "Michele Fitzgerald is the only US Survivor winner with a May birthday (May 5, 1990). \nFINAL ANSWER: Michele Fitzgerald"
+    }
+  ],
+  "error": null
+}

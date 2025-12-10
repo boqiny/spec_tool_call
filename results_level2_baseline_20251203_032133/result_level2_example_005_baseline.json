@@ -1,0 +1,146 @@
+{
+  "task_id": "3627a8be-a77f-41bb-b807-7e1bd4c0ebdf",
+  "level": "2",
+  "question": "The object in the British Museum's collection with a museum number of 2012,5015.17 is the shell of a particular mollusk species. According to the abstract of a research article published in Science Advances in 2021, beads made from the shells of this species were found that are at least how many thousands of years old?",
+  "ground_truth": "142",
+  "predicted": "142",
+  "correct": true,
+  "steps": 4,
+  "time_seconds": 39.86878991127014,
+  "actor_model": "gpt-5",
+  "spec_model": null,
+  "speculation_enabled": false,
+  "verification_strategy": null,
+  "spec_hits": 0,
+  "spec_misses": 0,
+  "spec_predictions": 0,
+  "trajectory": [
+    {
+      "node": "start",
+      "question": "The object in the British Museum's collection with a museum number of 2012,5015.17 is the shell of a particular mollusk species. According to the abstract of a research article published in Science Advances in 2021, beads made from the shells of this species were found that are at least how many thousands of years old?",
+      "timestamp": 0
+    },
+    {
+      "node": "llm",
+      "timestamp": 3.6106200218200684,
+      "step": 1,
+      "actor_model": "gpt-5",
+      "llm_time": 3.600456953048706,
+      "actor_reasoning": "I need to locate the British Museum collection entry for museum number 2012,5015.17 to identify the mollusk species.",
+      "actor_tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "British Museum 2012,5015.17 museum number shell"
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 4.69740104675293,
+      "tool_time": 1.0850191116333008,
+      "tool_executed": {
+        "name": "web_search",
+        "result": "Found 3 relevant web results:\n\n1. animal remains | British Museum\n   URL: https://www.britishmuseum.org/collection/object/G_2012-5015-17\n   Site: britishmuseum.org\n   Summary: Museum number: 2012,5015.17. Description: Shell of a marine gastropod mollusc of the Mediterranean 'Nassa gibbosula' species. Cultures/periods: Ancient Egypt ...\n\n2. animal remains | British Museum\n   URL: https://www.britishmuseum.org/collection/object/G_2012-5015-15?selectedImageId=1191652001\n   Site: britishmuseum.org\n   Summary: Museum number: 2012,5015.15 ; Description: Shell of a marine gastropod mollusc of the Mediterranean 'Nassa gibbosula' species. ; Production date: 7thC(late) BC-( ...\n\n3. animal remains | British Museum\n   URL: https://www.britishmuseum.org/collection/object/G_2012-5016-3\n   Site: britishmuseum.org\n   Summary: Museum number: 2012,5016.3 ; Description: Shell of a marine bivalve mollusc of Glycimeris genus. ; Production date: 7thC(late) BC-(late)7thC AD ; Materials: shell.\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 9.634229898452759,
+      "step": 2,
+      "actor_model": "gpt-5",
+      "llm_time": 4.932270050048828,
+      "actor_reasoning": "I need to find the Science Advances 2021 article discussing Nassa gibbosula shell beads and extract the age mentioned in its abstract.",
+      "actor_tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "Science Advances 2021 Nassa gibbosula beads abstract years old"
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 10.474735021591187,
+      "tool_time": 0.8390061855316162,
+      "tool_executed": {
+        "name": "web_search",
+        "result": "Found 3 relevant web results:\n\n1. Early Middle Stone Age personal ornaments from Bizmoune Cave ...\n   URL: https://www.science.org/doi/10.1126/sciadv.abi8620\n   Site: science.org\n   Date: Sep 22, 2021\n   Summary: Abstract. Ornaments such as beads are among the earliest signs of symbolic behavior among human ancestors. Their appearance signals important ...\n\n2. Early Middle Stone Age personal ornaments from Bizmoune Cave ...\n   URL: https://pmc.ncbi.nlm.nih.gov/articles/PMC8457661/\n   Site: pmc.ncbi.nlm.nih.gov\n   Date: Sep 22, 2021\n   Summary: Shell beads from Bizmoune Cave (Morocco) show the early appearance and continuity of symbolic behavior among early Homo sapiens.\n\n3. Early Middle Stone Age personal ornaments from Bizmoune Cave ...\n   URL: https://www.researchgate.net/publication/354794693_Early_Middle_Stone_Age_personal_ornaments_from_Bizmoune_Cave_Essaouira_Morocco\n   Site: researchgate.net\n   Date: Oct 28, 2025\n   Summary: Many of the beads come as deposits dating to \u2265142 thousand years, making them the oldest shell beads yet recovered. ... 2021. SCIENCE ADVANCES | ...\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 25.91846489906311,
+      "step": 3,
+      "actor_model": "gpt-5",
+      "llm_time": 15.438049793243408,
+      "actor_reasoning": "I want to open the Science Advances article's abstract to confirm the exact \"at least X thousand years\" wording and number.",
+      "actor_tool_calls": [
+        {
+          "name": "enhanced_search",
+          "args": {
+            "query": "Science Advances 2021 Early Middle Stone Age personal ornaments Bizmoune Cave abstract \"thousand years\""
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 27.950993061065674,
+      "tool_time": 2.029757261276245,
+      "tool_executed": {
+        "name": "enhanced_search",
+        "result": "Found 3 web results with content:\n\n1. Early Middle Stone Age personal ornaments from ...\n   URL: https://www.science.org/doi/10.1126/sciadv.abi8620\n   Site: science.org\n   Summary: by EM Sehasseh \u00b7 2021 \u00b7 Cited by 103 \u2014 Many of the beads come as deposits dating to \u2265142 thousand years, making them the oldest shell beads yet recovered. They extend the dates for ...\n   Content: HTTP error occurred: 403 Client Error: Forbidden for url: https://www.science.org/doi/10.1126/sciadv.abi8620\n\n2. Early Middle Stone Age personal ornaments from ...\n   URL: https://pubmed.ncbi.nlm.nih.gov/34550742/\n   Site: pubmed.ncbi.nlm.nih.gov\n   Summary: by P Fernandez \u00b7 2021 \u00b7 Cited by 103 \u2014 Many of the beads come as deposits dating to \u2265142 thousand years, making them the oldest shell beads yet recovered. They extend the dates ...\n   Content: HTTP error occurred: 403 Client Error: Forbidden for url: https://pubmed.ncbi.nlm.nih.gov/34550742/\n\n3. (PDF) Early Middle Stone Age personal ornaments from ...\n   URL: https://www.researchgate.net/publication/354794693_Early_Middle_Stone_Age_personal_ornaments_from_Bizmoune_Cave_Essaouira_Morocco\n   Site: researchgate.net\n   Summary: Many of the beads come as deposits dating to \u2265142 thousand years, making them the oldest shell beads yet recovered. ... 2021. SCIENCE ADVANCES | ...\n   Content: Could not extract content from this page\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 39.86851096153259,
+      "step": 4,
+      "actor_model": "gpt-5",
+      "llm_time": 11.908631086349487,
+      "actor_reasoning": "The British Museum entry 2012,5015.17 identifies the species as Nassa gibbosula (Nassarius gibbosulus). The 2021 Science Advances abstract reports beads of this species dating to at least 142 thousand years.\n\nFINAL ANSWER: 142",
+      "final_answer": "142"
+    }
+  ],
+  "messages": [
+    {
+      "role": "user",
+      "content": "The object in the British Museum's collection with a museum number of 2012,5015.17 is the shell of a particular mollusk species. According to the abstract of a research article published in Science Advances in 2021, beads made from the shells of this species were found that are at least how many thousands of years old?"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to locate the British Museum collection entry for museum number 2012,5015.17 to identify the mollusk species."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 relevant web results:\n\n1. animal remains | British Museum\n   URL: https://www.britishmuseum.org/collection/object/G_2012-5015-17\n   Site: britishmuseum.org\n   Summary: Museum number: 2012,5015.17. Description: Shell of a marine gastropod mollusc of the Mediterranean 'Nassa gibbosula' species. Cultures/periods: Ancient Egypt ...\n\n2. animal remains | British Museum\n   URL: https://www.britishmuseum.org/collection/object/G_2012-5015-15?selectedImageId=1191652001\n   Site: britishmuseum.org\n   Summary: Museum number: 2012,5015.15 ; Description: Shell of a marine gastropod mollusc of the Mediterranean 'Nassa gibbosula' species. ; Production date: 7thC(late) BC-( ...\n\n3. animal remains | British Museum\n   URL: https://www.britishmuseum.org/collection/object/G_2012-5016-3\n   Site: britishmuseum.org\n   Summary: Museum number: 2012,5016.3 ; Description: Shell of a marine bivalve mollusc of Glycimeris genus. ; Production date: 7thC(late) BC-(late)7thC AD ; Materials: shell.\n",
+      "name": "web_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to find the Science Advances 2021 article discussing Nassa gibbosula shell beads and extract the age mentioned in its abstract."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 relevant web results:\n\n1. Early Middle Stone Age personal ornaments from Bizmoune Cave ...\n   URL: https://www.science.org/doi/10.1126/sciadv.abi8620\n   Site: science.org\n   Date: Sep 22, 2021\n   Summary: Abstract. Ornaments such as beads are among the earliest signs of symbolic behavior among human ancestors. Their appearance signals important ...\n\n2. Early Middle Stone Age personal ornaments from Bizmoune Cave ...\n   URL: https://pmc.ncbi.nlm.nih.gov/articles/PMC8457661/\n   Site: pmc.ncbi.nlm.nih.gov\n   Date: Sep 22, 2021\n   Summary: Shell beads from Bizmoune Cave (Morocco) show the early appearance and continuity of symbolic behavior among early Homo sapiens.\n\n3. Early Middle Stone Age personal ornaments from Bizmoune Cave ...\n   URL: https://www.researchgate.net/publication/354794693_Early_Middle_Stone_Age_personal_ornaments_from_Bizmoune_Cave_Essaouira_Morocco\n   Site: researchgate.net\n   Date: Oct 28, 2025\n   Summary: Many of the beads come as deposits dating to \u2265142 thousand years, making them the oldest shell beads yet recovered. ... 2021. SCIENCE ADVANCES | ...\n",
+      "name": "web_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I want to open the Science Advances article's abstract to confirm the exact \"at least X thousand years\" wording and number."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 web results with content:\n\n1. Early Middle Stone Age personal ornaments from ...\n   URL: https://www.science.org/doi/10.1126/sciadv.abi8620\n   Site: science.org\n   Summary: by EM Sehasseh \u00b7 2021 \u00b7 Cited by 103 \u2014 Many of the beads come as deposits dating to \u2265142 thousand years, making them the oldest shell beads yet recovered. They extend the dates for ...\n   Content: HTTP error occurred: 403 Client Error: Forbidden for url: https://www.science.org/doi/10.1126/sciadv.abi8620\n\n2. Early Middle Stone Age personal ornaments from ...\n   URL: https://pubmed.ncbi.nlm.nih.gov/34550742/\n   Site: pubmed.ncbi.nlm.nih.gov\n   Summary: by P Fernandez \u00b7 2021 \u00b7 Cited by 103 \u2014 Many of the beads come as deposits dating to \u2265142 thousand years, making them the oldest shell beads yet recovered. They extend the dates ...\n   Content: HTTP error occurred: 403 Client Error: Forbidden for url: https://pubmed.ncbi.nlm.nih.gov/34550742/\n\n3. (PDF) Early Middle Stone Age personal ornaments from ...\n   URL: https://www.researchgate.net/publication/354794693_Early_Middle_Stone_Age_personal_ornaments_from_Bizmoune_Cave_Essaouira_Morocco\n   Site: researchgate.net\n   Summary: Many of the beads come as deposits dating to \u2265142 thousand years, making them the oldest shell beads yet recovered. ... 2021. SCIENCE ADVANCES | ...\n   Content: Could not extract content from this page\n",
+      "name": "enhanced_search"
+    },
+    {
+      "role": "assistant",
+      "content": "The British Museum entry 2012,5015.17 identifies the species as Nassa gibbosula (Nassarius gibbosulus). The 2021 Science Advances abstract reports beads of this species dating to at least 142 thousand years.\n\nFINAL ANSWER: 142"
+    }
+  ],
+  "error": null
+}

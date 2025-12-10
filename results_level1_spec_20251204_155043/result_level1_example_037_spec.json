@@ -1,0 +1,44 @@
+{
+  "task_id": "50ad0280-0819-4bd9-b275-5de32d3b5bcb",
+  "level": "1",
+  "question": "Pull out the sentence in the following 5x7 block of text. Read from left to right and use all of the letters in order:\n\nTHESE\nAGULL\nGLIDE\nDPEAC\nEFULL\nYTOMY\nCHAIR",
+  "ground_truth": "The seagull glided peacefully to my chair.",
+  "predicted": "The seagull glided peacefully to my chair.",
+  "correct": true,
+  "steps": 1,
+  "time_seconds": 52.11515498161316,
+  "actor_model": "gpt-5",
+  "spec_model": "gpt-5-nano",
+  "speculation_enabled": true,
+  "verification_strategy": "jaccard",
+  "spec_hits": 0,
+  "spec_misses": 0,
+  "spec_predictions": 0,
+  "trajectory": [
+    {
+      "node": "start",
+      "question": "Pull out the sentence in the following 5x7 block of text. Read from left to right and use all of the letters in order:\n\nTHESE\nAGULL\nGLIDE\nDPEAC\nEFULL\nYTOMY\nCHAIR",
+      "timestamp": 0
+    },
+    {
+      "node": "llm",
+      "timestamp": 52.11489725112915,
+      "step": 1,
+      "actor_model": "gpt-5",
+      "llm_time": 52.1045241355896,
+      "actor_reasoning": "Reading each row left to right and concatenating yields a coherent sentence.\n\nFINAL ANSWER: The seagull glided peacefully to my chair.",
+      "final_answer": "The seagull glided peacefully to my chair."
+    }
+  ],
+  "messages": [
+    {
+      "role": "user",
+      "content": "Pull out the sentence in the following 5x7 block of text. Read from left to right and use all of the letters in order:\n\nTHESE\nAGULL\nGLIDE\nDPEAC\nEFULL\nYTOMY\nCHAIR"
+    },
+    {
+      "role": "assistant",
+      "content": "Reading each row left to right and concatenating yields a coherent sentence.\n\nFINAL ANSWER: The seagull glided peacefully to my chair."
+    }
+  ],
+  "error": null
+}

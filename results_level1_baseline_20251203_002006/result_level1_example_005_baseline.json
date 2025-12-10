@@ -1,0 +1,248 @@
+{
+  "task_id": "46719c30-f4c3-4cad-be07-d5cb21eee6bb",
+  "level": "1",
+  "question": "Of the authors (First M. Last) that worked on the paper \"Pie Menus or Linear Menus, Which Is Better?\" in 2015, what was the title of the first paper authored by the one that had authored prior papers?",
+  "ground_truth": "Mapping Human Oriented Information to Software Agents for Online Systems Usage",
+  "predicted": "A New Software Agent 'Learning' Algorithm",
+  "correct": false,
+  "steps": 7,
+  "time_seconds": 109.66774892807007,
+  "actor_model": "gpt-5",
+  "spec_model": null,
+  "speculation_enabled": false,
+  "verification_strategy": null,
+  "spec_hits": 0,
+  "spec_misses": 0,
+  "spec_predictions": 0,
+  "trajectory": [
+    {
+      "node": "start",
+      "question": "Of the authors (First M. Last) that worked on the paper \"Pie Menus or Linear Menus, Which Is Better?\" in 2015, what was the title of the first paper authored by the one that had authored prior papers?",
+      "timestamp": 0
+    },
+    {
+      "node": "llm",
+      "timestamp": 10.851387977600098,
+      "step": 1,
+      "actor_model": "gpt-5",
+      "llm_time": 10.84824013710022,
+      "actor_reasoning": "I need to find the 2015 paper, its authors, and determine which author had prior publications.",
+      "actor_tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "\"Pie Menus or Linear Menus, Which Is Better?\" 2015 authors"
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 11.775874137878418,
+      "tool_time": 0.922631025314331,
+      "tool_executed": {
+        "name": "web_search",
+        "result": "Found 3 relevant web results:\n\n1. Pie Menus or Linear Menus, Which Is Better?\n   URL: https://pietromurano.org/Papers/Murano-Khan-Published-Version.pdf\n   Site: pietromurano.org\n   Summary: by P Murano \u00b7 2015 \u00b7 Cited by 8 \u2014 \u00a92009-2015 CIS Journal. All rights reserved. http://www.cisjournal.org. 476. Pie Menus or Linear Menus, Which Is Better? 1 Pietro Murano, 2 Iram N. Khan. 1 ...\n\n2. (PDF) Pie Menus or Linear Menus, Which Is Better?\n   URL: https://www.researchgate.net/publication/283265537_Pie_Menus_or_Linear_Menus_Which_Is_Better\n   Site: researchgate.net\n   Summary: Pie Menus or Linear Menus, Which Is Better? September 2015. Authors: Pietro Murano at OsloMet \u2013 Oslo Metropolitan University \u00b7 Pietro Murano \u00b7 OsloMet \u2013 Oslo ...\n\n3. [PDF] Pie Menus or Linear Menus, Which Is Better?\n   URL: https://www.semanticscholar.org/paper/Pie-Menus-or-Linear-Menus%2C-Which-Is-Better-Murano-Khan/54a14c467ca976cbdd0f1d8a41426e6347a5e4c2\n   Site: semanticscholar.org\n   Date: Sep 9, 2015\n   Summary: @inproceedings{Murano2015PieMO, title={Pie Menus or Linear Menus, Which Is Better?}, author={Pietro Murano and Iram Khan}, year={2015 ... 2015.\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 28.77080202102661,
+      "step": 2,
+      "actor_model": "gpt-5",
+      "llm_time": 16.992854118347168,
+      "actor_reasoning": "I want to open the 2015 PDF to read author details or bios that might mention which author had prior papers and any titles.",
+      "actor_tool_calls": [
+        {
+          "name": "enhanced_search",
+          "args": {
+            "query": "\"Pie Menus or Linear Menus, Which Is Better?\" PDF Murano Khan 2015 pietromurano.org"
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 32.24499702453613,
+      "tool_time": 3.4728710651397705,
+      "tool_executed": {
+        "name": "enhanced_search",
+        "result": "Found 3 web results with content:\n\n1. Pie Menus or Linear Menus, Which Is Better?\n   URL: https://pietromurano.org/Papers/Murano-Khan-Published-Version.pdf\n   Site: pietromurano.org\n   Summary: by P Murano \u00b7 2015 \u00b7 Cited by 8 \u2014 Pie Menus or Linear Menus, Which Is Better? 1 Pietro Murano, 2 Iram N. Khan ... Whether this figure is correct or not, the amount is likely to be more in 2015 ...See more\n   Content: Vol. 6, No. 9, September 2015 ISSN 2079-8407 Journal of Emerging Trends in Computing and Information Sciences \u00a92009-2015 CIS Journal. All rights reserved. http://www.cisjournal.org Pie Menus or Linear Menus, Which Is Better? 1 Pietro Murano, 2 Iram N. Khan 1 Department of Computer Science, the Universal Design of ICT Research Group, Oslo and Akershus University College of Applied Sciences, Oslo, Norway 2 University of Salford, School of Computing, Science and Engineering, Salford, M5 4WT, UK 1 pietro.murano@hioa.no, 2I.N.Khan@edu.salford.ac.uk ABSTRACT This paper is about a continuing investigation aiming to find out which menu type is more useable on a web site or application. This paper specifically compares pie menus with linear menus. Although other researchers have investigated similar themes it is felt that there is still not enough knowledge regarding the various effects of different menu types, including their positioning on a screen. An empirical approach using an experiment to test the effectiveness and user satisfaction of a pie menu and a linear menu is described in detail. Four tasks were administered to experimental participants under each menu design in a within users experimental design. Overall task time, number of errors and participants' subjective opinions were measured. The data were statistically analysed. There were no statistically significant results for task times and errors. However, subjective opinions were overall statistically significant, suggesting a preference for the pie menu by participants. These results are interesting for all web designers, user interface designers and developers. The issues being investigated are rather complex, because there is no clear pattern of results to suggest a categorical \u2018best design\u2019. These results add to the current knowledge in existence regarding menu types and to the wish of understanding better the issues involved with menu types. Keywords: Pie menus, radial menus, linear menus, usability, evalu\n\n2. (PDF) Pie Menus or Linear Menus, Which Is Better?\n   URL: https://www.researchgate.net/publication/283265537_Pie_Menus_or_Linear_Menus_Which_Is_Better\n   Site: researchgate.net\n   Summary: Pie Menus or Linear Menus, Which Is Better? 1 Pietro Murano, 2 Iram N. Khan. 1 Department of Computer Science, the Universal ...See more\n   Content: HTTP error occurred: 403 Client Error: Forbidden for url: https://www.researchgate.net/publication/283265537_Pie_Menus_or_Linear_Menus_Which_Is_Better\n\n3. [PDF] Pie Menus or Linear Menus, Which Is Better?\n   URL: https://www.semanticscholar.org/paper/Pie-Menus-or-Linear-Menus%2C-Which-Is-Better-Murano-Khan/54a14c467ca976cbdd0f1d8a41426e6347a5e4c2\n   Site: semanticscholar.org\n   Summary: Pie Menus or Linear Menus, Which Is Better? \u00b7 Topics \u00b7 7 Citations \u00b7 10 References \u00b7 Related Papers ...See more\n   Content: [PDF] Pie Menus or Linear Menus, Which Is Better? | Semantic Scholar Skip to search form Skip to main content Skip to account menu Semantic Scholar Semantic Scholar's Logo Search 230,869,393 papers from all fields of science Search Sign In Create Free Account Corpus ID: 43958538 Pie Menus or Linear Menus, Which Is Better? @inproceedings{Murano2015PieMO,\n  title={Pie Menus or Linear Menus, Which Is Better?},\n  author={Pietro Murano and Iram Khan},\n  year={2015},\n  url={https://api.semanticscholar.org/CorpusID:43958538}\n} Pietro Murano , Iram Khan Published 9 September 2015 Computer Science TLDR This paper specifically compares pie menus with linear menus and an empirical approach using an experiment to test the effectiveness and user satisfaction of a pie menu and a linear menu is described in detail. Expand pietromurano.org Save to Library Save Create Alert Alert Cite Share 7 Citations Background Citations 2 Methods Citations 1 View All Topics AI-Generated Linear Menus (opens in a new tab) Pose , Illumination , And Expression (opens in a new tab) Pie Menu (opens in a new tab) 7 Citations Citation Type Has PDF Author More Filters More Filters Filters Sort by Relevance Sort by Most Influenced Papers Sort by Citation Count Sort by Recency User Interface Menu Design Performance and User Preferences: A Review and Ways Forward Pietro Murano Margrete Sander Computer Science 2016 TLDR This review paper aims to provide the reader with a succinct summary of the major research in this area along with an easy to read tabulation of the most important studies and some suggestions for future research regarding how menus and their positioning on the screen could be improved. Expand 14 PDF 2 Excerpts Save A usability evaluation of Web user interface scrolling types Sushil Sharma Pietro Murano Computer Science First Monday 2020 TLDR The evaluation was principally about the \u2018raw\u2019 performance and participant perceptions, where no single scrolling method stood out as being the most usab\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 44.95078206062317,
+      "step": 3,
+      "actor_model": "gpt-5",
+      "llm_time": 12.703895092010498,
+      "actor_reasoning": "I need to quickly identify which author had prior publications and then find that author's earliest paper title.",
+      "actor_tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "Pietro Murano publications first paper earliest publication"
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 46.01755714416504,
+      "tool_time": 1.065965175628662,
+      "tool_executed": {
+        "name": "web_search",
+        "result": "Found 3 relevant web results:\n\n1. Publications - Pietro Murano\n   URL: https://pietromurano.org/publications.html\n   Site: pietromurano.org\n   Summary: Murano, Pietro (2005) Why Anthropomorphic User Interface Feedback Can be Effective and Preferred by Users - PDF, 7th International Conference on Enterprise ...\n\n2. Pietro Murano - Home - ACM Digital Library\n   URL: https://dl.acm.org/profile/81327490721\n   Site: dl.acm.org\n   Summary: Publication Years = the span from the earliest year of publication on a work by this author to the most recent year of publication of a work by this author ...\n\n3. Intelligent-Internet/GAIA-Subset-Benchmark \u00b7 Datasets at Hugging ...\n   URL: https://huggingface.co/datasets/Intelligent-Internet/GAIA-Subset-Benchmark\n   Site: huggingface.co\n   Summary: These findings confirm that Pietro Murano had authored papers prior to 2015, with his earliest publication dating back to 2001. ### Analysis of I. N. Khan's ...\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 59.002203941345215,
+      "step": 4,
+      "actor_model": "gpt-5",
+      "llm_time": 12.982853889465332,
+      "actor_reasoning": "I want to open the author's publications page to identify the earliest publication title definitively.",
+      "actor_tool_calls": [
+        {
+          "name": "enhanced_search",
+          "args": {
+            "query": "site:pietromurano.org publications Pietro Murano publications earliest paper"
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 64.36168503761292,
+      "tool_time": 5.358680009841919,
+      "tool_executed": {
+        "name": "enhanced_search",
+        "result": "Found 3 web results with content:\n\n1. Publications\n   URL: https://pietromurano.org/publications.html\n   Site: pietromurano.org\n   Summary: Murano, Pietro (2006) Why Anthropomorphic User Interface Feedback can be Effective and Preferred by Users, In Enterprise Information Systems 7, Eds. Chen, Chin- ...\n   Content: Pietro Murano - Publications Pietro Murano Publications Home Research Lecturing Administration Popular Media Contact This section lists all my publications and where possible the publications are included. Click on a title to read a paper. INTERNATIONAL REFEREED JOURNAL PAPERS Keya, Rashika Tasnim, Heldal, Ilona, Patel, Daniel, Murano, Pietro & Wijkmark, Cecilia Hammar (2025) Implementing Virtual Reality for Fire Evacuation Preparedness at Schools - PDF , Computers, 14, 286. Al-Jasim, Alyaa & Murano, Pietro (2023) Designing User Interface Toggles for Usability - PDF , Journal of User Experience, Volume 18, Issue 4, August 2023. Shrestha, Sayush Lal & Murano, Pietro (2022) The Design and Evaluation of an Online Dictionary User\nInterface - PDF , International Journal of Computing and Digital Systems, Volume 1, March 2022. Keya, Rashika Tasnim & Murano, Pietro (2022) Is Carousel Interaction Really Usable? - PDF , First Monday, Volume 27, Issue 1, January 2022. Chaudhary, Karan Singh & Murano, Pietro (2021) The Design and Evaluation of a New Smartwatch User Interface- PDF , International Journal of Interactive Mobile Technologies (iJIM), Vol. 15, Issue 13, 2021. Awale, Bikram & Murano, Pietro (2020) A Preliminary Usability and Universal Design Evaluation of a Television App User Interface - PDF , Baltic Journal of Modern Computing, Vol. 8, Issue 3, 2020. Sharma, Sushil & Murano, Pietro (2020) A Usability Evaluation of Web User Interface Scrolling Types - PDF , First Monday, Vol. 25, Issue 3, February 2020. Suru, Hassan Umar & Murano, Pietro (2019) Security and User Interface Usability of Graphical Authentication Systems A Review\n - PDF , International Journal of Computer Trends and Technology, Vol. 67, Issue 2, February, p.17-36. Murano, Pietro & Ali, Rao Muhammad Danial (2018) A Preliminary Investigation into the Usability of Force Touch Interaction in a Mobile Context\n - PDF , International Journal of Interactive Mobile Technologies, Vol. 12, Issue 5, p.169-181. Shres\n\n2. A Universally Designed and Usable Data Visualization for ...\n   URL: http://pietromurano.org/Papers/A_Universally_Designed_and_Usable_Data_Visualization-PUBLISHED%20VERSION.pdf\n   Site: pietromurano.org\n   Summary: by S Shrestha \u00b7 Cited by 6 \u2014 Abstract\u2014This paper discusses the design, development and evaluation of a data visualization prototype for a mobile application, for people with rheumatoid ...\n   Content: (IJACSA) International Journal of Advanced Computer Science and Applications, Vol. 7, No. 12, 2016 A Universally Designed and Usable Data Visualization for A Mobile Application in the Context of Rheumatoid Arthritis Suraj Shrestha1 Dr. Pietro Murano2 Department of Computer Science, The Universal Design of Department of Computer Science, The Universal Design of ICT Research Group, Oslo and Akershus University College ICT Research Group, Oslo and Akershus University College of Applied Sciences of Applied Sciences Oslo, Norway Oslo, Norway Abstract\u2014This paper discusses the design, development and and evaluating daily activities of rheumatoid arthritis evaluation of a data visualization prototype for a mobile sufferers. The app\u201fs presentation of information is compared application, for people with rheumatoid arthritis conditions. The by means of an experiment and post-experiment interviews visualizations concern ways of displaying graphically data for using two methods of visualization. The first method which monitoring and evaluating the daily activities of rheumatoid lacked in universal design and usability was redesigned into a arthritis sufferers. An initial visualization was developed and then second version to be a more user friendly universally designed a second was developed, aiming to be more usable and universally version. designed than the first version. An empirical experiment was used for evaluation and collection of quantitative data. Furthermore, In the first part of this paper, some relevant literature is semi-structured interviews were used for eliciting more discussed. In the second part, the two data visualizations are qualitative data in terms of participant opinions. The overall described in detail and linked with the principles of universal results suggest that the second visualization was more usable and design. The third part describes the evaluation carried out for more universally designed than the first version. The paper the two visualization\n\n3. User Interface Menu Design Performance and ...\n   URL: https://pietromurano.org/Papers/Published_Version_User_Interface_Menu_Design_Performance_and_User_Preferences_Murano_Sander.pdf\n   Site: pietromurano.org\n   Summary: by P Murano \u00b7 Cited by 25 \u2014 Dr Pietro Murano. Department of Computer Science, The Universal Design of. ICT ... Therefore, this paper is a review paper of the most relevant research ...\n   Content: (IJACSA) International Journal of Advanced Computer Science and Applications, Vol. 7, No. 4, 2016 User Interface Menu Design Performance and User Preferences: A Review and Ways Forward Dr Pietro Murano Margrete Sander Department of Computer Science, The Universal Design of Department of Computer Science, The Universal Design of ICT Research Group ICT Research Group Oslo and Akershus University College of Applied Sciences, Oslo and Akershus University College of Applied Sciences, Oslo, Norway Oslo, Norway Abstract\u2014This review paper is about menus on web pages Furthermore, the authors acknowledge that there are in and applications and their positioning on the user screen. The existence certain types of menus that are less conventional and paper aims to provide the reader with a succinct summary of the less used in every day applications and web sites, e.g. radial major research in this area along with an easy to read tabulation and flower menus. Please see Rubio and Janecek [4], Samp and of the most important studies. Furthermore, the paper concludes Decker [5], Bailly, Lecolinet and Nigay [6] and Murano and with some suggestions for future research regarding how menus Khan [7] for some examples. Discussions of these will be and their positioning on the screen could be improved. The two deliberately not included in this review paper, as the authors principal suggestions concern trying to use more qualitative wish to focus on menus which are more commonly used and methods for investigating the issues and to develop in the future hopefully can contribute some ways forward to the existing more universally designed menus. patterns of menu use. Clearly, if radial and flower menus should become more main stream, then a future review should Keywords\u2014Menus; navigation of interfaces; universal design; deal with this category of menu too. research methods In section II, this paper will proceed by presenting the I. INTRODUCTION authors\u2019 salient selection of relevant papers. This\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 80.78881311416626,
+      "step": 5,
+      "actor_model": "gpt-5",
+      "llm_time": 16.425919771194458,
+      "actor_reasoning": "I need to confirm which of the two authors had publications before 2015 and identify the earliest paper title for that author.",
+      "actor_tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "Iram N. Khan University of Salford publications before 2015"
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 81.60668611526489,
+      "tool_time": 0.8171572685241699,
+      "tool_executed": {
+        "name": "web_search",
+        "result": "Found 3 relevant web results:\n\n1. (PDF) Pie Menus or Linear Menus, Which Is Better? - ResearchGate\n   URL: https://www.researchgate.net/publication/283265537_Pie_Menus_or_Linear_Menus_Which_Is_Better\n   Site: researchgate.net\n   Summary: This paper is about a continuing investigation aiming to find out which menu type is more useable on a web site or application.\n\n2. \u202aDr. Iram Khan\u202c - \u202aGoogle Scholar\u202c\n   URL: https://scholar.google.com/citations?user=RzmqKwcAAAAJ&hl=en\n   Site: scholar.google.com\n   Summary: Co-authors ; Dietary Flaxseed supplementation effect on bovine semen quality parameters. H Khan, MS Qureshi, I Khan, SU Rehman, T Mehsud, I Ullah, M Aftab, ...\n\n3. Intelligent-Internet/GAIA-Subset-Benchmark \u00b7 Datasets at Hugging ...\n   URL: https://huggingface.co/datasets/Intelligent-Internet/GAIA-Subset-Benchmark\n   Site: huggingface.co\n   Summary: Thus, it can be concluded that I. N. Khan did not have any prior publications before 2015. --- ## Identifying the First Authored Paper by Pietro Murano From the ...\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 94.91945505142212,
+      "step": 6,
+      "actor_model": "gpt-5",
+      "llm_time": 13.311649084091187,
+      "actor_reasoning": "I need to identify Pietro Murano\u2019s earliest publication title prior to 2015 to answer which author had prior papers and what their first paper was.",
+      "actor_tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "Pietro Murano earliest publication 2001 site:pietromurano.org"
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 95.63851404190063,
+      "tool_time": 0.7178499698638916,
+      "tool_executed": {
+        "name": "web_search",
+        "result": "Found 3 relevant web results:\n\n1. Publications\n   URL: https://pietromurano.org/publications.html\n   Site: pietromurano.org\n   Summary: Murano, Pietro (2001) A New Software Agent 'Learning' Algorithm - PDF, People in Control An International Conference on Human Interfaces in Control Rooms ...\n\n2. A Preliminary Investigation into the Usability of Force ...\n   URL: http://pietromurano.org/Papers/Force-Touch-Mobile-Context-Murano-Ali-Published-Version.pdf\n   Site: pietromurano.org\n   Summary: by P Murano \u00b7 2018 \u00b7 Cited by 3 \u2014 Abstract\u2014This paper details a preliminary evaluation into the usability and universal design of force touch interaction with older users as recently intro-.\n\n3. effectiveness and preferences of anthropomorphic user ...\n   URL: https://pietromurano.org/Papers/ICEIS-BarcelonaV2.pdf\n   Site: pietromurano.org\n   Summary: by P Murano \u00b7 Cited by 6 \u2014 Murano, P., 2001a. A New Software Agent 'Learning'. Algorithm, People in Control An International. Conference on Human Interfaces in Control Rooms,. Cockpits ...\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 109.66754603385925,
+      "step": 7,
+      "actor_model": "gpt-5",
+      "llm_time": 14.026473999023438,
+      "actor_reasoning": "The 2015 paper lists two authors: Pietro Murano and Iram N. Khan; Murano had prior publications, with his earliest being from 2001 titled A New Software Agent 'Learning' Algorithm.\n\nFINAL ANSWER: A New Software Agent 'Learning' Algorithm",
+      "final_answer": "A New Software Agent 'Learning' Algorithm"
+    }
+  ],
+  "messages": [
+    {
+      "role": "user",
+      "content": "Of the authors (First M. Last) that worked on the paper \"Pie Menus or Linear Menus, Which Is Better?\" in 2015, what was the title of the first paper authored by the one that had authored prior papers?"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to find the 2015 paper, its authors, and determine which author had prior publications."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 relevant web results:\n\n1. Pie Menus or Linear Menus, Which Is Better?\n   URL: https://pietromurano.org/Papers/Murano-Khan-Published-Version.pdf\n   Site: pietromurano.org\n   Summary: by P Murano \u00b7 2015 \u00b7 Cited by 8 \u2014 \u00a92009-2015 CIS Journal. All rights reserved. http://www.cisjournal.org. 476. Pie Menus or Linear Menus, Which Is Better? 1 Pietro Murano, 2 Iram N. Khan. 1 ...\n\n2. (PDF) Pie Menus or Linear Menus, Which Is Better?\n   URL: https://www.researchgate.net/publication/283265537_Pie_Menus_or_Linear_Menus_Which_Is_Better\n   Site: researchgate.net\n   Summary: Pie Menus or Linear Menus, Which Is Better? September 2015. Authors: Pietro Murano at OsloMet \u2013 Oslo Metropolitan University \u00b7 Pietro Murano \u00b7 OsloMet \u2013 Oslo ...\n\n3. [PDF] Pie Menus or Linear Menus, Which Is Better?\n   URL: https://www.semanticscholar.org/paper/Pie-Menus-or-Linear-Menus%2C-Which-Is-Better-Murano-Khan/54a14c467ca976cbdd0f1d8a41426e6347a5e4c2\n   Site: semanticscholar.org\n   Date: Sep 9, 2015\n   Summary: @inproceedings{Murano2015PieMO, title={Pie Menus or Linear Menus, Which Is Better?}, author={Pietro Murano and Iram Khan}, year={2015 ... 2015.\n",
+      "name": "web_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I want to open the 2015 PDF to read author details or bios that might mention which author had prior papers and any titles."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 web results with content:\n\n1. Pie Menus or Linear Menus, Which Is Better?\n   URL: https://pietromurano.org/Papers/Murano-Khan-Published-Version.pdf\n   Site: pietromurano.org\n   Summary: by P Murano \u00b7 2015 \u00b7 Cited by 8 \u2014 Pie Menus or Linear Menus, Which Is Better? 1 Pietro Murano, 2 Iram N. Khan ... Whether this figure is correct or not, the amount is likely to be more in 2015 ...See more\n   Content: Vol. 6, No. 9, September 2015 ISSN 2079-8407 Journal of Emerging Trends in Computing and Information Sciences \u00a92009-2015 CIS Journal. All rights reserved. http://www.cisjournal.org Pie Menus or Linear Menus, Which Is Better? 1 Pietro Murano, 2 Iram N. Khan 1 Department of Computer Science, the Universal Design of ICT Research Group, Oslo and Akershus University College of Applied Sciences, Oslo, Norway 2 University of Salford, School of Computing, Science and Engineering, Salford, M5 4WT, UK 1 pietro.murano@hioa.no, 2I.N.Khan@edu.salford.ac.uk ABSTRACT This paper is about a continuing investigation aiming to find out which menu type is more useable on a web site or application. This paper specifically compares pie menus with linear menus. Although other researchers have investigated similar themes it is felt that there is still not enough knowledge regarding the various effects of different menu types, including their positioning on a screen. An empirical approach using an experiment to test the effectiveness and user satisfaction of a pie menu and a linear menu is described in detail. Four tasks were administered to experimental participants under each menu design in a within users experimental design. Overall task time, number of errors and participants' subjective opinions were measured. The data were statistically analysed. There were no statistically significant results for task times and errors. However, subjective opinions were overall statistically significant, suggesting a preference for the pie menu by participants. These results are interesting for all web designers, user interface designers and developers. The issues being investigated are rather complex, because there is no clear pattern of results to suggest a categorical \u2018best design\u2019. These results add to the current knowledge in existence regarding menu types and to the wish of understanding better the issues involved with menu types. Keywords: Pie menus, radial menus, linear menus, usability, evalu\n\n2. (PDF) Pie Menus or Linear Menus, Which Is Better?\n   URL: https://www.researchgate.net/publication/283265537_Pie_Menus_or_Linear_Menus_Which_Is_Better\n   Site: researchgate.net\n   Summary: Pie Menus or Linear Menus, Which Is Better? 1 Pietro Murano, 2 Iram N. Khan. 1 Department of Computer Science, the Universal ...See more\n   Content: HTTP error occurred: 403 Client Error: Forbidden for url: https://www.researchgate.net/publication/283265537_Pie_Menus_or_Linear_Menus_Which_Is_Better\n\n3. [PDF] Pie Menus or Linear Menus, Which Is Better?\n   URL: https://www.semanticscholar.org/paper/Pie-Menus-or-Linear-Menus%2C-Which-Is-Better-Murano-Khan/54a14c467ca976cbdd0f1d8a41426e6347a5e4c2\n   Site: semanticscholar.org\n   Summary: Pie Menus or Linear Menus, Which Is Better? \u00b7 Topics \u00b7 7 Citations \u00b7 10 References \u00b7 Related Papers ...See more\n   Content: [PDF] Pie Menus or Linear Menus, Which Is Better? | Semantic Scholar Skip to search form Skip to main content Skip to account menu Semantic Scholar Semantic Scholar's Logo Search 230,869,393 papers from all fields of science Search Sign In Create Free Account Corpus ID: 43958538 Pie Menus or Linear Menus, Which Is Better? @inproceedings{Murano2015PieMO,\n  title={Pie Menus or Linear Menus, Which Is Better?},\n  author={Pietro Murano and Iram Khan},\n  year={2015},\n  url={https://api.semanticscholar.org/CorpusID:43958538}\n} Pietro Murano , Iram Khan Published 9 September 2015 Computer Science TLDR This paper specifically compares pie menus with linear menus and an empirical approach using an experiment to test the effectiveness and user satisfaction of a pie menu and a linear menu is described in detail. Expand pietromurano.org Save to Library Save Create Alert Alert Cite Share 7 Citations Background Citations 2 Methods Citations 1 View All Topics AI-Generated Linear Menus (opens in a new tab) Pose , Illumination , And Expression (opens in a new tab) Pie Menu (opens in a new tab) 7 Citations Citation Type Has PDF Author More Filters More Filters Filters Sort by Relevance Sort by Most Influenced Papers Sort by Citation Count Sort by Recency User Interface Menu Design Performance and User Preferences: A Review and Ways Forward Pietro Murano Margrete Sander Computer Science 2016 TLDR This review paper aims to provide the reader with a succinct summary of the major research in this area along with an easy to read tabulation of the most important studies and some suggestions for future research regarding how menus and their positioning on the screen could be improved. Expand 14 PDF 2 Excerpts Save A usability evaluation of Web user interface scrolling types Sushil Sharma Pietro Murano Computer Science First Monday 2020 TLDR The evaluation was principally about the \u2018raw\u2019 performance and participant perceptions, where no single scrolling method stood out as being the most usab\n",
+      "name": "enhanced_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to quickly identify which author had prior publications and then find that author's earliest paper title."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 relevant web results:\n\n1. Publications - Pietro Murano\n   URL: https://pietromurano.org/publications.html\n   Site: pietromurano.org\n   Summary: Murano, Pietro (2005) Why Anthropomorphic User Interface Feedback Can be Effective and Preferred by Users - PDF, 7th International Conference on Enterprise ...\n\n2. Pietro Murano - Home - ACM Digital Library\n   URL: https://dl.acm.org/profile/81327490721\n   Site: dl.acm.org\n   Summary: Publication Years = the span from the earliest year of publication on a work by this author to the most recent year of publication of a work by this author ...\n\n3. Intelligent-Internet/GAIA-Subset-Benchmark \u00b7 Datasets at Hugging ...\n   URL: https://huggingface.co/datasets/Intelligent-Internet/GAIA-Subset-Benchmark\n   Site: huggingface.co\n   Summary: These findings confirm that Pietro Murano had authored papers prior to 2015, with his earliest publication dating back to 2001. ### Analysis of I. N. Khan's ...\n",
+      "name": "web_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I want to open the author's publications page to identify the earliest publication title definitively."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 web results with content:\n\n1. Publications\n   URL: https://pietromurano.org/publications.html\n   Site: pietromurano.org\n   Summary: Murano, Pietro (2006) Why Anthropomorphic User Interface Feedback can be Effective and Preferred by Users, In Enterprise Information Systems 7, Eds. Chen, Chin- ...\n   Content: Pietro Murano - Publications Pietro Murano Publications Home Research Lecturing Administration Popular Media Contact This section lists all my publications and where possible the publications are included. Click on a title to read a paper. INTERNATIONAL REFEREED JOURNAL PAPERS Keya, Rashika Tasnim, Heldal, Ilona, Patel, Daniel, Murano, Pietro & Wijkmark, Cecilia Hammar (2025) Implementing Virtual Reality for Fire Evacuation Preparedness at Schools - PDF , Computers, 14, 286. Al-Jasim, Alyaa & Murano, Pietro (2023) Designing User Interface Toggles for Usability - PDF , Journal of User Experience, Volume 18, Issue 4, August 2023. Shrestha, Sayush Lal & Murano, Pietro (2022) The Design and Evaluation of an Online Dictionary User\nInterface - PDF , International Journal of Computing and Digital Systems, Volume 1, March 2022. Keya, Rashika Tasnim & Murano, Pietro (2022) Is Carousel Interaction Really Usable? - PDF , First Monday, Volume 27, Issue 1, January 2022. Chaudhary, Karan Singh & Murano, Pietro (2021) The Design and Evaluation of a New Smartwatch User Interface- PDF , International Journal of Interactive Mobile Technologies (iJIM), Vol. 15, Issue 13, 2021. Awale, Bikram & Murano, Pietro (2020) A Preliminary Usability and Universal Design Evaluation of a Television App User Interface - PDF , Baltic Journal of Modern Computing, Vol. 8, Issue 3, 2020. Sharma, Sushil & Murano, Pietro (2020) A Usability Evaluation of Web User Interface Scrolling Types - PDF , First Monday, Vol. 25, Issue 3, February 2020. Suru, Hassan Umar & Murano, Pietro (2019) Security and User Interface Usability of Graphical Authentication Systems A Review\n - PDF , International Journal of Computer Trends and Technology, Vol. 67, Issue 2, February, p.17-36. Murano, Pietro & Ali, Rao Muhammad Danial (2018) A Preliminary Investigation into the Usability of Force Touch Interaction in a Mobile Context\n - PDF , International Journal of Interactive Mobile Technologies, Vol. 12, Issue 5, p.169-181. Shres\n\n2. A Universally Designed and Usable Data Visualization for ...\n   URL: http://pietromurano.org/Papers/A_Universally_Designed_and_Usable_Data_Visualization-PUBLISHED%20VERSION.pdf\n   Site: pietromurano.org\n   Summary: by S Shrestha \u00b7 Cited by 6 \u2014 Abstract\u2014This paper discusses the design, development and evaluation of a data visualization prototype for a mobile application, for people with rheumatoid ...\n   Content: (IJACSA) International Journal of Advanced Computer Science and Applications, Vol. 7, No. 12, 2016 A Universally Designed and Usable Data Visualization for A Mobile Application in the Context of Rheumatoid Arthritis Suraj Shrestha1 Dr. Pietro Murano2 Department of Computer Science, The Universal Design of Department of Computer Science, The Universal Design of ICT Research Group, Oslo and Akershus University College ICT Research Group, Oslo and Akershus University College of Applied Sciences of Applied Sciences Oslo, Norway Oslo, Norway Abstract\u2014This paper discusses the design, development and and evaluating daily activities of rheumatoid arthritis evaluation of a data visualization prototype for a mobile sufferers. The app\u201fs presentation of information is compared application, for people with rheumatoid arthritis conditions. The by means of an experiment and post-experiment interviews visualizations concern ways of displaying graphically data for using two methods of visualization. The first method which monitoring and evaluating the daily activities of rheumatoid lacked in universal design and usability was redesigned into a arthritis sufferers. An initial visualization was developed and then second version to be a more user friendly universally designed a second was developed, aiming to be more usable and universally version. designed than the first version. An empirical experiment was used for evaluation and collection of quantitative data. Furthermore, In the first part of this paper, some relevant literature is semi-structured interviews were used for eliciting more discussed. In the second part, the two data visualizations are qualitative data in terms of participant opinions. The overall described in detail and linked with the principles of universal results suggest that the second visualization was more usable and design. The third part describes the evaluation carried out for more universally designed than the first version. The paper the two visualization\n\n3. User Interface Menu Design Performance and ...\n   URL: https://pietromurano.org/Papers/Published_Version_User_Interface_Menu_Design_Performance_and_User_Preferences_Murano_Sander.pdf\n   Site: pietromurano.org\n   Summary: by P Murano \u00b7 Cited by 25 \u2014 Dr Pietro Murano. Department of Computer Science, The Universal Design of. ICT ... Therefore, this paper is a review paper of the most relevant research ...\n   Content: (IJACSA) International Journal of Advanced Computer Science and Applications, Vol. 7, No. 4, 2016 User Interface Menu Design Performance and User Preferences: A Review and Ways Forward Dr Pietro Murano Margrete Sander Department of Computer Science, The Universal Design of Department of Computer Science, The Universal Design of ICT Research Group ICT Research Group Oslo and Akershus University College of Applied Sciences, Oslo and Akershus University College of Applied Sciences, Oslo, Norway Oslo, Norway Abstract\u2014This review paper is about menus on web pages Furthermore, the authors acknowledge that there are in and applications and their positioning on the user screen. The existence certain types of menus that are less conventional and paper aims to provide the reader with a succinct summary of the less used in every day applications and web sites, e.g. radial major research in this area along with an easy to read tabulation and flower menus. Please see Rubio and Janecek [4], Samp and of the most important studies. Furthermore, the paper concludes Decker [5], Bailly, Lecolinet and Nigay [6] and Murano and with some suggestions for future research regarding how menus Khan [7] for some examples. Discussions of these will be and their positioning on the screen could be improved. The two deliberately not included in this review paper, as the authors principal suggestions concern trying to use more qualitative wish to focus on menus which are more commonly used and methods for investigating the issues and to develop in the future hopefully can contribute some ways forward to the existing more universally designed menus. patterns of menu use. Clearly, if radial and flower menus should become more main stream, then a future review should Keywords\u2014Menus; navigation of interfaces; universal design; deal with this category of menu too. research methods In section II, this paper will proceed by presenting the I. INTRODUCTION authors\u2019 salient selection of relevant papers. This\n",
+      "name": "enhanced_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to confirm which of the two authors had publications before 2015 and identify the earliest paper title for that author."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 relevant web results:\n\n1. (PDF) Pie Menus or Linear Menus, Which Is Better? - ResearchGate\n   URL: https://www.researchgate.net/publication/283265537_Pie_Menus_or_Linear_Menus_Which_Is_Better\n   Site: researchgate.net\n   Summary: This paper is about a continuing investigation aiming to find out which menu type is more useable on a web site or application.\n\n2. \u202aDr. Iram Khan\u202c - \u202aGoogle Scholar\u202c\n   URL: https://scholar.google.com/citations?user=RzmqKwcAAAAJ&hl=en\n   Site: scholar.google.com\n   Summary: Co-authors ; Dietary Flaxseed supplementation effect on bovine semen quality parameters. H Khan, MS Qureshi, I Khan, SU Rehman, T Mehsud, I Ullah, M Aftab, ...\n\n3. Intelligent-Internet/GAIA-Subset-Benchmark \u00b7 Datasets at Hugging ...\n   URL: https://huggingface.co/datasets/Intelligent-Internet/GAIA-Subset-Benchmark\n   Site: huggingface.co\n   Summary: Thus, it can be concluded that I. N. Khan did not have any prior publications before 2015. --- ## Identifying the First Authored Paper by Pietro Murano From the ...\n",
+      "name": "web_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to identify Pietro Murano\u2019s earliest publication title prior to 2015 to answer which author had prior papers and what their first paper was."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 relevant web results:\n\n1. Publications\n   URL: https://pietromurano.org/publications.html\n   Site: pietromurano.org\n   Summary: Murano, Pietro (2001) A New Software Agent 'Learning' Algorithm - PDF, People in Control An International Conference on Human Interfaces in Control Rooms ...\n\n2. A Preliminary Investigation into the Usability of Force ...\n   URL: http://pietromurano.org/Papers/Force-Touch-Mobile-Context-Murano-Ali-Published-Version.pdf\n   Site: pietromurano.org\n   Summary: by P Murano \u00b7 2018 \u00b7 Cited by 3 \u2014 Abstract\u2014This paper details a preliminary evaluation into the usability and universal design of force touch interaction with older users as recently intro-.\n\n3. effectiveness and preferences of anthropomorphic user ...\n   URL: https://pietromurano.org/Papers/ICEIS-BarcelonaV2.pdf\n   Site: pietromurano.org\n   Summary: by P Murano \u00b7 Cited by 6 \u2014 Murano, P., 2001a. A New Software Agent 'Learning'. Algorithm, People in Control An International. Conference on Human Interfaces in Control Rooms,. Cockpits ...\n",
+      "name": "web_search"
+    },
+    {
+      "role": "assistant",
+      "content": "The 2015 paper lists two authors: Pietro Murano and Iram N. Khan; Murano had prior publications, with his earliest being from 2001 titled A New Software Agent 'Learning' Algorithm.\n\nFINAL ANSWER: A New Software Agent 'Learning' Algorithm"
+    }
+  ],
+  "error": null
+}

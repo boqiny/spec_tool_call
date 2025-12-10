@@ -1,0 +1,148 @@
+{
+  "task_id": "3ff6b7a9-a5bd-4412-ad92-0cd0d45c0fee",
+  "level": "2",
+  "question": "The longest-lived vertebrate is named after an island.  According to Wikipedia as of January 1, 2021, what is the 2020 estimated population of that island, to the nearest thousand?",
+  "ground_truth": "56000",
+  "predicted": "56000",
+  "correct": true,
+  "steps": 3,
+  "time_seconds": 64.34747862815857,
+  "actor_model": "gpt-5",
+  "spec_model": "gpt-5-nano",
+  "speculation_enabled": true,
+  "verification_strategy": "jaccard",
+  "spec_hits": 0,
+  "spec_misses": 2,
+  "spec_predictions": 3,
+  "trajectory": [
+    {
+      "node": "start",
+      "question": "The longest-lived vertebrate is named after an island.  According to Wikipedia as of January 1, 2021, what is the 2020 estimated population of that island, to the nearest thousand?",
+      "timestamp": 0
+    },
+    {
+      "node": "llm",
+      "timestamp": 13.586901903152466,
+      "step": 1,
+      "actor_model": "gpt-5",
+      "llm_time": 13.580781936645508,
+      "actor_reasoning": "I need to confirm the specific 2020 estimated population listed on Wikipedia for Greenland to ensure accurate rounding.",
+      "actor_tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "Greenland 2020 estimate population site:wikipedia.org"
+          }
+        }
+      ],
+      "spec_model": "gpt-5-nano",
+      "spec_predictions": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "Greenland population 2020 Wikipedia"
+          },
+          "pre_executed": true,
+          "exec_time": 1.9735360145568848,
+          "spec_inference_time": 5.496048927307129
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 15.571088790893555,
+      "tool_time": 1.983246088027954,
+      "tool_executed": {
+        "name": "web_search",
+        "result": "Found 3 relevant web results:\n\n1. Greenland\n   URL: https://en.wikipedia.org/wiki/Greenland\n   Site: en.wikipedia.org\n   Summary: With a population of 56,583 (2022), Greenland is the least densely populated country in the world.\n\n2. Demographics of Greenland\n   URL: https://en.wikipedia.org/wiki/Demographics_of_Greenland\n   Site: en.wikipedia.org\n   Summary: Population pyramid of Greenland in 2020. Population, 57,792 (2022 est.) Growth rate, -0.02% (2022 est.) Birth rate, 13.79 births/1,000 population (2022 est.).\n\n3. Greenland - Simple English Wikipedia, the free encyclopedia\n   URL: https://simple.wikipedia.org/wiki/Greenland\n   Site: simple.wikipedia.org\n   Summary: ... m (12,100 ft). Population. \u2022 2020 estimate. 56,081 (210th). \u2022 Density. 0.028/km2 (0.1/sq mi). GDP (PPP), 2011 estimate. \u2022 Total. $1.8 billion (not ranked). \u2022 ...\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 38.558825969696045,
+      "step": 2,
+      "actor_model": "gpt-5",
+      "llm_time": 22.981703996658325,
+      "actor_reasoning": "I want to confirm the exact 2020 estimated population for Greenland on Wikipedia around January 1, 2021.",
+      "actor_tool_calls": [
+        {
+          "name": "enhanced_search",
+          "args": {
+            "query": "Greenland 2020 estimate population site:wikipedia.org"
+          }
+        }
+      ],
+      "spec_model": "gpt-5-nano",
+      "spec_predictions": [
+        {
+          "name": "enhanced_search",
+          "args": {
+            "query": "Greenland population 2020 Wikipedia"
+          },
+          "pre_executed": true,
+          "exec_time": 6.612263917922974,
+          "spec_inference_time": 8.92269778251648
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 44.59476375579834,
+      "tool_time": 6.034217834472656,
+      "tool_executed": {
+        "name": "enhanced_search",
+        "result": "Found 3 web results with content:\n\n1. Greenland\n   URL: https://en.wikipedia.org/wiki/Greenland\n   Site: en.wikipedia.org\n   Summary: With a population of 56,583 (2022), Greenland is the least densely populated country in the world.\n   Content: Greenland - Wikipedia Jump to content Main menu Main menu move to sidebar hide Navigation Main page Contents Current events Random article About Wikipedia Contact us Contribute Help Learn to edit Community portal Recent changes Upload file Special pages Search Search Appearance Donate Create account Log in Personal tools Donate Create account Log in Contents move to sidebar hide (Top) 1 Etymology 2 History Toggle History subsection 2.1 Early Palaeo-Inuit cultures 2.2 Norse settlement 2.3 Thule culture (1300\u2013present) 2.4 1500\u20131814 2.5 Treaty of Kiel to World War II (1814\u20131945) 2.6 Home rule and self-rule (1945\u2013present) 3 Geography Toggle Geography subsection 3.1 Northernmost land 3.2 Climate change 3.3 Geology 3.4 Biodiversity 4 Government and politics Toggle Government and politics subsection 4.1 Political system 4.2 Government 4.3 Administrative divisions 4.4 Military 5 Economy Toggle Economy subsection 5.1 Transport 5.2 Tourism 5.3 Mining 6 Demographics Toggle Demographics subsection 6.1 Population 6.2 Languages 6.3 Religion 6.4 Education 6.5 Social issues 6.5.1 Compulsory contraception of Inuit women 6.5.2 LGBTQ rights 7 Culture Toggle Culture subsection 7.1 Fine arts 7.2 Media 7.3 Music 7.4 Cuisine 7.5 Sport 7.6 Religion 8 See also 9 Notes 10 References Toggle References subsection 10.1 Bibliography 11 External links Toggle the table of contents Greenland 205 languages Afrikaans Alemannisch \u12a0\u121b\u122d\u129b Anar\u00e2\u0161kiel\u00e2 \u0905\u0902\u0917\u093f\u0915\u093e \u00c6nglisc \u0627\u0644\u0639\u0631\u0628\u064a\u0629 Aragon\u00e9s Arpetan Asturianu Ava\u00f1e'\u1ebd Az\u0259rbaycanca \u062a\u06c6\u0631\u06a9\u062c\u0647 Basa Bali \u09ac\u09be\u0982\u09b2\u09be \u95a9\u5357\u8a9e / B\u00e2n-l\u00e2m-g\u00ed \u0411\u0430\u0448\u04a1\u043e\u0440\u0442\u0441\u0430 \u0411\u0435\u043b\u0430\u0440\u0443\u0441\u043a\u0430\u044f \u0411\u0435\u043b\u0430\u0440\u0443\u0441\u043a\u0430\u044f (\u0442\u0430\u0440\u0430\u0448\u043a\u0435\u0432\u0456\u0446\u0430) \u0411\u044a\u043b\u0433\u0430\u0440\u0441\u043a\u0438 Boarisch \u0f56\u0f7c\u0f51\u0f0b\u0f61\u0f72\u0f42 Bosanski Brezhoneg Catal\u00e0 \u0427\u04d1\u0432\u0430\u0448\u043b\u0430 Cebuano \u010ce\u0161tina Chavacano de Zamboanga Chi-Chewa Cymraeg Dansk Davvis\u00e1megiella Deutsch \u078b\u07a8\u0788\u07ac\u0780\u07a8\u0784\u07a6\u0790\u07b0 Din\u00e9 bizaad Dolnoserbski Eesti \u0395\u03bb\u03bb\u03b7\u03bd\u03b9\u03ba\u03ac Espa\u00f1ol Esperanto Estreme\u00f1u Euskara \u0641\u0627\u0631\u0633\u06cc Fiji Hindi F\u00f8royskt Fran\u00e7ais Frysk Gaeilge Gaelg Gagauz G\u00e0idhlig Galego \u06af\u06cc\u0644\u06a9\u06cc \u0917\u094b\u0902\u092f\u091a\u0940 \u0915\u094b\u0902\u0915\u0923\u0940 / G\u00f5ychi Konknni \u5ba2\u5bb6\u8a9e / Hak-k\u00e2-ng\u00ee \ud55c\uad6d\uc5b4 Hausa \u0540\u0561\u0575\u0565\u0580\u0565\u0576 \u0939\u093f\u0928\u094d\u0926\u0940 Hornjoserbsce Hr\n\n2. Demographics of Greenland\n   URL: https://en.wikipedia.org/wiki/Demographics_of_Greenland\n   Site: en.wikipedia.org\n   Summary: Population pyramid of Greenland in 2020. Population, 57,792 (2022 est.) Growth rate, -0.02% (2022 est.) Birth rate, 13.79 births/1,000 population (2022 est.).\n   Content: Demographics of Greenland - Wikipedia Jump to content Main menu Main menu move to sidebar hide Navigation Main page Contents Current events Random article About Wikipedia Contact us Contribute Help Learn to edit Community portal Recent changes Upload file Special pages Search Search Appearance Donate Create account Log in Personal tools Donate Create account Log in Contents move to sidebar hide (Top) 1 Populations Toggle Populations subsection 1.1 Structure of the population 2 Vital statistics Toggle Vital statistics subsection 2.1 Life expectancy at birth 3 Ethnic groups 4 Languages 5 Religion 6 Spiral case 7 References Toggle the table of contents Demographics of Greenland 15 languages \u0411\u044a\u043b\u0433\u0430\u0440\u0441\u043a\u0438 Deutsch \u0395\u03bb\u03bb\u03b7\u03bd\u03b9\u03ba\u03ac Espa\u00f1ol Fran\u00e7ais \ud55c\uad6d\uc5b4 Bahasa Indonesia Italiano \u10e5\u10d0\u10e0\u10d7\u10e3\u10da\u10d8 Lietuvi\u0173 Magyar Rom\u00e2n\u0103 \u0420\u0443\u0441\u0441\u043a\u0438\u0439 \u0422\u043e\u04b7\u0438\u043a\u04e3 \u0423\u043a\u0440\u0430\u0457\u043d\u0441\u044c\u043a\u0430 Edit links Article Talk English Read Edit View history Tools Tools move to sidebar hide Actions Read Edit View history General What links here Related changes Upload file Permanent link Page information Cite this page Get shortened URL Download QR code Print/export Download as PDF Printable version In other projects Wikimedia Commons Wikidata item Appearance move to sidebar hide From Wikipedia, the free encyclopedia Demographics of Greenland Population pyramid of Greenland in 2020 Population 57,792 (2022 est.) Growth rate -0.02% (2022 est.) Birth rate 13.79 births/1,000 population (2022 est.) Death rate 8.96 deaths/1,000 population (2022 est.) Life\u00a0expectancy 73.98 years \u2022\u00a0male 71.28 years \u2022\u00a0female 76.82 years Fertility rate 1.91 children born/woman (2022 est.) Infant mortality rate 8.75 deaths/1,000 live births Net migration rate -5 migrant(s)/1,000 population (2022 est.) Age structure 0\u201314 years 20.82% 65 and over 10.36% Sex ratio Total 1.08 male(s)/female (2022 est.) At birth 1.05 male(s)/female Under 15 1.03 male(s)/female 65 and over 0.84 male(s)/female Nationality Nationality Greenlander Language Official Greenlandic Spoken Greenlandic, Danish, Eng\n\n3. Greenland - Wikipedia\n   URL: https://iba.wikipedia.org/wiki/Greenland\n   Site: iba.wikipedia.org\n   Summary: 2011 estimate. \u2022 Total. $1.8 billion. \u2022 Per capita. $37,000. GDP (nominal), 2020 estimate. \u2022 Total. DKK 20.1 billion $3.08 billion. \u2022 Per capita. DKK ...\n   Content: Greenland - Wikipedia Pegi ngagai isi Menu batang Menu batang kalih ngagai bar tisi lalaika Navigasyen Lambar keterubah Portal komuniti Ubah ti baru Lambar seneka Bantu Lambar spesyel Giga Giga Gamal Beri duit Gaga akaun Log tama Perengka diri Beri duit Gaga akaun Log tama Isi kalih ngagai bar tisi lalaika Pemungkal 1 Kereban sanding Togal jadual isi Greenland 205 jaku Afrikaans Alemannisch \u12a0\u121b\u122d\u129b Pangcah Aragon\u00e9s \u00c6nglisc \u0905\u0902\u0917\u093f\u0915\u093e \u0627\u0644\u0639\u0631\u0628\u064a\u0629 \u0645\u0635\u0631\u0649 Asturianu Az\u0259rbaycanca \u062a\u06c6\u0631\u06a9\u062c\u0647 \u0411\u0430\u0448\u04a1\u043e\u0440\u0442\u0441\u0430 Basa Bali Boarisch \u017demait\u0117\u0161ka \u0411\u0435\u043b\u0430\u0440\u0443\u0441\u043a\u0430\u044f \u0411\u0435\u043b\u0430\u0440\u0443\u0441\u043a\u0430\u044f (\u0442\u0430\u0440\u0430\u0448\u043a\u0435\u0432\u0456\u0446\u0430) Betawi \u0411\u044a\u043b\u0433\u0430\u0440\u0441\u043a\u0438 \u09ac\u09be\u0982\u09b2\u09be \u0f56\u0f7c\u0f51\u0f0b\u0f61\u0f72\u0f42 \u09ac\u09bf\u09b7\u09cd\u09a3\u09c1\u09aa\u09cd\u09b0\u09bf\u09af\u09bc\u09be \u09ae\u09a3\u09bf\u09aa\u09c1\u09b0\u09c0 Brezhoneg Bosanski Catal\u00e0 Chavacano de Zamboanga \u95a9\u6771\u8a9e / M\u00ecng-d\u0115\u0324ng-ng\u1e73\u0304 \u041d\u043e\u0445\u0447\u0438\u0439\u043d Cebuano \u13e3\u13b3\u13a9 \u06a9\u0648\u0631\u062f\u06cc \u010ce\u0161tina Kasz\u00ebbsczi \u0427\u04d1\u0432\u0430\u0448\u043b\u0430 Cymraeg Dansk Deutsch Zazaki Dolnoserbski Kadazandusun \u078b\u07a8\u0788\u07ac\u0780\u07a8\u0784\u07a6\u0790\u07b0 \u0395\u03bb\u03bb\u03b7\u03bd\u03b9\u03ba\u03ac English Esperanto Espa\u00f1ol Eesti Euskara Estreme\u00f1u \u0641\u0627\u0631\u0633\u06cc Suomi V\u00f5ro F\u00f8royskt Fran\u00e7ais Arpetan Nordfriisk Frysk Gaeilge Gagauz G\u00e0idhlig Galego \u06af\u06cc\u0644\u06a9\u06cc Ava\u00f1e'\u1ebd \u0917\u094b\u0902\u092f\u091a\u0940 \u0915\u094b\u0902\u0915\u0923\u0940 / G\u00f5ychi Konknni Gaelg Hausa \u5ba2\u5bb6\u8a9e / Hak-k\u00e2-ng\u00ee \u05e2\u05d1\u05e8\u05d9\u05ea \u0939\u093f\u0928\u094d\u0926\u0940 Fiji Hindi Hrvatski Hornjoserbsce Krey\u00f2l ayisyen Magyar \u0540\u0561\u0575\u0565\u0580\u0565\u0576 Interlingua Bahasa Indonesia Interlingue I\u00f1upiatun Ilokano Ido \u00cdslenska Italiano \u1403\u14c4\u1483\u144e\u1450\u1466 / inuktitut \u65e5\u672c\u8a9e Jawa \u10e5\u10d0\u10e0\u10d7\u10e3\u10da\u10d8 Taqbaylit Kab\u0269y\u025b \u049a\u0430\u0437\u0430\u049b\u0448\u0430 \u1797\u17b6\u179f\u17b6\u1781\u17d2\u1798\u17c2\u179a \u0c95\u0ca8\u0ccd\u0ca8\u0ca1 \ud55c\uad6d\uc5b4 \u06a9\u0672\u0634\u064f\u0631 Kurd\u00ee \u041a\u043e\u043c\u0438 Kernowek Latina Ladino L\u00ebtzebuergesch Lingua Franca Nova Limburgs Ligure Ladin Ling\u00e1la \u0ea5\u0eb2\u0ea7 Lietuvi\u0173 Latvie\u0161u \u092e\u0948\u0925\u093f\u0932\u0940 Malagasy \u041e\u043b\u044b\u043a \u043c\u0430\u0440\u0438\u0439 M\u0101ori \u041c\u0430\u043a\u0435\u0434\u043e\u043d\u0441\u043a\u0438 \u0d2e\u0d32\u0d2f\u0d3e\u0d33\u0d02 \u041c\u043e\u043d\u0433\u043e\u043b \uabc3\uabe4\uabc7\uabe9 \uabc2\uabe3\uabdf \u1018\u102c\u101e\u102c\u1019\u1014\u103a \u092e\u0930\u093e\u0920\u0940 Bahasa Melayu Malti \u1019\u103c\u1014\u103a\u1019\u102c\u1018\u102c\u101e\u102c \u0645\u0627\u0632\u0650\u0631\u0648\u0646\u06cc Plattd\u00fc\u00fctsch Nedersaksies \u0928\u0947\u092a\u093e\u0932\u0940 Nederlands Norsk nynorsk Norsk bokm\u00e5l Novial Din\u00e9 bizaad Chi-Chewa Occitan Livvinkarjala Oromoo \u0b13\u0b21\u0b3c\u0b3f\u0b06 \u0418\u0440\u043e\u043d \u0a2a\u0a70\u0a1c\u0a3e\u0a2c\u0a40 Papiamentu Picard Polski Piemont\u00e8is \u067e\u0646\u062c\u0627\u0628\u06cc \u067e\u069a\u062a\u0648 Portugu\u00eas Runa Simi Rom\u00e2n\u0103 \u0420\u0443\u0441\u0441\u043a\u0438\u0439 \u0420\u0443\u0441\u0438\u043d\u044c\u0441\u043a\u044b\u0439 Ikinyarwanda \u0421\u0430\u0445\u0430 \u0442\u044b\u043b\u0430 Sardu Sicilianu Scots \u0633\u0646\u068c\u064a Davvis\u00e1megiella Srpskohrvatski / \u0441\u0440\u043f\u0441\u043a\u043e\u0445\u0440\u0432\u0430\u0442\u0441\u043a\u0438 \u1010\u1086\u1038 \u0dc3\u0dd2\u0d82\u0dc4\u0dbd Simple English Sloven\u010dina Sloven\u0161\u010dina Anar\u00e2\u0161kiel\u00e2 Soomaaliga Shqip \u0421\u0440\u043f\u0441\u043a\u0438 / srpski Seeltersk Sunda Svenska Kiswahili \u015al\u016fnski Sakizaya \u0ba4\u0bae\u0bbf\u0bb4\u0bcd Tayal \u0c24\u0c46\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 64.34726667404175,
+      "step": 3,
+      "actor_model": "gpt-5",
+      "llm_time": 19.749053239822388,
+      "actor_reasoning": "The longest-lived vertebrate is the Greenland shark, named after Greenland; Wikipedia listed Greenland\u2019s 2020 estimated population as 56081, which rounds to 56000.\n\nFINAL ANSWER: 56000",
+      "spec_model": "gpt-5-nano",
+      "spec_predictions": [
+        {
+          "name": "enhanced_search",
+          "args": {
+            "query": "Greenland population 2020 Wikipedia"
+          },
+          "pre_executed": true,
+          "exec_time": 3.8512399196624756,
+          "spec_inference_time": 8.11415696144104
+        }
+      ],
+      "final_answer": "56000"
+    }
+  ],
+  "messages": [
+    {
+      "role": "user",
+      "content": "The longest-lived vertebrate is named after an island.  According to Wikipedia as of January 1, 2021, what is the 2020 estimated population of that island, to the nearest thousand?"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to confirm the specific 2020 estimated population listed on Wikipedia for Greenland to ensure accurate rounding."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 relevant web results:\n\n1. Greenland\n   URL: https://en.wikipedia.org/wiki/Greenland\n   Site: en.wikipedia.org\n   Summary: With a population of 56,583 (2022), Greenland is the least densely populated country in the world.\n\n2. Demographics of Greenland\n   URL: https://en.wikipedia.org/wiki/Demographics_of_Greenland\n   Site: en.wikipedia.org\n   Summary: Population pyramid of Greenland in 2020. Population, 57,792 (2022 est.) Growth rate, -0.02% (2022 est.) Birth rate, 13.79 births/1,000 population (2022 est.).\n\n3. Greenland - Simple English Wikipedia, the free encyclopedia\n   URL: https://simple.wikipedia.org/wiki/Greenland\n   Site: simple.wikipedia.org\n   Summary: ... m (12,100 ft). Population. \u2022 2020 estimate. 56,081 (210th). \u2022 Density. 0.028/km2 (0.1/sq mi). GDP (PPP), 2011 estimate. \u2022 Total. $1.8 billion (not ranked). \u2022 ...\n",
+      "name": "web_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I want to confirm the exact 2020 estimated population for Greenland on Wikipedia around January 1, 2021."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 web results with content:\n\n1. Greenland\n   URL: https://en.wikipedia.org/wiki/Greenland\n   Site: en.wikipedia.org\n   Summary: With a population of 56,583 (2022), Greenland is the least densely populated country in the world.\n   Content: Greenland - Wikipedia Jump to content Main menu Main menu move to sidebar hide Navigation Main page Contents Current events Random article About Wikipedia Contact us Contribute Help Learn to edit Community portal Recent changes Upload file Special pages Search Search Appearance Donate Create account Log in Personal tools Donate Create account Log in Contents move to sidebar hide (Top) 1 Etymology 2 History Toggle History subsection 2.1 Early Palaeo-Inuit cultures 2.2 Norse settlement 2.3 Thule culture (1300\u2013present) 2.4 1500\u20131814 2.5 Treaty of Kiel to World War II (1814\u20131945) 2.6 Home rule and self-rule (1945\u2013present) 3 Geography Toggle Geography subsection 3.1 Northernmost land 3.2 Climate change 3.3 Geology 3.4 Biodiversity 4 Government and politics Toggle Government and politics subsection 4.1 Political system 4.2 Government 4.3 Administrative divisions 4.4 Military 5 Economy Toggle Economy subsection 5.1 Transport 5.2 Tourism 5.3 Mining 6 Demographics Toggle Demographics subsection 6.1 Population 6.2 Languages 6.3 Religion 6.4 Education 6.5 Social issues 6.5.1 Compulsory contraception of Inuit women 6.5.2 LGBTQ rights 7 Culture Toggle Culture subsection 7.1 Fine arts 7.2 Media 7.3 Music 7.4 Cuisine 7.5 Sport 7.6 Religion 8 See also 9 Notes 10 References Toggle References subsection 10.1 Bibliography 11 External links Toggle the table of contents Greenland 205 languages Afrikaans Alemannisch \u12a0\u121b\u122d\u129b Anar\u00e2\u0161kiel\u00e2 \u0905\u0902\u0917\u093f\u0915\u093e \u00c6nglisc \u0627\u0644\u0639\u0631\u0628\u064a\u0629 Aragon\u00e9s Arpetan Asturianu Ava\u00f1e'\u1ebd Az\u0259rbaycanca \u062a\u06c6\u0631\u06a9\u062c\u0647 Basa Bali \u09ac\u09be\u0982\u09b2\u09be \u95a9\u5357\u8a9e / B\u00e2n-l\u00e2m-g\u00ed \u0411\u0430\u0448\u04a1\u043e\u0440\u0442\u0441\u0430 \u0411\u0435\u043b\u0430\u0440\u0443\u0441\u043a\u0430\u044f \u0411\u0435\u043b\u0430\u0440\u0443\u0441\u043a\u0430\u044f (\u0442\u0430\u0440\u0430\u0448\u043a\u0435\u0432\u0456\u0446\u0430) \u0411\u044a\u043b\u0433\u0430\u0440\u0441\u043a\u0438 Boarisch \u0f56\u0f7c\u0f51\u0f0b\u0f61\u0f72\u0f42 Bosanski Brezhoneg Catal\u00e0 \u0427\u04d1\u0432\u0430\u0448\u043b\u0430 Cebuano \u010ce\u0161tina Chavacano de Zamboanga Chi-Chewa Cymraeg Dansk Davvis\u00e1megiella Deutsch \u078b\u07a8\u0788\u07ac\u0780\u07a8\u0784\u07a6\u0790\u07b0 Din\u00e9 bizaad Dolnoserbski Eesti \u0395\u03bb\u03bb\u03b7\u03bd\u03b9\u03ba\u03ac Espa\u00f1ol Esperanto Estreme\u00f1u Euskara \u0641\u0627\u0631\u0633\u06cc Fiji Hindi F\u00f8royskt Fran\u00e7ais Frysk Gaeilge Gaelg Gagauz G\u00e0idhlig Galego \u06af\u06cc\u0644\u06a9\u06cc \u0917\u094b\u0902\u092f\u091a\u0940 \u0915\u094b\u0902\u0915\u0923\u0940 / G\u00f5ychi Konknni \u5ba2\u5bb6\u8a9e / Hak-k\u00e2-ng\u00ee \ud55c\uad6d\uc5b4 Hausa \u0540\u0561\u0575\u0565\u0580\u0565\u0576 \u0939\u093f\u0928\u094d\u0926\u0940 Hornjoserbsce Hr\n\n2. Demographics of Greenland\n   URL: https://en.wikipedia.org/wiki/Demographics_of_Greenland\n   Site: en.wikipedia.org\n   Summary: Population pyramid of Greenland in 2020. Population, 57,792 (2022 est.) Growth rate, -0.02% (2022 est.) Birth rate, 13.79 births/1,000 population (2022 est.).\n   Content: Demographics of Greenland - Wikipedia Jump to content Main menu Main menu move to sidebar hide Navigation Main page Contents Current events Random article About Wikipedia Contact us Contribute Help Learn to edit Community portal Recent changes Upload file Special pages Search Search Appearance Donate Create account Log in Personal tools Donate Create account Log in Contents move to sidebar hide (Top) 1 Populations Toggle Populations subsection 1.1 Structure of the population 2 Vital statistics Toggle Vital statistics subsection 2.1 Life expectancy at birth 3 Ethnic groups 4 Languages 5 Religion 6 Spiral case 7 References Toggle the table of contents Demographics of Greenland 15 languages \u0411\u044a\u043b\u0433\u0430\u0440\u0441\u043a\u0438 Deutsch \u0395\u03bb\u03bb\u03b7\u03bd\u03b9\u03ba\u03ac Espa\u00f1ol Fran\u00e7ais \ud55c\uad6d\uc5b4 Bahasa Indonesia Italiano \u10e5\u10d0\u10e0\u10d7\u10e3\u10da\u10d8 Lietuvi\u0173 Magyar Rom\u00e2n\u0103 \u0420\u0443\u0441\u0441\u043a\u0438\u0439 \u0422\u043e\u04b7\u0438\u043a\u04e3 \u0423\u043a\u0440\u0430\u0457\u043d\u0441\u044c\u043a\u0430 Edit links Article Talk English Read Edit View history Tools Tools move to sidebar hide Actions Read Edit View history General What links here Related changes Upload file Permanent link Page information Cite this page Get shortened URL Download QR code Print/export Download as PDF Printable version In other projects Wikimedia Commons Wikidata item Appearance move to sidebar hide From Wikipedia, the free encyclopedia Demographics of Greenland Population pyramid of Greenland in 2020 Population 57,792 (2022 est.) Growth rate -0.02% (2022 est.) Birth rate 13.79 births/1,000 population (2022 est.) Death rate 8.96 deaths/1,000 population (2022 est.) Life\u00a0expectancy 73.98 years \u2022\u00a0male 71.28 years \u2022\u00a0female 76.82 years Fertility rate 1.91 children born/woman (2022 est.) Infant mortality rate 8.75 deaths/1,000 live births Net migration rate -5 migrant(s)/1,000 population (2022 est.) Age structure 0\u201314 years 20.82% 65 and over 10.36% Sex ratio Total 1.08 male(s)/female (2022 est.) At birth 1.05 male(s)/female Under 15 1.03 male(s)/female 65 and over 0.84 male(s)/female Nationality Nationality Greenlander Language Official Greenlandic Spoken Greenlandic, Danish, Eng\n\n3. Greenland - Wikipedia\n   URL: https://iba.wikipedia.org/wiki/Greenland\n   Site: iba.wikipedia.org\n   Summary: 2011 estimate. \u2022 Total. $1.8 billion. \u2022 Per capita. $37,000. GDP (nominal), 2020 estimate. \u2022 Total. DKK 20.1 billion $3.08 billion. \u2022 Per capita. DKK ...\n   Content: Greenland - Wikipedia Pegi ngagai isi Menu batang Menu batang kalih ngagai bar tisi lalaika Navigasyen Lambar keterubah Portal komuniti Ubah ti baru Lambar seneka Bantu Lambar spesyel Giga Giga Gamal Beri duit Gaga akaun Log tama Perengka diri Beri duit Gaga akaun Log tama Isi kalih ngagai bar tisi lalaika Pemungkal 1 Kereban sanding Togal jadual isi Greenland 205 jaku Afrikaans Alemannisch \u12a0\u121b\u122d\u129b Pangcah Aragon\u00e9s \u00c6nglisc \u0905\u0902\u0917\u093f\u0915\u093e \u0627\u0644\u0639\u0631\u0628\u064a\u0629 \u0645\u0635\u0631\u0649 Asturianu Az\u0259rbaycanca \u062a\u06c6\u0631\u06a9\u062c\u0647 \u0411\u0430\u0448\u04a1\u043e\u0440\u0442\u0441\u0430 Basa Bali Boarisch \u017demait\u0117\u0161ka \u0411\u0435\u043b\u0430\u0440\u0443\u0441\u043a\u0430\u044f \u0411\u0435\u043b\u0430\u0440\u0443\u0441\u043a\u0430\u044f (\u0442\u0430\u0440\u0430\u0448\u043a\u0435\u0432\u0456\u0446\u0430) Betawi \u0411\u044a\u043b\u0433\u0430\u0440\u0441\u043a\u0438 \u09ac\u09be\u0982\u09b2\u09be \u0f56\u0f7c\u0f51\u0f0b\u0f61\u0f72\u0f42 \u09ac\u09bf\u09b7\u09cd\u09a3\u09c1\u09aa\u09cd\u09b0\u09bf\u09af\u09bc\u09be \u09ae\u09a3\u09bf\u09aa\u09c1\u09b0\u09c0 Brezhoneg Bosanski Catal\u00e0 Chavacano de Zamboanga \u95a9\u6771\u8a9e / M\u00ecng-d\u0115\u0324ng-ng\u1e73\u0304 \u041d\u043e\u0445\u0447\u0438\u0439\u043d Cebuano \u13e3\u13b3\u13a9 \u06a9\u0648\u0631\u062f\u06cc \u010ce\u0161tina Kasz\u00ebbsczi \u0427\u04d1\u0432\u0430\u0448\u043b\u0430 Cymraeg Dansk Deutsch Zazaki Dolnoserbski Kadazandusun \u078b\u07a8\u0788\u07ac\u0780\u07a8\u0784\u07a6\u0790\u07b0 \u0395\u03bb\u03bb\u03b7\u03bd\u03b9\u03ba\u03ac English Esperanto Espa\u00f1ol Eesti Euskara Estreme\u00f1u \u0641\u0627\u0631\u0633\u06cc Suomi V\u00f5ro F\u00f8royskt Fran\u00e7ais Arpetan Nordfriisk Frysk Gaeilge Gagauz G\u00e0idhlig Galego \u06af\u06cc\u0644\u06a9\u06cc Ava\u00f1e'\u1ebd \u0917\u094b\u0902\u092f\u091a\u0940 \u0915\u094b\u0902\u0915\u0923\u0940 / G\u00f5ychi Konknni Gaelg Hausa \u5ba2\u5bb6\u8a9e / Hak-k\u00e2-ng\u00ee \u05e2\u05d1\u05e8\u05d9\u05ea \u0939\u093f\u0928\u094d\u0926\u0940 Fiji Hindi Hrvatski Hornjoserbsce Krey\u00f2l ayisyen Magyar \u0540\u0561\u0575\u0565\u0580\u0565\u0576 Interlingua Bahasa Indonesia Interlingue I\u00f1upiatun Ilokano Ido \u00cdslenska Italiano \u1403\u14c4\u1483\u144e\u1450\u1466 / inuktitut \u65e5\u672c\u8a9e Jawa \u10e5\u10d0\u10e0\u10d7\u10e3\u10da\u10d8 Taqbaylit Kab\u0269y\u025b \u049a\u0430\u0437\u0430\u049b\u0448\u0430 \u1797\u17b6\u179f\u17b6\u1781\u17d2\u1798\u17c2\u179a \u0c95\u0ca8\u0ccd\u0ca8\u0ca1 \ud55c\uad6d\uc5b4 \u06a9\u0672\u0634\u064f\u0631 Kurd\u00ee \u041a\u043e\u043c\u0438 Kernowek Latina Ladino L\u00ebtzebuergesch Lingua Franca Nova Limburgs Ligure Ladin Ling\u00e1la \u0ea5\u0eb2\u0ea7 Lietuvi\u0173 Latvie\u0161u \u092e\u0948\u0925\u093f\u0932\u0940 Malagasy \u041e\u043b\u044b\u043a \u043c\u0430\u0440\u0438\u0439 M\u0101ori \u041c\u0430\u043a\u0435\u0434\u043e\u043d\u0441\u043a\u0438 \u0d2e\u0d32\u0d2f\u0d3e\u0d33\u0d02 \u041c\u043e\u043d\u0433\u043e\u043b \uabc3\uabe4\uabc7\uabe9 \uabc2\uabe3\uabdf \u1018\u102c\u101e\u102c\u1019\u1014\u103a \u092e\u0930\u093e\u0920\u0940 Bahasa Melayu Malti \u1019\u103c\u1014\u103a\u1019\u102c\u1018\u102c\u101e\u102c \u0645\u0627\u0632\u0650\u0631\u0648\u0646\u06cc Plattd\u00fc\u00fctsch Nedersaksies \u0928\u0947\u092a\u093e\u0932\u0940 Nederlands Norsk nynorsk Norsk bokm\u00e5l Novial Din\u00e9 bizaad Chi-Chewa Occitan Livvinkarjala Oromoo \u0b13\u0b21\u0b3c\u0b3f\u0b06 \u0418\u0440\u043e\u043d \u0a2a\u0a70\u0a1c\u0a3e\u0a2c\u0a40 Papiamentu Picard Polski Piemont\u00e8is \u067e\u0646\u062c\u0627\u0628\u06cc \u067e\u069a\u062a\u0648 Portugu\u00eas Runa Simi Rom\u00e2n\u0103 \u0420\u0443\u0441\u0441\u043a\u0438\u0439 \u0420\u0443\u0441\u0438\u043d\u044c\u0441\u043a\u044b\u0439 Ikinyarwanda \u0421\u0430\u0445\u0430 \u0442\u044b\u043b\u0430 Sardu Sicilianu Scots \u0633\u0646\u068c\u064a Davvis\u00e1megiella Srpskohrvatski / \u0441\u0440\u043f\u0441\u043a\u043e\u0445\u0440\u0432\u0430\u0442\u0441\u043a\u0438 \u1010\u1086\u1038 \u0dc3\u0dd2\u0d82\u0dc4\u0dbd Simple English Sloven\u010dina Sloven\u0161\u010dina Anar\u00e2\u0161kiel\u00e2 Soomaaliga Shqip \u0421\u0440\u043f\u0441\u043a\u0438 / srpski Seeltersk Sunda Svenska Kiswahili \u015al\u016fnski Sakizaya \u0ba4\u0bae\u0bbf\u0bb4\u0bcd Tayal \u0c24\u0c46\n",
+      "name": "enhanced_search"
+    },
+    {
+      "role": "assistant",
+      "content": "The longest-lived vertebrate is the Greenland shark, named after Greenland; Wikipedia listed Greenland\u2019s 2020 estimated population as 56081, which rounds to 56000.\n\nFINAL ANSWER: 56000"
+    }
+  ],
+  "error": null
+}

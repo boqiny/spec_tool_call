@@ -1,0 +1,216 @@
+{
+  "task_id": "b415aba4-4b68-4fc6-9b89-2c812e55a3e1",
+  "level": "1",
+  "question": "In Nature journal's Scientific Reports conference proceedings from 2012, in the article that did not mention plasmons or plasmonics, what nano-compound is studied? Don't use the prefix nano in your answer if there is one.",
+  "ground_truth": "diamond",
+  "predicted": "diamond",
+  "correct": true,
+  "steps": 5,
+  "time_seconds": 100.57041835784912,
+  "actor_model": "gpt-5",
+  "spec_model": "gpt-5-nano",
+  "speculation_enabled": true,
+  "verification_strategy": "jaccard",
+  "spec_hits": 0,
+  "spec_misses": 4,
+  "spec_predictions": 3,
+  "trajectory": [
+    {
+      "node": "start",
+      "question": "In Nature journal's Scientific Reports conference proceedings from 2012, in the article that did not mention plasmons or plasmonics, what nano-compound is studied? Don't use the prefix nano in your answer if there is one.",
+      "timestamp": 0
+    },
+    {
+      "node": "llm",
+      "timestamp": 9.475433111190796,
+      "step": 1,
+      "actor_model": "gpt-5",
+      "llm_time": 9.469866037368774,
+      "actor_reasoning": "I need to quickly find the specific Scientific Reports 2012 conference proceedings and identify which article lacks the words plasmons or plasmonics.",
+      "actor_tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "Scientific Reports conference proceedings 2012 plasmons plasmonics site:nature.com"
+          }
+        }
+      ],
+      "spec_model": "gpt-5-nano",
+      "spec_predictions": [
+        {
+          "name": "enhanced_search",
+          "args": {
+            "query": "Scientific Reports 2012 plasmons plasmonics article nano compound studied"
+          },
+          "pre_executed": true,
+          "exec_time": 3.7929039001464844,
+          "spec_inference_time": 5.675703048706055
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 10.337828159332275,
+      "tool_time": 0.8609919548034668,
+      "tool_executed": {
+        "name": "web_search",
+        "result": "Found 3 relevant web results:\n\n1. Conference Proceedings in 2012 | Scientific Reports\n   URL: https://www.nature.com/srep/articles?type=conference-proceeding&year=2012\n   Site: nature.com\n   Summary: Conference proceedings in 2012 included topics such as layered plasmonic cloaks, diamond photonic crystal slabs, efficient light coupling, and 2D quasiperiodic ...\n\n2. Surface plasmon resurrection | Nature Photonics\n   URL: https://www.nature.com/articles/nphoton.2012.296\n   Site: nature.com\n   Summary: by N PHOTONICS \u00b7 2012 \u00b7 Cited by 8 \u2014 The realization that coupling of photons to charges at metal interfaces allows subdiffraction-limit localization of light has revived the field of surface ...\n\n3. Layered plasmonic cloaks to tailor the optical scattering at ...\n   URL: https://www.nature.com/articles/srep00912\n   Site: nature.com\n   Summary: by F Monticone \u00b7 Cited by 57 \u2014 We discuss the rich scattering features offered by thin and thick plasmonic layers covering dielectric nanoparticles and their potential optical applications.\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 24.967169046401978,
+      "step": 2,
+      "actor_model": "gpt-5",
+      "llm_time": 14.626816034317017,
+      "actor_reasoning": "I need to open the Scientific Reports 2012 conference proceedings page and read the listed article titles to identify which one does not mention plasmons or plasmonics.",
+      "actor_tool_calls": [
+        {
+          "name": "enhanced_search",
+          "args": {
+            "query": "site:nature.com/srep/articles?type=conference-proceeding&year=2012 Scientific Reports conference proceedings 2012"
+          }
+        }
+      ],
+      "spec_model": "gpt-5-nano",
+      "spec_predictions": [
+        {
+          "name": "enhanced_search",
+          "args": {
+            "query": "site:nature.com/srep 2012 conference proceedings Scientific Reports"
+          },
+          "pre_executed": true,
+          "exec_time": 2.179316997528076,
+          "spec_inference_time": 7.454623222351074
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 27.114922046661377,
+      "tool_time": 2.1466097831726074,
+      "tool_executed": {
+        "name": "enhanced_search",
+        "result": "Found 3 web results with content:\n\n1. Conference Proceedings in 2012 | Scientific Reports\n   URL: https://www.nature.com/srep/articles?type=conference-proceeding&year=2012\n   Site: nature.com\n   Summary: Filter By: \u00b7 All \u00b7 Conference Proceeding (4). Year. 2012 (4). All; 2012 (4). Diamond photonic crystal slab: Leaky modes and modified photoluminescence emission ...See more\n   Content: Conference Proceedings in 2012\n | Scientific Reports Skip to main content Thank you for visiting nature.com. You are using a browser version with limited support for CSS. To obtain\n            the best experience, we recommend you use a more up to date browser (or turn off compatibility mode in\n            Internet Explorer). In the meantime, to ensure continued support, we are displaying the site without styles\n            and JavaScript. Advertisement View all journals Search Log in Content Explore content About the journal Publish with us Sign up for alerts RSS feed nature scientific reports browse articles Conference Proceedings in 2012 Filter By: Article Type Conference Proceeding (4) All Conference Proceeding (4) Year 2012 (4) All 2012 (4) Diamond photonic crystal slab: Leaky modes and modified photoluminescence emission of surface-deposited quantum dots Luk\u00e1\u0161 Ondi\u010d Oleg Babchenko Ivan Pelant Conference Proceeding Open Access 03 Dec 2012 Efficient light coupling for optically excited high-density metallic nanotip arrays Anna Mustonen Paul Beaud Soichiro Tsujino Conference Proceeding Open Access 03 Dec 2012 2D quasiperiodic plasmonic crystals Christina Bauer Georg Kobiela Harald Giessen Conference Proceeding Open Access 03 Dec 2012 Layered plasmonic cloaks to tailor the optical scattering at the nanoscale F. Monticone C. Argyropoulos A. Al\u00f9 Conference Proceeding Open Access 03 Dec 2012 Explore content Research articles News & Comment Collections Subjects Follow us on Facebook Follow us on Twitter Sign up for alerts RSS feed About the journal About Scientific Reports Contact Journal policies Guide to referees Calls for Papers Editor's Choice Journal highlights Open Access Fees and Funding Publish with us For authors Language editing services Open access funding Submit manuscript Search Search articles by subject, keyword or author Show results from All journals This journal Search Advanced search Quick links Explore articles by subject Find a job Guide to author\n\n2. Conference Proceedings | Scientific Reports\n   URL: https://www.nature.com/srep/articles?type=conference-proceeding\n   Site: nature.com\n   Summary: Conference Proceedings. Filter By: Article Type. Conference Proceeding (56). All; Conference Proceeding (56). Year. All. All; 2015 (14) \u00b7 2014 (38) \u00b7 2012 (4) ...See more\n   Content: Conference Proceedings\n | Scientific Reports Skip to main content Thank you for visiting nature.com. You are using a browser version with limited support for CSS. To obtain\n            the best experience, we recommend you use a more up to date browser (or turn off compatibility mode in\n            Internet Explorer). In the meantime, to ensure continued support, we are displaying the site without styles\n            and JavaScript. Advertisement View all journals Search Log in Content Explore content About the journal Publish with us Sign up for alerts RSS feed nature scientific reports browse articles Conference Proceedings Filter By: Article Type Conference Proceeding (56) All Conference Proceeding (56) Year All All 2015 (14) 2014 (38) 2012 (4) Influence of electric current pulses on the solidification of Cu-Bi-Sn immiscible alloys Jiang Hongxiang He Jie Zhao Jiuzhou Conference Proceeding Open Access 31 Jul 2015 Preparation and Characterization of Fe 3 O 4 Particles with Novel Nanosheets Morphology and Magnetochromatic Property by a Modified Solvothermal Method Lin Zhuang Wei Zhang Jinhua Liang Conference Proceeding Open Access 23 Mar 2015 Tuning the photoluminescence of condensed-phase cyclic trinuclear Au(I) complexes through control of their aggregated structures by external stimuli Kaori Fujisawa Shigeyuki Yamada Osamu Tsutsumi Conference Proceeding Open Access 23 Mar 2015 Engineering Bi 2 O 3 -Bi 2 S 3 heterostructure for superior lithium storage Tingting Liu Yang Zhao Jiangfeng Ni Conference Proceeding Open Access 23 Mar 2015 Highly-efficient GaN-based light-emitting diode wafers on La 0.3 Sr 1.7 AlTaO 6 substrates Wenliang Wang Weijia Yang Guoqiang Li Conference Proceeding Open Access 23 Mar 2015 Pt-free and efficient counter electrode with nanostructured CoNi 2 S 4 for dye-sensitized solar cells Zhiwei Shi Kaimo Deng Liang Li Conference Proceeding Open Access 23 Mar 2015 Micropatterning of TiO 2 Thin Films by MOCVD and Study of Their Growth Tendency Ki-Hwa\n\n3. Articles in 2012 | Scientific Reports\n   URL: https://www.nature.com/srep/articles?year=2012\n   Site: nature.com\n   Summary: Conference Proceeding (4) \u00b7 Erratum (6) \u00b7 Retraction (2). Year. 2012 (807). All ... Next page. Scientific Reports (Sci Rep). ISSN 2045-2322 (online). nature.com ...See more\n   Content: Articles in 2012\n | Scientific Reports Skip to main content Thank you for visiting nature.com. You are using a browser version with limited support for CSS. To obtain\n            the best experience, we recommend you use a more up to date browser (or turn off compatibility mode in\n            Internet Explorer). In the meantime, to ensure continued support, we are displaying the site without styles\n            and JavaScript. Advertisement View all journals Search Log in Content Explore content About the journal Publish with us Sign up for alerts RSS feed nature scientific reports browse articles Articles in 2012 Filter By: Article Type All All Addendum (2) Article (793) Conference Proceeding (4) Erratum (6) Retraction (2) Year 2012 (807) All 2012 (807) Unraveling the interlayer-related phonon self-energy renormalization in bilayer graphene Paulo T. Araujo Daniela L. Mafra Mildred S. Dresselhaus Article Open Access 21 Dec 2012 Gene direction in living organisms Xiu-Qing Li Donglei Du Article Open Access 21 Dec 2012 C9orf72 hexanucleotide repeat associated with amyotrophic lateral sclerosis and frontotemporal dementia forms RNA G-quadruplexes Pietro Fratta Sarah Mizielinska Adrian M. Isaacs Article Open Access 21 Dec 2012 Microsecond time-resolved energy-dispersive EXAFS measurement and its application to film the thermolysis of (NH 4 ) 2 [PtCl 6 ] Qingyu Kong Francois Baudelet Olivier Spalla Article Open Access 21 Dec 2012 Retro reflection of electrons at the interface of bilayer graphene and superconductor Yee Sin Ang Zhongshui Ma C. Zhang Article Open Access 21 Dec 2012 Non-monotonic crossover from single-file to regular diffusion in micro-channels U. Siems C. Kreuter P. Nielaba Article Open Access 21 Dec 2012 Peel-and-Stick: Fabricating Thin Film Solar Cell on Universal Substrates Chi Hwan Lee Dong Rip Kim Xiaolin Zheng Article Open Access 20 Dec 2012 Observing storm surges from space: Hurricane Igor off Newfoundland Guoqi Han Zhimin Ma Nancy Chen Article Open Ac\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 43.25366926193237,
+      "step": 3,
+      "actor_model": "gpt-5",
+      "llm_time": 16.134495973587036,
+      "actor_reasoning": "I need to open the specific Scientific Reports 2012 conference proceeding \"Diamond photonic crystal slab...\" to see which nanomaterial compound is studied.",
+      "actor_tool_calls": [
+        {
+          "name": "enhanced_search",
+          "args": {
+            "query": "Scientific Reports Diamond photonic crystal slab Leaky modes modified photoluminescence surface-deposited quantum dots 2012 conference proceeding"
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 45.068342208862305,
+      "tool_time": 1.8131980895996094,
+      "tool_executed": {
+        "name": "enhanced_search",
+        "result": "Found 3 web results with content:\n\n1. Diamond photonic crystal slab: Leaky modes and modified ... - Nature\n   URL: https://www.nature.com/articles/srep00914\n   Site: nature.com\n   Summary: Here we present a detailed study of the leaky modes of a nanocrystalline diamond (NCD) PhC slab by investigating polarization resolved photonic band diagrams.\n   Content: Diamond photonic crystal slab: Leaky modes and modified photoluminescence emission of surface-deposited quantum dots | Scientific Reports Skip to main content Thank you for visiting nature.com. You are using a browser version with limited support for CSS. To obtain\n            the best experience, we recommend you use a more up to date browser (or turn off compatibility mode in\n            Internet Explorer). In the meantime, to ensure continued support, we are displaying the site without styles\n            and JavaScript. Advertisement View all journals Search Log in Content Explore content About the journal Publish with us Sign up for alerts RSS feed nature scientific reports conference proceedings article Diamond photonic crystal slab: Leaky modes and modified photoluminescence emission of surface-deposited quantum dots Download PDF Download PDF Conference Proceeding Open access Published: 03 December 2012 Diamond photonic crystal slab: Leaky modes and modified photoluminescence emission of surface-deposited quantum dots Luk\u00e1\u0161 Ondi\u010d 1 , 2 , 3 , Oleg Babchenko 1 , Mari\u00e1n Varga 1 , Alexander Kromka 1 , Ji\u0159\u00ed \u010ctyrok\u00fd 4 & \u2026 Ivan Pelant 1 Show authors Scientific Reports volume 2 , Article\u00a0number: 914 ( 2012 ) Cite this article 69k Accesses 19 Citations 5 Altmetric Metrics details Subjects Materials science Optical physics Optics and photonics Optical spectroscopy Abstract Detailed analysis of a band diagram of a photonic crystal (PhC) slab prepared on a nano-diamond layer is presented. Even though the PhC is structurally imperfect, the existence of leaky modes, determined both theoretically and experimentally in the broad spectral region, implies that an efficient light interaction with a material periodicity occurs in the sample. It is shown that the luminescence emission spectrum of a light source placed directly on the PhC surface can be modified by employing the optical modes of the studied structure. We stress also the impact of intrinsic optical losses of the nan\n\n2. (PDF) Diamond photonic crystal slab: Leaky modes and modified ...\n   URL: https://www.researchgate.net/publication/233841008_Diamond_photonic_crystal_slab_Leaky_modes_and_modified_photoluminescence_emission_of_surface-deposited_quantum_dots\n   Site: researchgate.net\n   Summary: PDF | Detailed analysis of a band diagram of a photonic crystal (PhC) slab prepared on a nano-diamond layer is presented.\n   Content: HTTP error occurred: 403 Client Error: Forbidden for url: https://www.researchgate.net/publication/233841008_Diamond_photonic_crystal_slab_Leaky_modes_and_modified_photoluminescence_emission_of_surface-deposited_quantum_dots\n\n3. Diamond photonic crystal slab: leaky modes and modified ... - PubMed\n   URL: https://pubmed.ncbi.nlm.nih.gov/23209874/\n   Site: pubmed.ncbi.nlm.nih.gov\n   Summary: Detailed analysis of a band diagram of a photonic crystal (PhC) slab prepared on a nano-diamond layer is presented.\n   Content: HTTP error occurred: 403 Client Error: Forbidden for url: https://pubmed.ncbi.nlm.nih.gov/23209874/\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 68.17760515213013,
+      "step": 4,
+      "actor_model": "gpt-5",
+      "llm_time": 23.104915142059326,
+      "actor_reasoning": "I need to open the \"Efficient light coupling for optically excited high-density metallic nanotip arrays\" article page to check whether it mentions plasmons or plasmonics.",
+      "actor_tool_calls": [
+        {
+          "name": "enhanced_search",
+          "args": {
+            "query": "\"Efficient light coupling for optically excited high-density metallic nanotip arrays\" Scientific Reports"
+          }
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 71.16355919837952,
+      "tool_time": 2.9851162433624268,
+      "tool_executed": {
+        "name": "enhanced_search",
+        "result": "Found 3 web results with content:\n\n1. Efficient light coupling for optically excited high-density ...\n   URL: https://www.nature.com/articles/srep00915\n   Site: nature.com\n   Summary: by A Mustonen \u00b7 Cited by 34 \u2014 Efficient light coupling for optically excited high-density metallic nanotip arrays. Sci Rep 2, 915 (2012). https://doi.org/10.1038 ...\n   Content: Efficient light coupling for optically excited high-density metallic nanotip arrays | Scientific Reports Skip to main content Thank you for visiting nature.com. You are using a browser version with limited support for CSS. To obtain\n            the best experience, we recommend you use a more up to date browser (or turn off compatibility mode in\n            Internet Explorer). In the meantime, to ensure continued support, we are displaying the site without styles\n            and JavaScript. Advertisement View all journals Search Log in Content Explore content About the journal Publish with us Sign up for alerts RSS feed nature scientific reports conference proceedings article Efficient light coupling for optically excited high-density metallic nanotip arrays Download PDF Download PDF Conference Proceeding Open access Published: 03 December 2012 Efficient light coupling for optically excited high-density metallic nanotip arrays Anna Mustonen 1 , Paul Beaud 2 , Eugenie Kirk 1 , Thomas Feurer 3 & \u2026 Soichiro Tsujino 1 Show authors Scientific Reports volume 2 , Article\u00a0number: 915 ( 2012 ) Cite this article 34k Accesses 26 Citations 2 Altmetric Metrics details Subjects Applied physics Optical physics Optics and photonics Ultrafast photonics Abstract Ultrafast electron pulses can be produced from sharp metallic tips illuminated by femtosecond near infrared laser pulses. Use of an array of metallic nanotips for high charge bunch generation and accelerator applications is also feasible but the small fraction of the emitter tip area limits the quantum efficiency. We therefore propose a submicron-pitch, high-density nanotip array device with a gate electrode, that can support surface-plasmon polaritons. From a theoretical analysis for a device with an asymmetric emitter position, a factor ~30 increased array quantum efficiency is demonstrated. Similar content being viewed by others Sub-wavelength patterned pulse laser lithography for efficient fabrication of large-area metasu\n\n2. Efficient light coupling for optically excited high-density metallic ...\n   URL: https://www.researchgate.net/publication/233841009_Efficient_light_coupling_for_optically_excited_high-density_metallic_nanotip_arrays\n   Site: researchgate.net\n   Summary: ArticlePDF Available. Efficient light coupling for optically excited high-density metallic nanotip arrays. Springer Nature. Scientific Reports. December 2012; 2 ...\n   Content: HTTP error occurred: 403 Client Error: Forbidden for url: https://www.researchgate.net/publication/233841009_Efficient_light_coupling_for_optically_excited_high-density_metallic_nanotip_arrays\n\n3. Efficient light coupling for optically excited high-density metallic ...\n   URL: https://archive.org/details/pubmed-PMC3512087\n   Site: archive.org\n   Summary: Efficient light coupling for optically excited high-density metallic nanotip arrays. by: Mustonen, Anna; Beaud, Paul; Kirk, Eugenie; Feurer, Thomas; Tsujino ...\n   Content: Efficient light coupling for optically excited high-density metallic nanotip arrays. : Mustonen, Anna : Free Download, Borrow, and Streaming : Internet Archive Skip to main content Ask the publishers to restore access to 500,000+ books. Close banner Please Don't Scroll Past This Can you chip in? As an independent nonprofit, the Internet Archive is fighting for universal access to quality information. We build and maintain all our own systems, but we don\u2019t charge for access, sell user information, or run ads. We'd be deeply grateful if you'd join the one in a thousand users that support us financially. We understand that not everyone can donate right now, but if you can afford to contribute this Friday, we promise it will be put to good use. Our resources are crucial for knowledge lovers everywhere\u2014so if you find all these bits and bytes useful, please pitch in. Please Don't Scroll Past This The Internet Archive is working to keep the record straight by recording government websites, news publications, historical documents, and more. If you find our library useful, please pitch in. Continue Remind Me Send me an email reminder Email address (required) Please enter a valid email address. First name Last name Submit By submitting, you agree to receive donor-related emails from the Internet Archive.\n                Your privacy is important to us. We do not sell or trade your information with anyone. Hamburger icon An icon used to represent a menu that can be\n                toggled by interacting with this icon. Internet Archive logo A line drawing of the Internet Archive headquarters\n                building fa\u00e7ade. Web icon An illustration of a computer\n                            application window Wayback Machine Texts icon An illustration of an open book. Texts Video icon An illustration of two cells of a film\n                            strip. Video Audio icon An illustration of an audio speaker. Audio Software icon An illustration of a 3.5\" floppy\n               \n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 100.56912016868591,
+      "step": 5,
+      "actor_model": "gpt-5",
+      "llm_time": 29.39391279220581,
+      "actor_reasoning": "Among the four 2012 Scientific Reports conference proceedings, three explicitly mention plasmon/plasmonic; the remaining article is \u201cDiamond photonic crystal slab\u2026,\u201d which studies nanodiamond\u2014so without the prefix, the compound is diamond.\n\nFINAL ANSWER: diamond",
+      "spec_model": "gpt-5-nano",
+      "spec_predictions": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "Diamond photonic crystal slab nanodiamond Scientific Reports 2012 nano-diamond layer"
+          },
+          "pre_executed": true,
+          "exec_time": 0.8309099674224854,
+          "spec_inference_time": 15.402291059494019
+        }
+      ],
+      "final_answer": "diamond"
+    }
+  ],
+  "messages": [
+    {
+      "role": "user",
+      "content": "In Nature journal's Scientific Reports conference proceedings from 2012, in the article that did not mention plasmons or plasmonics, what nano-compound is studied? Don't use the prefix nano in your answer if there is one."
+    },
+    {
+      "role": "assistant",
+      "content": "I need to quickly find the specific Scientific Reports 2012 conference proceedings and identify which article lacks the words plasmons or plasmonics."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 relevant web results:\n\n1. Conference Proceedings in 2012 | Scientific Reports\n   URL: https://www.nature.com/srep/articles?type=conference-proceeding&year=2012\n   Site: nature.com\n   Summary: Conference proceedings in 2012 included topics such as layered plasmonic cloaks, diamond photonic crystal slabs, efficient light coupling, and 2D quasiperiodic ...\n\n2. Surface plasmon resurrection | Nature Photonics\n   URL: https://www.nature.com/articles/nphoton.2012.296\n   Site: nature.com\n   Summary: by N PHOTONICS \u00b7 2012 \u00b7 Cited by 8 \u2014 The realization that coupling of photons to charges at metal interfaces allows subdiffraction-limit localization of light has revived the field of surface ...\n\n3. Layered plasmonic cloaks to tailor the optical scattering at ...\n   URL: https://www.nature.com/articles/srep00912\n   Site: nature.com\n   Summary: by F Monticone \u00b7 Cited by 57 \u2014 We discuss the rich scattering features offered by thin and thick plasmonic layers covering dielectric nanoparticles and their potential optical applications.\n",
+      "name": "web_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to open the Scientific Reports 2012 conference proceedings page and read the listed article titles to identify which one does not mention plasmons or plasmonics."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 web results with content:\n\n1. Conference Proceedings in 2012 | Scientific Reports\n   URL: https://www.nature.com/srep/articles?type=conference-proceeding&year=2012\n   Site: nature.com\n   Summary: Filter By: \u00b7 All \u00b7 Conference Proceeding (4). Year. 2012 (4). All; 2012 (4). Diamond photonic crystal slab: Leaky modes and modified photoluminescence emission ...See more\n   Content: Conference Proceedings in 2012\n | Scientific Reports Skip to main content Thank you for visiting nature.com. You are using a browser version with limited support for CSS. To obtain\n            the best experience, we recommend you use a more up to date browser (or turn off compatibility mode in\n            Internet Explorer). In the meantime, to ensure continued support, we are displaying the site without styles\n            and JavaScript. Advertisement View all journals Search Log in Content Explore content About the journal Publish with us Sign up for alerts RSS feed nature scientific reports browse articles Conference Proceedings in 2012 Filter By: Article Type Conference Proceeding (4) All Conference Proceeding (4) Year 2012 (4) All 2012 (4) Diamond photonic crystal slab: Leaky modes and modified photoluminescence emission of surface-deposited quantum dots Luk\u00e1\u0161 Ondi\u010d Oleg Babchenko Ivan Pelant Conference Proceeding Open Access 03 Dec 2012 Efficient light coupling for optically excited high-density metallic nanotip arrays Anna Mustonen Paul Beaud Soichiro Tsujino Conference Proceeding Open Access 03 Dec 2012 2D quasiperiodic plasmonic crystals Christina Bauer Georg Kobiela Harald Giessen Conference Proceeding Open Access 03 Dec 2012 Layered plasmonic cloaks to tailor the optical scattering at the nanoscale F. Monticone C. Argyropoulos A. Al\u00f9 Conference Proceeding Open Access 03 Dec 2012 Explore content Research articles News & Comment Collections Subjects Follow us on Facebook Follow us on Twitter Sign up for alerts RSS feed About the journal About Scientific Reports Contact Journal policies Guide to referees Calls for Papers Editor's Choice Journal highlights Open Access Fees and Funding Publish with us For authors Language editing services Open access funding Submit manuscript Search Search articles by subject, keyword or author Show results from All journals This journal Search Advanced search Quick links Explore articles by subject Find a job Guide to author\n\n2. Conference Proceedings | Scientific Reports\n   URL: https://www.nature.com/srep/articles?type=conference-proceeding\n   Site: nature.com\n   Summary: Conference Proceedings. Filter By: Article Type. Conference Proceeding (56). All; Conference Proceeding (56). Year. All. All; 2015 (14) \u00b7 2014 (38) \u00b7 2012 (4) ...See more\n   Content: Conference Proceedings\n | Scientific Reports Skip to main content Thank you for visiting nature.com. You are using a browser version with limited support for CSS. To obtain\n            the best experience, we recommend you use a more up to date browser (or turn off compatibility mode in\n            Internet Explorer). In the meantime, to ensure continued support, we are displaying the site without styles\n            and JavaScript. Advertisement View all journals Search Log in Content Explore content About the journal Publish with us Sign up for alerts RSS feed nature scientific reports browse articles Conference Proceedings Filter By: Article Type Conference Proceeding (56) All Conference Proceeding (56) Year All All 2015 (14) 2014 (38) 2012 (4) Influence of electric current pulses on the solidification of Cu-Bi-Sn immiscible alloys Jiang Hongxiang He Jie Zhao Jiuzhou Conference Proceeding Open Access 31 Jul 2015 Preparation and Characterization of Fe 3 O 4 Particles with Novel Nanosheets Morphology and Magnetochromatic Property by a Modified Solvothermal Method Lin Zhuang Wei Zhang Jinhua Liang Conference Proceeding Open Access 23 Mar 2015 Tuning the photoluminescence of condensed-phase cyclic trinuclear Au(I) complexes through control of their aggregated structures by external stimuli Kaori Fujisawa Shigeyuki Yamada Osamu Tsutsumi Conference Proceeding Open Access 23 Mar 2015 Engineering Bi 2 O 3 -Bi 2 S 3 heterostructure for superior lithium storage Tingting Liu Yang Zhao Jiangfeng Ni Conference Proceeding Open Access 23 Mar 2015 Highly-efficient GaN-based light-emitting diode wafers on La 0.3 Sr 1.7 AlTaO 6 substrates Wenliang Wang Weijia Yang Guoqiang Li Conference Proceeding Open Access 23 Mar 2015 Pt-free and efficient counter electrode with nanostructured CoNi 2 S 4 for dye-sensitized solar cells Zhiwei Shi Kaimo Deng Liang Li Conference Proceeding Open Access 23 Mar 2015 Micropatterning of TiO 2 Thin Films by MOCVD and Study of Their Growth Tendency Ki-Hwa\n\n3. Articles in 2012 | Scientific Reports\n   URL: https://www.nature.com/srep/articles?year=2012\n   Site: nature.com\n   Summary: Conference Proceeding (4) \u00b7 Erratum (6) \u00b7 Retraction (2). Year. 2012 (807). All ... Next page. Scientific Reports (Sci Rep). ISSN 2045-2322 (online). nature.com ...See more\n   Content: Articles in 2012\n | Scientific Reports Skip to main content Thank you for visiting nature.com. You are using a browser version with limited support for CSS. To obtain\n            the best experience, we recommend you use a more up to date browser (or turn off compatibility mode in\n            Internet Explorer). In the meantime, to ensure continued support, we are displaying the site without styles\n            and JavaScript. Advertisement View all journals Search Log in Content Explore content About the journal Publish with us Sign up for alerts RSS feed nature scientific reports browse articles Articles in 2012 Filter By: Article Type All All Addendum (2) Article (793) Conference Proceeding (4) Erratum (6) Retraction (2) Year 2012 (807) All 2012 (807) Unraveling the interlayer-related phonon self-energy renormalization in bilayer graphene Paulo T. Araujo Daniela L. Mafra Mildred S. Dresselhaus Article Open Access 21 Dec 2012 Gene direction in living organisms Xiu-Qing Li Donglei Du Article Open Access 21 Dec 2012 C9orf72 hexanucleotide repeat associated with amyotrophic lateral sclerosis and frontotemporal dementia forms RNA G-quadruplexes Pietro Fratta Sarah Mizielinska Adrian M. Isaacs Article Open Access 21 Dec 2012 Microsecond time-resolved energy-dispersive EXAFS measurement and its application to film the thermolysis of (NH 4 ) 2 [PtCl 6 ] Qingyu Kong Francois Baudelet Olivier Spalla Article Open Access 21 Dec 2012 Retro reflection of electrons at the interface of bilayer graphene and superconductor Yee Sin Ang Zhongshui Ma C. Zhang Article Open Access 21 Dec 2012 Non-monotonic crossover from single-file to regular diffusion in micro-channels U. Siems C. Kreuter P. Nielaba Article Open Access 21 Dec 2012 Peel-and-Stick: Fabricating Thin Film Solar Cell on Universal Substrates Chi Hwan Lee Dong Rip Kim Xiaolin Zheng Article Open Access 20 Dec 2012 Observing storm surges from space: Hurricane Igor off Newfoundland Guoqi Han Zhimin Ma Nancy Chen Article Open Ac\n",
+      "name": "enhanced_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to open the specific Scientific Reports 2012 conference proceeding \"Diamond photonic crystal slab...\" to see which nanomaterial compound is studied."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 web results with content:\n\n1. Diamond photonic crystal slab: Leaky modes and modified ... - Nature\n   URL: https://www.nature.com/articles/srep00914\n   Site: nature.com\n   Summary: Here we present a detailed study of the leaky modes of a nanocrystalline diamond (NCD) PhC slab by investigating polarization resolved photonic band diagrams.\n   Content: Diamond photonic crystal slab: Leaky modes and modified photoluminescence emission of surface-deposited quantum dots | Scientific Reports Skip to main content Thank you for visiting nature.com. You are using a browser version with limited support for CSS. To obtain\n            the best experience, we recommend you use a more up to date browser (or turn off compatibility mode in\n            Internet Explorer). In the meantime, to ensure continued support, we are displaying the site without styles\n            and JavaScript. Advertisement View all journals Search Log in Content Explore content About the journal Publish with us Sign up for alerts RSS feed nature scientific reports conference proceedings article Diamond photonic crystal slab: Leaky modes and modified photoluminescence emission of surface-deposited quantum dots Download PDF Download PDF Conference Proceeding Open access Published: 03 December 2012 Diamond photonic crystal slab: Leaky modes and modified photoluminescence emission of surface-deposited quantum dots Luk\u00e1\u0161 Ondi\u010d 1 , 2 , 3 , Oleg Babchenko 1 , Mari\u00e1n Varga 1 , Alexander Kromka 1 , Ji\u0159\u00ed \u010ctyrok\u00fd 4 & \u2026 Ivan Pelant 1 Show authors Scientific Reports volume 2 , Article\u00a0number: 914 ( 2012 ) Cite this article 69k Accesses 19 Citations 5 Altmetric Metrics details Subjects Materials science Optical physics Optics and photonics Optical spectroscopy Abstract Detailed analysis of a band diagram of a photonic crystal (PhC) slab prepared on a nano-diamond layer is presented. Even though the PhC is structurally imperfect, the existence of leaky modes, determined both theoretically and experimentally in the broad spectral region, implies that an efficient light interaction with a material periodicity occurs in the sample. It is shown that the luminescence emission spectrum of a light source placed directly on the PhC surface can be modified by employing the optical modes of the studied structure. We stress also the impact of intrinsic optical losses of the nan\n\n2. (PDF) Diamond photonic crystal slab: Leaky modes and modified ...\n   URL: https://www.researchgate.net/publication/233841008_Diamond_photonic_crystal_slab_Leaky_modes_and_modified_photoluminescence_emission_of_surface-deposited_quantum_dots\n   Site: researchgate.net\n   Summary: PDF | Detailed analysis of a band diagram of a photonic crystal (PhC) slab prepared on a nano-diamond layer is presented.\n   Content: HTTP error occurred: 403 Client Error: Forbidden for url: https://www.researchgate.net/publication/233841008_Diamond_photonic_crystal_slab_Leaky_modes_and_modified_photoluminescence_emission_of_surface-deposited_quantum_dots\n\n3. Diamond photonic crystal slab: leaky modes and modified ... - PubMed\n   URL: https://pubmed.ncbi.nlm.nih.gov/23209874/\n   Site: pubmed.ncbi.nlm.nih.gov\n   Summary: Detailed analysis of a band diagram of a photonic crystal (PhC) slab prepared on a nano-diamond layer is presented.\n   Content: HTTP error occurred: 403 Client Error: Forbidden for url: https://pubmed.ncbi.nlm.nih.gov/23209874/\n",
+      "name": "enhanced_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to open the \"Efficient light coupling for optically excited high-density metallic nanotip arrays\" article page to check whether it mentions plasmons or plasmonics."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 web results with content:\n\n1. Efficient light coupling for optically excited high-density ...\n   URL: https://www.nature.com/articles/srep00915\n   Site: nature.com\n   Summary: by A Mustonen \u00b7 Cited by 34 \u2014 Efficient light coupling for optically excited high-density metallic nanotip arrays. Sci Rep 2, 915 (2012). https://doi.org/10.1038 ...\n   Content: Efficient light coupling for optically excited high-density metallic nanotip arrays | Scientific Reports Skip to main content Thank you for visiting nature.com. You are using a browser version with limited support for CSS. To obtain\n            the best experience, we recommend you use a more up to date browser (or turn off compatibility mode in\n            Internet Explorer). In the meantime, to ensure continued support, we are displaying the site without styles\n            and JavaScript. Advertisement View all journals Search Log in Content Explore content About the journal Publish with us Sign up for alerts RSS feed nature scientific reports conference proceedings article Efficient light coupling for optically excited high-density metallic nanotip arrays Download PDF Download PDF Conference Proceeding Open access Published: 03 December 2012 Efficient light coupling for optically excited high-density metallic nanotip arrays Anna Mustonen 1 , Paul Beaud 2 , Eugenie Kirk 1 , Thomas Feurer 3 & \u2026 Soichiro Tsujino 1 Show authors Scientific Reports volume 2 , Article\u00a0number: 915 ( 2012 ) Cite this article 34k Accesses 26 Citations 2 Altmetric Metrics details Subjects Applied physics Optical physics Optics and photonics Ultrafast photonics Abstract Ultrafast electron pulses can be produced from sharp metallic tips illuminated by femtosecond near infrared laser pulses. Use of an array of metallic nanotips for high charge bunch generation and accelerator applications is also feasible but the small fraction of the emitter tip area limits the quantum efficiency. We therefore propose a submicron-pitch, high-density nanotip array device with a gate electrode, that can support surface-plasmon polaritons. From a theoretical analysis for a device with an asymmetric emitter position, a factor ~30 increased array quantum efficiency is demonstrated. Similar content being viewed by others Sub-wavelength patterned pulse laser lithography for efficient fabrication of large-area metasu\n\n2. Efficient light coupling for optically excited high-density metallic ...\n   URL: https://www.researchgate.net/publication/233841009_Efficient_light_coupling_for_optically_excited_high-density_metallic_nanotip_arrays\n   Site: researchgate.net\n   Summary: ArticlePDF Available. Efficient light coupling for optically excited high-density metallic nanotip arrays. Springer Nature. Scientific Reports. December 2012; 2 ...\n   Content: HTTP error occurred: 403 Client Error: Forbidden for url: https://www.researchgate.net/publication/233841009_Efficient_light_coupling_for_optically_excited_high-density_metallic_nanotip_arrays\n\n3. Efficient light coupling for optically excited high-density metallic ...\n   URL: https://archive.org/details/pubmed-PMC3512087\n   Site: archive.org\n   Summary: Efficient light coupling for optically excited high-density metallic nanotip arrays. by: Mustonen, Anna; Beaud, Paul; Kirk, Eugenie; Feurer, Thomas; Tsujino ...\n   Content: Efficient light coupling for optically excited high-density metallic nanotip arrays. : Mustonen, Anna : Free Download, Borrow, and Streaming : Internet Archive Skip to main content Ask the publishers to restore access to 500,000+ books. Close banner Please Don't Scroll Past This Can you chip in? As an independent nonprofit, the Internet Archive is fighting for universal access to quality information. We build and maintain all our own systems, but we don\u2019t charge for access, sell user information, or run ads. We'd be deeply grateful if you'd join the one in a thousand users that support us financially. We understand that not everyone can donate right now, but if you can afford to contribute this Friday, we promise it will be put to good use. Our resources are crucial for knowledge lovers everywhere\u2014so if you find all these bits and bytes useful, please pitch in. Please Don't Scroll Past This The Internet Archive is working to keep the record straight by recording government websites, news publications, historical documents, and more. If you find our library useful, please pitch in. Continue Remind Me Send me an email reminder Email address (required) Please enter a valid email address. First name Last name Submit By submitting, you agree to receive donor-related emails from the Internet Archive.\n                Your privacy is important to us. We do not sell or trade your information with anyone. Hamburger icon An icon used to represent a menu that can be\n                toggled by interacting with this icon. Internet Archive logo A line drawing of the Internet Archive headquarters\n                building fa\u00e7ade. Web icon An illustration of a computer\n                            application window Wayback Machine Texts icon An illustration of an open book. Texts Video icon An illustration of two cells of a film\n                            strip. Video Audio icon An illustration of an audio speaker. Audio Software icon An illustration of a 3.5\" floppy\n               \n",
+      "name": "enhanced_search"
+    },
+    {
+      "role": "assistant",
+      "content": "Among the four 2012 Scientific Reports conference proceedings, three explicitly mention plasmon/plasmonic; the remaining article is \u201cDiamond photonic crystal slab\u2026,\u201d which studies nanodiamond\u2014so without the prefix, the compound is diamond.\n\nFINAL ANSWER: diamond"
+    }
+  ],
+  "error": null
+}

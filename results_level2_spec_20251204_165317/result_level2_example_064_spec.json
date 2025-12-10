@@ -1,0 +1,240 @@
+{
+  "task_id": "65638e28-7f37-4fa7-b7b9-8c19bb609879",
+  "level": "2",
+  "question": "The book with the doi 10.1353/book.24372 concerns a certain neurologist. According to chapter 2 of the book, what author influenced this neurologist\u2019s belief in \u201cendopsychic myths\u201d? Give the last name only.",
+  "ground_truth": "Kleinpaul",
+  "predicted": "Kleinpaul",
+  "correct": true,
+  "steps": 5,
+  "time_seconds": 191.55616307258606,
+  "actor_model": "gpt-5",
+  "spec_model": "gpt-5-nano",
+  "speculation_enabled": true,
+  "verification_strategy": "jaccard",
+  "spec_hits": 0,
+  "spec_misses": 4,
+  "spec_predictions": 5,
+  "trajectory": [
+    {
+      "node": "start",
+      "question": "The book with the doi 10.1353/book.24372 concerns a certain neurologist. According to chapter 2 of the book, what author influenced this neurologist\u2019s belief in \u201cendopsychic myths\u201d? Give the last name only.",
+      "timestamp": 0
+    },
+    {
+      "node": "llm",
+      "timestamp": 5.185180902481079,
+      "step": 1,
+      "actor_model": "gpt-5",
+      "llm_time": 5.181033372879028,
+      "actor_reasoning": "I need to identify the book and access chapter 2 details to find the author influencing the neurologist\u2019s belief in \u201cendopsychic myths.\u201d",
+      "actor_tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "10.1353/book.24372 chapter 2 endopsychic myths"
+          }
+        }
+      ],
+      "spec_model": "gpt-5-nano",
+      "spec_predictions": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "doi 10.1353/book.24372 endopsychic myths"
+          },
+          "pre_executed": true,
+          "exec_time": 2.279489040374756,
+          "spec_inference_time": 2.9006550312042236
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 7.335783958435059,
+      "tool_time": 2.1483359336853027,
+      "tool_executed": {
+        "name": "web_search",
+        "result": "Found 1 relevant web results:\n\n1. A Dark Trace - Crossref\n   URL: https://chooser.crossref.org/?doi=10.1353%2Fbook.24372\n   Site: chooser.crossref.org\n   Summary: Edited book. Published. 2009. DOI. https://doi.org/10.1353/book.24372. The publisher of this work supports co-access. The work is available from the following ...\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 14.502485990524292,
+      "step": 2,
+      "actor_model": "gpt-5",
+      "llm_time": 7.164499759674072,
+      "actor_reasoning": "I need to open the book via its DOI and extract chapter 2 content to find the referenced author for \u201cendopsychic myths.\u201d",
+      "actor_tool_calls": [
+        {
+          "name": "enhanced_search",
+          "args": {
+            "query": "10.1353/book.24372 chapter 2 endopsychic myths"
+          }
+        }
+      ],
+      "spec_model": "gpt-5-nano",
+      "spec_predictions": [
+        {
+          "name": "enhanced_search",
+          "args": {
+            "query": "endopsychic myths neurologist chapter 2 A Dark Trace 24372"
+          },
+          "pre_executed": true,
+          "exec_time": 2.0088770389556885,
+          "spec_inference_time": 5.154921054840088
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 20.575340032577515,
+      "tool_time": 6.071271181106567,
+      "tool_executed": {
+        "name": "enhanced_search",
+        "result": "Found 2 web results with content:\n\n1. A Dark Trace : Sigmund Freud on the sense of guilt\n   URL: https://librarysearch.wlv.ac.uk/discovery/fulldisplay?docid=alma991002984399404901&context=L&vid=44UOWO_INST:MAIN&lang=en&search_scope=MyInst_and_CI&adaptor=Local%20Search%20Engine&tab=ALL&query=sub%2Cexact%2C%20Guilt%20%2CAND&mode=advanced&offset=20\n   Site: librarysearch.wlv.ac.uk\n   Summary: The sense of guilt is a key issue in Freudian psychoanalysis, not only in relation to other key concepts in psychoanalytic theory but also in relation to ...\n   Content: JavaScript must be enabled to use the system\n\n2. A Dark Trace - Crossref\n   URL: https://chooser.crossref.org/?doi=10.1353%2Fbook.24372\n   Site: chooser.crossref.org\n   Summary: Edited book. Published. 2009. DOI. https://doi.org/10.1353/book.24372. The publisher of this work supports co-access. The work is available from the following ...\n   Content: A Dark Trace A Dark Trace Record type Edited book Published 2009 DOI https://doi.org/10.1353/book.24372 The publisher of this work supports co-access. The work is available from the following locations: jhu.edu lup.be Crossref privacy policy debug {'doi': '10.1353/book.24372', 'member_id': '147', 'member': 'Leuven University Press', 'container-title': '', 'primary-resource': 'https://muse.jhu.edu/book/24372', 'tld': 'jhu.edu', 'clearbit-logo': '/static/no_logo.svg', 'coaccess': [{'doi': '10.11116/9789461664174', 'member': '4790', 'publisher': 'Leuven University Press', 'url': 'https://lup.be/book/a-dark-trace/', 'tld': 'lup.be', 'clearbit-logo': '/static/no_logo.svg'}], 'multiple-resolution': [], 'type': 'EDITED BOOK', 'published_date': '2009', 'publication': None, 'title': 'A Dark Trace', 'name': None, 'id': None, 'location': None, 'display_doi': 'https://doi.org/10.1353/book.24372', 'grant_info': None, 'grant_info_funders': None, 'grant_info_funder_ids': '', 'grant_info_type': None, 'multiple_lead_investigators': [], 'multiple_co_lead_investigators': [], 'multiple_investigators': [], 'finances': [], 'project_description': None, 'award_amount': None, 'award_start': None, 'funding_scheme': None, 'internal_award_number': None, 'editors': None, 'authors': None, 'chairs': None, 'supplementary_ids': None} https://doi.org/10.1353/book.24372 JSON XML\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 76.61953115463257,
+      "step": 3,
+      "actor_model": "gpt-5",
+      "llm_time": 56.041344165802,
+      "actor_reasoning": "I need to find the specific chapter 2 passage in the book to identify the author linked to \u201cendopsychic myths.\u201d",
+      "actor_tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "\"A Dark Trace\" \"endopsychic myths\""
+          }
+        }
+      ],
+      "spec_model": "gpt-5-nano",
+      "spec_predictions": [
+        {
+          "name": "enhanced_search",
+          "args": {
+            "query": "endopsychic myths chapter 2 neurologist Freud A Dark Trace"
+          },
+          "pre_executed": true,
+          "exec_time": 43.93646812438965,
+          "spec_inference_time": 12.104129076004028
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 78.3978660106659,
+      "tool_time": 1.7769191265106201,
+      "tool_executed": {
+        "name": "web_search",
+        "result": "Found 1 relevant web results:\n\n1. A Dark Trace : Sigmund Freud on the Sense of Guilt\n   URL: https://library.oapen.org/bitstream/20.500.12657/49617/1/9789461664174.pdf\n   Site: library.oapen.org\n   Summary: by H Westerink \u00b7 2021 \u00b7 Cited by 80 \u2014 what in the shadow of Moses forms a \u201cdark trace\u201d throughout Freud's writings. ... by Kleinpaul on endopsychic myths. Freud's interest in mythology remained ...See more\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 132.34447813034058,
+      "step": 4,
+      "actor_model": "gpt-5",
+      "llm_time": 53.930278301239014,
+      "actor_reasoning": "I need to open the open-access PDF and search for the passage in chapter 2 mentioning \u201cendopsychic myths\u201d to identify the influencing author.",
+      "actor_tool_calls": [
+        {
+          "name": "enhanced_search",
+          "args": {
+            "query": "A Dark Trace chapter 2 endopsychic myths Kleinpaul Westerink PDF"
+          }
+        }
+      ],
+      "spec_model": "gpt-5-nano",
+      "spec_predictions": [
+        {
+          "name": "enhanced_search",
+          "args": {
+            "query": "A Dark Trace Freud endopsychic myths chapter 2"
+          },
+          "pre_executed": true,
+          "exec_time": 44.42675304412842,
+          "spec_inference_time": 9.502797842025757
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 176.73335099220276,
+      "tool_time": 44.38535809516907,
+      "tool_executed": {
+        "name": "enhanced_search",
+        "result": "Found 3 web results with content:\n\n1. [PDF] A Dark Trace : Sigmund Freud on the Sense of Guilt - OAPEN Library\n   URL: https://library.oapen.org/bitstream/20.500.12657/49617/1/9789461664174.pdf\n   Site: library.oapen.org\n   Summary: Chapter 2 Dark traces. 37. 2.1 Introduction. 37. 2.2 Your guilt isn't the ... by Kleinpaul on endopsychic myths. Freud's interest in mythology remained ...\n   Content: A DARK TRACE SIGMUND FREUD ON THE SENSE OF GUILTFIGURES OF THE UNCONSCIOUS 8 Editorial Board PHILIPPE VAN HAUTE (Radboud University Nijmegen, The Netherlands) TOMAS GEYSKENS (Catholic University Leuven, Belgium) PAUL MOYAERT (Catholic University Leuven, Belgium) MONIQUE DAVID-M\u00c9NARD (Universit\u00e9 Paris VII \u2013 Diderot, France) VLADIMIR SAFATLE (University of Sao Paolo, Brazil) CHARLES SHEPHERDSON (State University of New York at Albany, USA)A Dark Trace Sigmund Freud on the Sense of Guilt Herman WesterinkThe translation was funded by the Netherlands Organisation for Scientific Research (NWO). Original title: Het schuldgevoel bij Freud. Een duister spoor. Authorized translation from the Dutch language edition published by Uitgeverij Boom, Amsterdam. \u00a9 2005 Dutch language edition by Uitgeverij Boom, Amsterdam (The Netherlands). \u00a9 2009/2013 English language edition by Leuven University Press / Universitaire Pers Leuven / Presses Universitaires de Louvain. Minderbroedersstraat 4, B-3000 Leuven (Belgium) ePDF published in 2021 by Leuven University Press / Presses Universitaires de Louvain / Universitaire Pers Leuven. Minderbroedersstraat 4, B-3000 Leuven (Belgium). \u00a9 2021 Herman Westerink This ePDF is published under a Creative Commons Attribution Non-Commercial Non-Derivative 4.0 Licence. Further details about Creative Commons licences are available at http://creativecommons.org/licenses/ Attribution should include the following information: Herman Westerink. A Dark Trace: Sigmund Freud on the Sense of Guilt. Leuven: Leuven University Press, 2021. (CC BY-NC-ND 4.0) ISBN 978 90 5867 754 9 (hardcover edition 2009) eISBN 978 94 6166 036 7 (ePDF edition 2013) eISBN 978 94 6166 417 4 (ePDF edition 2021) D/ 2009 / 1869 / 26 NUR: 777 Cover: Geert de Koning Lay-out: Friedemann BVBA Translation from Dutch: Language Centre, University of GroningenContents Introduction IX Chapter 1 Carmen and other representations 1 1.1 Introduction 1 1.2 \u201cOur bugles sounding the Retreat\u201d 2 1.3 Moral \n\n2. A Dark Trace - OAPEN Library\n   URL: https://library.oapen.org/handle/20.500.12657/49617\n   Site: library.oapen.org\n   Summary: In this book this trace is followed and thus Freud's thought on the sense of guilt as a central issue in his work is analyzed, from the earliest studies on the ...\n   Content: A Dark Trace Toggle navigation Join Deposit Toggle navigation Toggle navigation For Librarians For Publishers For Researchers Funders Resources OAPEN View Item OAPEN Home View Item OAPEN Home View Item JavaScript is disabled for your browser. Some features of this site may not work without it. A Dark Trace Sigmund Freud on the Sense of Guilt Download PDF Viewer Web Shop Author(s) Westerink, Herman Language English Show full item record Abstract Sigmund Freud, in his search for the origins of the sense of guilt in individual life and culture, regularly speaks of \u201creading a dark trace\u201d, thus referring to the Oedipus myth as a myth on the problem of human guilt. The sense of guilt is indeed a trace that leads deep into the individual\u2019s mental life, into his childhood life, and into the prehistory of culture and religion. In this book this trace is followed and thus Freud\u2019s thought on the sense of guilt as a central issue in his work is analyzed, from the earliest studies on the moral and \u201cguilty\u201d characters of the hysterics, via the later complex differentiations in the concept of the sense of guilt, unto the analyses of civilization\u2019s discontents and Jewish sense of guilt. The sense of guilt is a key issue in Freudian psychoanalysis, not only in relation to other key concepts in psychoanalytic theory, but also in relation to debates with others, such as Carl Gustav Jung or Melanie Klein, Freud was engaged in. URI https://library.oapen.org/handle/20.500.12657/49617 Keywords Freud; psychoanalysis; sense of guilt DOI 10.11116/9789461664174 ISBN 9789058677549, 9789461664174 Publisher Leuven University Press Publisher website https://lup.be/ Publication date and place Leuven, 2021 Classification Psychotherapy Pages 320 Rights https://creativecommons.org/licenses/by-nc-nd/4.0/ Imported or submitted locally Search OAPEN This Collection Browse All of OAPEN Subjects Publishers Languages Collections My Account Login Register Export Repository metadata For Librarians For Publish\n\n3. [PDF] A Dark Trace: Sigmund Freud on the Sense of Guilt - York University\n   URL: http://www.yorku.ca/dcarveth/A%20Dark%20Trace.pdf\n   Site: yorku.ca\n   Summary: According to Westerink, \u201cThe biggest problem with the seduction theory is unpleasure\u201d (p. 30). No. The biggest problem with the theory that hysteria is caused ...\n   Content: Herman Westerink. A Dark Trace: Sigmund Freud on the Sense of Guilt. Leuven, Belgium: Leuven University Press, 2009. Authorized translation from the Dutch language edition published by Uitgeverij Boom, Amsterdam (The Netherlands), 2005. 319 pp. $60.00 (cloth). ISBN 978-90-5867-754-9 This book offers yet another account of the chronological development of Freud\u2019s thought, differing from other such studies in the attention it devotes to his evolving conceptualization of the sense of guilt. At the conclusion of his text the author writes: \u201c\u2026 despite the centrality of the sense of guilt in Freud\u2019s thought and, in the debates of his followers, despite the importance of these discussions for current debates between psychoanalytic schools, and despite the fact that the sense of guilt is the central issue in Freud\u2019s studies on culture and religion, studies on Freud\u2019s thought on the issue are rare. My reconstruction of Freud\u2019s theories on the sense of guilt fills that lacuna\u201d (p. 302). Although the book does not claim to do more than trace \u201ca dark trace\u201d in Freud\u2019s work, it nevertheless seems odd in 2010 to read a contemporary publication that might well have been written in the 1940s. The book does go slightly beyond Freud\u2019s own work on the sense of guilt, addressing in the penultimate chapter the controversies stimulated by Melanie Klein, Karen Horney and others surrounding the pre-oedipal phase, the role of the mother and the psychology of women and the implications of their contributions for Freud\u2019s theory of guilt. But over five decades have passed since these controversies took place and many important contributions to this subject, such as Eli Sagan\u2019s (1988) Freud, Women, and Morality: The Psychology of Good and Evil, are entirely neglected here. True, the author claims only to address Sigmund Freud on the sense of guilt, but there is much more to psychoanalysis than Sigmund Freud and the topic is very worth a far more comprehensive and up-to-date treatment\u2014and a more\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 191.55578923225403,
+      "step": 5,
+      "actor_model": "gpt-5",
+      "llm_time": 14.819040775299072,
+      "actor_reasoning": "Chapter 2 states that Freud\u2019s view on \u201cendopsychic myths\u201d was influenced by Kleinpaul. \nFINAL ANSWER: Kleinpaul",
+      "spec_model": "gpt-5-nano",
+      "spec_predictions": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "endopsychic myths Kleinpaul"
+          },
+          "pre_executed": true,
+          "exec_time": 2.3067831993103027,
+          "spec_inference_time": 12.511399030685425
+        }
+      ],
+      "final_answer": "Kleinpaul"
+    }
+  ],
+  "messages": [
+    {
+      "role": "user",
+      "content": "The book with the doi 10.1353/book.24372 concerns a certain neurologist. According to chapter 2 of the book, what author influenced this neurologist\u2019s belief in \u201cendopsychic myths\u201d? Give the last name only."
+    },
+    {
+      "role": "assistant",
+      "content": "I need to identify the book and access chapter 2 details to find the author influencing the neurologist\u2019s belief in \u201cendopsychic myths.\u201d"
+    },
+    {
+      "role": "tool",
+      "content": "Found 1 relevant web results:\n\n1. A Dark Trace - Crossref\n   URL: https://chooser.crossref.org/?doi=10.1353%2Fbook.24372\n   Site: chooser.crossref.org\n   Summary: Edited book. Published. 2009. DOI. https://doi.org/10.1353/book.24372. The publisher of this work supports co-access. The work is available from the following ...\n",
+      "name": "web_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to open the book via its DOI and extract chapter 2 content to find the referenced author for \u201cendopsychic myths.\u201d"
+    },
+    {
+      "role": "tool",
+      "content": "Found 2 web results with content:\n\n1. A Dark Trace : Sigmund Freud on the sense of guilt\n   URL: https://librarysearch.wlv.ac.uk/discovery/fulldisplay?docid=alma991002984399404901&context=L&vid=44UOWO_INST:MAIN&lang=en&search_scope=MyInst_and_CI&adaptor=Local%20Search%20Engine&tab=ALL&query=sub%2Cexact%2C%20Guilt%20%2CAND&mode=advanced&offset=20\n   Site: librarysearch.wlv.ac.uk\n   Summary: The sense of guilt is a key issue in Freudian psychoanalysis, not only in relation to other key concepts in psychoanalytic theory but also in relation to ...\n   Content: JavaScript must be enabled to use the system\n\n2. A Dark Trace - Crossref\n   URL: https://chooser.crossref.org/?doi=10.1353%2Fbook.24372\n   Site: chooser.crossref.org\n   Summary: Edited book. Published. 2009. DOI. https://doi.org/10.1353/book.24372. The publisher of this work supports co-access. The work is available from the following ...\n   Content: A Dark Trace A Dark Trace Record type Edited book Published 2009 DOI https://doi.org/10.1353/book.24372 The publisher of this work supports co-access. The work is available from the following locations: jhu.edu lup.be Crossref privacy policy debug {'doi': '10.1353/book.24372', 'member_id': '147', 'member': 'Leuven University Press', 'container-title': '', 'primary-resource': 'https://muse.jhu.edu/book/24372', 'tld': 'jhu.edu', 'clearbit-logo': '/static/no_logo.svg', 'coaccess': [{'doi': '10.11116/9789461664174', 'member': '4790', 'publisher': 'Leuven University Press', 'url': 'https://lup.be/book/a-dark-trace/', 'tld': 'lup.be', 'clearbit-logo': '/static/no_logo.svg'}], 'multiple-resolution': [], 'type': 'EDITED BOOK', 'published_date': '2009', 'publication': None, 'title': 'A Dark Trace', 'name': None, 'id': None, 'location': None, 'display_doi': 'https://doi.org/10.1353/book.24372', 'grant_info': None, 'grant_info_funders': None, 'grant_info_funder_ids': '', 'grant_info_type': None, 'multiple_lead_investigators': [], 'multiple_co_lead_investigators': [], 'multiple_investigators': [], 'finances': [], 'project_description': None, 'award_amount': None, 'award_start': None, 'funding_scheme': None, 'internal_award_number': None, 'editors': None, 'authors': None, 'chairs': None, 'supplementary_ids': None} https://doi.org/10.1353/book.24372 JSON XML\n",
+      "name": "enhanced_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to find the specific chapter 2 passage in the book to identify the author linked to \u201cendopsychic myths.\u201d"
+    },
+    {
+      "role": "tool",
+      "content": "Found 1 relevant web results:\n\n1. A Dark Trace : Sigmund Freud on the Sense of Guilt\n   URL: https://library.oapen.org/bitstream/20.500.12657/49617/1/9789461664174.pdf\n   Site: library.oapen.org\n   Summary: by H Westerink \u00b7 2021 \u00b7 Cited by 80 \u2014 what in the shadow of Moses forms a \u201cdark trace\u201d throughout Freud's writings. ... by Kleinpaul on endopsychic myths. Freud's interest in mythology remained ...See more\n",
+      "name": "web_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to open the open-access PDF and search for the passage in chapter 2 mentioning \u201cendopsychic myths\u201d to identify the influencing author."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 web results with content:\n\n1. [PDF] A Dark Trace : Sigmund Freud on the Sense of Guilt - OAPEN Library\n   URL: https://library.oapen.org/bitstream/20.500.12657/49617/1/9789461664174.pdf\n   Site: library.oapen.org\n   Summary: Chapter 2 Dark traces. 37. 2.1 Introduction. 37. 2.2 Your guilt isn't the ... by Kleinpaul on endopsychic myths. Freud's interest in mythology remained ...\n   Content: A DARK TRACE SIGMUND FREUD ON THE SENSE OF GUILTFIGURES OF THE UNCONSCIOUS 8 Editorial Board PHILIPPE VAN HAUTE (Radboud University Nijmegen, The Netherlands) TOMAS GEYSKENS (Catholic University Leuven, Belgium) PAUL MOYAERT (Catholic University Leuven, Belgium) MONIQUE DAVID-M\u00c9NARD (Universit\u00e9 Paris VII \u2013 Diderot, France) VLADIMIR SAFATLE (University of Sao Paolo, Brazil) CHARLES SHEPHERDSON (State University of New York at Albany, USA)A Dark Trace Sigmund Freud on the Sense of Guilt Herman WesterinkThe translation was funded by the Netherlands Organisation for Scientific Research (NWO). Original title: Het schuldgevoel bij Freud. Een duister spoor. Authorized translation from the Dutch language edition published by Uitgeverij Boom, Amsterdam. \u00a9 2005 Dutch language edition by Uitgeverij Boom, Amsterdam (The Netherlands). \u00a9 2009/2013 English language edition by Leuven University Press / Universitaire Pers Leuven / Presses Universitaires de Louvain. Minderbroedersstraat 4, B-3000 Leuven (Belgium) ePDF published in 2021 by Leuven University Press / Presses Universitaires de Louvain / Universitaire Pers Leuven. Minderbroedersstraat 4, B-3000 Leuven (Belgium). \u00a9 2021 Herman Westerink This ePDF is published under a Creative Commons Attribution Non-Commercial Non-Derivative 4.0 Licence. Further details about Creative Commons licences are available at http://creativecommons.org/licenses/ Attribution should include the following information: Herman Westerink. A Dark Trace: Sigmund Freud on the Sense of Guilt. Leuven: Leuven University Press, 2021. (CC BY-NC-ND 4.0) ISBN 978 90 5867 754 9 (hardcover edition 2009) eISBN 978 94 6166 036 7 (ePDF edition 2013) eISBN 978 94 6166 417 4 (ePDF edition 2021) D/ 2009 / 1869 / 26 NUR: 777 Cover: Geert de Koning Lay-out: Friedemann BVBA Translation from Dutch: Language Centre, University of GroningenContents Introduction IX Chapter 1 Carmen and other representations 1 1.1 Introduction 1 1.2 \u201cOur bugles sounding the Retreat\u201d 2 1.3 Moral \n\n2. A Dark Trace - OAPEN Library\n   URL: https://library.oapen.org/handle/20.500.12657/49617\n   Site: library.oapen.org\n   Summary: In this book this trace is followed and thus Freud's thought on the sense of guilt as a central issue in his work is analyzed, from the earliest studies on the ...\n   Content: A Dark Trace Toggle navigation Join Deposit Toggle navigation Toggle navigation For Librarians For Publishers For Researchers Funders Resources OAPEN View Item OAPEN Home View Item OAPEN Home View Item JavaScript is disabled for your browser. Some features of this site may not work without it. A Dark Trace Sigmund Freud on the Sense of Guilt Download PDF Viewer Web Shop Author(s) Westerink, Herman Language English Show full item record Abstract Sigmund Freud, in his search for the origins of the sense of guilt in individual life and culture, regularly speaks of \u201creading a dark trace\u201d, thus referring to the Oedipus myth as a myth on the problem of human guilt. The sense of guilt is indeed a trace that leads deep into the individual\u2019s mental life, into his childhood life, and into the prehistory of culture and religion. In this book this trace is followed and thus Freud\u2019s thought on the sense of guilt as a central issue in his work is analyzed, from the earliest studies on the moral and \u201cguilty\u201d characters of the hysterics, via the later complex differentiations in the concept of the sense of guilt, unto the analyses of civilization\u2019s discontents and Jewish sense of guilt. The sense of guilt is a key issue in Freudian psychoanalysis, not only in relation to other key concepts in psychoanalytic theory, but also in relation to debates with others, such as Carl Gustav Jung or Melanie Klein, Freud was engaged in. URI https://library.oapen.org/handle/20.500.12657/49617 Keywords Freud; psychoanalysis; sense of guilt DOI 10.11116/9789461664174 ISBN 9789058677549, 9789461664174 Publisher Leuven University Press Publisher website https://lup.be/ Publication date and place Leuven, 2021 Classification Psychotherapy Pages 320 Rights https://creativecommons.org/licenses/by-nc-nd/4.0/ Imported or submitted locally Search OAPEN This Collection Browse All of OAPEN Subjects Publishers Languages Collections My Account Login Register Export Repository metadata For Librarians For Publish\n\n3. [PDF] A Dark Trace: Sigmund Freud on the Sense of Guilt - York University\n   URL: http://www.yorku.ca/dcarveth/A%20Dark%20Trace.pdf\n   Site: yorku.ca\n   Summary: According to Westerink, \u201cThe biggest problem with the seduction theory is unpleasure\u201d (p. 30). No. The biggest problem with the theory that hysteria is caused ...\n   Content: Herman Westerink. A Dark Trace: Sigmund Freud on the Sense of Guilt. Leuven, Belgium: Leuven University Press, 2009. Authorized translation from the Dutch language edition published by Uitgeverij Boom, Amsterdam (The Netherlands), 2005. 319 pp. $60.00 (cloth). ISBN 978-90-5867-754-9 This book offers yet another account of the chronological development of Freud\u2019s thought, differing from other such studies in the attention it devotes to his evolving conceptualization of the sense of guilt. At the conclusion of his text the author writes: \u201c\u2026 despite the centrality of the sense of guilt in Freud\u2019s thought and, in the debates of his followers, despite the importance of these discussions for current debates between psychoanalytic schools, and despite the fact that the sense of guilt is the central issue in Freud\u2019s studies on culture and religion, studies on Freud\u2019s thought on the issue are rare. My reconstruction of Freud\u2019s theories on the sense of guilt fills that lacuna\u201d (p. 302). Although the book does not claim to do more than trace \u201ca dark trace\u201d in Freud\u2019s work, it nevertheless seems odd in 2010 to read a contemporary publication that might well have been written in the 1940s. The book does go slightly beyond Freud\u2019s own work on the sense of guilt, addressing in the penultimate chapter the controversies stimulated by Melanie Klein, Karen Horney and others surrounding the pre-oedipal phase, the role of the mother and the psychology of women and the implications of their contributions for Freud\u2019s theory of guilt. But over five decades have passed since these controversies took place and many important contributions to this subject, such as Eli Sagan\u2019s (1988) Freud, Women, and Morality: The Psychology of Good and Evil, are entirely neglected here. True, the author claims only to address Sigmund Freud on the sense of guilt, but there is much more to psychoanalysis than Sigmund Freud and the topic is very worth a far more comprehensive and up-to-date treatment\u2014and a more\n",
+      "name": "enhanced_search"
+    },
+    {
+      "role": "assistant",
+      "content": "Chapter 2 states that Freud\u2019s view on \u201cendopsychic myths\u201d was influenced by Kleinpaul. \nFINAL ANSWER: Kleinpaul"
+    }
+  ],
+  "error": null
+}

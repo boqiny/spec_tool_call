@@ -1,0 +1,136 @@
+{
+  "task_id": "4b6bb5f7-f634-410e-815d-e673ab7f8632",
+  "level": "1",
+  "question": "In Series 9, Episode 11 of Doctor Who, the Doctor is trapped inside an ever-shifting maze. What is this location called in the official script for the episode? Give the setting exactly as it appears in the first scene heading.",
+  "ground_truth": "THE CASTLE",
+  "predicted": "INT. THE CASTLE - DAY",
+  "correct": false,
+  "steps": 3,
+  "time_seconds": 47.71897006034851,
+  "actor_model": "gpt-5",
+  "spec_model": "gpt-5-nano",
+  "speculation_enabled": true,
+  "verification_strategy": "jaccard",
+  "spec_hits": 0,
+  "spec_misses": 2,
+  "spec_predictions": 2,
+  "trajectory": [
+    {
+      "node": "start",
+      "question": "In Series 9, Episode 11 of Doctor Who, the Doctor is trapped inside an ever-shifting maze. What is this location called in the official script for the episode? Give the setting exactly as it appears in the first scene heading.",
+      "timestamp": 0
+    },
+    {
+      "node": "llm",
+      "timestamp": 11.361960887908936,
+      "step": 1,
+      "actor_model": "gpt-5",
+      "llm_time": 11.35847020149231,
+      "actor_reasoning": "I need to find the official script for Doctor Who Series 9 Episode 11 and identify the exact wording of the first scene heading's location.",
+      "actor_tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "Doctor Who Series 9 Episode 11 official script first scene heading Heaven Sent script PDF"
+          }
+        }
+      ],
+      "spec_model": "gpt-5-nano",
+      "spec_predictions": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "Heaven Sent script first scene heading"
+          },
+          "pre_executed": true,
+          "exec_time": 2.0950663089752197,
+          "spec_inference_time": 9.262665271759033
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 12.384974956512451,
+      "tool_time": 1.0215837955474854,
+      "tool_executed": {
+        "name": "web_search",
+        "result": "Found 3 relevant web results:\n\n1. [PDF] DW9 - EP 11 Heaven Sent BLUE 240815.fdx - BBC\n   URL: https://www.bbc.co.uk/writers/documents/doctor-who-s9-ep11-heaven-sent-steven-moffat.pdf\n   Site: bbc.co.uk\n   Date: Aug 24, 2015\n   Summary: SERIES 9. EPISODE 11. \"Heaven Sent\" by. STEVEN MOFFAT ... E1: Veil, in confrontation with the Doctor, the Doctor making his first confession.\n\n2. Doctor Who Script - 9.11 | PDF - Scribd\n   URL: https://www.scribd.com/document/722109152/doctor-who-script-9-11\n   Site: scribd.com\n   Summary: The document describes the Doctor arriving in an ancient castle via teleportation after the death of Clara. He emerges determined to find whoever was ...\n\n3. Doctor Who Scripts on the BBC Scripts Archive (plus an observation ...\n   URL: https://www.reddit.com/r/gallifrey/comments/18k2zln/doctor_who_scripts_on_the_bbc_scripts_archive/\n   Site: reddit.com\n   Date: Dec 16, 2023\n   Summary: The BBC offers a database of lots of scripts for their drama and comedy television series and films. It's free, and it's a great resource.\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 29.109323978424072,
+      "step": 2,
+      "actor_model": "gpt-5",
+      "llm_time": 16.721840143203735,
+      "actor_reasoning": "I need to open the official BBC PDF script to read the first scene heading exactly as written.",
+      "actor_tool_calls": [
+        {
+          "name": "enhanced_search",
+          "args": {
+            "query": "site:bbc.co.uk \"doctor-who-s9-ep11-heaven-sent-steven-moffat.pdf\""
+          }
+        }
+      ],
+      "spec_model": "gpt-5-nano",
+      "spec_predictions": [
+        {
+          "name": "enhanced_search",
+          "args": {
+            "query": "Doctor Who Heaven Sent script first scene heading"
+          },
+          "pre_executed": true,
+          "exec_time": 5.672999858856201,
+          "spec_inference_time": 11.048405170440674
+        }
+      ]
+    },
+    {
+      "node": "tools",
+      "timestamp": 32.13341403007507,
+      "tool_time": 3.0232017040252686,
+      "tool_executed": {
+        "name": "enhanced_search",
+        "result": "Found 1 web results with content:\n\n1. DW9 - EP 11 Heaven Sent BLUE 240815.fdx\n   URL: https://www.bbc.co.uk/writers/documents/doctor-who-s9-ep11-heaven-sent-steven-moffat.pdf\n   Site: bbc.co.uk\n   Summary: by S MOFFAT \u00b7 Cited by 4 \u2014 INT. THE CASTLE - DAY. 1. 1. Spires and towers, an ancient sprawling castle. Now a familiar voice: THE DOCTOR.\n   Content: DOCTOR WHO SERIES 9 EPISODE 11 \"Heaven Sent\" by STEVEN MOFFAT BLUE AMENDMENTS 24/08/2015 (SHOOTING BLOCK 6) (c) BBC Wales 2015DW9: \"Episode 11\" by Steven Moffat - BLUE Draft - 24/08/15. 1 INT. THE CASTLE - DAY 1 Spires and towers, an ancient sprawling castle. Now a familiar voice: THE DOCTOR (V.O.) As you come into this world, something else is also born. Pulling back - We are looking at the sunrise through a row of windows in an ancient, stone wall. THE DOCTOR (cont\u2019d) (V.O.) You begin your life and it begins a journey - towards you. Time lapse photography: as the sun moves in the sky, the sunbeams sweep round the room like searchlights... THE DOCTOR (cont\u2019d) (V.O.) It moves slowly, but it never stops. Now: cutting round various different locations in this sprawling castle world... Colonnades, and chambers, and fountains, and libraries ... All in dusty ancient stone. Moving closer over details: in every room, mounted somewhere on the wall is a Cog Unit - a mechanical fixture that looks like it could move the whole wall. THE DOCTOR (cont\u2019d) (V.O.) Wherever you go, whatever path you take, it will follow; never faster, never slower, always coming. Now, tracking along a floor. Sprinkles of blood, streaks of it, like someone, terribly injured has been hauling themselves along. THE DOCTOR (cont\u2019d) (V.O.) You will run - it will walk. You will rest - it will not. Now travelling along those corridors, picking out details. Every now and then, incongruously, there is a television monitor wired into the wall. Each of these is currently snowed with interference. THE DOCTOR (cont\u2019d) (V.O.) One day you will linger in the same place too long. (MORE) (CONTINUED) BBC 2015 PRIVATE AND CONFIDENTIAL 1DW9: \"Episode 11\" by Steven Moffat - BLUE Draft - 24/08/15. 1 CONTINUED: 1 THE DOCTOR (cont\u2019d) You will sit too still or sleep too deep - and when, too late, you rise to go, you will notice a second shadow next to yours. Your life will then be over. Now on close on a section of wall. On cl\n"
+      }
+    },
+    {
+      "node": "llm",
+      "timestamp": 47.718782901763916,
+      "step": 3,
+      "actor_model": "gpt-5",
+      "llm_time": 15.582111120223999,
+      "actor_reasoning": "The official BBC script for Series 9, Episode 11 (\u201cHeaven Sent\u201d) opens with the first scene heading identifying the location as the Castle. \n\nFINAL ANSWER: INT. THE CASTLE - DAY",
+      "final_answer": "INT. THE CASTLE - DAY"
+    }
+  ],
+  "messages": [
+    {
+      "role": "user",
+      "content": "In Series 9, Episode 11 of Doctor Who, the Doctor is trapped inside an ever-shifting maze. What is this location called in the official script for the episode? Give the setting exactly as it appears in the first scene heading."
+    },
+    {
+      "role": "assistant",
+      "content": "I need to find the official script for Doctor Who Series 9 Episode 11 and identify the exact wording of the first scene heading's location."
+    },
+    {
+      "role": "tool",
+      "content": "Found 3 relevant web results:\n\n1. [PDF] DW9 - EP 11 Heaven Sent BLUE 240815.fdx - BBC\n   URL: https://www.bbc.co.uk/writers/documents/doctor-who-s9-ep11-heaven-sent-steven-moffat.pdf\n   Site: bbc.co.uk\n   Date: Aug 24, 2015\n   Summary: SERIES 9. EPISODE 11. \"Heaven Sent\" by. STEVEN MOFFAT ... E1: Veil, in confrontation with the Doctor, the Doctor making his first confession.\n\n2. Doctor Who Script - 9.11 | PDF - Scribd\n   URL: https://www.scribd.com/document/722109152/doctor-who-script-9-11\n   Site: scribd.com\n   Summary: The document describes the Doctor arriving in an ancient castle via teleportation after the death of Clara. He emerges determined to find whoever was ...\n\n3. Doctor Who Scripts on the BBC Scripts Archive (plus an observation ...\n   URL: https://www.reddit.com/r/gallifrey/comments/18k2zln/doctor_who_scripts_on_the_bbc_scripts_archive/\n   Site: reddit.com\n   Date: Dec 16, 2023\n   Summary: The BBC offers a database of lots of scripts for their drama and comedy television series and films. It's free, and it's a great resource.\n",
+      "name": "web_search"
+    },
+    {
+      "role": "assistant",
+      "content": "I need to open the official BBC PDF script to read the first scene heading exactly as written."
+    },
+    {
+      "role": "tool",
+      "content": "Found 1 web results with content:\n\n1. DW9 - EP 11 Heaven Sent BLUE 240815.fdx\n   URL: https://www.bbc.co.uk/writers/documents/doctor-who-s9-ep11-heaven-sent-steven-moffat.pdf\n   Site: bbc.co.uk\n   Summary: by S MOFFAT \u00b7 Cited by 4 \u2014 INT. THE CASTLE - DAY. 1. 1. Spires and towers, an ancient sprawling castle. Now a familiar voice: THE DOCTOR.\n   Content: DOCTOR WHO SERIES 9 EPISODE 11 \"Heaven Sent\" by STEVEN MOFFAT BLUE AMENDMENTS 24/08/2015 (SHOOTING BLOCK 6) (c) BBC Wales 2015DW9: \"Episode 11\" by Steven Moffat - BLUE Draft - 24/08/15. 1 INT. THE CASTLE - DAY 1 Spires and towers, an ancient sprawling castle. Now a familiar voice: THE DOCTOR (V.O.) As you come into this world, something else is also born. Pulling back - We are looking at the sunrise through a row of windows in an ancient, stone wall. THE DOCTOR (cont\u2019d) (V.O.) You begin your life and it begins a journey - towards you. Time lapse photography: as the sun moves in the sky, the sunbeams sweep round the room like searchlights... THE DOCTOR (cont\u2019d) (V.O.) It moves slowly, but it never stops. Now: cutting round various different locations in this sprawling castle world... Colonnades, and chambers, and fountains, and libraries ... All in dusty ancient stone. Moving closer over details: in every room, mounted somewhere on the wall is a Cog Unit - a mechanical fixture that looks like it could move the whole wall. THE DOCTOR (cont\u2019d) (V.O.) Wherever you go, whatever path you take, it will follow; never faster, never slower, always coming. Now, tracking along a floor. Sprinkles of blood, streaks of it, like someone, terribly injured has been hauling themselves along. THE DOCTOR (cont\u2019d) (V.O.) You will run - it will walk. You will rest - it will not. Now travelling along those corridors, picking out details. Every now and then, incongruously, there is a television monitor wired into the wall. Each of these is currently snowed with interference. THE DOCTOR (cont\u2019d) (V.O.) One day you will linger in the same place too long. (MORE) (CONTINUED) BBC 2015 PRIVATE AND CONFIDENTIAL 1DW9: \"Episode 11\" by Steven Moffat - BLUE Draft - 24/08/15. 1 CONTINUED: 1 THE DOCTOR (cont\u2019d) You will sit too still or sleep too deep - and when, too late, you rise to go, you will notice a second shadow next to yours. Your life will then be over. Now on close on a section of wall. On cl\n",
+      "name": "enhanced_search"
+    },
+    {
+      "role": "assistant",
+      "content": "The official BBC script for Series 9, Episode 11 (\u201cHeaven Sent\u201d) opens with the first scene heading identifying the location as the Castle. \n\nFINAL ANSWER: INT. THE CASTLE - DAY"
+    }
+  ],
+  "error": null
+}
