@@ -116,8 +116,8 @@ def compare_results(baseline_dir: str, spec_dir: str, only_speedups: bool = Fals
     print("=" * 80)
     print("PER-EXAMPLE COMPARISON")
     print("=" * 80)
-    print(f"{'Example':<18} {'Baseline':<15} {'Spec':<15} {'Speedup':<10} {'Steps':<12} {'Hits/Total'}")
-    print("-" * 95)
+    print(f"{'Example':<20} {'Baseline':<15} {'Spec':<15} {'Speedup':<10} {'Steps':<12} {'Hits/Total'}")
+    print("-" * 97)
     
     for c in comparisons:
         baseline_status = "✓" if c["baseline_correct"] else "✗"
@@ -131,9 +131,9 @@ def compare_results(baseline_dir: str, spec_dir: str, only_speedups: bool = Fals
         total_checks = c["spec_hits"] + c["spec_misses"]
         hit_rate = f"{c['spec_hits']}/{total_checks}" if total_checks > 0 else "N/A"
         
-        # Use example_name for display (truncate if too long)
-        display_name = c['example_name'][:17] if len(c['example_name']) > 17 else c['example_name']
-        print(f"{display_name:<18} {baseline_info:<15} {spec_info:<15} {speedup:<10} {steps_info:<12} {hit_rate}")
+        # Use full example_name for display (no truncation)
+        display_name = c['example_name']
+        print(f"{display_name:<20} {baseline_info:<15} {spec_info:<15} {speedup:<10} {steps_info:<12} {hit_rate}")
     
     # Calculate aggregate statistics
     print("\n" + "=" * 80)
