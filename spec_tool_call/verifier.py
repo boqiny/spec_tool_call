@@ -145,13 +145,13 @@ class JaccardSimilarityVerifier(ToolVerifier):
     Recommended for search queries where word order doesn't matter much.
     """
     
-    def __init__(self, threshold: float = 0.5):
+    def __init__(self, threshold: float = 0.7):
         """
         Initialize verifier with similarity threshold.
         
         Args:
             threshold: Minimum Jaccard similarity to accept (0.0 to 1.0)
-                      Recommended: 0.5 for balanced flexibility
+                      Recommended: 0.7 for balanced flexibility
         """
         self.threshold = threshold
         # Common stopwords to remove (expand as needed)
@@ -310,7 +310,7 @@ class NoSpeculationVerifier(ToolVerifier):
 
 
 # Factory for creating verifiers
-def create_verifier(strategy: str = "exact", threshold: float = 0.5) -> ToolVerifier:
+def create_verifier(strategy: str = "exact", threshold: float = 0.7) -> ToolVerifier:
     """
     Create a verifier instance based on strategy name.
     

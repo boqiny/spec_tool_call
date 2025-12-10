@@ -16,6 +16,10 @@ class SpecConfig:
     actor_model: str = "gpt-5"
     spec_model: str = "gpt-5-mini"
     
+    # OpenAI API keys (separate keys to avoid rate limiting)
+    actor_api_key: str = None  # ACTOR_OPENAI_API_KEY
+    spec_api_key: str = None   # SPEC_OPENAI_API_KEY
+    
     # vLLM settings (only used when model_provider="vllm")
     vllm_actor_url: str = "http://localhost:8003/v1"  # Actor model endpoint
     vllm_spec_url: str = "http://localhost:8004/v1"   # Spec model endpoint
@@ -41,6 +45,8 @@ class SpecConfig:
             model_provider=os.getenv("MODEL_PROVIDER", "openai"),
             actor_model=os.getenv("GAIA_ACTOR_MODEL", "gpt-5"),
             spec_model=os.getenv("GAIA_SPEC_MODEL", "gpt-5-mini"),
+            actor_api_key=os.getenv("ACTOR_OPENAI_API_KEY"),
+            spec_api_key=os.getenv("SPEC_OPENAI_API_KEY"),
             vllm_actor_url=os.getenv("VLLM_ACTOR_URL", "http://localhost:8003/v1"),
             vllm_spec_url=os.getenv("VLLM_SPEC_URL", "http://localhost:8004/v1"),
             vllm_api_key=os.getenv("VLLM_API_KEY", "EMPTY"),

@@ -8,7 +8,7 @@ from langgraph.graph import StateGraph, END, START
 from langgraph.checkpoint.memory import MemorySaver
 
 from .models import RunState, Msg
-from .llm_adapter import get_actor_model, get_spec_model, convert_msg_to_langchain, get_system_prompt
+from .llm_adapter import get_actor_model, get_spec_model, convert_msg_to_langchain, get_system_prompt, get_spec_system_prompt
 from .tools_langchain import TOOLS_BY_NAME
 from .config import config
 from .verifier import create_verifier
@@ -38,7 +38,8 @@ async def launch_speculation(state: RunState) -> None:
     spec_model = get_spec_model()
     
     # Convert messages to LangChain format
-    lc_messages = [SystemMessage(content=get_system_prompt())] + convert_msg_to_langchain(state.messages)
+    # Use simplified prompt for spec model (fast prediction, low reasoning)
+    lc_messages = [SystemMessage(content=get_spec_system_prompt())] + convert_msg_to_langchain(state.messages)
     
     # Call spec model to predict next tool call
     try:

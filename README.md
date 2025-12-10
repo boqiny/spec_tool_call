@@ -97,9 +97,15 @@ python3 download_gaia.py
 ### Option 1: Using OpenAI Models
 
 ```bash
-# Set API keys
-export OPENAI_API_KEY="your-openai-key"
+# Set API keys - use separate keys to avoid rate limiting when running in parallel
+export ACTOR_OPENAI_API_KEY="your-openai-key-1"
+export SPEC_OPENAI_API_KEY="your-openai-key-2"
 export SERPER_API_KEY="your-serper-key"  # For web search
+
+# Note: If you only have one API key, you can use it for both:
+# export ACTOR_OPENAI_API_KEY="your-openai-key"
+# export SPEC_OPENAI_API_KEY="your-openai-key"
+# However, this may cause request throttling when actor and spec run in parallel
 
 # Configure models (optional, defaults shown)
 export MODEL_PROVIDER="openai"
@@ -178,6 +184,10 @@ All configuration is via environment variables (see `env.example` for full list)
 ```bash
 # Model Provider
 export MODEL_PROVIDER="openai"            # "openai" or "vllm"
+
+# OpenAI API Keys (use separate keys to avoid rate limiting)
+export ACTOR_OPENAI_API_KEY="your-key-1"  # For actor model (GPT-5)
+export SPEC_OPENAI_API_KEY="your-key-2"   # For spec model (GPT-5-mini)
 
 # Models (format depends on provider)
 export GAIA_ACTOR_MODEL="gpt-5"           # Main reasoning model

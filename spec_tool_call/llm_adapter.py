@@ -104,13 +104,38 @@ def get_system_prompt() -> str:
 # For backward compatibility
 SYSTEM_PROMPT = SYSTEM_PROMPT_OPENAI
 
+# Simplified system prompt for speculator model (fast prediction, low reasoning)
+SYSTEM_PROMPT_SPEC = (
+    "You are a fast prediction assistant. Your job is to quickly predict the next tool call.\n"
+    "\n## Your Role:\n"
+    "Predict the most likely next tool call based on the conversation. Be fast and direct.\n"
+    "\n## Available Tools:\n"
+    "- web_search: Fast search (3 results)\n"
+    "- enhanced_search: Deep search with full content (3 results)\n"
+    "- file_read: Read files (CSV, XLSX, PDF, DOCX, TXT, JSON, etc.)\n"
+    "- calculate: Evaluate math expressions\n"
+    "- code_exec: Execute Python code\n"
+    "- code_generate: Generate Python code\n"
+    "- vision_analyze: Analyze images\n"
+    "- vision_ocr: Extract text from images\n"
+    "\n## Instructions:\n"
+    "- Predict the next tool call quickly\n"
+    "- Use the same tool names and argument format as the actor\n"
+    "- Don't overthink - make a reasonable prediction based on the conversation flow\n"
+)
+
+
+def get_spec_system_prompt() -> str:
+    """Get the simplified system prompt for speculator model."""
+    return SYSTEM_PROMPT_SPEC
+
 
 def _create_model(model_name: str, is_spec: bool = False):
     """Create a chat model based on configured provider.
     
     Args:
         model_name: Name/path of the model
-        is_spec: If True, use spec model endpoint; if False, use actor endpoint
+        is_spec: If True, use spec model endpoint and API key; if False, use actor endpoint and API key
     """
     if config.model_provider == "vllm":
         # Use vLLM via OpenAI-compatible API
@@ -125,11 +150,14 @@ def _create_model(model_name: str, is_spec: bool = False):
             max_tokens=config.llm_max_tokens,
         )
     else:
-        # Use OpenAI
+        # Use OpenAI with separate API keys for actor and spec to avoid rate limiting
+        api_key = config.spec_api_key if is_spec else config.actor_api_key
+        
         return ChatOpenAI(
             model=model_name,
+            openai_api_key=api_key,
             temperature=0,
-            max_tokens=config.llm_max_tokens,
+            max_tokens=4096,
         )
 
 

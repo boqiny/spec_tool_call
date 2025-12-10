@@ -44,7 +44,7 @@ def load_results(result_dir: Path) -> Dict[str, dict]:
     return results
 
 
-def compare_results(baseline_dir: str, spec_dir: str):
+def compare_results(baseline_dir: str, spec_dir: str, only_speedups: bool = False):
     """Compare baseline and speculation results."""
     
     baseline_path = Path(baseline_dir)
@@ -103,6 +103,14 @@ def compare_results(baseline_dir: str, spec_dir: str):
             comparison["time_saved"] = 0
         
         comparisons.append(comparison)
+    
+    # Filter for speedups if requested
+    if only_speedups:
+        comparisons = [c for c in comparisons if c["speedup"] > 0]
+        if not comparisons:
+            print("No examples with speedups found!")
+            return
+        print(f"Filtered to {len(comparisons)} examples with speedups\n")
     
     # Print per-example comparison
     print("=" * 80)
@@ -200,10 +208,11 @@ def main():
     parser = argparse.ArgumentParser(description="Compare baseline and speculation results")
     parser.add_argument("baseline_dir", help="Baseline results directory")
     parser.add_argument("spec_dir", help="Speculation results directory")
+    parser.add_argument("--only-speedups", action="store_true", help="Show only examples with speedups")
     
     args = parser.parse_args()
     
-    compare_results(args.baseline_dir, args.spec_dir)
+    compare_results(args.baseline_dir, args.spec_dir, args.only_speedups)
 
 
 if __name__ == "__main__":
